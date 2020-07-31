@@ -1,88 +1,76 @@
 import * as yup from "yup";
-import React, { FC, useCallback, useMemo, useState } from "react";
+import React, { FC, useCallback, useMemo, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { PageProps } from "gatsby";
-import axios from "axios";
-import { useForm } from "react-hook-form";
+import { useForm, Resolver } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
-import { ObjectSchema } from "yup";
+import useFetch from "use-http";
 
 import ContactForm, {
   ContactFormProps,
 } from "components/organisms/ContactForm";
-import Input, { InputProps } from "components/atoms/Input";
-import Textarea, { TextareaProps } from "components/atoms/Textarea";
-import Button, { ButtonProps } from "components/atoms/Button";
+import Input from "components/atoms/Input";
+import Textarea from "components/atoms/Textarea";
+import Button from "components/atoms/Button";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
+
+type FieldValues = {
+  email: string;
+  message: string;
+  name: string;
+  subject: string;
+};
 
 export type ContactProps = PageProps;
 
 const Contact: FC<ContactProps> = () => {
-  const schema = useMemo<ObjectSchema>(
+  const resolver = useMemo<Resolver<FieldValues>>(
     () =>
-      yup.object().shape({
-        email: yup
-          .string()
-          .email("Invalid Email Address")
-          .required("Email Is Required"),
-        message: yup.string().required("Message Is Required"),
-        name: yup.string().required("Name Is Required"),
-      }),
+      yupResolver(
+        yup.object().shape({
+          email: yup
+            .string()
+            .email("Invalid Email Address")
+            .required("Email Is Required"),
+          message: yup.string().required("Message Is Required"),
+          name: yup.string().required("Name Is Required"),
+        })
+      ),
     []
   );
-  const [isSubmitting, setIsSubmitting] = useState<ButtonProps["disabled"]>(
-    false
-  );
-  const { handleSubmit: handleSubmitUseForm, register } = useForm<{
-    email: string;
-    message: string;
-    name: string;
-    subject: string;
-  }>({ resolver: yupResolver(schema) });
+  const { handleSubmit: handleSubmitUseForm, register } = useForm<FieldValues>({
+    resolver,
+  });
+  const {
+    error,
+    loading,
+    post,
+    response: { ok },
+  } = useFetch(process.env.GATSBY_BASE_URL);
   const callback = useCallback<Parameters<typeof handleSubmitUseForm>[0]>(
     ({ email, message: text, name, subject }) => {
-      setIsSubmitting(true);
-
-      axios
-        .post(`${process.env.GATSBY_BASE_URL}/sendMail`, {
-          email,
-          name,
-          subject,
-          text,
-        })
-        .then(() => {
-          toast.success("Send Success Email!");
-        })
-        .catch(() => {
-          toast.error("An Unknown Network Error Has Occurred");
-        })
-        .finally(() => {
-          setIsSubmitting(false);
-        });
+      post("/sendMail", {
+        email,
+        name,
+        subject,
+        text,
+      });
     },
-    [setIsSubmitting]
-  );
-  const nameRef = useMemo<InputProps["inputRef"]>(
-    () => register({ required: true }),
-    [register]
-  );
-  const emailRef = useMemo<InputProps["inputRef"]>(
-    () => register({ required: true }),
-    [register]
-  );
-  const messageRef = useMemo<TextareaProps["textareaRef"]>(
-    () => register({ required: true }),
-    [register]
+    [post]
   );
   const items = useMemo<ContactFormProps["items"]>(
     () => [
       {
-        description: <Input inputRef={nameRef} name="name" />,
+        description: (
+          <Input inputRef={register({ required: true })} name="name" />
+        ),
         term: "Name*",
       },
       {
-        description: <Input inputRef={emailRef} name="email" />,
+        description: (
+          <Input inputRef={register({ required: true })} name="email" />
+        ),
         term: "Email*",
       },
       {
@@ -90,11 +78,13 @@ const Contact: FC<ContactProps> = () => {
         term: "Subject",
       },
       {
-        description: <Textarea name="message" textareaRef={messageRef} />,
+        description: (
+          <Textarea name="message" textareaRef={register({ required: true })} />
+        ),
         term: "Message*",
       },
     ],
-    [emailRef, messageRef, nameRef, register]
+    [register]
   );
   const formCallback = useCallback<ContactFormProps["callback"]>(
     (children) => (
@@ -102,6 +92,22 @@ const Contact: FC<ContactProps> = () => {
     ),
     [callback, handleSubmitUseForm]
   );
+
+  useEffect(() => {
+    if (!ok) {
+      return;
+    }
+
+    toast.success("Send Success Email!");
+  }, [ok]);
+
+  useEffect(() => {
+    if (!error) {
+      return;
+    }
+
+    toast.error("An Unknown Network Error Has Occurred");
+  }, [error]);
 
   return (
     <>
@@ -111,7 +117,7 @@ const Contact: FC<ContactProps> = () => {
           callback={formCallback}
           items={items}
           submitButton={
-            <Button disabled={isSubmitting} type="submit">
+            <Button disabled={loading} type="submit">
               Submit
             </Button>
           }

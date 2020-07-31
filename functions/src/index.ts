@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-const nodemailer = require("nodemailer");
+// eslint-disable-next-line import/order
 const cors = require("cors")({ origin: true });
 
 admin.initializeApp();
@@ -28,13 +28,7 @@ exports.sendMail = functions
           subject: `[kk-web] ${subject || "no subject"}`,
           to: `piro <${gmailEmail}>`,
         },
-        (err: any, res2: any, full: any) => {
-          if (err) {
-            return res.status(550).send(err.toString());
-          }
-
-          return res.status(200).send("Sended");
-        }
+        (err: any) => res.status(err ? 550 : 200).send()
       );
     });
   });
