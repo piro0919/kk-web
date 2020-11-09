@@ -14,7 +14,7 @@ jobs:
       - run: npm run build
         env:
           GATSBY_BASE_URL: ${{ secrets.GATSBY_BASE_URL }}
-      - uses: w9jds/firebase-action@v1.5.0
+      - uses: w9jds/firebase-action@v2.0.0
         with:
           args: deploy --only hosting
         env:
