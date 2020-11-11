@@ -7,7 +7,7 @@
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@hookform/resolvers": "0.1.1",
-    "@types/fs-extra": "9.0.3",
+    "@types/fs-extra": "9.0.4",
     "@types/no-scroll": "2.1.0",
     "@types/pdfmake": "0.1.16",
     "@types/react-autosuggest": "10.0.1",
