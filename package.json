@@ -57,7 +57,7 @@
     "node-sass": "4.14.1",
     "pdfmake": "0.1.68",
     "postcss-scss": "3.0.4",
-    "prettier": "2.1.2",
+    "prettier": "2.2.0",
     "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-autosuggest": "10.0.3",
