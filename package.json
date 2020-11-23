@@ -45,7 +45,7 @@
     "gatsby-plugin-sharp": "2.9.0",
     "gatsby-plugin-use-dark-mode": "1.2.0",
     "gatsby-plugin-why-did-you-render": "2.0.0",
-    "gatsby-source-filesystem": "2.6.0",
+    "gatsby-source-filesystem": "2.6.1",
     "gatsby-transformer-remark": "2.11.0",
     "gatsby-transformer-sharp": "2.7.0",
     "github-markdown-css": "4.0.0",
