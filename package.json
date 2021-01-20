@@ -44,7 +44,7 @@
     "gatsby-plugin-remove-trailing-slashes": "2.9.0",
     "gatsby-plugin-root-import": "2.0.5",
     "gatsby-plugin-sass": "2.8.0",
-    "gatsby-plugin-sharp": "2.13.0",
+    "gatsby-plugin-sharp": "2.13.1",
     "gatsby-plugin-use-dark-mode": "1.2.0",
     "gatsby-plugin-why-did-you-render": "2.0.0",
     "gatsby-source-filesystem": "2.10.0",
