@@ -9,7 +9,7 @@
     "@hookform/resolvers": "0.1.1",
     "@types/fs-extra": "9.0.8",
     "@types/no-scroll": "2.1.0",
-    "@types/pdfmake": "0.1.16",
+    "@types/pdfmake": "0.1.17",
     "@types/react-autosuggest": "10.1.2",
     "@types/react-copy-to-clipboard": "4.3.0",
     "@types/react-css-modules": "4.6.2",
