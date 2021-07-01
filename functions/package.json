@@ -18,7 +18,7 @@
     "firebase-functions": "3.14.1",
     "firebase-functions-test": "0.3.0",
     "gmail-send": "1.8.10",
-    "typescript": "4.2.4"
+    "typescript": "4.3.5"
   },
   "private": true
 }
