@@ -29,7 +29,7 @@
     "eslint-plugin-react": "7.25.1",
     "eslint-plugin-react-hooks": "4.2.0",
     "fs-extra": "9.1.0",
-    "gatsby": "2.32.13",
+    "gatsby": "4.25.7",
     "gatsby-cli": "2.19.3",
     "gatsby-image": "2.11.0",
     "gatsby-plugin-google-analytics": "2.11.0",
