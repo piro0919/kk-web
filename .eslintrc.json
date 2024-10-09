@@ -5,6 +5,7 @@
     "standard",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:css/recommended",
     "plugin:typescript-sort-keys/recommended",
     "next/core-web-vitals",
     "prettier"
@@ -28,6 +29,7 @@
     "warnOnUnsupportedTypeScriptVersion": false
   },
   "plugins": [
+    "css",
     "ext",
     "filenames",
     "sort-destructure-keys",
