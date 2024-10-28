@@ -4,34 +4,34 @@ import getBreakpoints from "@/libs/getBreakpoints";
 export default function NpmPackage(): JSX.Element {
   const items = [
     {
+      href: "https://www.npmjs.com/package/react-page-border",
+      name: "react-page-border",
+      text: "画面全体にフチをつけるコンポーネントです。",
+    },
+    {
       href: "https://www.npmjs.com/package/use-show-window-size",
       name: "use-show-window-size",
-      text: "画面右上にウィンドウサイズをリアルタイムで表示する独自フックを提供します。",
+      text: "画面右上にウィンドウサイズをリアルタイムで表示する独自フックです。",
     },
     {
       href: "https://www.npmjs.com/package/@piro0919/next-unused",
       name: "@piro0919/next-unused",
-      text: "Next.js を使用したプロジェクト内で使用されていないコンポーネントファイルなどを洗い出します。",
-    },
-    {
-      href: "https://www.npmjs.com/package/next-firebase-authentication",
-      name: "next-firebase-authentication",
-      text: "Next.js と Firebase Authentication を容易に繋ぎこむ独自フックを提供します。",
+      text: "Next.js を使用したプロジェクト内で使用されていないコンポーネントファイルなどを洗い出すスクリプトです。",
     },
     {
       href: "https://www.npmjs.com/package/react-three-toggle",
       name: "react-three-toggle",
-      text: "3 つ以上のスイッチを持つトグルボタン用のコンポーネントを提供します。",
+      text: "3 つ以上のスイッチを持つトグルボタン用のコンポーネントです。",
     },
     {
       href: "https://www.npmjs.com/package/react-comic-viewer",
       name: "react-comic-viewer",
-      text: "画像などを見開きで閲覧できるコンポーネントを提供します。",
+      text: "画像などを見開きで閲覧できるコンポーネントです。",
     },
     {
       href: "https://www.npmjs.com/package/use-pwa",
       name: "use-pwa",
-      text: "PWA の状態やインストール用の関数を渡す独自フックを提供します。",
+      text: "PWA の状態やインストール用の関数を渡す独自フックです。",
     },
   ].map(({ href, name, text }, index) => (
     <Link href={href} key={name} target="_blank">

@@ -19,10 +19,6 @@ const navigations = [
         title: "MOVIE",
       },
       {
-        href: "/application",
-        title: "APPLICATION",
-      },
-      {
         href: "/npm-package",
         title: "NPM PACKAGE",
       },

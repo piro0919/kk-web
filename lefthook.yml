@@ -15,4 +15,4 @@ pre-commit:
       run: npx tsc --noemit
     eslint:
       glob: "*.{js,jsx,ts,tsx}"
-      run: npx next lint --fix --file {staged_files}
+      run: npx next lint src --fix {staged_files}
