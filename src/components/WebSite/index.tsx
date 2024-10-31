@@ -4,9 +4,14 @@ import getBreakpoints from "@/libs/getBreakpoints";
 export default function WebSite(): JSX.Element {
   const items = [
     {
+      href: "https://lovvebox.com",
+      name: "ラブボックス公式サイト",
+      text: "VTuber プロダクション「ラブボックス」のサイトを作成しました。",
+    },
+    {
       href: "https://www.higapro.jp",
       name: "Higa Production",
-      text: "バーチャル YouTuber 事務所「Higa Production」のサイトを作成しました。",
+      text: "VTuber プロダクション「Higa Production」のサイトを作成しました。",
     },
     {
       href: "https://www.natsuzolab.com",
@@ -27,11 +32,6 @@ export default function WebSite(): JSX.Element {
       href: "https://kontaniki.com",
       name: "1stKontact",
       text: "イラストレーター「こんた」さんのサイトを作成しました。",
-    },
-    {
-      href: "https://hatake.kk-web.link",
-      name: "はじめしゃちょーの畑 非公式ファンサイト",
-      text: "YouTube チャンネル「はじめしゃちょーの畑」の非公式ファンサイトを作成しました。",
     },
   ].map(({ href, name, text }, index) => (
     <Link href={href} key={name} target="_blank">
