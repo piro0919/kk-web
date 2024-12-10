@@ -54,6 +54,10 @@ img {
   margin-bottom: 0 !important;
 }
 
+.markdown-body img {
+  max-width: 320px;
+}
+
 .markdown-body > pre {
   background-color: var(--color-canvas-subtle) !important;
 }
