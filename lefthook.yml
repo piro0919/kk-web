@@ -16,3 +16,7 @@ pre-commit:
     eslint:
       glob: "*.{js,jsx,ts,tsx}"
       run: npx eslint --fix {staged_files}
+commit-msg:
+  scripts:
+    "commitlint.sh":
+      runner: bash
