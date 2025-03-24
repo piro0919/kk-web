@@ -1,7 +1,7 @@
 pre-commit:
   parallel: true
   commands:
-    pprettier:
+    prettier:
       glob: "*"
       run: npx prettier --ignore-unknown --write {staged_files}
     secretlint:
