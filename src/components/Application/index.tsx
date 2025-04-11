@@ -4,19 +4,9 @@ import getBreakpoints from "@/libs/getBreakpoints";
 export default function Application(): JSX.Element {
   const items = [
     {
-      href: "https://play.google.com/store/apps/details?id=link.kk_web.omocoro_archive.twa",
-      name: "オモコロアーカイブ",
-      text: "メディアサイト「オモコロ」の記事をまとめたアプリです。",
-    },
-    {
-      href: "https://play.google.com/store/apps/details?id=link.kk_web.on_memo.twa",
-      name: "おんめも",
-      text: "様々なデバイスでメモを共有できるアプリです。",
-    },
-    {
-      href: "https://play.google.com/store/apps/details?id=link.kk_web.recigle.twa",
-      name: "レシグル",
-      text: "レシピを検索しやすくしてくれるアプリです。",
+      href: "https://github.com/piro0919/mac-classic-player",
+      name: "Mac Classic Player",
+      text: "Mac 向けの Media Player アプリです。",
     },
   ].map(({ href, name, text }, index) => (
     <Link href={href} key={name} target="_blank">

@@ -15,12 +15,16 @@ const navigations = [
         title: "WEB SITE",
       },
       {
-        href: "/movie",
-        title: "MOVIE",
+        href: "/application",
+        title: "APPLICATION",
       },
       {
         href: "/npm-package",
         title: "NPM PACKAGE",
+      },
+      {
+        href: "/movie",
+        title: "MOVIE",
       },
     ],
     title: "PORTFOLIO",
