@@ -4,7 +4,7 @@ import getBreakpoints from "@/libs/getBreakpoints";
 export default function Application(): JSX.Element {
   const items = [
     {
-      href: "https://github.com/piro0919/mac-classic-player",
+      href: "https://mcp.kk-web.link/",
       name: "Mac Classic Player",
       text: "Mac 向けの Media Player アプリです。",
     },
