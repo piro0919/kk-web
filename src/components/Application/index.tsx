@@ -4,6 +4,11 @@ import getBreakpoints from "@/libs/getBreakpoints";
 export default function Application(): JSX.Element {
   const items = [
     {
+      href: "https://macopy.kk-web.link/",
+      name: "Macopy",
+      text: "Mac 向けのオルタナティブ Clipy アプリです。",
+    },
+    {
       href: "https://mcp.kk-web.link/",
       name: "Mac Classic Player",
       text: "Mac 向けの Media Player アプリです。",
