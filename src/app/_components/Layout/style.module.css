@@ -1,8 +1,8 @@
 .srOnly {
   height: 0;
-  width: 0;
-  overflow: hidden;
   opacity: 0;
+  overflow: hidden;
+  width: 0;
 }
 
 .grid {
@@ -24,12 +24,13 @@
 }
 
 .navigation {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  transform: translateY(-100%);
-  transition: 250ms;
   display: block;
+  left: 0;
+  position: fixed;
+  transform: translateY(-100%);
+  /* stylelint-disable-next-line plugin/no-low-performance-animation-properties */
+  transition: top 250ms;
+  width: 100%;
 }
 
 @media (width < 768px) {
@@ -37,18 +38,22 @@
     grid-template-rows: 1fr;
     padding-bottom: 48px;
   }
+
   .header {
     display: none;
   }
+
   .footer {
     display: none;
   }
+
   .mobileMenu {
+    bottom: 0;
     display: block;
     position: fixed;
-    bottom: 0;
     width: 100%;
   }
+
   .navigation {
     display: none;
   }

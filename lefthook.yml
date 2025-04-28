@@ -2,17 +2,22 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      glob: "*.{js,jsx,ts,tsx}"
+      glob: "**/*.{ts,tsx}"
       run: npx eslint --fix {staged_files}
+      stage_fixed: true
     prettier:
-      glob: "*"
-      run: npx prettier --ignore-unknown --write {staged_files}
+      glob: "src/**/*"
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
     secretlint:
-      glob: "*"
-      run: npx secretlint {staged_files}
+      glob: "**/*"
+      run: npx secretlint --maskSecrets {staged_files}
+    stylelint:
+      glob: "**/*.css"
+      run: npx stylelint --fix {staged_files}
+      stage_fixed: true
     typescript:
-      glob: "*.{ts,tsx}"
-      run: npx tsc --noemit
+      run: npx tsc --noEmit
 commit-msg:
   scripts:
     "commitlint.sh":

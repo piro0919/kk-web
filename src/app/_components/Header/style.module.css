@@ -4,8 +4,8 @@
 }
 
 .nav {
-  padding-top: 36px;
   padding-bottom: 36px;
+  padding-top: 36px;
 }
 
 .navLinks {
@@ -15,9 +15,10 @@
 
 @media (width < 992px) {
   .nav {
-    padding-top: 24px;
     padding-bottom: 24px;
+    padding-top: 24px;
   }
+
   .navLinks {
     gap: 64px;
   }

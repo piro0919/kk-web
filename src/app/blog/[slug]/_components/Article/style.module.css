@@ -1,8 +1,8 @@
 .wrapper {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   height: 100%;
+  justify-content: center;
 }
 
 .article {
@@ -10,8 +10,8 @@
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  width: min(960px, 100%);
   padding: 24px 24px 48px;
+  width: min(960px, 100%);
 }
 
 @media (width < 768px) {

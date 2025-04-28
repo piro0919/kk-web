@@ -14,7 +14,6 @@
 }
 
 /* --- */
-
 html {
   @media (width < 768px) {
     font-size: 56.25%;
@@ -104,7 +103,6 @@ ul {
 } */
 
 /* --- */
-
 body {
   background: var(--color-black);
   color: var(--color-white);

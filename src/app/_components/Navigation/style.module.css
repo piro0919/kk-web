@@ -1,27 +1,28 @@
 .nav {
+  backdrop-filter: blur(1px);
+  background: rgba(var(--color-black-text), 0.95);
   display: flex;
   justify-content: center;
-  background: rgba(var(--color-black-text), 0.95);
-  backdrop-filter: blur(1px);
 }
 
 .inner {
-  padding-top: 24px;
   padding-bottom: 24px;
+  padding-top: 24px;
 }
 
 .links {
+  align-items: center;
   display: flex;
   gap: 84px;
   justify-content: center;
-  align-items: center;
 }
 
 @media (width < 992px) {
   .inner {
-    padding-top: 16px;
     padding-bottom: 16px;
+    padding-top: 16px;
   }
+
   .links {
     gap: 64px;
   }
