@@ -47,7 +47,6 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
-    "@piro0919/next-unused": "0.2.1",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "@total-typescript/ts-reset": "0.4.2",
     "@types/logrocket-react": "3.0.0",
@@ -62,7 +61,6 @@
     "@uphold/commitlint-config": "1.1.1",
     "better-typescript-lib": "2.7.0",
     "commitlint-plugin-tense": "1.0.2",
-    "depcheck": "1.4.7",
     "eslint": "8.47.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-next": "13.4.13",
@@ -89,10 +87,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "check:unused": "next-unused --error-on-unused-files",
-    "depcheck": "depcheck",
     "dev": "next dev",
-    "find:unused": "next-unused",
     "lefthook:precommit": "npx lefthook run pre-commit",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
