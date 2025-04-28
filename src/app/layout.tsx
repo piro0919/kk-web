@@ -10,14 +10,12 @@ import NextTopLoader from "nextjs-toploader";
 import { ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "ress";
 import Analytics from "./_components/Analytics";
 import GoogleAnalytics from "./_components/GoogleAnalytics";
 import Hotjar from "./_components/Hotjar";
 import Layout from "./_components/Layout";
 import LogRocket from "./_components/LogRocket";
-import "./globals.scss";
-import "./mq-settings.scss";
+import "./globals.css";
 import getMetadata from "@/libs/getMetadata";
 
 const jkg = localFont({

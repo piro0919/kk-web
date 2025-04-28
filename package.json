@@ -84,30 +84,10 @@
     "lefthook": "1.7.18",
     "next-sitemap": "4.2.2",
     "prettier": "3.0.1",
-    "sass": "1.65.1",
-    "sass-mq": "6.0.0",
     "secretlint": "8.2.4",
-    "stylelint": "15.10.2",
-    "stylelint-config-css-modules": "4.3.0",
-    "stylelint-config-prettier-scss": "1.0.0",
-    "stylelint-config-recommended-scss": "12.0.0",
-    "stylelint-config-sass-guidelines": "10.0.0",
-    "stylelint-css-modules-no-global-scoped-selector": "1.0.2",
-    "stylelint-csstree-validator": "3.0.0",
-    "stylelint-declaration-block-no-ignored-properties": "2.7.0",
-    "stylelint-order": "6.0.3",
-    "stylelint-sass-render-errors": "3.0.2",
     "typescript": "5.1.6"
   },
   "name": "kk-web5",
-  "overrides": {
-    "stylelint-css-modules-no-global-scoped-selector": {
-      "stylelint": "15.10.2"
-    },
-    "stylelint-sass-render-errors": {
-      "stylelint": "15.10.2"
-    }
-  },
   "private": true,
   "scripts": {
     "build": "ANALYZE=true next build",
@@ -118,12 +98,10 @@
     "lefthook:precommit": "npx lefthook run pre-commit",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "lint:style": "stylelint --fix '**/*.scss'",
     "postbuild": "next-sitemap",
     "prettier": "prettier --write .",
     "secretlint": "secretlint '**/*'",
     "start": "next start",
-    "stylelint-check": "stylelint-config-prettier-scss-check",
     "type-check": "tsc --noemit"
   },
   "version": "0.1.0"
