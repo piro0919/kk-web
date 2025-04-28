@@ -88,7 +88,7 @@
   "name": "kk-web5",
   "private": true,
   "scripts": {
-    "build": "ANALYZE=true next build",
+    "build": "next build",
     "check:unused": "next-unused --error-on-unused-files",
     "depcheck": "depcheck",
     "dev": "next dev",

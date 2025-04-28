@@ -1,8 +1,8 @@
 import { SocialIcon } from "react-social-icons";
 import styles from "./style.module.css";
-import links from "@/libs/links";
 
 export default function Footer(): JSX.Element {
+  const links = ["https://github.com/piro0919", "https://x.com/piro0919"];
   const socialIcons = links.map((link) => (
     <SocialIcon
       fgColor="#fff"
