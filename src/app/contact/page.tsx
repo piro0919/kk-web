@@ -1,4 +1,4 @@
-import Contact from "@/components/Contact";
+import Contact from "./_components/Contact";
 import getMetadata from "@/libs/getMetadata";
 
 export const metadata = getMetadata({ path: "/contact", subTitle: "CONTACT" });

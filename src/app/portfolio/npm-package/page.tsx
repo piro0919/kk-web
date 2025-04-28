@@ -1,4 +1,4 @@
-import NpmPackage from "@/components/NpmPackage";
+import NpmPackage from "./_components/NpmPackage";
 import getMetadata from "@/libs/getMetadata";
 
 export const metadata = getMetadata({

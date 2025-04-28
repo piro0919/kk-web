@@ -2,8 +2,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import { Metadata } from "next";
 import parseMD from "parse-md";
+import Article from "./_components/Article";
 import SWRProvider from "./swr-provider";
-import Article from "@/components/Article";
 import getMetadata from "@/libs/getMetadata";
 
 type GetArticleParams = {

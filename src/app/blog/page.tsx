@@ -2,8 +2,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import removeMarkdown from "markdown-to-text";
 import parseMD from "parse-md";
+import Blog from "./_components/Blog";
 import SWRProvider from "./swr-provider";
-import Blog from "@/components/Blog";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
 

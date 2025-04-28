@@ -1,4 +1,4 @@
-import WebSite from "@/components/WebSite";
+import WebSite from "./_components/WebSite";
 import getMetadata from "@/libs/getMetadata";
 
 export const metadata = getMetadata({

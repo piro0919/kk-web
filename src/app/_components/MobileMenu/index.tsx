@@ -4,7 +4,7 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { Montserrat } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
-import NavLink from "../NavLink";
+import NavLink from "../../../components/NavLink";
 import navigations from "@/libs/navigations";
 
 const montserrat = Montserrat({

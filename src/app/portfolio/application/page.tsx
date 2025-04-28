@@ -1,4 +1,4 @@
-import Application from "@/components/Application";
+import Application from "./_components/Application";
 import getMetadata from "@/libs/getMetadata";
 
 export const metadata = getMetadata({

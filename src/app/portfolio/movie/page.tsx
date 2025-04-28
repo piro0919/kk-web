@@ -1,4 +1,4 @@
-import Movie from "@/components/Movie";
+import Movie from "./_components/Movie";
 import getMetadata from "@/libs/getMetadata";
 
 export const metadata = getMetadata({

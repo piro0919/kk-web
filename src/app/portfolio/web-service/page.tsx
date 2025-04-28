@@ -1,4 +1,4 @@
-import WebService from "@/components/WebService";
+import WebService from "./_components/WebService";
 import getMetadata from "@/libs/getMetadata";
 
 export const metadata = getMetadata({
