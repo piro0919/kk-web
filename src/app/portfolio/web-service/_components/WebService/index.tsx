@@ -1,5 +1,4 @@
-import { Box, Flex, Heading, Link, Text, VStack } from "@kuma-ui/core";
-import getBreakpoints from "@/libs/getBreakpoints";
+import styles from "./style.module.css";
 
 export default function WebService(): JSX.Element {
   const items = [
@@ -34,60 +33,32 @@ export default function WebService(): JSX.Element {
       text: "メディアサイト「オモコロ」と「デイリーポータルＺ」の記事をまとめたサービスです。",
     },
     {
-      href: "https://on-memo.kk-web.link",
-      name: "おんめも",
-      text: "様々なデバイスでメモを共有できるサービスです。",
-    },
-    {
       href: "https://siritori-timer.kk-web.link",
       name: "限界しりとりタイマー",
       text: "ボードゲーム「限界しりとりパーティー！」のタイマーとして使えるサービスです。",
-    },
-    {
-      href: "https://serifuya.kk-web.link",
-      name: "せりふや",
-      text: "女の子のボイスをフリー素材として配布しているサービスです。",
     },
     {
       href: "https://recigle.kk-web.link",
       name: "レシグル",
       text: "レシピを検索しやすくしてくれるサービスです。",
     },
-  ].map(({ href, name, text }, index) => (
-    <Link href={href} key={name} target="_blank">
-      <VStack
-        borderTop={index > 0 ? "1px solid var(--color-gray)" : undefined}
-        gap={12}
-        px={getBreakpoints({
-          lg: 0,
-          sm: 12,
-        })}
-        py={24}
-      >
-        <Heading as="h3" fontSize="2.4rem">
-          {name}
-        </Heading>
-        <Text color="colors.gray">{text}</Text>
-      </VStack>
-    </Link>
+  ].map(({ href, name, text }) => (
+    <a className={styles.link} href={href} key={name} target="_blank">
+      <div className={styles.item}>
+        <h3 className={styles.heading}>{name}</h3>
+        <div className={styles.text}>{text}</div>
+      </div>
+    </a>
   ));
 
   return (
     <>
-      <Box height="0px" overflow="hidden" style={{ opacity: 0 }} width="0px">
-        <Heading as="h2">WEB SERVICE</Heading>
-      </Box>
-      <Flex height="100%" justify="center">
-        <Box
-          px={getBreakpoints({
-            lg: 24,
-            sm: 0,
-          })}
-          width="min(960px, 100%)"
-        >
-          {items}
-        </Box>
-      </Flex>
+      <div className={styles.hiddenHeading}>
+        <h2>WEB SERVICE</h2>
+      </div>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>{items}</div>
+      </div>
     </>
   );
 }

@@ -1,11 +1,10 @@
 "use client";
-import { Box, HStack } from "@kuma-ui/core";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
-import NavLink from "@/components/NavLink";
-import getBreakpoints from "@/libs/getBreakpoints";
+import styles from "./style.module.css";
 import navigations from "@/libs/navigations";
 
 const montserrat = Montserrat({
@@ -31,40 +30,28 @@ export default function Navigation(): JSX.Element {
           >
             {navigation.navigations.map(({ href: navigationHref, title }) => (
               <MenuItem key={navigationHref}>
-                <NavLink href={`${href}${navigationHref}`}>{title}</NavLink>
+                <Link href={`${href}${navigationHref}`}>{title}</Link>
               </MenuItem>
             ))}
           </Menu>
         ) : (
-          <NavLink
+          <Link
+            className={pathname === href ? styles.activeLink : undefined}
             href={href}
             key={title}
-            style={
-              pathname === href
-                ? { borderBottom: "1px solid var(--color-brand-red)" }
-                : undefined
-            }
           >
             {title}
-          </NavLink>
+          </Link>
         ),
       ),
     [pathname],
   );
 
   return (
-    <HStack
-      as="nav"
-      bg="rgba(var(--color-black-text), 0.95)"
-      className={montserrat.className}
-      justify="center"
-      style={{
-        backdropFilter: "blur(1px)",
-      }}
-    >
-      <Box py={getBreakpoints({ sm: 16, xl: 24 })}>
-        <HStack gap={getBreakpoints({ sm: 64, xl: 84 })}>{navLinks}</HStack>
-      </Box>
-    </HStack>
+    <nav className={`${montserrat.className} ${styles.nav}`}>
+      <div className={styles.inner}>
+        <div className={styles.links}>{navLinks}</div>
+      </div>
+    </nav>
   );
 }

@@ -1,5 +1,4 @@
 "use client";
-import { Box, Grid, Heading } from "@kuma-ui/core";
 import i18next from "i18next";
 import { ReactNode } from "react";
 import useMeasure from "react-use-measure";
@@ -12,7 +11,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import MobileMenu from "../MobileMenu";
 import Navigation from "../Navigation";
-import getBreakpoints from "@/libs/getBreakpoints";
+import styles from "./style.module.css";
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18next.init({
@@ -34,50 +33,37 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
   const [ref, { height }] = useMeasure();
 
   return (
-    <Box>
-      <Box height="0px" overflow="hidden" style={{ opacity: 0 }} width="0px">
-        <Heading>kk-web</Heading>
-      </Box>
-      <Grid
-        gridTemplateRows={getBreakpoints({
-          lg: "auto 1fr auto",
-          sm: "1fr",
-        })}
-        minHeight={windowHeight || "100dvh"}
-        pb={getBreakpoints({
-          lg: "0",
-          sm: "48px",
-        })}
+    <div>
+      <div className={styles.srOnly}>
+        <h1>kk-web</h1>
+      </div>
+      <div
+        className={styles.grid}
+        style={{
+          minHeight: windowHeight || "100dvh",
+        }}
       >
-        <Box display={getBreakpoints({ lg: "block", sm: "none" })}>
+        <div className={styles.header}>
           <Header />
-        </Box>
-        <Box as="main">{children}</Box>
-        <Box display={getBreakpoints({ lg: "block", sm: "none" })}>
+        </div>
+        <main>{children}</main>
+        <div className={styles.footer}>
           <Footer />
-        </Box>
-      </Grid>
-      <Box
-        bottom="0px"
-        display={getBreakpoints({ lg: "none", sm: "block" })}
-        position="fixed"
-        width="100%"
-      >
+        </div>
+      </div>
+      <div className={styles.mobileMenu}>
         <MobileMenu />
-      </Box>
-      <Box
-        display={getBreakpoints({ lg: "block", sm: "none" })}
-        left={0}
-        position="fixed"
-        top={scrollY > height ? height : 0}
-        transform="translateY(-100%)"
-        transition="250ms"
-        width="100%"
+      </div>
+      <div
+        className={styles.navigation}
+        style={{
+          top: scrollY > height ? height : 0,
+        }}
       >
         <div ref={ref}>
           <Navigation />
         </div>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }

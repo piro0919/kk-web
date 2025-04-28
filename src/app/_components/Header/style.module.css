@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 84px;
+}
+
+@media (width < 992px) {
+  .nav {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .navLinks {
+    gap: 64px;
+  }
+}

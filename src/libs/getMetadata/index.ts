@@ -9,7 +9,7 @@ export type GetMetadataParams = {
 };
 
 export default function getMetadata({
-  description = "Freelance front end developer and video creator piro's website",
+  description = "Frontend Developer piro's website",
   imageUrl = "https://kk-web.link/kk-web_0.png",
   path = "/",
   subTitle = "",

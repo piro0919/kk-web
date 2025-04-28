@@ -1,8 +1,5 @@
 "use client";
-import { Box, Flex, Heading, Spacer } from "@kuma-ui/core";
 import axios, { AxiosResponse } from "axios";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ReactNode, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import useScrollbarSize from "react-scrollbar-size";
@@ -12,8 +9,8 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import useSWR, { Fetcher } from "swr";
 import { useElementSize } from "usehooks-ts";
+import styles from "./style.module.css";
 import { GetArticleResponseBody } from "@/app/articles/[slug]/route";
-import getBreakpoints from "@/libs/getBreakpoints";
 
 const fetcher: Fetcher<GetArticleResponseBody> = (url: string) =>
   axios
@@ -29,15 +26,17 @@ function Table({ children }: TableProps): JSX.Element {
   const { height: scrollbarHeight } = useScrollbarSize();
 
   return (
-    <Box
-      height={height + scrollbarHeight}
-      overflow="auto hidden"
-      position="relative"
+    <div
+      style={{
+        height: height + scrollbarHeight,
+        overflow: "auto hidden",
+        position: "relative",
+      }}
     >
-      <Box position="absolute">
+      <div style={{ position: "absolute" }}>
         <table ref={ref}>{children}</table>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
 
@@ -55,25 +54,11 @@ export default function Article({ slug }: ArticleProps): JSX.Element {
   );
 
   return (
-    <Flex alignItems="center" height="100%" justify="center">
-      <Box
-        as="article"
-        bg="inherit"
-        className="markdown-body"
-        color="inherit"
-        fontFamily="inherit"
-        fontSize="inherit"
-        pb={48}
-        pt={24}
-        px={getBreakpoints({
-          lg: 24,
-          sm: 12,
-        })}
-        width="min(960px, 100%)"
-      >
-        <Heading>{title}</Heading>
-        <Box color="colors.gray">{date}</Box>
-        <Spacer size={36} />
+    <div className={styles.wrapper}>
+      <article className={`markdown-body ${styles.article}`}>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.date}>{date}</div>
+        <div className={styles.spacer} />
         <ReactMarkdown
           components={{
             pre: ({ children }): ReactNode => {
@@ -99,7 +84,6 @@ export default function Article({ slug }: ArticleProps): JSX.Element {
               return (
                 <SyntaxHighlighter
                   language={language || "typescript"}
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   style={style}
                   wrapLines={true}
                   wrapLongLines={true}
@@ -116,7 +100,7 @@ export default function Article({ slug }: ArticleProps): JSX.Element {
         >
           {content}
         </ReactMarkdown>
-      </Box>
-    </Flex>
+      </article>
+    </div>
   );
 }

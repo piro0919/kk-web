@@ -1,15 +1,14 @@
 "use client";
 import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Button, Flex, Heading, Input, Text, VStack } from "@kuma-ui/core";
 import { setCookie } from "cookies-next";
-import { useRef } from "react";
+import { ReactElement, ReactNode, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
 import { Id, toast } from "react-toastify";
 import { z } from "zod";
-import styles from "./style.module.scss";
+import styles from "./style.module.css";
 import env from "@/env";
 
 const schema = z.object({
@@ -41,26 +40,16 @@ export default function Contact(): JSX.Element {
 
   return (
     <>
-      <Box height="0px" overflow="hidden" style={{ opacity: 0 }} width="0px">
-        <Heading as="h2">CONTACT</Heading>
-      </Box>
-      <Flex
-        alignItems="center"
-        height="100%"
-        justify="center"
-        pb={32}
-        pt={12}
-        px={12}
-      >
+      <div className={styles.srOnly}>
+        <h2>CONTACT</h2>
+      </div>
+      <div className={styles.wrapper}>
         <Form
           action="/email"
           className={styles.form}
           control={control}
           onError={(): void => {
-            if (!toastId.current) {
-              return;
-            }
-
+            if (!toastId.current) return;
             toast.update(toastId.current, {
               autoClose: 5000,
               isLoading: false,
@@ -69,18 +58,12 @@ export default function Contact(): JSX.Element {
             });
           }}
           onSubmit={async (): Promise<void> => {
-            if (!ref.current) {
-              return;
-            }
+            if (!ref.current) return;
 
             const token = await ref.current.executeAsync();
 
-            if (typeof token !== "string") {
-              return;
-            }
-
+            if (typeof token !== "string") return;
             setCookie("token", token);
-
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             toastId.current = toast("送信しています…", {
@@ -89,10 +72,7 @@ export default function Contact(): JSX.Element {
             });
           }}
           onSuccess={(): void => {
-            if (!toastId.current) {
-              return;
-            }
-
+            if (!toastId.current) return;
             toast.update(toastId.current, {
               autoClose: 5000,
               isLoading: false,
@@ -107,125 +87,45 @@ export default function Contact(): JSX.Element {
             size="invisible"
             theme="dark"
           />
-          <VStack gap={32}>
-            <VStack gap={24}>
-              <VStack gap={4}>
-                <Box as="label" fontSize="1.0rem" htmlFor="name">
-                  Name
-                  <Box as="abbr" pl={4}>
-                    *
-                  </Box>
-                </Box>
-                <Controller
-                  control={control}
-                  name="name"
-                  render={({ field }): JSX.Element => (
-                    <Input
-                      {...field}
-                      autoFocus={true}
-                      bg="colors.lightWhite"
-                      color="colors.black"
-                      fontFamily="arial"
-                      id="name"
-                      px={6}
-                      py={4}
-                    />
-                  )}
-                />
-                <ErrorMessage
-                  errors={errors}
-                  name="name"
-                  render={({ message }): JSX.Element => (
-                    <Text
-                      color="colors.brandRed"
-                      fontFamily="arial"
-                      fontSize="1.2rem"
-                    >
-                      {message}
-                    </Text>
-                  )}
-                />
-              </VStack>
-              <VStack gap={4}>
-                <Box as="label" fontSize="1.0rem" htmlFor="email">
-                  Email
-                  <Box as="abbr" pl={4}>
-                    *
-                  </Box>
-                </Box>
-                <Controller
-                  control={control}
-                  name="email"
-                  render={({ field }): JSX.Element => (
-                    <Input
-                      {...field}
-                      bg="colors.lightWhite"
-                      color="colors.black"
-                      fontFamily="arial"
-                      id="email"
-                      px={6}
-                      py={4}
-                      type="email"
-                    />
-                  )}
-                />
-                <ErrorMessage
-                  errors={errors}
-                  name="email"
-                  render={({ message }): JSX.Element => (
-                    <Text
-                      color="colors.brandRed"
-                      fontFamily="arial"
-                      fontSize="1.2rem"
-                    >
-                      {message}
-                    </Text>
-                  )}
-                />
-              </VStack>
-              <VStack gap={4}>
-                <Box as="label" fontSize="1.0rem" htmlFor="subject">
-                  Subject
-                  <Box as="abbr" pl={4}>
-                    *
-                  </Box>
-                </Box>
-                <Controller
-                  control={control}
-                  name="subject"
-                  render={({ field }): JSX.Element => (
-                    <Input
-                      {...field}
-                      bg="colors.lightWhite"
-                      color="colors.black"
-                      fontFamily="arial"
-                      id="subject"
-                      px={6}
-                      py={4}
-                    />
-                  )}
-                />
-                <ErrorMessage
-                  errors={errors}
-                  name="subject"
-                  render={({ message }): JSX.Element => (
-                    <Text
-                      color="colors.brandRed"
-                      fontFamily="arial"
-                      fontSize="1.2rem"
-                    >
-                      {message}
-                    </Text>
-                  )}
-                />
-              </VStack>
-              <VStack gap={4}>
-                <Box as="label" fontSize="1.0rem" htmlFor="message">
+          <div className={styles.vStackOuter}>
+            <div className={styles.vStackInner}>
+              {[
+                { label: "Name", name: "name", type: "text" },
+                { label: "Email", name: "email", type: "email" },
+                { label: "Subject", name: "subject", type: "text" },
+              ].map(({ label, name, type }) => (
+                <div className={styles.vStack} key={name}>
+                  <label className={styles.label} htmlFor={name}>
+                    {label}
+                    <abbr className={styles.required}>*</abbr>
+                  </label>
+                  <Controller
+                    control={control}
+                    name={name as keyof FieldTypes}
+                    render={({ field }): ReactElement => (
+                      <input
+                        {...field}
+                        autoFocus={name === "name"}
+                        className={styles.input}
+                        id={name}
+                        type={type}
+                      />
+                    )}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name={name as keyof FieldTypes}
+                    render={({ message }): ReactNode => (
+                      <div className={styles.error}>{message}</div>
+                    )}
+                  />
+                </div>
+              ))}
+              <div className={styles.vStack}>
+                <label className={styles.label} htmlFor="message">
                   Message
-                  <Box as="abbr" pl={4}>
-                    *
-                  </Box>
-                </Box>
+                  <abbr className={styles.required}>*</abbr>
+                </label>
                 <TextareaAutosize
                   {...register("message")}
                   className={styles.textareaAutosize}
@@ -235,34 +135,24 @@ export default function Contact(): JSX.Element {
                 <ErrorMessage
                   errors={errors}
                   name="message"
-                  render={({ message }): JSX.Element => (
-                    <Text
-                      color="colors.brandRed"
-                      fontFamily="arial"
-                      fontSize="1.2rem"
-                    >
-                      {message}
-                    </Text>
+                  render={({ message }): ReactNode => (
+                    <div className={styles.error}>{message}</div>
                   )}
                 />
-              </VStack>
-            </VStack>
-            <Flex justify="center">
-              <Button
-                bg="colors.brandBlue"
-                color="colors.lightWhite"
-                fontFamily="arial"
-                opacity={isSubmitting ? 0.5 : 1}
-                px={24}
-                py={8}
-                transition="250ms"
+              </div>
+            </div>
+            <div className={styles.submitWrapper}>
+              <button
+                className={styles.submitButton}
+                disabled={isSubmitting}
+                type="submit"
               >
                 送信する
-              </Button>
-            </Flex>
-          </VStack>
+              </button>
+            </div>
+          </div>
         </Form>
-      </Flex>
+      </div>
     </>
   );
 }

@@ -1,6 +1,5 @@
-import { Box, Flex, HStack } from "@kuma-ui/core";
 import { SocialIcon } from "react-social-icons";
-import getBreakpoints from "@/libs/getBreakpoints";
+import styles from "./style.module.css";
 import links from "@/libs/links";
 
 export default function Footer(): JSX.Element {
@@ -15,19 +14,11 @@ export default function Footer(): JSX.Element {
   ));
 
   return (
-    <Flex as="footer" justify="center">
-      <Flex
-        alignItems="center"
-        justify="space-between"
-        px={24}
-        py={getBreakpoints({ sm: 12, xl: 24 })}
-        width="min(960px, 100%)"
-      >
-        <Box fontFamily="arial" fontSize="1.2rem">
-          &copy; 2018 kk-web
-        </Box>
-        <HStack gap={12}>{socialIcons}</HStack>
-      </Flex>
-    </Flex>
+    <footer className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.copyright}>&copy; 2018 kk-web</div>
+        <div className={styles.icons}>{socialIcons}</div>
+      </div>
+    </footer>
   );
 }

@@ -1,0 +1,81 @@
+.srOnly {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 12px 12px 32px;
+}
+
+.vStackOuter {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.vStackInner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vStack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 1rem;
+}
+
+.required {
+  padding-left: 4px;
+}
+
+.input {
+  background: var(--color-light-white);
+  color: var(--color-black);
+  font-family: arial, sans-serif;
+  padding: 4px 6px;
+}
+
+.error {
+  color: var(--color-brand-red);
+  font-family: arial, sans-serif;
+  font-size: 1.2rem;
+}
+
+.submitWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  background: var(--color-brand-blue);
+  color: var(--color-light-white);
+  font-family: arial, sans-serif;
+  padding: 8px 24px;
+  opacity: 1;
+  transition: opacity 250ms;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+}
+.form {
+  width: min(480px, 100%);
+}
+
+.textareaAutosize {
+  background: var(--color-light-white);
+  color: var(--color-black);
+  font-family: arial, sans-serif;
+  padding: 4px 6px;
+}

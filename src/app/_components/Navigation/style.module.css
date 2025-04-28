@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  background: rgba(var(--color-black-text), 0.95);
+  backdrop-filter: blur(1px);
+}
+
+.inner {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.links {
+  display: flex;
+  gap: 84px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (width < 992px) {
+  .inner {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .links {
+    gap: 64px;
+  }
+}
+
+.activeLink {
+  border-bottom: 1px solid var(--color-brand-red);
+}

@@ -1,14 +1,13 @@
 "use client";
-import { Box, Flex, Heading, Text, VStack } from "@kuma-ui/core";
 import axios, { AxiosResponse } from "axios";
+import Link from "next/link";
 import { useCallback, useMemo } from "react";
 import InfiniteScroll, { Props } from "react-infinite-scroll-component";
 import { Oval } from "react-loader-spinner";
 import { BareFetcher } from "swr";
 import useSWRInfinite, { SWRInfiniteKeyLoader } from "swr/infinite";
+import styles from "./style.module.css";
 import { GetArticlesResponseBody } from "@/app/articles/route";
-import NavLink from "@/components/NavLink";
-import getBreakpoints from "@/libs/getBreakpoints";
 import pageSize from "@/libs/pageSize";
 
 const getKey: SWRInfiniteKeyLoader<GetArticlesResponseBody> = (
@@ -35,34 +34,20 @@ export default function Blog(): JSX.Element {
   const items = useMemo(
     () =>
       articles.map(({ date, slug, text, title }, index) => (
-        <NavLink href={slug} key={slug}>
-          <VStack
-            borderTop={index > 0 ? "1px solid var(--color-gray)" : undefined}
-            gap={8}
-            px={getBreakpoints({
-              lg: 0,
-              sm: 12,
-            })}
-            py={24}
+        <Link href={slug} key={slug}>
+          <div
+            className={styles.vStack}
+            style={{
+              borderTop: index > 0 ? "1px solid var(--color-gray)" : undefined,
+            }}
           >
-            <Heading as="h3" fontSize="2.4rem">
-              {title}
-            </Heading>
-            <Box display="table" width="100%">
-              <Text
-                color="colors.gray"
-                display="table-cell"
-                maxWidth="0px"
-                overflow="hidden"
-                textOverflow="ellipsis"
-                whiteSpace="nowrap"
-              >
-                {text}
-              </Text>
-            </Box>
-            <Box fontSize="1.2rem">{date}</Box>
-          </VStack>
-        </NavLink>
+            <h3 className={styles.heading}>{title}</h3>
+            <div className={styles.textWrapper}>
+              <div className={styles.text}>{text}</div>
+            </div>
+            <div className={styles.date}>{date}</div>
+          </div>
+        </Link>
       )),
     [articles],
   );
@@ -76,22 +61,16 @@ export default function Blog(): JSX.Element {
 
   return (
     <>
-      <Box height="0px" overflow="hidden" style={{ opacity: 0 }} width="0px">
-        <Heading as="h2">WEB SERVICE</Heading>
-      </Box>
-      <Flex height="100%" justify="center">
-        <Box
-          px={getBreakpoints({
-            lg: 24,
-            sm: 0,
-          })}
-          width="min(960px, 100%)"
-        >
+      <div className={styles.hiddenHeading}>
+        <h2>WEB SERVICE</h2>
+      </div>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
           <InfiniteScroll
             dataLength={items.length}
             hasMore={!isReachingEnd}
             loader={
-              <Flex justify="center" pb={24}>
+              <div className={styles.loader}>
                 <Oval
                   color="#bdc1c6"
                   height={48}
@@ -101,14 +80,14 @@ export default function Blog(): JSX.Element {
                   visible={true}
                   width={48}
                 />
-              </Flex>
+              </div>
             }
             next={next}
           >
             {items}
           </InfiniteScroll>
-        </Box>
-      </Flex>
+        </div>
+      </div>
     </>
   );
 }

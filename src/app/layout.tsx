@@ -1,12 +1,11 @@
 // eslint-disable-next-line filenames/match-exported
-import { KumaRegistry } from "@kuma-ui/next-plugin/registry";
 import "@szhsin/react-menu/dist/core.css";
 import "@szhsin/react-menu/dist/theme-dark.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "github-markdown-css";
 import localFont from "next/font/local";
-import NextTopLoader from "nextjs-toploader";
+// import NextTopLoader from "nextjs-toploader";
 import { ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,9 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html lang="ja">
       <body className={jkg.className}>
-        <KumaRegistry>
-          <Layout>{children}</Layout>
-        </KumaRegistry>
+        <Layout>{children}</Layout>
         <Analytics />
         <GoogleAnalytics />
         <Hotjar />
@@ -48,12 +45,12 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           position="bottom-left"
           theme="dark"
         />
-        <NextTopLoader
+        {/* <NextTopLoader
           color="#234794"
           height={2}
           shadow={false}
           showSpinner={false}
-        />
+        /> */}
         <SpeedInsights />
       </body>
     </html>

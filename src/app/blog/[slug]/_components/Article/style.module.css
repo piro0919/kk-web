@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.article {
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  width: min(960px, 100%);
+  padding: 24px 24px 48px;
+}
+
+@media (width < 768px) {
+  .article {
+    padding: 24px 12px 48px;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.date {
+  color: var(--color-gray);
+  font-size: 1.4rem;
+}
+
+.spacer {
+  height: 36px;
+}

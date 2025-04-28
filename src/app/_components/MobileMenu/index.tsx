@@ -1,10 +1,10 @@
 "use client";
-import { Box, Grid } from "@kuma-ui/core";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
-import NavLink from "../../../components/NavLink";
+import styles from "./style.module.css";
 import navigations from "@/libs/navigations";
 
 const montserrat = Montserrat({
@@ -19,19 +19,18 @@ export default function MobileMenu(): JSX.Element {
     () =>
       navigations.map(({ href, title, ...navigation }, index) => {
         return (
-          <Grid
-            borderLeft={index > 0 ? "1px solid var(--color-gray)" : undefined}
-            borderTop="1px solid var(--color-gray)"
-            className={montserrat.className}
-            fontSize="1.2rem"
+          <div
+            className={`${styles.item} ${montserrat.className}`}
             key={title}
+            style={{
+              borderLeft: index > 0 ? "1px solid var(--color-gray)" : undefined,
+            }}
           >
             {"navigations" in navigation ? (
               <Menu
                 align="center"
                 arrow={true}
                 direction="top"
-                key={title}
                 menuButton={<MenuButton>{title}</MenuButton>}
                 theming="dark"
                 transition={true}
@@ -39,51 +38,27 @@ export default function MobileMenu(): JSX.Element {
                 {navigation.navigations.map(
                   ({ href: navigationHref, title }) => (
                     <MenuItem key={navigationHref}>
-                      <NavLink href={`${href}${navigationHref}`}>
-                        {title}
-                      </NavLink>
+                      <Link href={`${href}${navigationHref}`}>{title}</Link>
                     </MenuItem>
                   ),
                 )}
               </Menu>
             ) : (
-              <NavLink
-                href={href}
-                style={{
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Box
-                  as="span"
-                  style={
-                    pathname === href
-                      ? { borderBottom: "1px solid var(--color-brand-red)" }
-                      : undefined
-                  }
+              <Link className={styles.link} href={href}>
+                <span
+                  className={`${styles.label} ${
+                    pathname === href ? styles.active : ""
+                  }`}
                 >
                   {title}
-                </Box>
-              </NavLink>
+                </span>
+              </Link>
             )}
-          </Grid>
+          </div>
         );
       }),
     [pathname],
   );
 
-  return (
-    <Grid
-      as="nav"
-      bg="rgba(var(--color-black-text), 0.95)"
-      gridTemplateColumns="repeat(5, 1fr)"
-      height="48px"
-      style={{
-        backdropFilter: "blur(1px)",
-      }}
-    >
-      {navLinks}
-    </Grid>
-  );
+  return <nav className={styles.nav}>{navLinks}</nav>;
 }

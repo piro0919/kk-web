@@ -1,5 +1,4 @@
-import { Box, Flex, Heading, Link } from "@kuma-ui/core";
-import getBreakpoints from "@/libs/getBreakpoints";
+import styles from "./style.module.css";
 
 export default function Movie(): JSX.Element {
   const items = [
@@ -8,46 +7,25 @@ export default function Movie(): JSX.Element {
       name: "YouTube",
     },
     {
-      href: "https://vimeo.com/piro0919",
-      name: "Vimeo",
-    },
-    {
       href: "http://www.nicovideo.jp/mylist/30473930",
       name: "niconico",
     },
-  ].map(({ href, name }, index) => (
-    <Link href={href} key={name} target="_blank">
-      <Box
-        borderTop={index > 0 ? "1px solid var(--color-gray)" : undefined}
-        px={getBreakpoints({
-          lg: 0,
-          sm: 12,
-        })}
-        py={24}
-      >
-        <Heading as="h3" fontSize="2.4rem">
-          {name}
-        </Heading>
-      </Box>
-    </Link>
+  ].map(({ href, name }) => (
+    <a className={styles.link} href={href} key={name} target="_blank">
+      <div className={styles.item}>
+        <h3 className={styles.heading}>{name}</h3>
+      </div>
+    </a>
   ));
 
   return (
     <>
-      <Box height="0px" overflow="hidden" style={{ opacity: 0 }} width="0px">
-        <Heading as="h2">MOVIE</Heading>
-      </Box>
-      <Flex height="100%" justify="center">
-        <Box
-          px={getBreakpoints({
-            lg: 24,
-            sm: 0,
-          })}
-          width="min(960px, 100%)"
-        >
-          {items}
-        </Box>
-      </Flex>
+      <div className={styles.hiddenHeading}>
+        <h2>MOVIE</h2>
+      </div>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>{items}</div>
+      </div>
     </>
   );
 }
