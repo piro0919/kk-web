@@ -1,11 +1,11 @@
 "use client";
+import navigations from "@/libs/navigations";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import styles from "./style.module.css";
-import navigations from "@/libs/navigations";
 
 const montserrat = Montserrat({
   fallback: ["sans-serif"],
@@ -13,7 +13,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-export default function Navigation(): JSX.Element {
+export default function Navigation(): React.JSX.Element {
   const pathname = usePathname();
   const navLinks = useMemo(
     () =>

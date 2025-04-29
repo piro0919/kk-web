@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 
-export default function Application(): JSX.Element {
+export default function Application(): React.JSX.Element {
   const items = [
     {
       href: "https://macopy.kk-web.link/",

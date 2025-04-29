@@ -1,15 +1,15 @@
 "use client";
+import env from "@/env";
 import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { setCookie } from "cookies-next";
-import { ReactElement, ReactNode, useRef } from "react";
+import { type ReactElement, type ReactNode, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
-import { Id, toast } from "react-toastify";
+import { type Id, toast } from "react-toastify";
 import { z } from "zod";
 import styles from "./style.module.css";
-import env from "@/env";
 
 const schema = z.object({
   email: z.string().email(),
@@ -20,7 +20,7 @@ const schema = z.object({
 
 type FieldTypes = z.infer<typeof schema>;
 
-export default function Contact(): JSX.Element {
+export default function Contact(): React.JSX.Element {
   const {
     control,
     formState: { errors, isSubmitting },
@@ -45,9 +45,6 @@ export default function Contact(): JSX.Element {
       </div>
       <div className={styles.wrapper}>
         <Form
-          action="/email"
-          className={styles.form}
-          control={control}
           onError={(): void => {
             if (!toastId.current) return;
             toast.update(toastId.current, {
@@ -80,6 +77,9 @@ export default function Contact(): JSX.Element {
               type: "success",
             });
           }}
+          action="/email"
+          className={styles.form}
+          control={control}
         >
           <ReCAPTCHA
             ref={ref}
@@ -100,8 +100,6 @@ export default function Contact(): JSX.Element {
                     <abbr className={styles.required}>*</abbr>
                   </label>
                   <Controller
-                    control={control}
-                    name={name as keyof FieldTypes}
                     render={({ field }): ReactElement => (
                       <input
                         {...field}
@@ -111,13 +109,15 @@ export default function Contact(): JSX.Element {
                         type={type}
                       />
                     )}
+                    control={control}
+                    name={name as keyof FieldTypes}
                   />
                   <ErrorMessage
-                    errors={errors}
-                    name={name as keyof FieldTypes}
                     render={({ message }): ReactNode => (
                       <div className={styles.error}>{message}</div>
                     )}
+                    errors={errors}
+                    name={name as keyof FieldTypes}
                   />
                 </div>
               ))}
@@ -133,11 +133,11 @@ export default function Contact(): JSX.Element {
                   minRows={6}
                 />
                 <ErrorMessage
-                  errors={errors}
-                  name="message"
                   render={({ message }): ReactNode => (
                     <div className={styles.error}>{message}</div>
                   )}
+                  errors={errors}
+                  name="message"
                 />
               </div>
             </div>

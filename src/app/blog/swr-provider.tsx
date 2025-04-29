@@ -1,6 +1,6 @@
 // eslint-disable-next-line filenames/match-regex
 "use client";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { SWRConfig } from "swr";
 
 export type SWRProviderProps = {
@@ -11,6 +11,6 @@ export type SWRProviderProps = {
 export default function SWRProvider({
   children,
   fallbackData,
-}: SWRProviderProps): JSX.Element {
+}: SWRProviderProps): React.JSX.Element {
   return <SWRConfig value={{ fallbackData }}>{children}</SWRConfig>;
 }

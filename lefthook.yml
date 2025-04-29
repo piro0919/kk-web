@@ -6,7 +6,7 @@ pre-commit:
       run: npx eslint --fix {staged_files}
       stage_fixed: true
     prettier:
-      glob: "src/**/*"
+      glob: "**/*"
       run: npx prettier --write {staged_files}
       stage_fixed: true
     secretlint:

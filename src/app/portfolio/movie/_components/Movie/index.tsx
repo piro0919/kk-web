@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 
-export default function Movie(): JSX.Element {
+export default function Movie(): React.JSX.Element {
   const items = [
     {
       href: "https://www.youtube.com/channel/UC--pDyTi3aPS5wf6PN6kXDA",

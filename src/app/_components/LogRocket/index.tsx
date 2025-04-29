@@ -1,10 +1,10 @@
 "use client";
+import env from "@/env";
 import LogRocketComponent from "logrocket";
 import setupLogRocketReact from "logrocket-react";
 import { Fragment, useEffect } from "react";
-import env from "@/env";
 
-export default function LogRocket(): JSX.Element {
+export default function LogRocket(): React.JSX.Element {
   useEffect(() => {
     if (!env.NEXT_PUBLIC_LOG_ROCKET_APP_ID) {
       return;
@@ -12,7 +12,6 @@ export default function LogRocket(): JSX.Element {
 
     LogRocketComponent.init(env.NEXT_PUBLIC_LOG_ROCKET_APP_ID);
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     setupLogRocketReact(LogRocketComponent);
   }, []);
 

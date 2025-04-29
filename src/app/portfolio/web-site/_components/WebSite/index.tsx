@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 
-export default function WebSite(): JSX.Element {
+export default function WebSite(): React.JSX.Element {
   const items = [
     {
       href: "https://lovvebox.com",

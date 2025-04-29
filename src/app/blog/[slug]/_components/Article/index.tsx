@@ -1,18 +1,18 @@
 "use client";
-import axios, { AxiosResponse } from "axios";
-import { ReactNode, useMemo } from "react";
+import { type GetArticleResponseBody } from "@/app/articles/[slug]/route";
+import axios, { type AxiosResponse } from "axios";
+import { type ReactNode, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import useScrollbarSize from "react-scrollbar-size";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import style from "react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark-reasonable";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-import useSWR, { Fetcher } from "swr";
+import useSWR, { type Fetcher } from "swr";
 import { useElementSize } from "usehooks-ts";
 import styles from "./style.module.css";
-import { GetArticleResponseBody } from "@/app/articles/[slug]/route";
 
-const fetcher: Fetcher<GetArticleResponseBody> = (url: string) =>
+const fetcher: Fetcher<GetArticleResponseBody> = async (url: string) =>
   axios
     .get<GetArticleResponseBody, AxiosResponse<GetArticleResponseBody>>(url)
     .then((res) => res.data);
@@ -21,7 +21,7 @@ type TableProps = {
   children: ReactNode;
 };
 
-function Table({ children }: TableProps): JSX.Element {
+function Table({ children }: TableProps): React.JSX.Element {
   const [ref, { height }] = useElementSize();
   const { height: scrollbarHeight } = useScrollbarSize();
 
@@ -44,7 +44,7 @@ export type ArticleProps = {
   slug: string;
 };
 
-export default function Article({ slug }: ArticleProps): JSX.Element {
+export default function Article({ slug }: ArticleProps): React.JSX.Element {
   const { data } = useSWR(`/articles/${slug}`, fetcher, {
     revalidateOnFocus: false,
   });
@@ -61,18 +61,25 @@ export default function Article({ slug }: ArticleProps): JSX.Element {
         <div className={styles.spacer} />
         <ReactMarkdown
           components={{
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
+            a: ({ children, node, ...props }) => {
+              try {
+                new URL(props.href ?? "");
+                // If we don't get an error, then it's an absolute URL.
+
+                props.target = "_blank";
+                props.rel = "noopener noreferrer";
+                // eslint-disable-next-line no-empty
+              } catch {}
+
+              return <a {...props}>{children}</a>;
+            },
             pre: ({ children }): ReactNode => {
-              const preChildren = children[0];
-
-              if (!preChildren) {
-                return null;
-              }
-
               const {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 props: { children: propChildren, className },
-              } = preChildren;
+              } = children;
               const tmpLanguage =
                 typeof className === "string"
                   ? className.replace("language-", "")
@@ -92,9 +99,9 @@ export default function Article({ slug }: ArticleProps): JSX.Element {
                 </SyntaxHighlighter>
               );
             },
-            table: Table,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            table: Table as any,
           }}
-          linkTarget="_blank"
           rehypePlugins={[rehypeRaw]}
           remarkPlugins={[remarkGfm]}
         >

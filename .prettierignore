@@ -1,0 +1,15 @@
+# Output
+.next
+out
+coverage
+
+# Static
+.lefthook
+public
+
+# Configs & deps
+node_modules
+package-lock.json
+
+# Env
+.env*

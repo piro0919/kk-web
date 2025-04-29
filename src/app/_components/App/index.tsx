@@ -10,7 +10,7 @@ const mPLUS1Code = MPLUS1Code({
   weight: "700",
 });
 
-export default function App(): JSX.Element {
+export default function App(): React.JSX.Element {
   const date = dayjs().date();
   const isTsumugi = date % 2 > 0;
 

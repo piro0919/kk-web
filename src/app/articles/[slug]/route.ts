@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
-import path from "path";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import parseMD from "parse-md";
+import path from "path";
 
 export type GetArticleResponseBody = {
   content: string;
@@ -10,19 +10,20 @@ export type GetArticleResponseBody = {
 };
 
 type Context = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export async function GET(
   _: NextRequest,
-  { params: { slug } }: Context,
+  { params }: Context,
 ): Promise<NextResponse<GetArticleResponseBody>> {
+  const { slug } = await params;
   const markdownPath = path.join(
     process.cwd(),
     "/src/markdown-pages",
     `${slug}.md`,
   );
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const fileContents = await fs.readFile(markdownPath, "utf8");
   const { content, metadata } = parseMD(fileContents);
   const { date, title } = metadata as {

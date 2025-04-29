@@ -1,10 +1,10 @@
+import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
-import path from "path";
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import parseMD from "parse-md";
+import path from "path";
 import Article from "./_components/Article";
 import SWRProvider from "./swr-provider";
-import getMetadata from "@/libs/getMetadata";
 
 type GetArticleParams = {
   slug: string;
@@ -22,6 +22,7 @@ async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
     "/src/markdown-pages",
     `${slug}.md`,
   );
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const fileContents = await fs.readFile(markdownPath, "utf8");
   const { content, metadata } = parseMD(fileContents);
   const { date, title } = metadata as {
@@ -34,13 +35,14 @@ async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
 }
 
 type PageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({
-  params: { slug },
+  params,
 }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
   const { content, title } = await getArticle({ slug });
 
   return getMetadata({
@@ -56,8 +58,9 @@ export async function generateMetadata({
 export const revalidate = 86400;
 
 export default async function Page({
-  params: { slug },
-}: PageProps): Promise<JSX.Element> {
+  params,
+}: PageProps): Promise<React.JSX.Element> {
+  const { slug } = await params;
   const article = await getArticle({ slug });
 
   return (

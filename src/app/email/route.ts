@@ -1,7 +1,7 @@
-import axios from "axios";
-import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import env from "@/env";
+import axios from "axios";
+import { type NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export type PostEmailRequestFormData = {
   email: string;
@@ -14,7 +14,6 @@ export type PostEmailResponseBody = {
   result: boolean;
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export async function POST(
   request: NextRequest,
 ): Promise<NextResponse<PostEmailResponseBody>> {
@@ -26,7 +25,6 @@ export async function POST(
 
   const { value } = token;
   const {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     data: { success },
   } = await axios.post(
     `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRET_KEY}&response=${value}`,

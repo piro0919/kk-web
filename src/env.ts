@@ -9,6 +9,7 @@ const env = createEnv({
     NEXT_PUBLIC_LOG_ROCKET_APP_ID: z.string().min(1),
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
   },
+  // eslint-disable-next-line write-good-comments/write-good-comments
   // you only need to destructure client variables:
   experimental__runtimeEnv: {
     NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,

@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 
-export default function WebService(): JSX.Element {
+export default function WebService(): React.JSX.Element {
   const items = [
     {
       href: "https://youtube-growth.kk-web.link/",

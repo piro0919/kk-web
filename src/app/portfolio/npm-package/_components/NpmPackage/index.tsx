@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 
-export default function NpmPackage(): JSX.Element {
+export default function NpmPackage(): React.JSX.Element {
   const items = [
     {
       href: "https://www.npmjs.com/package/react-page-border",

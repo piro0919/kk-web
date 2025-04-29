@@ -1,14 +1,14 @@
 "use client";
-import axios, { AxiosResponse } from "axios";
+import { type GetArticlesResponseBody } from "@/app/articles/route";
+import pageSize from "@/libs/pageSize";
+import axios, { type AxiosResponse } from "axios";
 import Link from "next/link";
 import { useCallback, useMemo } from "react";
-import InfiniteScroll, { Props } from "react-infinite-scroll-component";
+import InfiniteScroll, { type Props } from "react-infinite-scroll-component";
 import { Oval } from "react-loader-spinner";
-import { BareFetcher } from "swr";
-import useSWRInfinite, { SWRInfiniteKeyLoader } from "swr/infinite";
+import { type BareFetcher } from "swr";
+import useSWRInfinite, { type SWRInfiniteKeyLoader } from "swr/infinite";
 import styles from "./style.module.css";
-import { GetArticlesResponseBody } from "@/app/articles/route";
-import pageSize from "@/libs/pageSize";
 
 const getKey: SWRInfiniteKeyLoader<GetArticlesResponseBody> = (
   pageIndex,
@@ -17,12 +17,12 @@ const getKey: SWRInfiniteKeyLoader<GetArticlesResponseBody> = (
   previousPageData && !previousPageData.length
     ? null
     : `/articles?page=${pageIndex}`;
-const fetcher: BareFetcher<GetArticlesResponseBody> = (url: string) =>
+const fetcher: BareFetcher<GetArticlesResponseBody> = async (url: string) =>
   axios
     .get<GetArticlesResponseBody, AxiosResponse<GetArticlesResponseBody>>(url)
     .then((res) => res.data);
 
-export default function Blog(): JSX.Element {
+export default function Blog(): React.JSX.Element {
   const { data, setSize } = useSWRInfinite<GetArticlesResponseBody>(
     getKey,
     fetcher,
@@ -36,10 +36,10 @@ export default function Blog(): JSX.Element {
       articles.map(({ date, slug, text, title }, index) => (
         <Link href={slug} key={slug}>
           <div
-            className={styles.vStack}
             style={{
               borderTop: index > 0 ? "1px solid var(--color-gray)" : undefined,
             }}
+            className={styles.vStack}
           >
             <h3 className={styles.heading}>{title}</h3>
             <div className={styles.textWrapper}>
@@ -55,7 +55,6 @@ export default function Blog(): JSX.Element {
   const isReachingEnd =
     isEmpty || (data && data[data.length - 1]?.length < pageSize);
   const next = useCallback<Props["next"]>(() => {
-    // eslint-disable-next-line no-void
     void setSize((prevSize) => prevSize + 1);
   }, [setSize]);
 
@@ -67,8 +66,6 @@ export default function Blog(): JSX.Element {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <InfiniteScroll
-            dataLength={items.length}
-            hasMore={!isReachingEnd}
             loader={
               <div className={styles.loader}>
                 <Oval
@@ -82,6 +79,8 @@ export default function Blog(): JSX.Element {
                 />
               </div>
             }
+            dataLength={items.length}
+            hasMore={!isReachingEnd}
             next={next}
           >
             {items}

@@ -1,6 +1,6 @@
 import styles from "./style.module.css";
 
-export default function About(): JSX.Element {
+export default function About(): React.JSX.Element {
   const items = [
     { name: "Name", text: "Kouhei Kawamura" },
     { name: "Handle", text: "piro" },

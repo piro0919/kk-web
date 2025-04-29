@@ -1,9 +1,9 @@
 "use client";
+import env from "@/env";
 import { Fragment, useEffect } from "react";
 import { hotjar } from "react-hotjar";
-import env from "@/env";
 
-export default function Hotjar(): JSX.Element {
+export default function Hotjar(): React.JSX.Element {
   useEffect(() => {
     if (!env.NEXT_PUBLIC_HOTJAR_ID || !env.NEXT_PUBLIC_HOTJAR_SV) {
       return;

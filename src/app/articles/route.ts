@@ -1,9 +1,9 @@
-import { promises as fs } from "fs";
-import path from "path";
-import removeMarkdown from "markdown-to-text";
-import { NextRequest, NextResponse } from "next/server";
-import parseMD from "parse-md";
 import pageSize from "@/libs/pageSize";
+import { promises as fs } from "fs";
+import removeMarkdown from "markdown-to-text";
+import { type NextRequest, NextResponse } from "next/server";
+import parseMD from "parse-md";
+import path from "path";
 
 type Article = {
   date: string;
@@ -14,7 +14,6 @@ type Article = {
 
 export type GetArticlesResponseBody = Article[];
 
-// eslint-disable-next-line import/prefer-default-export
 export async function GET(
   request: NextRequest,
 ): Promise<NextResponse<GetArticlesResponseBody>> {
@@ -30,6 +29,7 @@ export async function GET(
       )
       .map(async (filename) => {
         const markdownPagePath = path.join(markdownPagesPath, filename);
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         const fileContents = await fs.readFile(markdownPagePath, "utf8");
         const { content, metadata } = parseMD(fileContents);
         const { date, slug, title } = metadata as {

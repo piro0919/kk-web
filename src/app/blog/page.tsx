@@ -1,11 +1,11 @@
-import { promises as fs } from "fs";
-import path from "path";
-import removeMarkdown from "markdown-to-text";
-import parseMD from "parse-md";
-import Blog from "./_components/Blog";
-import SWRProvider from "./swr-provider";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
+import { promises as fs } from "fs";
+import removeMarkdown from "markdown-to-text";
+import parseMD from "parse-md";
+import path from "path";
+import Blog from "./_components/Blog";
+import SWRProvider from "./swr-provider";
 
 export const metadata = getMetadata({ path: "/blog", subTitle: "BLOG" });
 
@@ -30,6 +30,7 @@ async function getArticles(): Promise<GetArticlesData> {
       .filter((_, index) => index < pageSize)
       .map(async (filename) => {
         const markdownPagePath = path.join(markdownPagesPath, filename);
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
         const fileContents = await fs.readFile(markdownPagePath, "utf8");
         const { content, metadata } = parseMD(fileContents);
         const { date, slug, title } = metadata as {
@@ -50,7 +51,7 @@ async function getArticles(): Promise<GetArticlesData> {
   return articles;
 }
 
-export default async function Page(): Promise<JSX.Element> {
+export default async function Page(): Promise<React.JSX.Element> {
   const articles = await getArticles();
 
   return (
