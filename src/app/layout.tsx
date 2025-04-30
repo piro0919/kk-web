@@ -36,9 +36,6 @@ export default function RootLayout({
     <html lang="ja">
       <body className={jkg.className}>
         <Layout>{children}</Layout>
-        <Analytics />
-        <Hotjar />
-        <LogRocket />
         <ToastContainer
           autoClose={5000}
           closeOnClick={true}
@@ -47,6 +44,9 @@ export default function RootLayout({
           position="bottom-left"
           theme="dark"
         />
+        <Analytics />
+        <Hotjar />
+        <LogRocket />
         <SpeedInsights />
       </body>
       <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />

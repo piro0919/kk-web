@@ -1,27 +1,17 @@
 "use client";
+import zodSetup from "@/libs/zodSetup";
 import { ProgressProvider } from "@bprogress/next/app";
-import i18next from "i18next";
 import { type ReactNode } from "react";
 import useMeasure from "react-use-measure";
 import { useScrollYPosition } from "react-use-scroll-position";
 import { useWindowSize } from "usehooks-ts";
-import { z } from "zod";
-import { zodI18nMap } from "zod-i18n-map";
-import translation from "zod-i18n-map/locales/ja/zod.json";
 import Footer from "../Footer";
 import Header from "../Header";
 import MobileMenu from "../MobileMenu";
 import Navigation from "../Navigation";
 import styles from "./style.module.css";
 
-i18next.init({
-  lng: "ja",
-  resources: {
-    ja: { zod: translation },
-  },
-});
-
-z.setErrorMap(zodI18nMap);
+zodSetup();
 
 export type LayoutProps = {
   children: ReactNode;
