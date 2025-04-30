@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import { getDate } from "date-fns";
 import { M_PLUS_1_Code as MPLUS1Code } from "next/font/google";
 import Image from "next/image";
 import styles from "./style.module.css";
@@ -11,7 +11,7 @@ const mPLUS1Code = MPLUS1Code({
 });
 
 export default function App(): React.JSX.Element {
-  const date = dayjs().date();
+  const date = getDate(new Date());
   const isTsumugi = date % 2 > 0;
 
   return (
