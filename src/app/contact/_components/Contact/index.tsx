@@ -2,7 +2,7 @@
 import env from "@/env";
 import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { setCookie } from "cookies-next";
+import { useSetCookie } from "cookies-next/client";
 import { type ReactElement, type ReactNode, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
@@ -37,6 +37,7 @@ export default function Contact(): React.JSX.Element {
   });
   const ref = useRef<ReCAPTCHA>(null);
   const toastId = useRef<Id>(null);
+  const setCookie = useSetCookie();
 
   return (
     <>
