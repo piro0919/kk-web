@@ -18,8 +18,9 @@ import "./globals.css";
 import LogRocket from "./_components/LogRocket";
 
 const jkg = localFont({
+  display: "swap",
   fallback: ["sans-serif"],
-  src: [{ path: "./jkg.ttf" }, { path: "./jkg.woff" }, { path: "./jkg.woff2" }],
+  src: "./jkg.woff2",
 });
 
 export const metadata = getMetadata({ type: "website" });
