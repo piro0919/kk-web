@@ -1,0 +1,55 @@
+{
+  "App": {
+    "title": "kk-web"
+  },
+  "Contact": {
+    "submitButton": "Send",
+    "submitError": "Failed to send",
+    "submitSuccess": "Message sent successfully",
+    "submitting": "Sending..."
+  },
+  "Portfolio": {
+    "Applications": {
+      "macopyText": "An alternative Clipy app for Mac.",
+      "playerText": "A media player app for Mac."
+    },
+    "Npm": {
+      "nextUnusedText": "A script to find unused component files in a Next.js project.",
+      "reactComicViewerText": "A component that displays images in a spread view like a comic book.",
+      "reactPageBorderText": "A component that adds a border around the entire screen.",
+      "reactThreeToggleText": "A toggle button component that supports three or more states.",
+      "usePwaText": "A custom hook that exposes PWA state and installation functions.",
+      "useShowWindowSizeText": "A custom hook that displays the window size in real time at the top right."
+    },
+    "WebService": {
+      "dailyName": "Omocoro & Daily Portal Z Reader",
+      "dailyText": "An unofficial reader for 'Omocoro' and 'Daily Portal Z' articles.",
+      "kantankaName": "Kantanka",
+      "kantankaText": "A service where you can post short poems (tanka).",
+      "omocoroName": "Omocoro Archive",
+      "omocoroText": "An archive of articles from the media site 'Omocoro'.",
+      "pokerName": "Planning Poker",
+      "pokerText": "A tool for playing Planning Poker.",
+      "recbanName": "Recban",
+      "recbanText": "A service to find or recruit band members.",
+      "recigleName": "Recigle",
+      "recigleText": "A service that makes it easier to search for recipes.",
+      "siritoriName": "Shiritori Timer",
+      "siritoriText": "A timer for the board game 'Limit Shiritori Party!'.",
+      "youtubeName": "YouTube Growth",
+      "youtubeText": "A service that analyzes your YouTube channel and gives advice."
+    },
+    "WebSite": {
+      "kanaoName": "Kanao Honten",
+      "kanaoText": "Website for a fish shop operating in Fukuyama, Hiroshima.",
+      "kontanikiName": "1stKontact",
+      "kontanikiText": "Website for illustrator 'Konta'.",
+      "lovveboxName": "LOVVEBOX Official Site",
+      "lovveboxText": "Website for the VTuber production company LOVVEBOX.",
+      "natsuzolabName": "Natsuzolab",
+      "natsuzolabText": "Website for composer Jun Narita.",
+      "seven08Name": "7:08",
+      "seven08Text": "Website for illustrator '7:08'."
+    }
+  }
+}

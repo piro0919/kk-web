@@ -3,41 +3,22 @@
   "assignees": [],
   "automerge": true,
   "dependencyDashboard": true,
-  "extends": [
-    "config:base",
-    ":timezone(Asia/Tokyo)"
-  ],
+  "extends": ["config:base", ":timezone(Asia/Tokyo)"],
   "packageRules": [
     {
       "automerge": true,
       "groupName": "devDependencies",
-      "matchDepTypes": [
-        "devDependencies"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ]
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"]
     },
     {
       "automerge": true,
       "groupName": "dependencies",
-      "matchDepTypes": [
-        "dependencies"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ]
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"]
     }
   ],
   "platformAutomerge": true,
   "reviewers": [],
-  "schedule": [
-    "every weekend"
-  ]
+  "schedule": ["every weekend"]
 }

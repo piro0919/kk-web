@@ -1,0 +1,55 @@
+{
+  "App": {
+    "title": "ケーケーウェブ"
+  },
+  "Contact": {
+    "submitButton": "送信する",
+    "submitError": "送信に失敗しました",
+    "submitSuccess": "メッセージを送信しました",
+    "submitting": "送信しています…"
+  },
+  "Portfolio": {
+    "Applications": {
+      "macopyText": "Mac 向けのオルタナティブ Clipy アプリです。",
+      "playerText": "Mac 向けの Media Player アプリです。"
+    },
+    "Npm": {
+      "nextUnusedText": "Next.js を使用したプロジェクト内で使用されていないコンポーネントファイルなどを洗い出すスクリプトです。",
+      "reactComicViewerText": "画像などを見開きで閲覧できるコンポーネントです。",
+      "reactPageBorderText": "画面全体にフチをつけるコンポーネントです。",
+      "reactThreeToggleText": "3 つ以上のスイッチを持つトグルボタン用のコンポーネントです。",
+      "usePwaText": "PWA の状態やインストール用の関数を渡す独自フックです。",
+      "useShowWindowSizeText": "画面右上にウィンドウサイズをリアルタイムで表示する独自フックです。"
+    },
+    "WebService": {
+      "dailyName": "オモコロ&デイリーポータルＺ非公式リーダー",
+      "dailyText": "メディアサイト「オモコロ」と「デイリーポータルＺ」の記事をまとめたサービスです。",
+      "kantankaName": "かんたんか",
+      "kantankaText": "短歌が投稿できるサービスです。",
+      "omocoroName": "オモコロアーカイブ",
+      "omocoroText": "メディアサイト「オモコロ」の記事をまとめたサービスです。",
+      "pokerName": "Planning Poker",
+      "pokerText": "プランニングポーカーができるサービスです。",
+      "recbanName": "りくばん！",
+      "recbanText": "バンドメンバーを募集したり見つけたりすることができるサービスです。",
+      "recigleName": "レシグル",
+      "recigleText": "レシピを検索しやすくしてくれるサービスです。",
+      "siritoriName": "限界しりとりタイマー",
+      "siritoriText": "ボードゲーム「限界しりとりパーティー！」のタイマーとして使えるサービスです。",
+      "youtubeName": "YouTube Growth",
+      "youtubeText": "YouTubeチャンネルを解析しアドバイスしてくれるサービスです。"
+    },
+    "WebSite": {
+      "kanaoName": "金尾本店",
+      "kanaoText": "広島県福山市で営業している魚屋「金尾本店」のサイトを作成しました。",
+      "kontanikiName": "1stKontact",
+      "kontanikiText": "イラストレーター「こんた」さんのサイトを作成しました。",
+      "lovveboxName": "ラブボックス公式サイト",
+      "lovveboxText": "VTuber プロダクション「ラブボックス」のサイトを作成しました。",
+      "natsuzolabName": "Natsuzolab",
+      "natsuzolabText": "作曲家「成田旬」さんのサイトを作成しました。",
+      "seven08Name": "7:08",
+      "seven08Text": "イラストレーター「7:08」さんのサイトを作成しました。"
+    }
+  }
+}

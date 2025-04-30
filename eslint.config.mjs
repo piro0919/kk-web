@@ -151,23 +151,23 @@ const eslintConfig = [
           type: "natural",
         },
       ],
-      // "no-restricted-imports": [
-      //   "error",
-      //   {
-      //     name: "next/link",
-      //     message: "Please import from `@/i18n/navigation` instead.",
-      //   },
-      //   {
-      //     name: "next/navigation",
-      //     importNames: [
-      //       "redirect",
-      //       "permanentRedirect",
-      //       "useRouter",
-      //       "usePathname",
-      //     ],
-      //     message: "Please import from `@/i18n/navigation` instead.",
-      //   },
-      // ],
+      "no-restricted-imports": [
+        "error",
+        {
+          name: "next/link",
+          message: "Please import from `@/i18n/navigation` instead.",
+        },
+        {
+          name: "next/navigation",
+          importNames: [
+            "redirect",
+            "permanentRedirect",
+            "useRouter",
+            "usePathname",
+          ],
+          message: "Please import from `@/i18n/navigation` instead.",
+        },
+      ],
       "perfectionist/sort-imports": [
         "error",
         {

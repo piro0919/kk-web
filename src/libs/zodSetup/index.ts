@@ -1,13 +1,15 @@
 import i18next from "i18next";
 import { z } from "zod";
 import { zodI18nMap } from "zod-i18n-map";
-import translation from "zod-i18n-map/locales/ja/zod.json";
+import enTranslation from "zod-i18n-map/locales/en/zod.json";
+import jaTranslation from "zod-i18n-map/locales/ja/zod.json";
 
-export default function zodSetup(): void {
+export default async function zodSetup(locale: "en" | "ja"): Promise<void> {
   i18next.init({
-    lng: "ja",
+    lng: locale,
     resources: {
-      ja: { zod: translation },
+      en: { zod: enTranslation },
+      ja: { zod: jaTranslation },
     },
   });
 

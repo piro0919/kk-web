@@ -6,6 +6,7 @@ coverage
 # Static
 .husky
 .lefthook
+*.woff2
 public
 
 # Configs & deps

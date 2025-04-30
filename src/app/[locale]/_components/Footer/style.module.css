@@ -1,0 +1,43 @@
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 24px;
+  width: min(960px, 100%);
+}
+
+@media (width < 992px) {
+  .inner {
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+}
+
+.copyright {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+}
+
+.switchIconContainer {
+  align-items: center;
+  color: var(--color-light-white);
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  height: 100%;
+  justify-content: center;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+}
