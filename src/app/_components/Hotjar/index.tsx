@@ -9,10 +9,10 @@ export default function Hotjar(): React.JSX.Element {
       return;
     }
 
-    hotjar.initialize(
-      parseInt(env.NEXT_PUBLIC_HOTJAR_ID, 10),
-      parseInt(env.NEXT_PUBLIC_HOTJAR_SV, 10),
-    );
+    hotjar.initialize({
+      id: parseInt(env.NEXT_PUBLIC_HOTJAR_ID, 10),
+      sv: parseInt(env.NEXT_PUBLIC_HOTJAR_SV, 10),
+    });
   }, []);
 
   return <Fragment />;

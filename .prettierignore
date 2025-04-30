@@ -4,6 +4,7 @@ out
 coverage
 
 # Static
+.husky
 .lefthook
 public
 

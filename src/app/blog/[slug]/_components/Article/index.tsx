@@ -1,7 +1,7 @@
 "use client";
 import { type GetArticleResponseBody } from "@/app/articles/[slug]/route";
 import axios, { type AxiosResponse } from "axios";
-import { type ReactNode, useMemo } from "react";
+import { type ReactNode, type RefObject, useMemo, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import useScrollbarSize from "react-scrollbar-size";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -9,20 +9,21 @@ import style from "react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark-r
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import useSWR, { type Fetcher } from "swr";
-import { useElementSize } from "usehooks-ts";
+import { useResizeObserver } from "usehooks-ts";
 import styles from "./style.module.css";
 
-const fetcher: Fetcher<GetArticleResponseBody> = async (url: string) =>
-  axios
-    .get<GetArticleResponseBody, AxiosResponse<GetArticleResponseBody>>(url)
-    .then((res) => res.data);
+const fetcher: Fetcher = async (url: string) =>
+  axios.get<GetArticleResponseBody, AxiosResponse>(url).then((res) => res.data);
 
 type TableProps = {
   children: ReactNode;
 };
 
 function Table({ children }: TableProps): React.JSX.Element {
-  const [ref, { height }] = useElementSize();
+  const ref = useRef<HTMLTableElement>(null);
+  const { height = 0 } = useResizeObserver({
+    ref: ref as RefObject<HTMLElement>,
+  });
   const { height: scrollbarHeight } = useScrollbarSize();
 
   return (
@@ -49,7 +50,8 @@ export default function Article({ slug }: ArticleProps): React.JSX.Element {
     revalidateOnFocus: false,
   });
   const { content, date, title } = useMemo(
-    () => data || { content: "", date: "", title: "" },
+    () =>
+      (data as GetArticleResponseBody) || { content: "", date: "", title: "" },
     [data],
   );
 
