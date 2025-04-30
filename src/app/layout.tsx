@@ -9,7 +9,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "react-toastify/dist/ReactToastify.css";
 import localFont from "next/font/local";
-// import NextTopLoader from "nextjs-toploader";
 import { type ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import Analytics from "./_components/Analytics";
@@ -48,12 +47,6 @@ export default function RootLayout({
           position="bottom-left"
           theme="dark"
         />
-        {/* <NextTopLoader
-          color="#234794"
-          height={2}
-          shadow={false}
-          showSpinner={false}
-        /> */}
         <SpeedInsights />
       </body>
       <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />

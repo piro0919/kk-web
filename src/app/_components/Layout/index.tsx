@@ -1,4 +1,5 @@
 "use client";
+import { ProgressProvider } from "@bprogress/next/app";
 import i18next from "i18next";
 import { type ReactNode } from "react";
 import useMeasure from "react-use-measure";
@@ -32,7 +33,12 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
   const [ref, { height }] = useMeasure();
 
   return (
-    <div>
+    <ProgressProvider
+      color="#234794"
+      height="2px"
+      options={{ showSpinner: false }}
+      shallowRouting={true}
+    >
       <div className={styles.srOnly}>
         <h1>kk-web</h1>
       </div>
@@ -63,6 +69,6 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
           <Navigation />
         </div>
       </div>
-    </div>
+    </ProgressProvider>
   );
 }
