@@ -44,7 +44,7 @@ export default function Contact(): React.JSX.Element {
   return (
     <>
       <div className={styles.srOnly}>
-        <h2>CONTACT</h2>
+        <h1>CONTACT</h1>
       </div>
       <div className={styles.wrapper}>
         <Form

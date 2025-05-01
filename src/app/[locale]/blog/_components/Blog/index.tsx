@@ -41,7 +41,7 @@ export default function Blog(): React.JSX.Element {
             }}
             className={styles.vStack}
           >
-            <h3 className={styles.heading}>{title}</h3>
+            <h2 className={styles.heading}>{title}</h2>
             <div className={styles.textWrapper}>
               <div className={styles.text}>{text}</div>
             </div>
@@ -61,7 +61,7 @@ export default function Blog(): React.JSX.Element {
   return (
     <>
       <div className={styles.hiddenHeading}>
-        <h2>WEB SERVICE</h2>
+        <h1>WEB SERVICE</h1>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.container}>

@@ -5,6 +5,13 @@
   justify-content: center;
 }
 
+.srOnly {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 0;
+}
+
 .container {
   height: 362px;
   position: relative;

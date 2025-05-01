@@ -13,7 +13,7 @@ export default function Movie(): React.JSX.Element {
   ].map(({ href, name }) => (
     <a className={styles.link} href={href} key={name} target="_blank">
       <div className={styles.item}>
-        <h3 className={styles.heading}>{name}</h3>
+        <h2 className={styles.heading}>{name}</h2>
       </div>
     </a>
   ));
@@ -21,7 +21,7 @@ export default function Movie(): React.JSX.Element {
   return (
     <>
       <div className={styles.hiddenHeading}>
-        <h2>MOVIE</h2>
+        <h1>MOVIE</h1>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.container}>{items}</div>

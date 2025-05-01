@@ -18,6 +18,9 @@ export default function App(): React.JSX.Element {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.srOnly}>
+        <h1>kk-web</h1>
+      </div>
       <div className={styles.container}>
         <div
           className={`${styles.bubble} ${

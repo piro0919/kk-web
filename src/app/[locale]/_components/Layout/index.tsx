@@ -33,9 +33,6 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
       options={{ showSpinner: false }}
       shallowRouting={true}
     >
-      <div className={styles.srOnly}>
-        <h1>kk-web</h1>
-      </div>
       <div
         style={{
           minHeight: windowHeight || "100dvh",

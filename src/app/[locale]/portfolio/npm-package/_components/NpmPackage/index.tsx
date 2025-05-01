@@ -37,7 +37,7 @@ export default function NpmPackage(): React.JSX.Element {
   ].map(({ href, name, text }) => (
     <a className={styles.link} href={href} key={name} target="_blank">
       <div className={styles.item}>
-        <h3 className={styles.heading}>{name}</h3>
+        <h2 className={styles.heading}>{name}</h2>
         <div className={styles.text}>{text}</div>
       </div>
     </a>
@@ -46,7 +46,7 @@ export default function NpmPackage(): React.JSX.Element {
   return (
     <>
       <div className={styles.hiddenHeading}>
-        <h2>NPM PACKAGE</h2>
+        <h1>NPM PACKAGE</h1>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.container}>{items}</div>

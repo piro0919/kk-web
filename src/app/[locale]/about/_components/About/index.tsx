@@ -16,7 +16,7 @@ export default function About(): React.JSX.Element {
   return (
     <>
       <div className={styles.srOnly}>
-        <h2>ABOUT</h2>
+        <h1>ABOUT</h1>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.container}>{items}</div>
