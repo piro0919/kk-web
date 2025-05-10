@@ -18,9 +18,11 @@ type GetArticleData = {
 };
 
 async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
+  const locale = await getLocale();
   const markdownPath = path.join(
     process.cwd(),
     "/src/markdown-pages",
+    locale,
     `${slug}.md`,
   );
   // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -48,7 +50,7 @@ export async function generateMetadata({
 
   return getMetadata({
     description: content.slice(0, 300),
-    // imageUrl: `http://localhost:3000/articles/${slug}/image`,
+    // imageUrl: `http://localhost:3000/${locale}/articles/${slug}/image`,
     imageUrl: `https://kkweb.io/articles/${slug}/image`,
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,

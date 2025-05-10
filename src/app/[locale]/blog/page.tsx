@@ -32,7 +32,12 @@ type Article = {
 type GetArticlesData = Article[];
 
 async function getArticles(): Promise<GetArticlesData> {
-  const markdownPagesPath = path.join(process.cwd(), "/src/markdown-pages");
+  const locale = await getLocale();
+  const markdownPagesPath = path.join(
+    process.cwd(),
+    "/src/markdown-pages",
+    locale,
+  );
   const filenames = await fs.readdir(markdownPagesPath);
   const articles = await Promise.all(
     filenames

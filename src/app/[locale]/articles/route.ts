@@ -1,6 +1,7 @@
 import pageSize from "@/libs/pageSize";
 import { promises as fs } from "fs";
 import removeMarkdown from "markdown-to-text";
+import { getLocale } from "next-intl/server";
 import { type NextRequest, NextResponse } from "next/server";
 import parseMD from "parse-md";
 import path from "path";
@@ -19,7 +20,12 @@ export async function GET(
 ): Promise<NextResponse<GetArticlesResponseBody>> {
   const paramPage = request.nextUrl.searchParams.get("page");
   const page = typeof paramPage === "string" ? parseInt(paramPage, 10) : 0;
-  const markdownPagesPath = path.join(process.cwd(), "/src/markdown-pages");
+  const locale = await getLocale();
+  const markdownPagesPath = path.join(
+    process.cwd(),
+    "/src/markdown-pages",
+    locale,
+  );
   const filenames = await fs.readdir(markdownPagesPath);
   const articles = await Promise.all(
     filenames

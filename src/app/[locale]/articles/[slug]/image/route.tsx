@@ -1,5 +1,6 @@
 import { ImageResponse } from "@vercel/og";
 import { promises as fs } from "fs";
+import { getLocale } from "next-intl/server";
 import { type NextRequest } from "next/server";
 import parseMD from "parse-md";
 import path from "path";
@@ -23,9 +24,11 @@ type GetArticleData = {
 };
 
 async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
+  const locale = await getLocale();
   const markdownPath = path.join(
     process.cwd(),
     "/src/markdown-pages",
+    locale,
     `${slug}.md`,
   );
   // eslint-disable-next-line security/detect-non-literal-fs-filename
