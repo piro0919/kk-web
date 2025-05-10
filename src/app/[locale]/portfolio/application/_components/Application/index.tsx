@@ -5,12 +5,12 @@ export default function Application(): React.JSX.Element {
   const t = useTranslations("Portfolio.Applications");
   const items = [
     {
-      href: "https://macopy.kk-web.link/",
+      href: "https://macopy.kkweb.io/",
       name: "Macopy",
       text: t("macopyText"),
     },
     {
-      href: "https://mcp.kk-web.link/",
+      href: "https://mcp.kkweb.io/",
       name: "Mac Classic Player",
       text: t("playerText"),
     },

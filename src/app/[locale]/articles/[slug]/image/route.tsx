@@ -68,7 +68,7 @@ export async function GET(
       <div
         style={{
           // background: `url('http://localhost:3000/kk-web_${imageIndex}.png')`,
-          background: `url('https://kk-web.link/kk-web_${imageIndex}.png')`,
+          background: `url('https://kkweb.io/kk-web_${imageIndex}.png')`,
           display: "flex",
           height: "100%",
           padding: "30px 36px",

@@ -5,42 +5,42 @@ export default function WebService(): React.JSX.Element {
   const t = useTranslations("Portfolio.WebService");
   const items = [
     {
-      href: "https://youtube-growth.kk-web.link/",
+      href: "https://youtube-growth.kkweb.io/",
       name: t("youtubeName"),
       text: t("youtubeText"),
     },
     {
-      href: "https://kantanka.kk-web.link",
+      href: "https://kantanka.kkweb.io",
       name: t("kantankaName"),
       text: t("kantankaText"),
     },
     {
-      href: "https://planning-poker.kk-web.link",
+      href: "https://planning-poker.kkweb.io",
       name: t("pokerName"),
       text: t("pokerText"),
     },
     {
-      href: "https://recban.kk-web.link",
+      href: "https://recban.kkweb.io",
       name: t("recbanName"),
       text: t("recbanText"),
     },
     {
-      href: "https://omocoro-archive.kk-web.link",
+      href: "https://omocoro-archive.kkweb.io",
       name: t("omocoroName"),
       text: t("omocoroText"),
     },
     {
-      href: "https://omocoro-daily.kk-web.link",
+      href: "https://omocoro-daily.kkweb.io",
       name: t("dailyName"),
       text: t("dailyText"),
     },
     {
-      href: "https://siritori-timer.kk-web.link",
+      href: "https://siritori-timer.kkweb.io",
       name: t("siritoriName"),
       text: t("siritoriText"),
     },
     {
-      href: "https://recigle.kk-web.link",
+      href: "https://recigle.kkweb.io",
       name: t("recigleName"),
       text: t("recigleText"),
     },

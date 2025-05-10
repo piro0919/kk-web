@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://kk-web.link/",
+  siteUrl: "https://kkweb.io/",
   generateRobotsTxt: true,
 };
 

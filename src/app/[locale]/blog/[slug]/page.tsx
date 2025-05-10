@@ -49,7 +49,7 @@ export async function generateMetadata({
   return getMetadata({
     description: content.slice(0, 300),
     // imageUrl: `http://localhost:3000/articles/${slug}/image`,
-    imageUrl: `https://kk-web.link/articles/${slug}/image`,
+    imageUrl: `https://kkweb.io/articles/${slug}/image`,
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,
     subTitle: title,
