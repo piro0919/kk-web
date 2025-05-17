@@ -115,6 +115,14 @@ body {
   bottom: 84px !important;
 }
 
+.markdown-body {
+  --base-size-4: 0.4rem;
+  --base-size-8: 0.8rem;
+  --base-size-16: 1.6rem;
+  --base-size-24: 2.4rem;
+  --base-size-40: 4rem;
+}
+
 .markdown-body a {
   color: var(--color-brand-red) !important;
 }
