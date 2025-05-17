@@ -19,7 +19,7 @@ export async function POST(
 ): Promise<NextResponse<PostEmailResponseBody>> {
   const token = request.cookies.get("token");
 
-  if (!env.RECAPTCHA_SECRET_KEY || !token) {
+  if (!token) {
     return NextResponse.json({ result: false }, { status: 500 });
   }
 

@@ -8,11 +8,15 @@ const env = createEnv({
     NEXT_PUBLIC_LOG_ROCKET_APP_ID: z.string().min(1),
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
   },
-  experimental__runtimeEnv: {
+  runtimeEnv: {
+    GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID,
     NEXT_PUBLIC_HOTJAR_ID: process.env.NEXT_PUBLIC_HOTJAR_ID,
     NEXT_PUBLIC_HOTJAR_SV: process.env.NEXT_PUBLIC_HOTJAR_SV,
     NEXT_PUBLIC_LOG_ROCKET_APP_ID: process.env.NEXT_PUBLIC_LOG_ROCKET_APP_ID,
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+    NODEMAILER_AUTH_PASS: process.env.NODEMAILER_AUTH_PASS,
+    NODEMAILER_AUTH_USER: process.env.NODEMAILER_AUTH_USER,
+    RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
   },
   server: {
     GA_MEASUREMENT_ID: z.string().min(1),

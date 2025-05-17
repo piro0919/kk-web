@@ -50,8 +50,10 @@ export async function generateMetadata({
 
   return getMetadata({
     description: content.slice(0, 300),
-    // imageUrl: `http://localhost:3000/${locale}/articles/${slug}/image`,
-    imageUrl: `https://kkweb.io/${locale}/articles/${slug}/image`,
+    imageUrl:
+      process.env.NODE_ENV === "production"
+        ? `https://kkweb.io/${locale}/articles/${slug}/image`
+        : `http://localhost:3000/${locale}/articles/${slug}/image`,
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,
     subTitle: title,

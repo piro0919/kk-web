@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { type ReactNode, useEffect } from "react";
 import useMeasure from "react-use-measure";
 import { useScrollYPosition } from "react-use-scroll-position";
-import { useWindowSize } from "usehooks-ts";
+// import { useWindowSize } from "usehooks-ts";
 import Footer from "../Footer";
 import Header from "../Header";
 import MobileMenu from "../MobileMenu";
@@ -17,7 +17,7 @@ export type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps): React.JSX.Element {
-  const { height: windowHeight } = useWindowSize();
+  // const { height: windowHeight } = useWindowSize();
   const scrollY = useScrollYPosition();
   const [ref, { height }] = useMeasure();
   const locale = useLocale();
@@ -34,9 +34,9 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
       shallowRouting={true}
     >
       <div
-        style={{
-          minHeight: windowHeight || "100dvh",
-        }}
+        // style={{
+        //   minHeight: windowHeight || "100dvh",
+        // }}
         className={styles.grid}
       >
         <div className={styles.header}>
