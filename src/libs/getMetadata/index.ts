@@ -37,7 +37,7 @@ export default function getMetadata({
           url: imageUrl,
         },
       ],
-      locale,
+      locale: locale === "en" ? "en_US" : "ja_JP",
       siteName: "kk-web",
       title: `${subTitle && `${subTitle} - `}kk-web`,
       type,
