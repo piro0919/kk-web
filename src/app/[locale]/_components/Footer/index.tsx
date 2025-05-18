@@ -31,6 +31,7 @@ export default function Footer(): React.JSX.Element {
     router.replace(pathname, {
       locale: checked ? "en" : "ja",
     });
+    window.location.reload();
   }, [checked, locale, pathname, router]);
 
   return (

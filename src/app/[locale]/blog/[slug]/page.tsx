@@ -1,3 +1,4 @@
+import { redirect } from "@/i18n/navigation";
 import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
@@ -38,7 +39,7 @@ async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
 }
 
 type PageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export async function generateMetadata({
@@ -66,12 +67,29 @@ export const revalidate = 86400;
 export default async function Page({
   params,
 }: PageProps): Promise<React.JSX.Element> {
-  const { slug } = await params;
-  const article = await getArticle({ slug });
+  const { locale, slug } = await params;
 
-  return (
-    <SWRProvider fallback={{ [`/articles/${slug}`]: article }}>
-      <Article slug={slug} />
-    </SWRProvider>
-  );
+  try {
+    const article = await getArticle({ slug });
+
+    return (
+      <SWRProvider fallback={{ [`/articles/${slug}`]: article }}>
+        <Article slug={slug} />
+      </SWRProvider>
+    );
+  } catch (e) {
+    const error = e as Error;
+
+    if (
+      error.message.includes("no such file or directory") &&
+      locale === "en"
+    ) {
+      redirect({
+        href: `/blog/${slug}`,
+        locale: "ja",
+      });
+    }
+
+    throw error;
+  }
 }
