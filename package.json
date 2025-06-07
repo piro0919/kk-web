@@ -2,7 +2,7 @@
   "dependencies": {
     "@bprogress/next": "3.2.12",
     "@hookform/error-message": "2.0.1",
-    "@hookform/resolvers": "5.0.1",
+    "@hookform/resolvers": "5.1.0",
     "@next/third-parties": "15.3.3",
     "@szhsin/react-menu": "4.4.1",
     "@t3-oss/env-nextjs": "0.13.6",
