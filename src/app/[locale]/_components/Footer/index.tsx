@@ -24,6 +24,8 @@ export default function Footer(): React.JSX.Element {
   const { setValue: setChecked, value: checked } = useBoolean(locale === "en");
 
   useEffect(() => {
+    console.log("hoge", checked, locale);
+
     if ((checked && locale === "en") || (!checked && locale === "ja")) {
       return;
     }
@@ -31,7 +33,6 @@ export default function Footer(): React.JSX.Element {
     router.replace(pathname, {
       locale: checked ? "en" : "ja",
     });
-    window.location.reload();
   }, [checked, locale, pathname, router]);
 
   return (
