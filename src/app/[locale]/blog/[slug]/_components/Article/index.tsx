@@ -1,6 +1,7 @@
 "use client";
 import { type GetArticleResponseBody } from "@/app/[locale]/articles/[slug]/route";
 import axios, { type AxiosResponse } from "axios";
+import clsx from "clsx";
 import { type ReactNode, type RefObject, useMemo, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import useScrollbarSize from "react-scrollbar-size";
@@ -57,7 +58,7 @@ export default function Article({ slug }: ArticleProps): React.JSX.Element {
 
   return (
     <div className={styles.wrapper}>
-      <article className={`markdown-body ${styles.article}`}>
+      <article className={clsx("markdown-body", styles.article)}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.date}>{date}</div>
         <div className={styles.spacer} />

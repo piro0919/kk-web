@@ -1,7 +1,8 @@
 "use client";
 import { Link, usePathname } from "@/i18n/navigation";
-import navigations from "@/libs/navigations";
-import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
+import mobileNavigations from "@/libs/mobileNavigations";
+import clsx from "clsx";
+import FeatherIcon from "feather-icons-react";
 import { Montserrat } from "next/font/google";
 import { useMemo } from "react";
 import styles from "./style.module.css";
@@ -16,43 +17,18 @@ export default function MobileMenu(): React.JSX.Element {
   const pathname = usePathname();
   const navLinks = useMemo(
     () =>
-      navigations.map(({ href, title, ...navigation }, index) => {
+      mobileNavigations.map(({ href, icon, title }) => {
         return (
-          <div
-            style={{
-              borderLeft: index > 0 ? "1px solid var(--color-gray)" : undefined,
-            }}
-            className={`${styles.item} ${montserrat.className}`}
-            key={title}
-          >
-            {"navigations" in navigation ? (
-              <Menu
-                align="center"
-                arrow={true}
-                direction="top"
-                menuButton={<MenuButton>{title}</MenuButton>}
-                theming="dark"
-                transition={true}
-              >
-                {navigation.navigations.map(
-                  ({ href: navigationHref, title }) => (
-                    <MenuItem key={navigationHref}>
-                      <Link href={`${href}${navigationHref}`}>{title}</Link>
-                    </MenuItem>
-                  ),
-                )}
-              </Menu>
-            ) : (
-              <Link className={styles.link} href={href}>
-                <span
-                  className={`${styles.label} ${
-                    pathname === href ? styles.active : ""
-                  }`}
-                >
-                  {title}
-                </span>
-              </Link>
-            )}
+          <div className={clsx(styles.item, montserrat.className)} key={title}>
+            <Link
+              className={clsx(styles.link, {
+                [styles.active]: pathname === href,
+              })}
+              href={href}
+            >
+              <FeatherIcon icon={icon} size={21} strokeWidth={1} />
+              <span className={styles.label}>{title}</span>
+            </Link>
           </div>
         );
       }),

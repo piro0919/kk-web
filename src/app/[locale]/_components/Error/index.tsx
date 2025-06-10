@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { getDate } from "date-fns";
 import { M_PLUS_1_Code as MPLUS1Code } from "next/font/google";
 import Image from "next/image";
@@ -21,9 +22,10 @@ export default function Error(): React.JSX.Element {
       </div>
       <div className={styles.container}>
         <div
-          className={`${styles.bubble} ${
-            isTsumugi ? styles.left : styles.right
-          }`}
+          className={clsx(
+            styles.bubble,
+            isTsumugi ? styles.left : styles.right,
+          )}
         >
           <Image
             alt="kk-web"
@@ -32,7 +34,7 @@ export default function Error(): React.JSX.Element {
             src="/bubble.webp"
             style={isTsumugi ? undefined : { scale: "-1 1" }}
           />
-          <div className={`${mPLUS1Code.className} ${styles.text}`}>
+          <div className={clsx(mPLUS1Code.className, styles.text)}>
             Sorry...
           </div>
         </div>

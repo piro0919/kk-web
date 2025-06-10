@@ -1,4 +1,5 @@
 import { usePathname, useRouter } from "@/i18n/navigation";
+import links from "@/libs/links";
 import { useLocale } from "next-intl";
 import { useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
@@ -8,7 +9,6 @@ import { useBoolean } from "usehooks-ts";
 import styles from "./style.module.css";
 
 export default function Footer(): React.JSX.Element {
-  const links = ["https://github.com/piro0919", "https://x.com/piro0919"];
   const socialIcons = links.map((link) => (
     <SocialIcon
       fgColor="#fff"
@@ -24,8 +24,6 @@ export default function Footer(): React.JSX.Element {
   const { setValue: setChecked, value: checked } = useBoolean(locale === "en");
 
   useEffect(() => {
-    console.log("hoge", checked, locale);
-
     if ((checked && locale === "en") || (!checked && locale === "ja")) {
       return;
     }

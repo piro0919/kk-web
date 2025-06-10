@@ -2,6 +2,7 @@
 import { Link, usePathname } from "@/i18n/navigation";
 import navigations from "@/libs/navigations";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
+import clsx from "clsx";
 import { Montserrat } from "next/font/google";
 import { useMemo } from "react";
 import styles from "./style.module.css";
@@ -51,7 +52,7 @@ export default function Header(): React.JSX.Element {
   );
 
   return (
-    <header className={`${montserrat.className} ${styles.header}`}>
+    <header className={clsx(montserrat.className, styles.header)}>
       <nav className={styles.nav}>
         <div className={styles.navLinks}>{navLinks}</div>
       </nav>

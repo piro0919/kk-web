@@ -2,6 +2,7 @@
 import { Link, usePathname } from "@/i18n/navigation";
 import navigations from "@/libs/navigations";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
+import clsx from "clsx";
 import { Montserrat } from "next/font/google";
 import { useMemo } from "react";
 import styles from "./style.module.css";
@@ -35,7 +36,7 @@ export default function Navigation(): React.JSX.Element {
           </Menu>
         ) : (
           <Link
-            className={pathname === href ? styles.activeLink : undefined}
+            className={clsx({ [styles.activeLink]: pathname === href })}
             href={href}
             key={title}
           >
@@ -47,7 +48,7 @@ export default function Navigation(): React.JSX.Element {
   );
 
   return (
-    <nav className={`${montserrat.className} ${styles.nav}`}>
+    <nav className={clsx(montserrat.className, styles.nav)}>
       <div className={styles.inner}>
         <div className={styles.links}>{navLinks}</div>
       </div>

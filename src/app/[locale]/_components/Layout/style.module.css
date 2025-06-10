@@ -29,7 +29,7 @@
 @media (width < 768px) {
   .grid {
     grid-template-rows: 1fr;
-    padding-bottom: 48px;
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
   }
 
   .header {
