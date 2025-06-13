@@ -2,10 +2,10 @@
   "dependencies": {
     "@bprogress/next": "3.2.12",
     "@hookform/error-message": "2.0.1",
-    "@hookform/resolvers": "5.1.0",
+    "@hookform/resolvers": "5.1.1",
     "@next/third-parties": "15.3.3",
     "@szhsin/react-menu": "4.4.1",
-    "@t3-oss/env-nextjs": "0.13.6",
+    "@t3-oss/env-nextjs": "0.13.8",
     "@vercel/analytics": "1.5.0",
     "@vercel/og": "0.6.8",
     "@vercel/speed-insights": "1.2.0",
@@ -45,7 +45,7 @@
     "ress": "5.0.2",
     "swr": "2.3.3",
     "usehooks-ts": "3.1.1",
-    "zod": "3.25.56",
+    "zod": "3.25.64",
     "zod-i18n-map": "2.27.0"
   },
   "devDependencies": {
