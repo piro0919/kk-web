@@ -41,3 +41,8 @@
   display: flex;
   gap: 12px;
 }
+
+.iconLink {
+  border-radius: 50dvmax;
+  overflow: hidden;
+}

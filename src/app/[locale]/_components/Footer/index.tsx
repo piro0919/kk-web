@@ -1,6 +1,7 @@
 import { usePathname, useRouter } from "@/i18n/navigation";
 import links from "@/libs/links";
 import { useLocale } from "next-intl";
+import Image from "next/image";
 import { useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
 import Spacer from "react-spacer";
@@ -9,15 +10,27 @@ import { useBoolean } from "usehooks-ts";
 import styles from "./style.module.css";
 
 export default function Footer(): React.JSX.Element {
-  const socialIcons = links.map((link) => (
-    <SocialIcon
-      fgColor="#fff"
-      key={link}
-      style={{ height: 36, width: 36 }}
-      target="_blank"
-      url={link}
-    />
-  ));
+  const socialIcons = links.map((link) =>
+    typeof link === "string" ? (
+      <SocialIcon
+        fgColor="#fff"
+        key={link}
+        style={{ height: 36, width: 36 }}
+        target="_blank"
+        url={link}
+      />
+    ) : (
+      <a
+        className={styles.iconLink}
+        href={link.url}
+        key={link.url}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Image alt="" height={36} quality={100} src={link.path} width={36} />
+      </a>
+    ),
+  );
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();

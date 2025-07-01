@@ -52,6 +52,11 @@
   gap: 12px;
 }
 
+.iconLink {
+  border-radius: 50dvmax;
+  overflow: hidden;
+}
+
 @media (width >= 768px) {
   .container > .item {
     display: none;
