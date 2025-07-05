@@ -140,6 +140,10 @@ body {
   background-color: var(--color-canvas-subtle) !important;
 }
 
+.markdown-body > div:has(table) {
+  margin-bottom: var(--base-size-16);
+}
+
 .szh-menu {
   border-radius: 8px;
   padding: 8px 0;
