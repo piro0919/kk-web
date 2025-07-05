@@ -5,6 +5,11 @@ export default function WebService(): React.JSX.Element {
   const t = useTranslations("Portfolio.WebService");
   const items = [
     {
+      href: "https://ogpimggen.kkweb.io/",
+      name: t("ogpimggenName"),
+      text: t("ogpimggenText"),
+    },
+    {
       href: "https://peraichi.kkweb.io/",
       name: t("peraichiName"),
       text: t("peraichiText"),
