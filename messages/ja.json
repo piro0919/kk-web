@@ -22,6 +22,8 @@
       "useShowWindowSizeText": "画面右上にウィンドウサイズをリアルタイムで表示する独自フックです。"
     },
     "WebService": {
+      "comictimeName": "ComicTime",
+      "comictimeText": "Web で連載されている漫画サイトを曜日ごとに振り分けてくれるサービスです。",
       "dailyName": "オモコロ&デイリーポータルＺ非公式リーダー",
       "dailyText": "メディアサイト「オモコロ」と「デイリーポータルＺ」の記事をまとめたサービスです。",
       "kantankaName": "かんたんか",
