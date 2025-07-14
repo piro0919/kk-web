@@ -6,6 +6,10 @@ import { Fragment, useEffect } from "react";
 
 export default function LogRocket(): React.JSX.Element {
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") {
+      return;
+    }
+
     _LogRocket.init(env.NEXT_PUBLIC_LOG_ROCKET_APP_ID);
 
     setupLogRocketReact(_LogRocket);
