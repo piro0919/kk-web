@@ -2,11 +2,9 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import links from "@/libs/links";
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import { useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
 import Spacer from "react-spacer";
 import Switch from "react-switch";
-import { useBoolean } from "usehooks-ts";
 import styles from "./style.module.css";
 
 export default function Footer(): React.JSX.Element {
@@ -34,17 +32,6 @@ export default function Footer(): React.JSX.Element {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
-  const { setValue: setChecked, value: checked } = useBoolean(locale === "en");
-
-  useEffect(() => {
-    if ((checked && locale === "en") || (!checked && locale === "ja")) {
-      return;
-    }
-
-    router.replace(pathname, {
-      locale: checked ? "en" : "ja",
-    });
-  }, [checked, locale, pathname, router]);
 
   return (
     <footer className={styles.footer}>
@@ -52,11 +39,15 @@ export default function Footer(): React.JSX.Element {
         <div className={styles.copyright}>&copy; 2018 kk-web</div>
         <Spacer grow={1} />
         <Switch
-          checked={checked}
+          onChange={(checked) =>
+            router.replace(pathname, {
+              locale: checked ? "en" : "ja",
+            })
+          }
+          checked={locale === "en"}
           checkedIcon={<div className={styles.switchIconContainer}>EN</div>}
           height={24}
           offColor="#b33e5c"
-          onChange={(checked) => setChecked(checked)}
           onColor="#234794"
           uncheckedIcon={<div className={styles.switchIconContainer}>JA</div>}
           width={48}

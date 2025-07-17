@@ -3,6 +3,7 @@ import { XMLParser } from "fast-xml-parser";
 import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
 import { getLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import Note from "./_components/Note";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -58,7 +59,17 @@ async function getArticles(): Promise<GetArticlesData> {
   return articles;
 }
 
-export default async function Page(): Promise<React.JSX.Element> {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<React.JSX.Element> {
+  const { locale } = await params;
+
+  if (locale !== "ja") {
+    notFound();
+  }
+
   const articles = await getArticles();
 
   return <Note articles={articles} />;
