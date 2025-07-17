@@ -11,22 +11,28 @@ export type GetMetadataParams = {
 
 export default function getMetadata({
   description = "Frontend Developer piro's website",
-  imageUrl = "https://kkweb.io/kk-web_0.png",
+  imageUrl: imageUrlParam,
   locale,
   path = "/",
   subTitle = "",
   type = "article",
 }: GetMetadataParams): Metadata {
+  const baseUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://kkweb.io";
+  const imageUrl = imageUrlParam ?? `${baseUrl}/${locale}/opengraph-image`;
+
   return {
     alternates: {
-      canonical: `https://kkweb.io${path}`,
+      canonical: `${baseUrl}${path}`,
       languages: {
-        en: `https://kkweb.io/en${path}`,
-        ja: `https://kkweb.io/ja${path}`,
+        en: `${baseUrl}/en${path}`,
+        ja: `${baseUrl}/ja${path}`,
       },
     },
     applicationName: "kk-web",
-    authors: [{ name: "piro", url: "https://kkweb.io" }],
+    authors: [{ name: "piro", url: baseUrl }],
     creator: "piro",
     description,
     openGraph: {
@@ -41,7 +47,7 @@ export default function getMetadata({
       siteName: "kk-web",
       title: `${subTitle && `${subTitle} - `}kk-web`,
       type,
-      url: `https://kkweb.io/${locale}${path}`,
+      url: `${baseUrl}/${locale}${path}`,
     },
     robots: {
       follow: true,
