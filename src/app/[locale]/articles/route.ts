@@ -23,9 +23,11 @@ export async function GET(
   const locale = await getLocale();
   const markdownPagesPath = path.join(
     process.cwd(),
-    "/src/markdown-pages",
+    "src",
+    "markdown-pages",
     locale,
   );
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   const filenames = await fs.readdir(markdownPagesPath);
   const articles = await Promise.all(
     filenames
