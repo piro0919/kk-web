@@ -30,7 +30,7 @@ export default function Navigation(): React.JSX.Element {
           >
             {navigation.navigations.map(({ href: navigationHref, title }) => (
               <MenuItem key={navigationHref}>
-                <Link href={`${href}${navigationHref}`}>{title}</Link>
+                <Link href={navigationHref}>{title}</Link>
               </MenuItem>
             ))}
           </Menu>

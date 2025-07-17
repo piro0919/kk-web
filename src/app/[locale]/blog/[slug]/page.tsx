@@ -55,10 +55,6 @@ export async function generateMetadata({
 
   return getMetadata({
     description: content.slice(0, 300),
-    // imageUrl:
-    //   process.env.NODE_ENV === "production"
-    //     ? `https://kkweb.io/${locale}/articles/${slug}/image`
-    //     : `http://localhost:3000/${locale}/articles/${slug}/image`,
     imageUrl: `${baseUrl}/${locale}/blog/${slug}/opengraph-image`,
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,

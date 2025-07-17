@@ -15,7 +15,7 @@ export default function Footer(): React.JSX.Element {
       <SocialIcon
         fgColor="#fff"
         key={link}
-        style={{ height: 36, width: 36 }}
+        style={{ height: 30, width: 30 }}
         target="_blank"
         url={link}
       />
@@ -27,7 +27,7 @@ export default function Footer(): React.JSX.Element {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <Image alt="" height={36} quality={100} src={link.path} width={36} />
+        <Image alt="" height={30} quality={100} src={link.path} width={30} />
       </a>
     ),
   );

@@ -1,0 +1,63 @@
+.hiddenHeading {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+  width: min(960px, 100%);
+}
+
+.vStack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 24px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 24px;
+}
+
+@media (width < 768px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .vStack {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.heading {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.textWrapper {
+  display: table;
+  width: 100%;
+}
+
+.text {
+  color: var(--color-gray);
+  display: table-cell;
+  max-width: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.date {
+  font-size: 1.2rem;
+}

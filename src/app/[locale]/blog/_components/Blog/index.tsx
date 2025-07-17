@@ -61,7 +61,7 @@ export default function Blog(): React.JSX.Element {
   return (
     <>
       <div className={styles.hiddenHeading}>
-        <h1>WEB SERVICE</h1>
+        <h1>BLOG</h1>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.container}>

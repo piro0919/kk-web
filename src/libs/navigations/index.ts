@@ -7,31 +7,41 @@ const navigations = [
     href: "/portfolio",
     navigations: [
       {
-        href: "/web-service",
+        href: "/portfolio/web-service",
         title: "WEB SERVICE",
       },
       {
-        href: "/web-site",
+        href: "/portfolio/web-site",
         title: "WEB SITE",
       },
       {
-        href: "/application",
+        href: "/portfolio/application",
         title: "APPLICATION",
       },
       {
-        href: "/npm-package",
+        href: "/portfolio/npm-package",
         title: "NPM PACKAGE",
       },
       {
-        href: "/movie",
+        href: "/portfolio/movie",
         title: "MOVIE",
       },
     ],
     title: "PORTFOLIO",
   },
   {
-    href: "/blog",
-    title: "BLOG",
+    href: "/writing",
+    navigations: [
+      {
+        href: "/blog",
+        title: "BLOG",
+      },
+      {
+        href: "/note",
+        title: "NOTE",
+      },
+    ],
+    title: "WRITING",
   },
   {
     href: "/contact",
