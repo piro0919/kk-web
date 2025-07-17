@@ -1,7 +1,4 @@
 {
-  "App": {
-    "title": "kk-web"
-  },
   "Contact": {
     "submitButton": "Send",
     "submitError": "Failed to send",

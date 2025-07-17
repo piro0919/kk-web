@@ -1,8 +1,8 @@
-import { redirect } from "@/i18n/navigation";
 import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
 import { getLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import parseMD from "parse-md";
 import path from "path";
 import Article from "./_components/Article";
@@ -84,10 +84,7 @@ export default async function Page({
       error.message.includes("no such file or directory") &&
       locale === "en"
     ) {
-      redirect({
-        href: `/blog/${slug}`,
-        locale: "ja",
-      });
+      notFound();
     }
 
     throw error;

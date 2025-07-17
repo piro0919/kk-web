@@ -80,6 +80,8 @@ const eslintConfig = [
       "import/newline-after-import": ["error", { count: 1 }],
       "import/order": "off",
       "import/prefer-default-export": "error",
+      "no-alert": "error",
+      "no-console": "error",
       "no-duplicate-imports": "error",
       "no-multiple-empty-lines": ["error", { max: 1 }],
       "padding-line-between-statements": [

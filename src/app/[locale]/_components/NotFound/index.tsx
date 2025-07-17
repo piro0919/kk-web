@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import { format, getDate } from "date-fns";
+import { getDate } from "date-fns";
 import { Noto_Sans as NotoSans } from "next/font/google";
 import Image from "next/image";
-import seedrandom from "seedrandom";
 import styles from "./style.module.css";
 
 const notoSans = NotoSans({
@@ -12,18 +11,15 @@ const notoSans = NotoSans({
   weight: "700",
 });
 
-export default function App(): React.JSX.Element {
+export default function NotFound(): React.JSX.Element {
   const today = new Date();
   const date = getDate(today);
-  const isTsumugi = date % 2 > 0;
-  const seed = format(today, "yyyy-MM-dd");
-  const rng = seedrandom(seed);
-  const num = Math.floor(rng() * (isTsumugi ? 28 : 14));
+  const isTsumugi = !(date % 2 > 0);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.srOnly}>
-        <h1>kk-web</h1>
+        <h1>404</h1>
       </div>
       <div className={styles.container}>
         <div
@@ -39,7 +35,9 @@ export default function App(): React.JSX.Element {
             src="/bubble.png"
             style={isTsumugi ? undefined : { scale: "-1 1" }}
           />
-          <div className={clsx(notoSans.className, styles.text)}>kk-web</div>
+          <div className={clsx(notoSans.className, styles.text)}>
+            not found...
+          </div>
         </div>
         {isTsumugi ? (
           <div className={styles.tsumugi}>
@@ -47,7 +45,7 @@ export default function App(): React.JSX.Element {
               alt="春日部つむぎ"
               fill={true}
               quality={100}
-              src={`/tsumugi_${num.toString().padStart(2, "0")}.png`}
+              src="/tsumugi_26.png"
             />
           </div>
         ) : (
@@ -56,7 +54,7 @@ export default function App(): React.JSX.Element {
               alt="四国めたん"
               fill={true}
               quality={100}
-              src={`/metan_${num.toString().padStart(2, "0")}.png`}
+              src="/metan_04.png"
             />
           </div>
         )}

@@ -1,7 +1,4 @@
 {
-  "App": {
-    "title": "ケーケーウェブ"
-  },
   "Contact": {
     "submitButton": "送信する",
     "submitError": "送信に失敗しました",
