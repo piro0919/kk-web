@@ -64,12 +64,10 @@ export default function Contact(): React.JSX.Element {
 
             if (typeof token !== "string") return;
             setCookie("token", token);
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
             toastId.current = toast(t("submitting"), {
               autoClose: false,
               isLoading: true,
-            });
+            }) as Id;
           }}
           onSuccess={(): void => {
             if (!toastId.current) return;
