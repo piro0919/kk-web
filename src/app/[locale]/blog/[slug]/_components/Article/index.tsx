@@ -17,7 +17,7 @@ const fetcher: Fetcher = async (url: string) =>
   axios.get<GetArticleResponseBody, AxiosResponse>(url).then((res) => res.data);
 
 type TableProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 function Table({ children }: TableProps): React.JSX.Element {
@@ -64,25 +64,26 @@ export default function Article({ slug }: ArticleProps): React.JSX.Element {
         <div className={styles.spacer} />
         <ReactMarkdown
           components={{
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
-            a: ({ children, node, ...props }) => {
+            a: ({ children, ...props }) => {
               try {
                 new URL(props.href ?? "");
                 // If we don't get an error, then it's an absolute URL.
 
                 props.target = "_blank";
                 props.rel = "noopener noreferrer";
-                // eslint-disable-next-line no-empty
-              } catch {}
+              } catch {
+                // Relative URL - no processing needed
+              }
 
               return <a {...props}>{children}</a>;
             },
             pre: ({ children }): ReactNode => {
+              const child = children as React.ReactElement & {
+                props: { children: string; className?: string };
+              };
               const {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 props: { children: propChildren, className },
-              } = children;
+              } = child;
               const tmpLanguage =
                 typeof className === "string"
                   ? className.replace("language-", "")
@@ -102,8 +103,7 @@ export default function Article({ slug }: ArticleProps): React.JSX.Element {
                 </SyntaxHighlighter>
               );
             },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            table: Table as any,
+            table: Table,
           }}
           rehypePlugins={[rehypeRaw]}
           remarkPlugins={[remarkGfm]}
