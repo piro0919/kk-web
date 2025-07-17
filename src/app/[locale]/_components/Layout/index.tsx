@@ -17,7 +17,6 @@ export type LayoutProps = {
 };
 
 export default function Layout({ children }: LayoutProps): React.JSX.Element {
-  // const { height: windowHeight } = useWindowSize();
   const scrollY = useScrollYPosition();
   const [ref, { height }] = useMeasure();
   const locale = useLocale();
@@ -33,12 +32,7 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
       options={{ showSpinner: false }}
       shallowRouting={true}
     >
-      <div
-        // style={{
-        //   minHeight: windowHeight || "100dvh",
-        // }}
-        className={styles.grid}
-      >
+      <div className={styles.grid}>
         <div className={styles.header}>
           <Header />
         </div>

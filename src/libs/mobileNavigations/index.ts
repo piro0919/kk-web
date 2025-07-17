@@ -10,9 +10,9 @@ const mobileNavigations = [
     title: "PORTFOLIO",
   },
   {
-    href: "/blog",
+    href: "/writing",
     icon: "edit-3",
-    title: "BLOG",
+    title: "WRITING",
   },
   {
     href: "/more",
