@@ -31,7 +31,7 @@ export default function Error(): React.JSX.Element {
             alt="kk-web"
             fill={true}
             quality={100}
-            src="/bubble.webp"
+            src="/bubble.png"
             style={isTsumugi ? undefined : { scale: "-1 1" }}
           />
           <div className={clsx(mPLUS1Code.className, styles.text)}>
@@ -40,11 +40,16 @@ export default function Error(): React.JSX.Element {
         </div>
         {isTsumugi ? (
           <div className={styles.tsumugi}>
-            <Image alt="kk-web" fill={true} quality={100} src="/tsumugi.webp" />
+            <Image
+              alt="kk-web"
+              fill={true}
+              quality={100}
+              src="/tsumugi_26.png"
+            />
           </div>
         ) : (
           <div className={styles.metan}>
-            <Image alt="kk-web" fill={true} quality={100} src="/metan.webp" />
+            <Image alt="kk-web" fill={true} quality={100} src="/metan_04.png" />
           </div>
         )}
       </div>

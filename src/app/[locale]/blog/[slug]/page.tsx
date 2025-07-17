@@ -48,13 +48,18 @@ export async function generateMetadata({
   const { slug } = await params;
   const { content, title } = await getArticle({ slug });
   const locale = await getLocale();
+  const baseUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://kkweb.io";
 
   return getMetadata({
     description: content.slice(0, 300),
-    imageUrl:
-      process.env.NODE_ENV === "production"
-        ? `https://kkweb.io/${locale}/articles/${slug}/image`
-        : `http://localhost:3000/${locale}/articles/${slug}/image`,
+    // imageUrl:
+    //   process.env.NODE_ENV === "production"
+    //     ? `https://kkweb.io/${locale}/articles/${slug}/image`
+    //     : `http://localhost:3000/${locale}/articles/${slug}/image`,
+    imageUrl: `${baseUrl}/${locale}/blog/${slug}/opengraph-image`,
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,
     subTitle: title,

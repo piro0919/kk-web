@@ -6,6 +6,7 @@ coverage
 # Static
 .husky
 .lefthook
+*.ttf
 *.woff2
 public
 
