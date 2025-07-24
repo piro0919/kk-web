@@ -1,11 +1,11 @@
-// eslint-disable-next-line filenames/match-exported, filenames/match-regex
+/* eslint-disable @next/next/no-img-element */
+
 import { promises as fs } from "fs";
 import { ImageResponse } from "next/og";
+import { type NextRequest } from "next/server";
 import { readFile } from "node:fs/promises";
 import path, { join } from "node:path";
 import parseMD from "parse-md";
-
-export const dynamic = "force-dynamic";
 
 type GetArticleParams = {
   locale: string;
@@ -46,15 +46,19 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function Image({
-  params: { locale, slug },
-}: {
-  params: { locale: string; slug: string };
-}): Promise<ImageResponse> {
+type Context = {
+  params: Promise<{ locale: string; slug: string }>;
+};
+
+export async function GET(
+  _: NextRequest,
+  { params }: Context,
+): Promise<ImageResponse> {
   const baseUrl =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://kkweb.io";
+  const { locale, slug } = await params;
   const { title: text } = await getArticle({ locale, slug });
   const jkg = await readFile(join(process.cwd(), "src/app/[locale]/jkg.ttf"));
 
