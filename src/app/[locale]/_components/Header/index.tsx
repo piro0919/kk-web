@@ -3,6 +3,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import navigations from "@/libs/navigations";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import clsx from "clsx";
+import { useTheme } from "next-themes";
 import { Montserrat } from "next/font/google";
 import { useMemo } from "react";
 import styles from "./style.module.css";
@@ -15,6 +16,7 @@ const montserrat = Montserrat({
 
 export default function Header(): React.JSX.Element {
   const pathname = usePathname();
+  const { theme } = useTheme();
   const navLinks = useMemo(
     () =>
       navigations.map(({ href, title, ...navigation }) =>
@@ -25,7 +27,7 @@ export default function Header(): React.JSX.Element {
             direction="bottom"
             key={title}
             menuButton={<MenuButton>{title}</MenuButton>}
-            theming="dark"
+            theming={theme}
             transition={true}
           >
             {navigation.navigations.map(({ href: navigationHref, title }) => (
@@ -38,7 +40,7 @@ export default function Header(): React.JSX.Element {
           <Link
             style={
               pathname === href
-                ? { borderBottom: "1px solid var(--color-brand-red)" }
+                ? { borderBottom: "1px solid var(--color-danger)" }
                 : undefined
             }
             href={href}
@@ -48,7 +50,7 @@ export default function Header(): React.JSX.Element {
           </Link>
         ),
       ),
-    [pathname],
+    [pathname, theme],
   );
 
   return (

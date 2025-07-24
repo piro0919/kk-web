@@ -24,7 +24,11 @@
 }
 
 .link:not(:first-child) {
-  border-top: 1px solid var(--color-gray);
+  border-top: 1px solid hsl(from var(--color-background) h s calc(l - 37));
+
+  [data-theme="dark"] & {
+    border-color: hsl(from var(--color-background) h s calc(l + 37));
+  }
 }
 
 .item {

@@ -33,14 +33,9 @@ export default function Blog(): React.JSX.Element {
   const articles = useMemo(() => data?.flat() || [], [data]);
   const items = useMemo(
     () =>
-      articles.map(({ date, slug, text, title }, index) => (
-        <Link href={slug} key={slug}>
-          <div
-            style={{
-              borderTop: index > 0 ? "1px solid var(--color-gray)" : undefined,
-            }}
-            className={styles.vStack}
-          >
+      articles.map(({ date, slug, text, title }) => (
+        <Link className={styles.link} href={slug} key={slug}>
+          <div className={styles.vStack}>
             <h2 className={styles.heading}>{title}</h2>
             <div className={styles.textWrapper}>
               <div className={styles.text}>{text}</div>

@@ -1,19 +1,18 @@
 @import "ress";
 
 :root {
-  /* Brand Colors */
-  --color-brand-blue: #234794;
-  --color-brand-red: #b33e5c;
+  --color-background: #fff;
+  --color-foreground: #333;
 
-  /* Neutral Colors */
-  --color-black: #202124;
-  --color-black-text: 32, 33, 36;
-  --color-gray: #808080;
-  --color-light-white: #fff;
-  --color-white: #bdc1c6;
+  --color-accent: #234794;
+  --color-danger: #b33e5c;
 }
 
-/* --- */
+[data-theme="dark"] {
+  --color-background: #202124;
+  --color-foreground: #bdc1c6;
+}
+
 html {
   @media (width < 768px) {
     font-size: 56.25%;
@@ -104,8 +103,8 @@ ul {
 
 /* --- */
 body {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-size: 1.4rem;
   letter-spacing: 0.5px;
   line-height: 1.5;
@@ -124,7 +123,7 @@ body {
 }
 
 .markdown-body a {
-  color: var(--color-brand-red) !important;
+  color: var(--color-danger) !important;
 }
 
 .markdown-body h1 {
@@ -134,10 +133,6 @@ body {
 
 .markdown-body img {
   max-width: 320px;
-}
-
-.markdown-body > pre {
-  background-color: var(--color-canvas-subtle) !important;
 }
 
 .markdown-body > div:has(table) {

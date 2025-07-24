@@ -1,12 +1,13 @@
 "use client";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import links from "@/libs/links";
+import NoSSR from "@mpth/react-no-ssr";
 import { useLocale } from "next-intl";
+import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import Switch from "react-switch";
-import { useBoolean } from "usehooks-ts";
 import styles from "./style.module.css";
 
 export default function More(): React.JSX.Element {
@@ -29,6 +30,7 @@ export default function More(): React.JSX.Element {
   const socialIcons = links.map((link) =>
     typeof link === "string" ? (
       <SocialIcon
+        className={styles.iconLink}
         fgColor="#fff"
         key={link}
         style={{ height: 36, width: 36 }}
@@ -50,17 +52,7 @@ export default function More(): React.JSX.Element {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
-  const { setValue: setChecked, value: checked } = useBoolean(locale === "en");
-
-  useEffect(() => {
-    if ((checked && locale === "en") || (!checked && locale === "ja")) {
-      return;
-    }
-
-    router.replace(pathname, {
-      locale: checked ? "en" : "ja",
-    });
-  }, [checked, locale, pathname, router]);
+  const { setTheme, theme } = useTheme();
 
   return (
     <>
@@ -71,16 +63,43 @@ export default function More(): React.JSX.Element {
         <div className={styles.container}>
           {items}
           <div className={styles.item}>
+            <h2 className={styles.heading}>THEME</h2>
+            <NoSSR>
+              <Switch
+                checkedIcon={
+                  <div className={styles.switchIconContainer}>
+                    <FaMoon size={12} />
+                  </div>
+                }
+                uncheckedIcon={
+                  <div className={styles.switchIconContainer}>
+                    <FaSun size={12} />
+                  </div>
+                }
+                checked={theme === "dark"}
+                height={24}
+                offColor="#b33e5c"
+                onChange={(checked) => setTheme(checked ? "dark" : "light")}
+                onColor="#234794"
+                width={48}
+              />
+            </NoSSR>
+          </div>
+          <div className={styles.item}>
             <h2 className={styles.heading}>LOCALE</h2>
             <Switch
+              onChange={(checked) =>
+                router.replace(pathname, {
+                  locale: checked ? "en" : "ja",
+                })
+              }
               uncheckedIcon={
                 <div className={styles.switchIconContainer}>JA</div>
               }
-              checked={checked}
+              checked={locale === "en"}
               checkedIcon={<div className={styles.switchIconContainer}>EN</div>}
               height={24}
               offColor="#b33e5c"
-              onChange={(checked) => setChecked(checked)}
               onColor="#234794"
               width={48}
             />

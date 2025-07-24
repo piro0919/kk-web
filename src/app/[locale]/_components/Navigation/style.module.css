@@ -1,6 +1,6 @@
 .nav {
   backdrop-filter: blur(1px);
-  background: rgba(var(--color-black-text), 0.95);
+  background: hsl(from var(--color-background) h s l / 0.95);
   display: flex;
   justify-content: center;
 }
@@ -29,5 +29,5 @@
 }
 
 .activeLink {
-  border-bottom: 1px solid var(--color-brand-red);
+  border-bottom: 1px solid var(--color-danger);
 }

@@ -17,14 +17,15 @@ export type NoteProps = {
 export default function Note({ articles }: NoteProps): React.JSX.Element {
   const items = useMemo(
     () =>
-      articles.map(({ date, slug, text, title }, index) => (
-        <a href={slug} key={slug} rel="noopener noreferrer" target="_blank">
-          <div
-            style={{
-              borderTop: index > 0 ? "1px solid var(--color-gray)" : undefined,
-            }}
-            className={styles.vStack}
-          >
+      articles.map(({ date, slug, text, title }) => (
+        <a
+          className={styles.link}
+          href={slug}
+          key={slug}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <div className={styles.vStack}>
             <h2 className={styles.heading}>{title}</h2>
             <div className={styles.textWrapper}>
               <div className={styles.text}>{text}</div>

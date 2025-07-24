@@ -4,6 +4,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSetCookie } from "cookies-next/client";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 import { type ReactElement, type ReactNode, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
@@ -40,6 +41,7 @@ export default function Contact(): React.JSX.Element {
   const toastId = useRef<Id>(null);
   const setCookie = useSetCookie();
   const t = useTranslations("Contact");
+  const { theme } = useTheme();
 
   return (
     <>
@@ -83,10 +85,11 @@ export default function Contact(): React.JSX.Element {
           control={control}
         >
           <ReCAPTCHA
+            key={theme}
             ref={ref}
             sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
             size="invisible"
-            theme="dark"
+            theme={theme === "dark" ? "dark" : "light"}
           />
           <div className={styles.vStackOuter}>
             <div className={styles.vStackInner}>
