@@ -55,7 +55,7 @@ export async function generateMetadata({
 
   return getMetadata({
     description: content.slice(0, 300),
-    imageUrl: `${baseUrl}/${locale}/blog/${slug}/opengraph-image`,
+    imageUrl: `${baseUrl}/${locale}/articles/${slug}/image`,
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,
     subTitle: title,
