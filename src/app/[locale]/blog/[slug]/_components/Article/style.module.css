@@ -27,8 +27,12 @@
 }
 
 .date {
-  color: var(--color-gray);
+  color: hsl(from var(--color-foreground) h s calc(l + 24));
   font-size: 1.4rem;
+
+  [data-theme="dark"] & {
+    color: hsl(from var(--color-foreground) h s calc(l - 24));
+  }
 }
 
 .spacer {

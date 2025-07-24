@@ -39,15 +39,21 @@
   padding-left: 4px;
 }
 
-.input {
-  background: var(--color-light-white);
-  color: var(--color-black);
+.input,
+.textareaAutosize {
+  background: hsl(from var(--color-background) h s calc(l - 10));
+  border: 1px solid hsl(from var(--color-background) h s calc(l - 20));
   font-family: arial, sans-serif;
   padding: 4px 6px;
+
+  [data-theme="dark"] & {
+    background: hsl(from var(--color-background) h s calc(l + 10));
+    border-color: hsl(from var(--color-background) h s calc(l - 10));
+  }
 }
 
 .error {
-  color: var(--color-brand-red);
+  color: var(--color-danger);
   font-family: arial, sans-serif;
   font-size: 1.2rem;
 }
@@ -58,12 +64,16 @@
 }
 
 .submitButton {
-  background: var(--color-brand-blue);
-  color: var(--color-light-white);
+  background: var(--color-accent);
+  color: hsl(from var(--color-background) h s calc(l - 10));
   font-family: arial, sans-serif;
   opacity: 1;
   padding: 8px 24px;
   transition: opacity 250ms;
+
+  [data-theme="dark"] & {
+    color: hsl(from var(--color-foreground) h s calc(l + 10));
+  }
 }
 
 .submitButton:disabled {
@@ -72,11 +82,4 @@
 
 .form {
   width: min(480px, 100%);
-}
-
-.textareaAutosize {
-  background: var(--color-light-white);
-  color: var(--color-black);
-  font-family: arial, sans-serif;
-  padding: 4px 6px;
 }

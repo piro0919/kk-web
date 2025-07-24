@@ -14,6 +14,7 @@ import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { type ReactNode } from "react";
@@ -57,22 +58,24 @@ export default async function RootLayout({
   zodSetup(locale as "en" | "ja");
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning={true}>
       <body className={jkg.className}>
         <NextIntlClientProvider>
-          <Layout>{children}</Layout>
-          <ToastContainer
-            autoClose={5000}
-            closeOnClick={true}
-            hideProgressBar={false}
-            pauseOnHover={false}
-            position="bottom-left"
-            theme="dark"
-          />
-          <Analytics />
-          <Hotjar />
-          <LogRocket />
-          <SpeedInsights />
+          <ThemeProvider enableSystem={false}>
+            <Layout>{children}</Layout>
+            <ToastContainer
+              autoClose={5000}
+              closeOnClick={true}
+              hideProgressBar={false}
+              pauseOnHover={false}
+              position="bottom-left"
+              theme="dark"
+            />
+            <Analytics />
+            <Hotjar />
+            <LogRocket />
+            <SpeedInsights />
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
       <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />

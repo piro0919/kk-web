@@ -27,6 +27,14 @@
   padding-top: 24px;
 }
 
+.link:not(:first-child) > .vStack {
+  border-top: 1px solid hsl(from var(--color-background) h s calc(l - 37));
+
+  [data-theme="dark"] & {
+    border-color: hsl(from var(--color-background) h s calc(l + 37));
+  }
+}
+
 @media (width < 768px) {
   .container {
     padding-left: 0;
@@ -50,12 +58,16 @@
 }
 
 .text {
-  color: var(--color-gray);
+  color: hsl(from var(--color-foreground) h s calc(l + 24));
   display: table-cell;
   max-width: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  [data-theme="dark"] & {
+    color: hsl(from var(--color-foreground) h s calc(l - 24));
+  }
 }
 
 .date {

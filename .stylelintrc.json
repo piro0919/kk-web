@@ -1,5 +1,8 @@
 {
-  "extends": ["stylelint-config-recommended", "stylelint-config-css-modules"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-css-modules"
+  ],
   "plugins": [
     "stylelint-css-modules-no-global-scoped-selector",
     "stylelint-declaration-block-no-ignored-properties",
@@ -9,10 +12,14 @@
   ],
   "rules": {
     "color-function-notation": "modern",
+    "color-hex-length": "short",
+    "color-no-invalid-hex": true,
     "css-modules/no-global-scoped-selector": [
       true,
       {
-        "fileExtensions": [".module.css"]
+        "fileExtensions": [
+          ".module.css"
+        ]
       }
     ],
     "declaration-empty-line-before": "never",
@@ -36,7 +43,10 @@
     "rule-empty-line-before": [
       "always",
       {
-        "except": ["after-single-line-comment", "first-nested"]
+        "except": [
+          "after-single-line-comment",
+          "first-nested"
+        ]
       }
     ]
   }
