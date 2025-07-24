@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import path, { join } from "node:path";
 import parseMD from "parse-md";
 
+export const dynamic = "force-dynamic";
+
 type GetArticleParams = {
   locale: string;
   slug: string;
