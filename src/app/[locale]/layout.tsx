@@ -61,7 +61,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning={true}>
       <body className={jkg.className}>
         <NextIntlClientProvider>
-          <ThemeProvider enableSystem={false}>
+          <ThemeProvider defaultTheme="dark" enableSystem={false}>
             <Layout>{children}</Layout>
             <ToastContainer
               autoClose={5000}
