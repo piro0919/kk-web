@@ -1,3 +1,4 @@
+import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
@@ -48,10 +49,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const { content, title } = await getArticle({ slug });
   const locale = await getLocale();
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://kkweb.io";
+  const baseUrl = getBaseUrl();
 
   return getMetadata({
     description: content.slice(0, 300),

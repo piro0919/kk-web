@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import getBaseUrl from "@/libs/getBaseUrl";
 import { promises as fs } from "fs";
 import { ImageResponse } from "next/og";
 import { type NextRequest } from "next/server";
@@ -54,10 +55,7 @@ export async function GET(
   _: NextRequest,
   { params }: Context,
 ): Promise<ImageResponse> {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://kkweb.io";
+  const baseUrl = getBaseUrl();
   const { locale, slug } = await params;
   const { title: text } = await getArticle({ locale, slug });
   const jkg = await readFile(join(process.cwd(), "src/app/[locale]/jkg.ttf"));

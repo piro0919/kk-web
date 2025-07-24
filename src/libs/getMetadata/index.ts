@@ -1,4 +1,5 @@
 import { type Metadata } from "next";
+import getBaseUrl from "../getBaseUrl";
 
 export type GetMetadataParams = {
   description?: string;
@@ -17,10 +18,7 @@ export default function getMetadata({
   subTitle = "",
   type = "article",
 }: GetMetadataParams): Metadata {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://kkweb.io";
+  const baseUrl = getBaseUrl();
   const imageUrl = imageUrlParam ?? `${baseUrl}/${locale}/opengraph-image`;
 
   return {

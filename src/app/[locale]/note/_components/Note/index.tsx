@@ -1,5 +1,6 @@
 "use client";
 import { format } from "date-fns";
+import { ExternalLink } from "feather-icons-react";
 import { useMemo } from "react";
 import styles from "./style.module.css";
 
@@ -26,7 +27,10 @@ export default function Note({ articles }: NoteProps): React.JSX.Element {
           target="_blank"
         >
           <div className={styles.vStack}>
-            <h2 className={styles.heading}>{title}</h2>
+            <div className={styles.hStack}>
+              <h2 className={styles.heading}>{title}</h2>
+              <ExternalLink size={18} />
+            </div>
             <div className={styles.textWrapper}>
               <div className={styles.text}>{text}</div>
             </div>
