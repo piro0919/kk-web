@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npm outdated)",
       "Bash(npm run type-check:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(for pkg in \"use-show-window-size\" \"ress\")",
+      "Bash(do echo \"=== $pkg ===\")",
+      "Bash(done)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

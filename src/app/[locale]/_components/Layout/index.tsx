@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { type ReactNode, useEffect } from "react";
 import useMeasure from "react-use-measure";
 import { useScrollYPosition } from "react-use-scroll-position";
-// import { useWindowSize } from "usehooks-ts";
+import useShowWindowSize from "use-show-window-size";
 import Footer from "../Footer";
 import Header from "../Header";
 import MobileMenu from "../MobileMenu";
@@ -24,6 +24,10 @@ export default function Layout({ children }: LayoutProps): React.JSX.Element {
   useEffect(() => {
     zodSetup(locale as "en" | "ja");
   }, [locale]);
+
+  useShowWindowSize({
+    disable: process.env.NODE_ENV === "production",
+  });
 
   return (
     <ProgressProvider

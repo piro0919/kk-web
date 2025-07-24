@@ -1,4 +1,5 @@
 // eslint-disable-next-line filenames/match-exported, filenames/match-regex
+import getBaseUrl from "@/libs/getBaseUrl";
 import { ImageResponse } from "next/og";
 
 async function loadGoogleFont(
@@ -32,10 +33,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image(): Promise<ImageResponse> {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://kkweb.io";
+  const baseUrl = getBaseUrl();
   const text = "kk-web";
 
   return new ImageResponse(
