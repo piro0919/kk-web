@@ -17,6 +17,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { type ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import Analytics from "./_components/Analytics";
@@ -77,6 +78,13 @@ export default async function RootLayout({
             <SpeedInsights />
           </ThemeProvider>
         </NextIntlClientProvider>
+        {process.env.NODE_ENV === "production" ? (
+          <Script
+            data-website-id="9dc0884b-8e4f-4127-a2fb-48c432a79fe3"
+            defer={true}
+            src="/stats/script.js"
+          />
+        ) : null}
       </body>
       <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />
     </html>

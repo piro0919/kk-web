@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "destination": "https://cloud.umami.is/:match*",
+      "source": "/stats/:match*"
+    }
+  ]
+}
