@@ -47,12 +47,6 @@
   }
 }
 
-.hStack {
-  align-items: center;
-  display: flex;
-  gap: 6px;
-}
-
 .heading {
   font-size: 2.4rem;
   font-weight: bold;
