@@ -11,6 +11,7 @@
       "playerText": "Mac 向けの Media Player アプリです。"
     },
     "Npm": {
+      "nextSubrouterText": "Next.js でモノレポを使用せず複数のサブドメインに対応するためのパッケージです。",
       "nextUnusedText": "Next.js を使用したプロジェクト内で使用されていないコンポーネントファイルなどを洗い出すスクリプトです。",
       "reactComicViewerText": "画像などを見開きで閲覧できるコンポーネントです。",
       "reactPageBorderText": "画面全体にフチをつけるコンポーネントです。",

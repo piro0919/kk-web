@@ -5,6 +5,11 @@ export default function NpmPackage(): React.JSX.Element {
   const t = useTranslations("Portfolio.Npm");
   const items = [
     {
+      href: "https://www.npmjs.com/package/next-subrouter",
+      name: "next-subrouter",
+      text: t("nextSubrouterText"),
+    },
+    {
       href: "https://www.npmjs.com/package/react-page-border",
       name: "react-page-border",
       text: t("reactPageBorderText"),

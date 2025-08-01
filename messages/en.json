@@ -11,6 +11,7 @@
       "playerText": "A media player app for Mac."
     },
     "Npm": {
+      "nextSubrouterText": "A package for handling multiple subdomains in Next.js without using a monorepo.",
       "nextUnusedText": "A script to find unused component files in a Next.js project.",
       "reactComicViewerText": "A component that displays images in a spread view like a comic book.",
       "reactPageBorderText": "A component that adds a border around the entire screen.",
