@@ -5,8 +5,6 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import Note from "./_components/Note";
 
-export const dynamic = "force-static";
-
 export async function generateMetadata({
   params,
 }: {
