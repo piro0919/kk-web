@@ -2,7 +2,6 @@ import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import parseMD from "parse-md";
 import path from "path";
@@ -10,6 +9,7 @@ import Article from "./_components/Article";
 import SWRProvider from "./swr-provider";
 
 type GetArticleParams = {
+  locale: string;
   slug: string;
 };
 
@@ -19,8 +19,10 @@ type GetArticleData = {
   title: string;
 };
 
-async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
-  const locale = await getLocale();
+async function getArticle({
+  locale,
+  slug,
+}: GetArticleParams): Promise<GetArticleData> {
   const markdownPath = path.join(
     process.cwd(),
     "/src/markdown-pages",
@@ -39,16 +41,13 @@ async function getArticle({ slug }: GetArticleParams): Promise<GetArticleData> {
   return { content, date, title };
 }
 
-type PageProps = {
-  params: Promise<{ locale: string; slug: string }>;
-};
-
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const { content, title } = await getArticle({ slug });
-  const locale = await getLocale();
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const { content, title } = await getArticle({ locale, slug });
   const baseUrl = getBaseUrl();
 
   return getMetadata({
@@ -65,11 +64,13 @@ export const revalidate = 86400;
 
 export default async function Page({
   params,
-}: PageProps): Promise<React.JSX.Element> {
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<React.JSX.Element> {
   const { locale, slug } = await params;
 
   try {
-    const article = await getArticle({ slug });
+    const article = await getArticle({ locale, slug });
 
     return (
       <SWRProvider fallback={{ [`/articles/${slug}`]: article }}>
