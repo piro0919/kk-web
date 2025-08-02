@@ -5,9 +5,6 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import Note from "./_components/Note";
 
-// TODO: 一時的に
-export const dynamic = "force-static";
-
 export async function generateMetadata({
   params,
 }: {
@@ -21,9 +18,6 @@ export async function generateMetadata({
     subTitle: "NOTE",
   });
 }
-
-// 24 時間ごと
-export const revalidate = 86400;
 
 type Article = {
   date: string;
