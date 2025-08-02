@@ -1,4 +1,3 @@
-import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
 import { promises as fs } from "fs";
@@ -9,12 +8,6 @@ import parseMD from "parse-md";
 import path from "path";
 import Blog from "./_components/Blog";
 import SWRProvider from "./swr-provider";
-
-export async function generateStaticParams(): Promise<{ locale: string }[]> {
-  return routing.locales.map((locale) => ({
-    locale,
-  }));
-}
 
 export async function generateMetadata({
   params,
