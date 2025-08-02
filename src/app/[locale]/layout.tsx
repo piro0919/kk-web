@@ -12,7 +12,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
@@ -31,8 +30,12 @@ const jkg = localFont({
   src: "./jkg.woff2",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
   return getMetadata({
     locale: locale as "en" | "ja",
