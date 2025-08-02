@@ -6,6 +6,9 @@ import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Note from "./_components/Note";
 
+// TODO: 一時的にテスト
+export const dynamic = "force-static";
+
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
 
