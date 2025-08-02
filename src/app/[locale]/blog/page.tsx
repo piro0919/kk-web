@@ -9,8 +9,6 @@ import path from "path";
 import Blog from "./_components/Blog";
 import SWRProvider from "./swr-provider";
 
-export const dynamic = "force-static";
-
 export async function generateMetadata({
   params,
 }: {
