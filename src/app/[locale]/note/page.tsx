@@ -2,15 +2,17 @@ import getMetadata from "@/libs/getMetadata";
 import { XMLParser } from "fast-xml-parser";
 import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Note from "./_components/Note";
 
-// TODO: 一時的にテスト
 export const dynamic = "force-static";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
   return getMetadata({
     locale: locale as "en" | "ja",

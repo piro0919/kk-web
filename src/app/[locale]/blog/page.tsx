@@ -9,8 +9,14 @@ import path from "path";
 import Blog from "./_components/Blog";
 import SWRProvider from "./swr-provider";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export const dynamic = "force-static";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
   return getMetadata({
     locale: locale as "en" | "ja",
