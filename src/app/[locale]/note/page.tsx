@@ -1,4 +1,3 @@
-import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import { XMLParser } from "fast-xml-parser";
 import removeMarkdown from "markdown-to-text";
@@ -6,11 +5,8 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import Note from "./_components/Note";
 
-export async function generateStaticParams(): Promise<{ locale: string }[]> {
-  return routing.locales.map((locale) => ({
-    locale,
-  }));
-}
+// TODO: 一時的に
+export const dynamic = "force-static";
 
 export async function generateMetadata({
   params,
