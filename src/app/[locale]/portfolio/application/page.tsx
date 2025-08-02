@@ -1,10 +1,13 @@
 import getMetadata from "@/libs/getMetadata";
 import { type Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import Application from "./_components/Application";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
   return getMetadata({
     locale: locale as "en" | "ja",

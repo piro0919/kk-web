@@ -3,7 +3,6 @@ import pageSize from "@/libs/pageSize";
 import { promises as fs } from "fs";
 import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import parseMD from "parse-md";
 import path from "path";
 import Blog from "./_components/Blog";
@@ -33,10 +32,15 @@ type Article = {
   title: string;
 };
 
+type GetArticlesParams = {
+  locale: string;
+};
+
 type GetArticlesData = Article[];
 
-async function getArticles(): Promise<GetArticlesData> {
-  const locale = await getLocale();
+async function getArticles({
+  locale,
+}: GetArticlesParams): Promise<GetArticlesData> {
   const markdownPagesPath = path.join(
     process.cwd(),
     "/src/markdown-pages",
@@ -71,8 +75,13 @@ async function getArticles(): Promise<GetArticlesData> {
   return articles;
 }
 
-export default async function Page(): Promise<React.JSX.Element> {
-  const articles = await getArticles();
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<React.JSX.Element> {
+  const { locale } = await params;
+  const articles = await getArticles({ locale });
 
   return (
     <SWRProvider fallbackData={articles}>
