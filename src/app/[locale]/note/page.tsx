@@ -4,7 +4,9 @@ import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
 import Note from "./_components/Note";
 
-export const revalidate = 86400;
+// TODO: デバッグ用
+// export const revalidate = 86400;
+export const revalidate = 10;
 
 export async function generateMetadata({
   params,
@@ -39,7 +41,9 @@ type Item = {
 
 async function getArticles(): Promise<GetArticlesData> {
   const response = await fetch("https://note.com/kkweb/rss", {
-    next: { revalidate: 86400 },
+    // TODO: デバッグ用
+    // next: { revalidate: 86400 },
+    next: { revalidate: 10 },
   });
   const text = await response.text();
   const parser = new XMLParser();
@@ -56,6 +60,10 @@ async function getArticles(): Promise<GetArticlesData> {
       title,
     }),
   );
+
+  // TODO: デバッグ用
+  // eslint-disable-next-line no-console
+  console.log(articles.map((article) => article.title).join(", "));
 
   return articles;
 }
