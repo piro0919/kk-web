@@ -1,4 +1,4 @@
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import links from "@/libs/links";
 import NoSSR from "@mpth/react-no-ssr";
 import { useLocale } from "next-intl";
@@ -35,7 +35,6 @@ export default function Footer(): React.JSX.Element {
   );
   const locale = useLocale();
   const pathname = usePathname();
-  const router = useRouter();
   const { setTheme, theme } = useTheme();
 
   return (
@@ -64,11 +63,16 @@ export default function Footer(): React.JSX.Element {
           />
         </NoSSR>
         <Switch
-          onChange={(checked) =>
-            router.replace(pathname, {
-              locale: checked ? "en" : "ja",
-            })
-          }
+          onChange={(checked) => {
+            const newLocale = checked ? "en" : "ja";
+
+            if (locale === newLocale) return;
+
+            // 強制的なページ遷移
+            const newUrl = `/${newLocale}${pathname}`;
+
+            window.location.href = newUrl;
+          }}
           checked={locale === "en"}
           checkedIcon={<div className={styles.switchIconContainer}>EN</div>}
           height={24}
