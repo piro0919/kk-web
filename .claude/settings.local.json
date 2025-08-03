@@ -7,7 +7,8 @@
       "Bash(for pkg in \"use-show-window-size\" \"ress\")",
       "Bash(do echo \"=== $pkg ===\")",
       "Bash(done)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "WebFetch(domain:nextjs.org)"
     ],
     "deny": []
   }
