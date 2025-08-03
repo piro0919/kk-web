@@ -2,7 +2,6 @@ import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import parseMD from "parse-md";
 import path from "path";
@@ -146,9 +145,6 @@ export default function Page({
   params: Promise<{ locale: string; slug: string }>;
 }): React.JSX.Element {
   const { locale, slug } = use(params);
-
-  setRequestLocale(locale);
-
   const article = use(getArticle({ locale, slug }));
 
   return (

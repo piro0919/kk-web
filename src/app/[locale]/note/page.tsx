@@ -2,8 +2,6 @@ import getMetadata from "@/libs/getMetadata";
 import { XMLParser } from "fast-xml-parser";
 import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import { use } from "react";
 import Note from "./_components/Note";
 
@@ -12,6 +10,9 @@ export function generateStaticParams(): { locale: string }[] {
 }
 
 export const revalidate = 86400;
+
+// アクセス時に動的生成を不許可
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
@@ -67,19 +68,7 @@ async function getArticles(): Promise<GetArticlesData> {
   return articles;
 }
 
-export default function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): React.JSX.Element {
-  const { locale } = use(params);
-
-  if (locale !== "ja") {
-    notFound();
-  }
-
-  setRequestLocale(locale);
-
+export default function Page(): React.JSX.Element {
   const articles = use(getArticles());
 
   return <Note articles={articles} />;
