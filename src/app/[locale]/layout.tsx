@@ -82,8 +82,8 @@ export default async function RootLayout({
             src="/stats/script.js"
           />
         ) : null}
+        <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />
       </body>
-      <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />
     </html>
   );
 }
