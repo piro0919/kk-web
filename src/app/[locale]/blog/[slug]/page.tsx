@@ -2,12 +2,13 @@ import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import parseMD from "parse-md";
 import path from "path";
+import { use } from "react";
 import Article from "./_components/Article";
 import SWRProvider from "./swr-provider";
-
-export const runtime = "nodejs";
 
 type GetArticleParams = {
   locale: string;
@@ -68,18 +69,22 @@ async function getArticle({
   locale,
   slug,
 }: GetArticleParams): Promise<GetArticleData> {
-  const markdownPath = path.join(
-    process.cwd(),
-    "/src/markdown-pages",
-    locale,
-    `${slug}.md`,
-  );
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
-  const fileContents = await fs.readFile(markdownPath, "utf8");
-  const { content, metadata } = parseMD(fileContents);
-  const { date, title } = metadata as ArticleMetadata;
+  try {
+    const markdownPath = path.join(
+      process.cwd(),
+      "/src/markdown-pages",
+      locale,
+      `${slug}.md`,
+    );
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    const fileContents = await fs.readFile(markdownPath, "utf8");
+    const { content, metadata } = parseMD(fileContents);
+    const { date, title } = metadata as ArticleMetadata;
 
-  return { content, date, title };
+    return { content, date, title };
+  } catch {
+    notFound();
+  }
 }
 
 // 24時間ごとにISR
@@ -135,13 +140,16 @@ export async function generateMetadata({
   }
 }
 
-export default async function Page({
+export default function Page({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-}): Promise<React.JSX.Element> {
-  const { locale, slug } = await params;
-  const article = await getArticle({ locale, slug });
+}): React.JSX.Element {
+  const { locale, slug } = use(params);
+
+  setRequestLocale(locale);
+
+  const article = use(getArticle({ locale, slug }));
 
   return (
     <SWRProvider fallback={{ [`/articles/${slug}`]: article }}>

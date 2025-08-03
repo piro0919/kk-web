@@ -4,16 +4,19 @@ import "@szhsin/react-menu/dist/theme-dark.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import env from "@/env";
 import "github-markdown-css";
+import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
-import zodSetup from "@/libs/zodSetup";
 import "react-toastify/dist/ReactToastify.css";
+import zodSetup from "@/libs/zodSetup";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
+import { notFound } from "next/navigation";
 import Script from "next/script";
 import { type ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
@@ -21,6 +24,10 @@ import Analytics from "./_components/Analytics";
 import Hotjar from "./_components/Hotjar";
 import Layout from "./_components/Layout";
 import LogRocket from "./_components/LogRocket";
+
+export function generateStaticParams(): { locale: string }[] {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 const jkg = localFont({
   display: "swap",
@@ -52,6 +59,12 @@ export default async function RootLayout({
 }: RootLayoutProps): Promise<React.JSX.Element> {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
 
   zodSetup(locale as "en" | "ja");
 
