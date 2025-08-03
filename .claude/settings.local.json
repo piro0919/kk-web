@@ -8,7 +8,8 @@
       "Bash(do echo \"=== $pkg ===\")",
       "Bash(done)",
       "Bash(grep:*)",
-      "WebFetch(domain:nextjs.org)"
+      "WebFetch(domain:nextjs.org)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

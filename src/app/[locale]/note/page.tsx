@@ -4,11 +4,7 @@ import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
 import Note from "./_components/Note";
 
-export async function generateStaticParams(): Promise<{ locale: string }[]> {
-  return [{ locale: "ja" }];
-}
-
-export const dynamicParams = false;
+export const revalidate = 86400;
 
 export async function generateMetadata({
   params,
@@ -64,7 +60,17 @@ async function getArticles(): Promise<GetArticlesData> {
   return articles;
 }
 
-export default async function Page(): Promise<React.JSX.Element> {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<React.JSX.Element> {
+  const { locale } = await params;
+
+  if (locale !== "ja") {
+    throw new Error("Not Found");
+  }
+
   const articles = await getArticles();
 
   return <Note articles={articles} />;
