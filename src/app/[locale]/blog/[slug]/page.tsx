@@ -7,6 +7,8 @@ import path from "path";
 import Article from "./_components/Article";
 import SWRProvider from "./swr-provider";
 
+export const runtime = "nodejs";
+
 type GetArticleParams = {
   locale: string;
   slug: string;
