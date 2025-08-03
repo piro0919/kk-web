@@ -4,7 +4,6 @@ import "@szhsin/react-menu/dist/theme-dark.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import env from "@/env";
 import "github-markdown-css";
-import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import zodSetup from "@/libs/zodSetup";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,12 +21,6 @@ import Analytics from "./_components/Analytics";
 import Hotjar from "./_components/Hotjar";
 import Layout from "./_components/Layout";
 import LogRocket from "./_components/LogRocket";
-
-export async function generateStaticParams(): Promise<{ locale: string }[]> {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export const dynamicParams = false;
 
 const jkg = localFont({
   display: "swap",

@@ -18,6 +18,50 @@ type GetArticleData = {
   title: string;
 };
 
+type ArticleMetadata = {
+  date: string;
+  slug: string;
+  title: string;
+};
+
+async function getLatestArticles(
+  locale: string,
+  limit: number = 10,
+): Promise<string[]> {
+  const localeDir = path.join(process.cwd(), "/src/markdown-pages", locale);
+
+  try {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    const files = await fs.readdir(localeDir);
+    const articles: { date: Date; slug: string }[] = [];
+
+    for (const file of files) {
+      if (!file.endsWith(".md")) continue;
+
+      const slug = file.replace(".md", "");
+      const filePath = path.join(localeDir, file);
+
+      try {
+        // eslint-disable-next-line security/detect-non-literal-fs-filename
+        const fileContents = await fs.readFile(filePath, "utf8");
+        const { metadata } = parseMD(fileContents);
+        const { date } = metadata as ArticleMetadata;
+
+        articles.push({ date: new Date(date), slug });
+      } catch {
+        continue;
+      }
+    }
+
+    return articles
+      .sort((a, b) => b.date.getTime() - a.date.getTime())
+      .slice(0, limit)
+      .map((article) => article.slug);
+  } catch {
+    return [];
+  }
+}
+
 async function getArticle({
   locale,
   slug,
@@ -28,53 +72,35 @@ async function getArticle({
     locale,
     `${slug}.md`,
   );
-  // generateStaticParamsで存在が保証されているファイルのみアクセスされる
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   const fileContents = await fs.readFile(markdownPath, "utf8");
   const { content, metadata } = parseMD(fileContents);
-  const { date, title } = metadata as {
-    date: string;
-    slug: string;
-    title: string;
-  };
+  const { date, title } = metadata as ArticleMetadata;
 
   return { content, date, title };
 }
 
-// 事前に存在するarticleのみを静的生成対象として定義
+// 24時間ごとにISR
+export const revalidate = 86400;
+
+// 最新10件のみを事前生成
 export async function generateStaticParams(): Promise<
   { locale: string; slug: string }[]
 > {
-  const articlesDir = path.join(process.cwd(), "/src/markdown-pages");
   const locales = ["en", "ja"];
   const params: { locale: string; slug: string }[] = [];
 
   for (const locale of locales) {
-    const localeDir = path.join(articlesDir, locale);
+    const latestSlugs = await getLatestArticles(locale, 10);
 
-    try {
-      // eslint-disable-next-line security/detect-non-literal-fs-filename
-      const files = await fs.readdir(localeDir);
-      const slugs = files
-        .filter((file) => file.endsWith(".md"))
-        .map((file) => file.replace(".md", ""));
-
-      params.push(...slugs.map((slug) => ({ locale, slug })));
-    } catch {
-      // ディレクトリが存在しない場合はスキップ
-      // eslint-disable-next-line no-console
-      console.warn(`Articles directory not found for locale: ${locale}`);
-    }
+    params.push(...latestSlugs.map((slug) => ({ locale, slug })));
   }
 
   return params;
 }
 
-// 事前生成されていないパス（存在しないarticle）は404
-export const dynamicParams = false;
-
-// 24時間ごとにISR
-export const revalidate = 86400;
+// アクセス時に動的生成を許可
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
@@ -82,16 +108,29 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const { content, title } = await getArticle({ locale, slug });
-  const baseUrl = getBaseUrl();
 
-  return getMetadata({
-    description: content.slice(0, 300),
-    imageUrl: `${baseUrl}/${locale}/articles/${slug}/image`,
-    locale: locale as "en" | "ja",
-    path: `/blog/${slug}`,
-    subTitle: title,
-  });
+  try {
+    const { content, title } = await getArticle({ locale, slug });
+    const baseUrl = getBaseUrl();
+
+    return getMetadata({
+      description: content.slice(0, 300),
+      imageUrl: `${baseUrl}/${locale}/articles/${slug}/image`,
+      locale: locale as "en" | "ja",
+      path: `/blog/${slug}`,
+      subTitle: title,
+    });
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      return getMetadata({
+        locale: locale as "en" | "ja",
+        path: `/blog/${slug}`,
+        subTitle: "Article Not Found",
+      });
+    }
+
+    throw error;
+  }
 }
 
 export default async function Page({
@@ -100,7 +139,6 @@ export default async function Page({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<React.JSX.Element> {
   const { locale, slug } = await params;
-  // 存在しないファイルにはそもそもアクセスされない
   const article = await getArticle({ locale, slug });
 
   return (
