@@ -2,7 +2,14 @@ import getMetadata from "@/libs/getMetadata";
 import { XMLParser } from "fast-xml-parser";
 import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { use } from "react";
 import Note from "./_components/Note";
+
+export function generateStaticParams(): { locale: string }[] {
+  return [{ locale: "ja" }];
+}
 
 export const revalidate = 86400;
 
@@ -60,8 +67,20 @@ async function getArticles(): Promise<GetArticlesData> {
   return articles;
 }
 
-export default async function Page(): Promise<React.JSX.Element> {
-  const articles = await getArticles();
+export default function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): React.JSX.Element {
+  const { locale } = use(params);
+
+  if (locale !== "ja") {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const articles = use(getArticles());
 
   return <Note articles={articles} />;
 }

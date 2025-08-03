@@ -1,8 +1,6 @@
 "use client";
 import { format } from "date-fns";
-import { useLocale } from "next-intl";
-import { notFound } from "next/navigation";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import styles from "./style.module.css";
 
 type Article = {
@@ -38,15 +36,6 @@ export default function Note({ articles }: NoteProps): React.JSX.Element {
       )),
     [articles],
   );
-  const locale = useLocale();
-
-  useEffect(() => {
-    if (locale === "ja") {
-      return;
-    }
-
-    notFound();
-  }, [locale]);
 
   return (
     <>

@@ -1,12 +1,19 @@
+import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
 import { promises as fs } from "fs";
 import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import parseMD from "parse-md";
 import path from "path";
+import { use } from "react";
 import Blog from "./_components/Blog";
 import SWRProvider from "./swr-provider";
+
+export function generateStaticParams(): { locale: string }[] {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -75,13 +82,16 @@ async function getArticles({
   return articles;
 }
 
-export default async function Page({
+export default function Page({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}): Promise<React.JSX.Element> {
-  const { locale } = await params;
-  const articles = await getArticles({ locale });
+}): React.JSX.Element {
+  const { locale } = use(params);
+
+  setRequestLocale(locale);
+
+  const articles = use(getArticles({ locale }));
 
   return (
     <SWRProvider fallbackData={articles}>
