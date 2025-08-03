@@ -11,11 +11,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
-import { notFound } from "next/navigation";
 import Script from "next/script";
 import { type ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
@@ -23,6 +22,12 @@ import Analytics from "./_components/Analytics";
 import Hotjar from "./_components/Hotjar";
 import Layout from "./_components/Layout";
 import LogRocket from "./_components/LogRocket";
+
+export async function generateStaticParams(): Promise<{ locale: string }[]> {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export const dynamicParams = false;
 
 const jkg = localFont({
   display: "swap",
@@ -54,10 +59,6 @@ export default async function RootLayout({
 }: RootLayoutProps): Promise<React.JSX.Element> {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
 
   zodSetup(locale as "en" | "ja");
 
