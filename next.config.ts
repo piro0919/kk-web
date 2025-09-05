@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["app.logrocket.com"],
   experimental: {
     typedEnv: true,
+    useLightningcss: true,
     // typedRoutes: true,
   },
   images: {
