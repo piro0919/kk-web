@@ -5,6 +5,7 @@ coverage
 
 # Static
 .husky
+.ico
 .lefthook
 *.ttf
 *.woff2
