@@ -9,7 +9,8 @@
       "Bash(done)",
       "Bash(grep:*)",
       "WebFetch(domain:nextjs.org)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npm install:*)"
     ],
     "deny": []
   }

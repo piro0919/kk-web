@@ -2,10 +2,15 @@
 import "@szhsin/react-menu/dist/core.css";
 import "@szhsin/react-menu/dist/theme-dark.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import StructuredData from "@/components/StructuredData";
 import env from "@/env";
 import "github-markdown-css";
 import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
+import {
+  createPersonStructuredData,
+  createWebSiteStructuredData,
+} from "@/libs/structuredData";
 import "react-toastify/dist/ReactToastify.css";
 import zodSetup from "@/libs/zodSetup";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -68,9 +73,16 @@ export default async function RootLayout({
 
   zodSetup(locale as "en" | "ja");
 
+  const websiteStructuredData = await createWebSiteStructuredData({
+    locale: locale as "en" | "ja",
+  });
+  const personStructuredData = createPersonStructuredData();
+
   return (
     <html lang={locale} suppressHydrationWarning={true}>
       <body className={jkg.className}>
+        <StructuredData data={websiteStructuredData} />
+        <StructuredData data={personStructuredData} />
         <NextIntlClientProvider>
           <ThemeProvider defaultTheme="dark" enableSystem={false}>
             <Layout>{children}</Layout>
