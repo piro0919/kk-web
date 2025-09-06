@@ -46,7 +46,9 @@ export default function App(): React.JSX.Element {
             <Image
               alt="春日部つむぎ"
               fill={true}
+              priority={true}
               quality={100}
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
               src={`/tsumugi_${num.toString().padStart(2, "0")}.png`}
             />
           </div>
@@ -54,8 +56,12 @@ export default function App(): React.JSX.Element {
           <div className={styles.metan}>
             <Image
               alt="四国めたん"
+              blurDataURL="data:image/jpeg;base64,/9j//gAQTGF2YzYxLjE5LjEwMQD/2wBDAAgEBAQEBAUFBQUFBQYGBgYGBgYGBgYGBgYHBwcICAgHBwcGBgcHCAgICAkJCQgICAgJCQoKCgwMCwsODg4RERT/xACIAAACAgMBAAAAAAAAAAAAAAAIBgMBAgAEBwEAAwEBAQAAAAAAAAAAAAAAAAMEAgEFEAACAgIBAgQEBwEBAAAAAAACAQMEBREGEgAjIRMHMTYiCLF1c3LBs0E1FBEAAQMDAgUEAAcBAAAAAAAAARECAwQhABIxM1EiE3FBYbIFsaKRFeFyMmL/wAARCAASABQDARIAAhIAAxIA/9oADAMBAAIRAxEAPwDL2M4/RxXDcaWQw2DmvanyEFv/AM8Mt1hM/DE5SBk3GJtGxeo0KHe0++bifuDh5qOCirhFUgsDLjw3ZiBjHTRRQdIHIMzjYjF1S9HpCchoj6l3TFSjtNc5Orb/AJ5L6L7YxssbooRcISA0IhAUFVuVsbbc8ti+sqQKUDtrUPHUW6jExFJK9O35rZ6FNXwuELWpGyQGFS9oIDQQxASoG3UiKTfHEeB4bGR5C5PxDFQVcuXp5CYIoSU8cq+MkXWbBkZkWxBaJrfn3NmOYzSRV8RNgrdMblUJAtDfqy14JJYozGMSgHrmlmERCNihHq6us239SI30M8hijXWVAVhA6d9J1Jfcc8RS0jmVLHvlYGNIdtfpOxtb3TIv22j7skcFU6V+lwZG9rUe4Lu8AIuzSNvVcKUwNqmlzxH2zK+RxJCBhsACf9Fbbjlgy85q42jy/NVcZSmxtOC5JFBUnkcskIhpaZkZsk3sgbJvpa2+2z3a4ZyrOcvPJ08DkQjtVKpNzhBAchRpwuRC5m2j9PfU3ve09a13qRmh7moQhS/8ZureySYuYukpkMjHRyOY5pYWkgtNyPbHfazR1VX3YjqBYwOKIrgEP62OKvDG5MwAG2QKCbQl5itsd6T8lv8A3uuE/wDbX6Mn4j3mLiN84RcRvnFQXkA84QcQYVWZ8HivF44/DAfWAQD6RQRiIxiktJCApIF8BS0u9zvyxxj99r+O+1ADZ5Et1Dbwc7U8eT+4/A5llw5b2PyGEezvB+QzwL7g7dqvzepFDPNFGGHq9McchgA7sWifSItJbJtvS822+4/uJ+e635PU/vs9rOBwwz//2Q=="
               fill={true}
+              placeholder="blur"
+              priority={true}
               quality={100}
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
               src={`/metan_${num.toString().padStart(2, "0")}.png`}
             />
           </div>

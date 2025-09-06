@@ -18,7 +18,7 @@
 
 .link {
   align-items: center;
-  color: inherit;
+  color: var(--color-foreground);
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -29,7 +29,7 @@
 }
 
 .active {
-  color: var(--color-accent);
+  color: var(--color-accent-accessible);
 }
 
 .label {

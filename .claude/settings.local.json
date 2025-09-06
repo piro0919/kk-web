@@ -10,7 +10,14 @@
       "Bash(grep:*)",
       "WebFetch(domain:nextjs.org)",
       "Bash(find:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(for i in {00..13})",
+      "Bash(do:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(python3:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }

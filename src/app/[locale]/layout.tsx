@@ -3,7 +3,6 @@ import "@szhsin/react-menu/dist/core.css";
 import "@szhsin/react-menu/dist/theme-dark.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import StructuredData from "@/components/StructuredData";
-import env from "@/env";
 import "github-markdown-css";
 import { routing } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
@@ -13,7 +12,6 @@ import {
 } from "@/libs/structuredData";
 import "react-toastify/dist/ReactToastify.css";
 import zodSetup from "@/libs/zodSetup";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
 import "./globals.css";
@@ -26,6 +24,7 @@ import Script from "next/script";
 import { type ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import Analytics from "./_components/Analytics";
+import GoogleAnalytics from "./_components/GoogleAnalytics";
 import Hotjar from "./_components/Hotjar";
 import Layout from "./_components/Layout";
 import LogRocket from "./_components/LogRocket";
@@ -80,6 +79,42 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
+      <head>
+        {/* Preconnect to external domains for performance */}
+        <link href="https://www.googletagmanager.com" rel="preconnect" />
+        <link href="https://www.google-analytics.com" rel="preconnect" />
+        <link href="https://static.hotjar.com" rel="preconnect" />
+        <link href="https://script.hotjar.com" rel="preconnect" />
+        <link href="https://cdn.lr-in.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link
+          crossOrigin=""
+          href="https://fonts.gstatic.com"
+          rel="preconnect"
+        />
+        {/* Preload critical resources */}
+        <link
+          as="font"
+          crossOrigin=""
+          href="/jkg.woff2"
+          rel="preload"
+          type="font/woff2"
+        />
+        <link
+          as="image"
+          href="/metan_00.avif"
+          rel="preload"
+          type="image/avif"
+        />
+        <link
+          as="image"
+          href="/metan_00.webp"
+          rel="preload"
+          type="image/webp"
+        />
+        {/* DNS prefetch for other domains */}
+        <link href="https://vitals.vercel-insights.com" rel="dns-prefetch" />
+      </head>
       <body className={jkg.className}>
         <StructuredData data={websiteStructuredData} />
         <StructuredData data={personStructuredData} />
@@ -97,6 +132,7 @@ export default async function RootLayout({
             <Analytics />
             <Hotjar />
             <LogRocket />
+            <GoogleAnalytics />
             <SpeedInsights />
           </ThemeProvider>
         </NextIntlClientProvider>
@@ -107,7 +143,6 @@ export default async function RootLayout({
             src="/stats/script.js"
           />
         ) : null}
-        <GoogleAnalytics gaId={env.GA_MEASUREMENT_ID} />
       </body>
     </html>
   );
