@@ -5,6 +5,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["app.logrocket.com"],
   experimental: {
+    reactCompiler: true,
     typedEnv: true,
     useLightningcss: true,
     // typedRoutes: true,
