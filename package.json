@@ -103,7 +103,7 @@
     "stylelint-order": "7.0.0",
     "typescript": "5.8.3"
   },
-  "name": "kk-web5",
+  "name": "kk-web",
   "overrides": {
     "react-loader-spinner": {
       "react": "^19.0.0",
