@@ -46,6 +46,7 @@
     "rehype-raw": "7.0.0",
     "remark-gfm": "4.0.1",
     "ress": "5.0.2",
+    "schema-dts": "1.1.5",
     "seedrandom": "3.0.5",
     "swr": "2.3.6",
     "use-show-window-size": "0.0.1",

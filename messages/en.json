@@ -5,6 +5,9 @@
     "submitSuccess": "Message sent successfully",
     "submitting": "Sending..."
   },
+  "StructuredData": {
+    "siteDescription": "Frontend Developer piro's website"
+  },
   "Portfolio": {
     "Applications": {
       "macopyText": "An alternative Clipy app for Mac.",

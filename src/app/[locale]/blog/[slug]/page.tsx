@@ -1,5 +1,7 @@
+import StructuredData from "@/components/StructuredData";
 import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
+import { createArticleStructuredData } from "@/libs/structuredData";
 import { promises as fs } from "fs";
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -146,10 +148,23 @@ export default function Page({
 }): React.JSX.Element {
   const { locale, slug } = use(params);
   const article = use(getArticle({ locale, slug }));
+  const structuredData = createArticleStructuredData({
+    datePublished: article.date,
+    description: article.content
+      .slice(0, 300)
+      .replace(/[#*[\]()]/g, "")
+      .trim(),
+    locale: locale as "en" | "ja",
+    path: `/blog/${slug}`,
+    title: article.title,
+  });
 
   return (
-    <SWRProvider fallback={{ [`/articles/${slug}`]: article }}>
-      <Article slug={slug} />
-    </SWRProvider>
+    <>
+      <StructuredData data={structuredData} />
+      <SWRProvider fallback={{ [`/articles/${slug}`]: article }}>
+        <Article slug={slug} />
+      </SWRProvider>
+    </>
   );
 }

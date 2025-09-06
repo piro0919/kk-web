@@ -5,6 +5,9 @@
     "submitSuccess": "メッセージを送信しました",
     "submitting": "送信しています…"
   },
+  "StructuredData": {
+    "siteDescription": "フロントエンドデベロッパー piro のウェブサイト"
+  },
   "Portfolio": {
     "Applications": {
       "macopyText": "Mac 向けのオルタナティブ Clipy アプリです。",
