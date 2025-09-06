@@ -5,12 +5,16 @@
   --color-foreground: #333;
 
   --color-accent: #234794;
+  --color-accent-accessible: #234794;
   --color-danger: #b33e5c;
 }
 
 [data-theme="dark"] {
   --color-background: #202124;
   --color-foreground: #bdc1c6;
+
+  /* Accessible accent color with 4.5:1 contrast on dark background */
+  --color-accent-accessible: #69f;
 }
 
 html {

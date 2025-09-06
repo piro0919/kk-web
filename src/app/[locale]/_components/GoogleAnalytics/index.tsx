@@ -2,7 +2,7 @@
 import env from "@/env";
 import { Fragment, useEffect } from "react";
 
-export default function LogRocket(): React.JSX.Element {
+export default function GoogleAnalytics(): React.JSX.Element {
   useEffect(() => {
     if (process.env.NODE_ENV === "development") {
       return;
@@ -10,23 +10,38 @@ export default function LogRocket(): React.JSX.Element {
 
     let isLoaded = false;
 
-    const loadLogRocket = async (): Promise<void> => {
+    const loadGoogleAnalytics = async (): Promise<void> => {
       if (isLoaded) return;
       isLoaded = true;
 
-      const [LogRocketLib, setupLogRocketReact] = await Promise.all([
-        import("logrocket"),
-        import("logrocket-react"),
-      ]);
+      // Dynamically load gtag script
+      const script = document.createElement("script");
 
-      LogRocketLib.default.init(env.NEXT_PUBLIC_LOG_ROCKET_APP_ID);
-      setupLogRocketReact.default(LogRocketLib.default);
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${env.GA_MEASUREMENT_ID}`;
+      document.head.appendChild(script);
+
+      // Initialize gtag after script loads
+      script.onload = (): void => {
+        window.dataLayer = window.dataLayer || [];
+
+        window.gtag = function gtag(): void {
+          // eslint-disable-next-line prefer-rest-params
+          window.dataLayer.push(arguments);
+        };
+
+        window.gtag("js", new Date());
+        window.gtag("config", env.GA_MEASUREMENT_ID, {
+          page_location: window.location.href,
+          page_title: document.title,
+        });
+      };
     };
     // Load after user interaction (click, scroll, touch)
     const handleUserInteraction = (): void => {
       setTimeout(() => {
-        void loadLogRocket();
-      }, 3000);
+        void loadGoogleAnalytics();
+      }, 2000);
 
       // Remove listeners after first interaction
       document.removeEventListener("click", handleUserInteraction);

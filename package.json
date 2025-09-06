@@ -125,6 +125,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
+    "lighthouse": "npx @lhci/cli autorun",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:secret": "npx secretlint --maskSecrets '**/*'",
