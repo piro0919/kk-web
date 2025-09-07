@@ -35,6 +35,10 @@ html:focus-within {
   -moz-osx-font-smoothing: grayscale;
 } */
 
+* {
+  scrollbar-width: thin;
+}
+
 *:focus {
   outline: none;
 }
