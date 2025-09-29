@@ -64,7 +64,7 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/logrocket-react": "3.0.3",
     "@types/node": "22.15.17",
-    "@types/nodemailer": "6.4.17",
+    "@types/nodemailer": "7.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-google-recaptcha": "2.1.9",
