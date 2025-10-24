@@ -114,10 +114,10 @@
       "react-dom": "^19.0.0"
     },
     "stylelint-css-modules-no-global-scoped-selector": {
-      "stylelint": "16.19.1"
+      "stylelint": "16.25.0"
     },
     "stylelint-no-unused-selectors": {
-      "stylelint": "16.19.1"
+      "stylelint": "16.25.0"
     },
     "zod": "3.25.76"
   },
