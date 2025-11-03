@@ -5,11 +5,6 @@ export default function WebSite(): React.JSX.Element {
   const t = useTranslations("Portfolio.WebSite");
   const items = [
     {
-      href: "https://lovvebox.com",
-      name: t("lovveboxName"),
-      text: t("lovveboxText"),
-    },
-    {
       href: "https://www.natsuzolab.com",
       name: t("natsuzolabName"),
       text: t("natsuzolabText"),
