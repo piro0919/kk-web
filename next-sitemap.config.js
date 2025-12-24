@@ -2,6 +2,7 @@
 const config = {
   siteUrl: "https://kkweb.io/",
   generateRobotsTxt: true,
+  exclude: ["/_next/*", "/*?dpl=*", "/*image", "/*staffs*"],
 
   // 全ブログ記事をサイトマップに追加
   additionalPaths: async () => {
