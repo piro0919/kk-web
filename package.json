@@ -23,7 +23,7 @@
     "next": "15.5.9",
     "next-intl": "4.6.1",
     "next-themes": "0.4.6",
-    "nodemailer": "7.0.11",
+    "nodemailer": "7.0.12",
     "parse-md": "3.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
