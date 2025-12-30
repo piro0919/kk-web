@@ -5,9 +5,6 @@
     "submitSuccess": "Message sent successfully",
     "submitting": "Sending..."
   },
-  "StructuredData": {
-    "siteDescription": "Frontend Developer piro's website"
-  },
   "Portfolio": {
     "Applications": {
       "macopyText": "An alternative Clipy app for Mac.",
@@ -20,6 +17,7 @@
       "reactPageBorderText": "A component that adds a border around the entire screen.",
       "reactThreeToggleText": "A toggle button component that supports three or more states.",
       "usePwaText": "A custom hook that exposes PWA state and installation functions.",
+      "useRightClickText": "A custom hook that detects right-click events.",
       "useShowWindowSizeText": "A custom hook that displays the window size in real time at the top right."
     },
     "WebService": {
@@ -58,5 +56,8 @@
       "seven08Name": "7:08",
       "seven08Text": "Website for illustrator '7:08'."
     }
+  },
+  "StructuredData": {
+    "siteDescription": "Frontend Developer piro's website"
   }
 }

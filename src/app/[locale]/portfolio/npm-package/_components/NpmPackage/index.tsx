@@ -5,6 +5,11 @@ export default function NpmPackage(): React.JSX.Element {
   const t = useTranslations("Portfolio.Npm");
   const items = [
     {
+      href: "https://www.npmjs.com/package/use-right-click",
+      name: "use-right-click",
+      text: t("useRightClickText"),
+    },
+    {
       href: "https://www.npmjs.com/package/next-subrouter",
       name: "next-subrouter",
       text: t("nextSubrouterText"),
