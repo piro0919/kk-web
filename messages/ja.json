@@ -5,9 +5,6 @@
     "submitSuccess": "メッセージを送信しました",
     "submitting": "送信しています…"
   },
-  "StructuredData": {
-    "siteDescription": "フロントエンドデベロッパー piro のウェブサイト"
-  },
   "Portfolio": {
     "Applications": {
       "macopyText": "Mac 向けのオルタナティブ Clipy アプリです。",
@@ -20,6 +17,7 @@
       "reactPageBorderText": "画面全体にフチをつけるコンポーネントです。",
       "reactThreeToggleText": "3 つ以上のスイッチを持つトグルボタン用のコンポーネントです。",
       "usePwaText": "PWA の状態やインストール用の関数を渡す独自フックです。",
+      "useRightClickText": "右クリックイベントを検知する独自フックです。",
       "useShowWindowSizeText": "画面右上にウィンドウサイズをリアルタイムで表示する独自フックです。"
     },
     "WebService": {
@@ -58,5 +56,8 @@
       "seven08Name": "7:08",
       "seven08Text": "イラストレーター「7:08」さんのサイトを作成しました。"
     }
+  },
+  "StructuredData": {
+    "siteDescription": "フロントエンドデベロッパー piro のウェブサイト"
   }
 }
