@@ -21,6 +21,8 @@
       "useShowWindowSizeText": "A custom hook that displays the window size in real time at the top right."
     },
     "WebService": {
+      "highOrLowName": "High or Low",
+      "highOrLowText": "A service to track your daily energy levels.",
       "comictimeName": "ComicTime",
       "comictimeText": "A service that sorts web comic sites by day of the week.",
       "dailyName": "Omocoro & Daily Portal Z Reader",
