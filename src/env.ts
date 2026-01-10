@@ -27,3 +27,6 @@ const env = createEnv({
 });
 
 export default env;
+
+// eslint-disable-next-line no-console
+console.log("test");
