@@ -80,7 +80,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning={true}>
       <head>
-        <link href="https://kkweb.io" rel="canonical" />
         {/* Preconnect to external domains for performance */}
         <link href="https://www.googletagmanager.com" rel="preconnect" />
         <link href="https://www.google-analytics.com" rel="preconnect" />

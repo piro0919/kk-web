@@ -7,5 +7,6 @@
     "**/CVS": true,
     "**/node_modules": true,
     "**/Thumbs.db": true
-  }
+  },
+  "i18n-ally.localesPaths": ["messages", "src/i18n"]
 }
