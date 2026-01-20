@@ -20,12 +20,13 @@ export default function getMetadata({
 }: GetMetadataParams): Metadata {
   const baseUrl = getBaseUrl();
   const imageUrl = imageUrlParam ?? `${baseUrl}/${locale}/opengraph-image`;
+  const localePrefix = locale === "en" ? "" : `/${locale}`;
 
   return {
     alternates: {
-      canonical: `${baseUrl}${path}`,
+      canonical: `${baseUrl}${localePrefix}${path}`,
       languages: {
-        en: `${baseUrl}/en${path}`,
+        en: `${baseUrl}${path}`,
         ja: `${baseUrl}/ja${path}`,
       },
     },
