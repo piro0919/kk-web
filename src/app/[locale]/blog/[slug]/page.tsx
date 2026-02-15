@@ -1,4 +1,5 @@
 import StructuredData from "@/components/StructuredData";
+import { redirect } from "@/i18n/navigation";
 import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
 import { createArticleStructuredData } from "@/libs/structuredData";
@@ -70,22 +71,47 @@ async function getArticle({
   locale,
   slug,
 }: GetArticleParams): Promise<GetArticleData> {
+  const markdownPath = path.join(
+    process.cwd(),
+    "/src/markdown-pages",
+    locale,
+    `${slug}.md`,
+  );
+
+  let fileContents: string;
+
   try {
-    const markdownPath = path.join(
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    fileContents = await fs.readFile(markdownPath, "utf8");
+  } catch {
+    const fallbackLocale = locale === "en" ? "ja" : "en";
+    const fallbackPath = path.join(
       process.cwd(),
       "/src/markdown-pages",
-      locale,
+      fallbackLocale,
       `${slug}.md`,
     );
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    const fileContents = await fs.readFile(markdownPath, "utf8");
-    const { content, metadata } = parseMD(fileContents);
-    const { date, title } = metadata as ArticleMetadata;
 
-    return { content, date, title };
-  } catch {
+    let fallbackExists = false;
+
+    try {
+      await fs.access(fallbackPath);
+      fallbackExists = true;
+    } catch {
+      // Fallback doesn't exist either
+    }
+
+    if (fallbackExists) {
+      redirect({ href: `/blog/${slug}`, locale: fallbackLocale });
+    }
+
     notFound();
   }
+
+  const { content, metadata } = parseMD(fileContents);
+  const { date, title } = metadata as ArticleMetadata;
+
+  return { content, date, title };
 }
 
 // 24時間ごとにISR
