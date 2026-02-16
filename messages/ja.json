@@ -7,6 +7,7 @@
   },
   "Portfolio": {
     "Applications": {
+      "galopenText": "Mac 向けのミーティング URL 自動オープンアプリです。",
       "macopyText": "Mac 向けのオルタナティブ Clipy アプリです。",
       "playerText": "Mac 向けの Media Player アプリです。"
     },

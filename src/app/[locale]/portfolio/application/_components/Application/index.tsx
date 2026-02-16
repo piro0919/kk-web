@@ -5,6 +5,11 @@ export default function Application(): React.JSX.Element {
   const t = useTranslations("Portfolio.Applications");
   const items = [
     {
+      href: "https://galopen.kkweb.io/",
+      name: "Galopen",
+      text: t("galopenText"),
+    },
+    {
       href: "https://macopy.kkweb.io/",
       name: "Macopy",
       text: t("macopyText"),
