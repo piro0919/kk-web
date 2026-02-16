@@ -7,6 +7,7 @@
   },
   "Portfolio": {
     "Applications": {
+      "galopenText": "A meeting URL auto-opener app for Mac.",
       "macopyText": "An alternative Clipy app for Mac.",
       "playerText": "A media player app for Mac."
     },
