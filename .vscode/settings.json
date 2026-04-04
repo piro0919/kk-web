@@ -10,5 +10,10 @@
   },
   "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": ["messages", "src/i18n"],
-  "i18n-ally.sourceLanguage": "ja"
+  "i18n-ally.sourceLanguage": "ja",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
