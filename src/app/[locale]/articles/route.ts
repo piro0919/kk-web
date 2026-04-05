@@ -20,6 +20,11 @@ export async function GET(
 ): Promise<NextResponse<GetArticlesResponseBody>> {
   const paramPage = request.nextUrl.searchParams.get("page");
   const page = typeof paramPage === "string" ? parseInt(paramPage, 10) : 0;
+
+  if (Number.isNaN(page) || page < 0 || !Number.isFinite(page)) {
+    return NextResponse.json([], { status: 400 });
+  }
+
   const locale = await getLocale();
   const markdownPagesPath = path.join(
     process.cwd(),
@@ -27,8 +32,16 @@ export async function GET(
     "markdown-pages",
     locale,
   );
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
-  const filenames = await fs.readdir(markdownPagesPath);
+
+  let filenames: string[];
+
+  try {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    filenames = await fs.readdir(markdownPagesPath);
+  } catch {
+    return NextResponse.json([], { status: 200 });
+  }
+
   const articles = await Promise.all(
     filenames
       .reverse()

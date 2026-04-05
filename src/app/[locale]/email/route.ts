@@ -2,21 +2,43 @@ import env from "@/env";
 import axios from "axios";
 import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { emailSchema } from "./schema";
 
-export type PostEmailRequestFormData = {
-  email: string;
-  message: string;
-  name: string;
-  subject: string;
-};
+export type { PostEmailRequestFormData } from "./schema";
 
 export type PostEmailResponseBody = {
   result: boolean;
 };
 
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+
+    return false;
+  }
+
+  entry.count += 1;
+
+  return entry.count > RATE_LIMIT_MAX;
+}
+
 export async function POST(
   request: NextRequest,
 ): Promise<NextResponse<PostEmailResponseBody>> {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ result: false }, { status: 429 });
+  }
+
   const token = request.cookies.get("token");
 
   if (!token) {
@@ -35,10 +57,18 @@ export async function POST(
   }
 
   const data = await request.formData();
-  const email = data.get("email") as PostEmailRequestFormData["email"];
-  const message = data.get("message") as PostEmailRequestFormData["message"];
-  const name = data.get("name") as PostEmailRequestFormData["name"];
-  const subject = data.get("subject") as PostEmailRequestFormData["subject"];
+  const parsed = emailSchema.safeParse({
+    email: data.get("email"),
+    message: data.get("message"),
+    name: data.get("name"),
+    subject: data.get("subject"),
+  });
+
+  if (!parsed.success) {
+    return NextResponse.json({ result: false }, { status: 400 });
+  }
+
+  const { email, message, name, subject } = parsed.data;
 
   try {
     const transporter = nodemailer.createTransport({
