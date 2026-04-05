@@ -24,10 +24,8 @@ import Script from "next/script";
 import { type ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import Analytics from "./_components/Analytics";
-import GoogleAnalytics from "./_components/GoogleAnalytics";
 import Hotjar from "./_components/Hotjar";
 import Layout from "./_components/Layout";
-import LogRocket from "./_components/LogRocket";
 
 export function generateStaticParams(): { locale: string }[] {
   return routing.locales.map((locale) => ({ locale }));
@@ -81,11 +79,8 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning={true}>
       <head>
         {/* Preconnect to external domains for performance */}
-        <link href="https://www.googletagmanager.com" rel="preconnect" />
-        <link href="https://www.google-analytics.com" rel="preconnect" />
         <link href="https://static.hotjar.com" rel="preconnect" />
         <link href="https://script.hotjar.com" rel="preconnect" />
-        <link href="https://cdn.lr-in.com" rel="preconnect" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
           crossOrigin=""
@@ -131,8 +126,6 @@ export default async function RootLayout({
             />
             <Analytics />
             <Hotjar />
-            <LogRocket />
-            <GoogleAnalytics />
             <SpeedInsights />
           </ThemeProvider>
         </NextIntlClientProvider>
