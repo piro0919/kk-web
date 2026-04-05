@@ -40,3 +40,4 @@ sitemap*.xml
 
 # Lighthouse CI reports
 .lighthouseci
+.envrc
