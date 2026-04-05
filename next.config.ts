@@ -3,13 +3,12 @@ import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["app.logrocket.com"],
   experimental: {
     reactCompiler: true,
     typedEnv: true,
     useLightningcss: true,
-    // typedRoutes: true,
   },
+  typedRoutes: true,
   async headers() {
     return [
       {
@@ -56,6 +55,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 100],
     remotePatterns: [],
   },
 };

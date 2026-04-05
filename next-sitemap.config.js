@@ -1,16 +1,16 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
+
 /** @type {import('next-sitemap').IConfig} */
 const config = {
   siteUrl: "https://kkweb.io/",
   generateRobotsTxt: true,
   exclude: ["/_next/*", "/*?dpl=*", "/*image", "/*staffs*"],
 
-  // 全ブログ記事をサイトマップに追加
   additionalPaths: async () => {
-    const fs = require("fs").promises;
-    const path = require("path");
     const paths = [];
-
     const locales = ["en", "ja"];
+
     for (const locale of locales) {
       const dir = path.join(process.cwd(), "src/markdown-pages", locale);
 
@@ -20,6 +20,7 @@ const config = {
         for (const file of files) {
           if (file.endsWith(".md")) {
             const slug = file.replace(".md", "");
+
             paths.push({
               loc: `/${locale}/blog/${slug}`,
               changefreq: "daily",
@@ -36,4 +37,4 @@ const config = {
   },
 };
 
-module.exports = config;
+export default config;
