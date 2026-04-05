@@ -9,7 +9,7 @@ overrides:
   react-loader-spinner>react-dom: ^19.0.0
   react-scrollbar-size>react: ^19.0.0
   stylelint-css-modules-no-global-scoped-selector>stylelint: 16.26.1
-  stylelint-no-unused-selectors>stylelint: 16.19.1
+  stylelint-no-unused-selectors>stylelint: 16.26.1
   zod: 3.25.76
 
 importers:
@@ -4568,7 +4568,7 @@ packages:
     resolution: {integrity: sha512-NSx1OuW1a0xr9x6ms1RYY8TysBrsu3pfBdoY4HQ+p4DUvlrH7lE1ao+Bd7sxlqJClp12ocRK+b6mk+fD/cYrRg==}
     engines: {node: '>=8.16.0'}
     peerDependencies:
-      stylelint: 16.19.1
+      stylelint: 16.26.1
 
   stylelint-order@7.0.0:
     resolution: {integrity: sha512-rSWxx0KscYfxU02wEskKXES9lkRzuuONMMNkZ7SUc6uiF3tDKm7e+sE0Ax/SBlG4TUf1sp1R6f3/SlsPGmzthg==}
