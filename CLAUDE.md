@@ -4,16 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build the application for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Run ESLint with auto-fix
-- `npm run type-check` - Run TypeScript type checking without emitting files
-- `npm run prettier` - Format code with Prettier
-- `npm run lint:style` - Run Stylelint with auto-fix for CSS files
-- `npm run lint:secret` - Check for secrets in files with masking
-- `npm run secretlint` - Check for secrets in files
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build the application for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Run ESLint with auto-fix
+- `pnpm type-check` - Run TypeScript type checking without emitting files
+- `pnpm prettier` - Format code with Prettier
+- `pnpm lint:style` - Run Stylelint with auto-fix for CSS files
+- `pnpm lint:secret` - Check for secrets in files with masking
+- `pnpm secretlint` - Check for secrets in files
 
 ## Architecture Overview
 
@@ -38,7 +38,7 @@ This is a multilingual (English/Japanese) Next.js 15 blog/portfolio website usin
 
 - **Blog System**: Markdown-based blog with parsing using `parse-md` and `react-markdown`
 - **Contact Form**: Uses React Hook Form with reCAPTCHA and Nodemailer
-- **Analytics**: Integrated Google Analytics, Hotjar, LogRocket, and Vercel Analytics
+- **Analytics**: Integrated Hotjar, Vercel Analytics, and Umami
 - **Environment Management**: Type-safe environment variables using `@t3-oss/env-nextjs`
 - **Image Handling**: Next.js Image component with unoptimized images for static hosting
 
