@@ -258,6 +258,12 @@ const eslintConfig = [
       "write-good-comments/write-good-comments": "error",
     },
   },
+  {
+    files: ["src/__tests__/**"],
+    rules: {
+      "filenames/match-regex": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
