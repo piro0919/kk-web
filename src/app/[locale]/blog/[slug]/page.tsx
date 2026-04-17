@@ -4,6 +4,7 @@ import getBaseUrl from "@/libs/getBaseUrl";
 import getMetadata from "@/libs/getMetadata";
 import { createArticleStructuredData } from "@/libs/structuredData";
 import { promises as fs } from "fs";
+import removeMarkdown from "markdown-to-text";
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import parseMD from "parse-md";
@@ -148,7 +149,10 @@ export async function generateMetadata({
     const baseUrl = getBaseUrl();
 
     return getMetadata({
-      description: content.slice(0, 300),
+      description: removeMarkdown(content)
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 160),
       imageUrl: `${baseUrl}/${locale}/articles/${slug}/image`,
       locale: locale as "en" | "ja",
       path: `/blog/${slug}`,
@@ -176,10 +180,10 @@ export default function Page({
   const article = use(getArticle({ locale, slug }));
   const structuredData = createArticleStructuredData({
     datePublished: article.date,
-    description: article.content
-      .slice(0, 300)
-      .replace(/[#*[\]()]/g, "")
-      .trim(),
+    description: removeMarkdown(article.content)
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 160),
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,
     title: article.title,
