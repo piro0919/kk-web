@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  react-loader-spinner>react: ^19.0.0
-  react-loader-spinner>react-dom: ^19.0.0
-  react-scrollbar-size>react: ^19.0.0
+  react-loader-spinner>react: ^19.2.5
+  react-loader-spinner>react-dom: ^19.2.5
+  react-scrollbar-size>react: ^19.2.5
   stylelint-css-modules-no-global-scoped-selector>stylelint: 16.26.1
   stylelint-no-unused-selectors>stylelint: 16.26.1
   zod: 3.25.76
@@ -4084,8 +4084,8 @@ packages:
     resolution: {integrity: sha512-x5h1Jcit7Qn03MuKlrWcMG9o12cp9SNDVHVJTNRi9TgtGPKcjKiXkou4NRfLAtXaFB3+Z8yZsVzONmPzhv2ErA==}
     engines: {node: '>= 12'}
     peerDependencies:
-      react: ^19.0.0
-      react-dom: ^19.0.0
+      react: ^19.2.5
+      react-dom: ^19.2.5
 
   react-markdown@10.1.0:
     resolution: {integrity: sha512-qKxVopLT/TyA6BX3Ue5NwabOsAzm0Q7kAPwq6L+wWDwisYs7R8vZ0nRXqq6rkueboxpkjvLGU9fWifiX/ZZFxQ==}
@@ -4097,7 +4097,7 @@ packages:
     resolution: {integrity: sha512-Ly3OuRMz4yDFViTh+ANH6TrG8EqrgjC1uxxm2a/95+2Ijy3XT+bWtzm4QmgZUcUVg+8BCKzmPMM7z39ZtucDIQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: ^19.0.0
+      react: ^19.2.5
 
   react-social-icons@6.25.0:
     resolution: {integrity: sha512-PN9UpIb+f2u9H2t6MOoybaCD88yvQH+f9z/BILlg+n9MRzSYPtDODPzLb5dCUeyQ42eYyGDPGPIVARLWz5UEjg==}
