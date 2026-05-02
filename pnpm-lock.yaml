@@ -21,10 +21,10 @@ importers:
         version: 3.2.12(next@15.5.15(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@hookform/error-message':
         specifier: 2.0.1
-        version: 2.0.1(react-dom@19.2.5(react@19.2.5))(react-hook-form@7.74.0(react@19.2.5))(react@19.2.5)
+        version: 2.0.1(react-dom@19.2.5(react@19.2.5))(react-hook-form@7.75.0(react@19.2.5))(react@19.2.5)
       '@hookform/resolvers':
         specifier: 5.2.2
-        version: 5.2.2(react-hook-form@7.74.0(react@19.2.5))
+        version: 5.2.2(react-hook-form@7.75.0(react@19.2.5))
       '@mpth/react-no-ssr':
         specifier: 1.0.1
         version: 1.0.1(react@19.2.5)
@@ -95,8 +95,8 @@ importers:
         specifier: 3.1.0
         version: 3.1.0(react@19.2.5)
       react-hook-form:
-        specifier: 7.74.0
-        version: 7.74.0(react@19.2.5)
+        specifier: 7.75.0
+        version: 7.75.0(react@19.2.5)
       react-hotjar:
         specifier: 6.3.1
         version: 6.3.1
@@ -4032,8 +4032,8 @@ packages:
     peerDependencies:
       react: '>=16.4.1'
 
-  react-hook-form@7.74.0:
-    resolution: {integrity: sha512-yR6wHr99p9wFv686jhRWVSFhUvDvNbdUf2dKlbno8/VKOCuoNobDGC6S+M2dua9A9Yo8vpcrp8assIYbsZCQ9g==}
+  react-hook-form@7.75.0:
+    resolution: {integrity: sha512-Ovv94H+0p3sJ7B9B5QxPuCP1u8V/cHuVGyH55cSwodYDtoJwK+fqk3vjfIgSX59I2U/bU4z0nRJ9HMLpNiWEmw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -5459,16 +5459,16 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 3.1.2
 
-  '@hookform/error-message@2.0.1(react-dom@19.2.5(react@19.2.5))(react-hook-form@7.74.0(react@19.2.5))(react@19.2.5)':
+  '@hookform/error-message@2.0.1(react-dom@19.2.5(react@19.2.5))(react-hook-form@7.75.0(react@19.2.5))(react@19.2.5)':
     dependencies:
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
-      react-hook-form: 7.74.0(react@19.2.5)
+      react-hook-form: 7.75.0(react@19.2.5)
 
-  '@hookform/resolvers@5.2.2(react-hook-form@7.74.0(react@19.2.5))':
+  '@hookform/resolvers@5.2.2(react-hook-form@7.75.0(react@19.2.5))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.74.0(react@19.2.5)
+      react-hook-form: 7.75.0(react@19.2.5)
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -9023,7 +9023,7 @@ snapshots:
       react: 19.2.5
       react-async-script: 1.2.0(react@19.2.5)
 
-  react-hook-form@7.74.0(react@19.2.5):
+  react-hook-form@7.75.0(react@19.2.5):
     dependencies:
       react: 19.2.5
 
