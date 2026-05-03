@@ -13,6 +13,12 @@ export default function NpmPackage(): React.JSX.Element {
   const t = useTranslations("Portfolio.Npm");
   const items = [
     {
+      href: "https://www.npmjs.com/package/@piro0919/next-push",
+      name: "@piro0919/next-push",
+      repo: "https://github.com/piro0919/next-push",
+      text: t("nextPushText"),
+    },
+    {
       href: "https://www.npmjs.com/package/use-ear",
       name: "use-ear",
       repo: "https://github.com/piro0919/use-ear",
