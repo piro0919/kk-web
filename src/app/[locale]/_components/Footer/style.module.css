@@ -42,6 +42,24 @@
   gap: 12px;
 }
 
+.statsLink {
+  align-items: center;
+  background-color: #234794;
+  border: 1px solid #000;
+  border-radius: 50dvmax;
+  color: #fff;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+@media (width < 992px) {
+  .statsLink {
+    display: none;
+  }
+}
+
 .iconLink {
   border: 1px solid #000;
   border-radius: 50dvmax;

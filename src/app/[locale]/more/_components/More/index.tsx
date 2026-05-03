@@ -20,6 +20,10 @@ export default function More(): React.JSX.Element {
       href: "/about",
       name: "ABOUT",
     },
+    {
+      href: "/stats",
+      name: "STATS",
+    },
   ].map(({ href, name }) => (
     <Link className={styles.link} href={href} key={name}>
       <div className={styles.item}>

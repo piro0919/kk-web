@@ -1,10 +1,10 @@
-import { usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import links from "@/libs/links";
 import NoSSR from "@mpth/react-no-ssr";
 import { useLocale } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaChartBar, FaMoon, FaSun } from "react-icons/fa";
 import { SocialIcon } from "react-social-icons";
 import Spacer from "react-spacer";
 import Switch from "react-switch";
@@ -81,7 +81,12 @@ export default function Footer(): React.JSX.Element {
           uncheckedIcon={<div className={styles.switchIconContainer}>JA</div>}
           width={48}
         />
-        <div className={styles.icons}>{socialIcons}</div>
+        <div className={styles.icons}>
+          <Link aria-label="STATS" className={styles.statsLink} href="/stats">
+            <FaChartBar size={14} />
+          </Link>
+          {socialIcons}
+        </div>
       </div>
     </footer>
   );
