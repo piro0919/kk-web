@@ -14,11 +14,17 @@ const env = createEnv({
     NODEMAILER_AUTH_PASS: process.env.NODEMAILER_AUTH_PASS,
     NODEMAILER_AUTH_USER: process.env.NODEMAILER_AUTH_USER,
     RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
+    UMAMI_API_KEY: process.env.UMAMI_API_KEY,
+    UMAMI_API_URL: process.env.UMAMI_API_URL,
+    UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID,
   },
   server: {
     NODEMAILER_AUTH_PASS: z.string().min(1),
     NODEMAILER_AUTH_USER: z.string().min(1),
     RECAPTCHA_SECRET_KEY: z.string().min(1),
+    UMAMI_API_KEY: z.string().min(1),
+    UMAMI_API_URL: z.string().url().default("https://api.umami.is/v1"),
+    UMAMI_WEBSITE_ID: z.string().min(1),
   },
 });
 

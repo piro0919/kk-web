@@ -61,6 +61,14 @@
       "seven08Text": "Website for illustrator '7:08'."
     }
   },
+  "Stats": {
+    "countries": "COUNTRIES",
+    "pageviews": "Pageviews",
+    "referrers": "REFERRERS",
+    "topPages": "POPULAR",
+    "visitors": "Visitors",
+    "visits": "Visits"
+  },
   "StructuredData": {
     "siteDescription": "Frontend Developer piro's website"
   }
