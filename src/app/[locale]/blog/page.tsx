@@ -1,3 +1,4 @@
+import getFc2Articles from "@/libs/getFc2Articles";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
 import { promises as fs } from "fs";
@@ -83,10 +84,11 @@ export default function Page({
 }): React.JSX.Element {
   const { locale } = use(params);
   const articles = use(getArticles({ locale }));
+  const fc2Articles = locale === "ja" ? getFc2Articles() : [];
 
   return (
     <SWRProvider fallbackData={articles}>
-      <Blog />
+      <Blog fc2Articles={fc2Articles} />
     </SWRProvider>
   );
 }
