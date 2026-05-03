@@ -2,11 +2,17 @@
 import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
+const projectRoot = import.meta.dirname;
+
 const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
     typedEnv: true,
     useLightningcss: true,
+  },
+  outputFileTracingRoot: projectRoot,
+  turbopack: {
+    root: projectRoot,
   },
   typedRoutes: true,
   async headers() {
