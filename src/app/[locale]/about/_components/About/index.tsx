@@ -5,7 +5,7 @@ export default function About(): React.JSX.Element {
     { name: "Name", text: "Kouhei Kawamura" },
     { name: "Handle", text: "piro" },
     { name: "Address", text: "Tokyo, Japan" },
-    { name: "Job", text: "Frontend Developer " },
+    { name: "Job", text: "CTO / Scrum Master / Software Developer" },
   ].map(({ name, text }) => (
     <div className={styles.item} key={name}>
       <div className={styles.label}>{name}</div>
