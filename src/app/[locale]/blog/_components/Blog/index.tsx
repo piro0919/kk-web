@@ -9,6 +9,7 @@ import { Oval } from "react-loader-spinner";
 import { type BareFetcher } from "swr";
 import useSWRInfinite, { type SWRInfiniteKeyLoader } from "swr/infinite";
 import styles from "./style.module.css";
+import type { Fc2Article } from "@/libs/getFc2Articles";
 
 const getKey: SWRInfiniteKeyLoader<GetArticlesResponseBody> = (
   pageIndex,
@@ -22,7 +23,11 @@ const fetcher: BareFetcher<GetArticlesResponseBody> = async (url: string) =>
     .get<GetArticlesResponseBody, AxiosResponse<GetArticlesResponseBody>>(url)
     .then((res) => res.data);
 
-export default function Blog(): React.JSX.Element {
+type Props2 = {
+  fc2Articles: Fc2Article[];
+};
+
+export default function Blog({ fc2Articles }: Props2): React.JSX.Element {
   const { data, setSize } = useSWRInfinite<GetArticlesResponseBody>(
     getKey,
     fetcher,
@@ -52,6 +57,29 @@ export default function Blog(): React.JSX.Element {
   const next = useCallback<Props["next"]>(() => {
     void setSize((prevSize) => prevSize + 1);
   }, [setSize]);
+  const fc2Items = useMemo(
+    () =>
+      fc2Articles.map(({ date, text, title, url }) => (
+        <a
+          className={styles.link}
+          href={url}
+          key={url}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <div className={styles.vStack}>
+            <h2 className={styles.heading}>{title}</h2>
+            {text && (
+              <div className={styles.textWrapper}>
+                <div className={styles.text}>{text}</div>
+              </div>
+            )}
+            <div className={styles.date}>{date}</div>
+          </div>
+        </a>
+      )),
+    [fc2Articles],
+  );
 
   return (
     <>
@@ -79,6 +107,7 @@ export default function Blog(): React.JSX.Element {
             next={next}
           >
             {items}
+            {isReachingEnd && fc2Items}
           </InfiniteScroll>
         </div>
       </div>
