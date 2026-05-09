@@ -89,13 +89,6 @@ export default async function RootLayout({
         />
         {/* Preload critical resources */}
         <link
-          as="font"
-          crossOrigin=""
-          href="/jkg.woff2"
-          rel="preload"
-          type="font/woff2"
-        />
-        <link
           as="image"
           href="/metan_00.avif"
           rel="preload"
