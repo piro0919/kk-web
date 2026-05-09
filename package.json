@@ -128,9 +128,9 @@
       "unrs-resolver"
     ],
     "overrides": {
-      "react-loader-spinner>react": "^19.2.5",
-      "react-loader-spinner>react-dom": "^19.2.5",
-      "react-scrollbar-size>react": "^19.2.5",
+      "react-loader-spinner>react": "^19.2.6",
+      "react-loader-spinner>react-dom": "^19.2.6",
+      "react-scrollbar-size>react": "^19.2.6",
       "stylelint-css-modules-no-global-scoped-selector>stylelint": "16.26.1",
       "stylelint-no-unused-selectors>stylelint": "16.26.1",
       "zod": "3.25.76"
