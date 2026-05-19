@@ -65,6 +65,7 @@
   "Stats": {
     "countries": "COUNTRIES",
     "pageviews": "Pageviews",
+    "period": "Period: {start} – {end} (last {days} days)",
     "referrers": "REFERRERS",
     "topPages": "POPULAR",
     "visitors": "Visitors",

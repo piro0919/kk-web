@@ -6,8 +6,11 @@ import type { EnrichedMetric } from "@/libs/umami/resolveLabels";
 
 type Props = {
   countries: UmamiMetric[];
+  days: number;
+  endAt: number;
   locale: "en" | "ja";
   referrers: UmamiMetric[];
+  startAt: number;
   stats: UmamiStats;
   topPages: EnrichedMetric[];
 };
@@ -40,12 +43,20 @@ function countryName(code: string, locale: "en" | "ja"): string {
 
 export default function Stats({
   countries,
+  days,
+  endAt,
   locale,
   referrers,
+  startAt,
   stats,
   topPages,
 }: Props): React.JSX.Element {
   const t = useTranslations("Stats");
+  const dateFormatter = new Intl.DateTimeFormat(locale, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
   const summary = [
     {
       delta: formatDelta(stats.pageviews, stats.comparison?.pageviews ?? 0),
@@ -71,6 +82,13 @@ export default function Stats({
       </div>
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          <p className={styles.period}>
+            {t("period", {
+              days,
+              end: dateFormatter.format(endAt),
+              start: dateFormatter.format(startAt),
+            })}
+          </p>
           <div className={styles.summary}>
             {summary.map(({ delta, label, value }) => (
               <div className={styles.card} key={label}>
