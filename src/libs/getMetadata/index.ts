@@ -34,6 +34,7 @@ export default function getMetadata({
     authors: [{ name: "piro", url: baseUrl }],
     creator: "piro",
     description,
+    metadataBase: new URL(baseUrl),
     openGraph: {
       alternateLocale: locale === "en" ? "ja_JP" : "en_US",
       description,

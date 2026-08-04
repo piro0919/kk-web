@@ -62,15 +62,6 @@
       "seven08Text": "イラストレーター「7:08」さんのサイトを作成しました。"
     }
   },
-  "Stats": {
-    "countries": "COUNTRIES",
-    "pageviews": "ページビュー",
-    "period": "計測期間: {start} 〜 {end}（過去{days}日間）",
-    "referrers": "REFERRERS",
-    "topPages": "POPULAR",
-    "visitors": "訪問者",
-    "visits": "セッション"
-  },
   "StructuredData": {
     "siteDescription": "フロントエンドデベロッパー piro のウェブサイト"
   }
