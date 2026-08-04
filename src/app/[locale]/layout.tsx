@@ -79,8 +79,8 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning={true}>
       <head>
         {/* Preconnect to external domains for performance */}
-        <link href="https://static.hotjar.com" rel="preconnect" />
-        <link href="https://script.hotjar.com" rel="preconnect" />
+        {/* Hotjar loads after the first user interaction, so a preconnect hint
+            here would leave an idle connection. */}
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link
           crossOrigin=""
@@ -124,6 +124,7 @@ export default async function RootLayout({
         </NextIntlClientProvider>
         {process.env.NODE_ENV === "production" ? (
           <Script
+            data-host-url="/stats"
             data-website-id="9dc0884b-8e4f-4127-a2fb-48c432a79fe3"
             defer={true}
             src="/stats/script.js"
