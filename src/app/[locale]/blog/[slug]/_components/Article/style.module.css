@@ -20,6 +20,9 @@
 
 .title {
   font-size: 2.4rem;
+
+  /* JKG は太字を持たないので、一覧と同じく線を足して太らせる。 */
+  -webkit-text-stroke: 0.4px currentcolor;
 }
 
 .date {
@@ -44,11 +47,54 @@
      こちらのテーマ切り替えに追従するよう地の色だけ上書きする。 */
   background: transparent;
   color: var(--color-foreground);
+
+  /* 書体も github-markdown-css の既定ではなくサイトのものを使う。 */
+  font-family: inherit;
   font-size: 1.4rem;
+}
+
+.body :global(*) {
+  font-family: inherit;
+}
+
+/* 等幅で見せたいところだけは戻す。 */
+.body :global(code),
+.body :global(kbd),
+.body :global(pre),
+.body :global(samp) {
+  font-family:
+    ui-monospace, "SFMono-Regular", "SF Mono", menlo, consolas, monospace;
 }
 
 .body :global(a) {
   color: var(--color-accent);
+}
+
+/* 本文中の区切り線。github-markdown-css の太い帯を破線に置き換える。 */
+.body :global(hr) {
+  background: none;
+  border: none;
+  border-top: 1px dashed var(--color-line);
+  height: 0;
+  margin: 3.2rem 0;
+}
+
+/* 見出しは本文とはっきり差をつける。下線は引かない。 */
+.body :global(h2),
+.body :global(h3),
+.body :global(h4) {
+  border-bottom: none;
+  -webkit-text-stroke: 0.4px currentcolor;
+}
+
+.body :global(h2) {
+  font-size: 2.2rem;
+  margin-top: 3.2rem;
+}
+
+.body :global(h3) {
+  font-size: 1.8rem;
+  margin-top: 2.4rem;
 }
 
 .body :global(img) {
@@ -57,6 +103,7 @@
 
 .back {
   color: var(--color-accent);
+  justify-self: start;
 }
 
 @media (width >= 980px) {

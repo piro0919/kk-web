@@ -4,7 +4,14 @@ import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSetCookie } from "cookies-next/client";
 import { useTranslations } from "next-intl";
-import { type ReactElement, type ReactNode, useRef, useState } from "react";
+import {
+  type ReactElement,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
@@ -54,6 +61,14 @@ export default function ContactForm(): React.JSX.Element {
   const ref = useRef<ReCAPTCHA>(null);
   const setCookie = useSetCookie();
   const [status, setStatus] = useState<Status>("");
+  // バッジは fixed で置かれるが、親に filter が掛かっているとその中に閉じ込められる。
+  // body 直下へ出して画面の右下に固定させる。
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const t = useTranslations("Contact");
   const statusKey = getStatusKey(status);
 
@@ -79,11 +94,16 @@ export default function ContactForm(): React.JSX.Element {
       className={styles.form}
       control={control}
     >
-      <ReCAPTCHA
-        ref={ref}
-        sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-        size="invisible"
-      />
+      {isMounted
+        ? createPortal(
+            <ReCAPTCHA
+              ref={ref}
+              sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              size="invisible"
+            />,
+            document.body,
+          )
+        : null}
       {FIELDS.map(({ label, name, type }) => (
         <div className={styles.field} key={name}>
           <label className={styles.label} htmlFor={name}>

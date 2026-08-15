@@ -86,3 +86,10 @@ video {
     );
   }
 }
+
+/* reCAPTCHA のバッジ。モバイルではフッターメニューに重なるので持ち上げる。 */
+@media (width < 768px) {
+  .grecaptcha-badge {
+    bottom: calc(var(--frame-padding) + 72px) !important;
+  }
+}
