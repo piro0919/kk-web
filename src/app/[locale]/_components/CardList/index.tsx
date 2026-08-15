@@ -12,7 +12,7 @@ export type CardListProps = {
 };
 
 export default async function CardList({
-  category: { items, namespace },
+  category: { items, namespace, withThumbnail = true },
   heading,
   locale,
 }: CardListProps): Promise<React.JSX.Element> {
@@ -26,7 +26,8 @@ export default async function CardList({
         // 畳んだものは公開ページが無いので、リンク先はリポジトリにする。
         const target = archived ? (repo ?? href) : href;
         // 絵はサイト自身の og:image だけ。畳んだものは絵を出さない。
-        const thumbnail = archived ? null : await getOgpImage(target);
+        const thumbnail =
+          archived || !withThumbnail ? null : await getOgpImage(target);
 
         return {
           archived,
@@ -97,7 +98,7 @@ export default async function CardList({
   return (
     <>
       <h1 className={styles.heading}>{heading}</h1>
-      <ul className={styles.list}>{renderItems(live)}</ul>
+      <ul className={styles.list}>{renderItems(live, withThumbnail)}</ul>
       {archivedItems.length > 0 ? (
         <>
           <h2 className={styles.subHeading}>ARCHIVED</h2>
