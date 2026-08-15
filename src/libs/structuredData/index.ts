@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import {
   type Article,
   type Person,
@@ -6,11 +7,15 @@ import {
 } from "schema-dts";
 import getBaseUrl from "../getBaseUrl";
 
-export const SITE_DESCRIPTION =
-  "フロントエンドデベロッパー piro のウェブサイト";
+export type StructuredDataParams = {
+  locale: "en" | "ja";
+};
 
-export function createWebSiteStructuredData(): WithContext<WebSite> {
+export async function createWebSiteStructuredData({
+  locale,
+}: StructuredDataParams): Promise<WithContext<WebSite>> {
   const baseUrl = getBaseUrl();
+  const t = await getTranslations({ locale, namespace: "StructuredData" });
 
   return {
     "@context": "https://schema.org",
@@ -20,10 +25,10 @@ export function createWebSiteStructuredData(): WithContext<WebSite> {
       name: "piro",
       url: baseUrl,
     },
-    description: SITE_DESCRIPTION,
-    inLanguage: "ja-JP",
+    description: t("siteDescription"),
+    inLanguage: locale === "en" ? "en-US" : "ja-JP",
     name: "kk-web",
-    url: baseUrl,
+    url: locale === "en" ? baseUrl : `${baseUrl}/${locale}`,
   };
 }
 
@@ -44,7 +49,7 @@ export function createPersonStructuredData(): WithContext<Person> {
   };
 }
 
-export type ArticleStructuredDataParams = {
+export type ArticleStructuredDataParams = StructuredDataParams & {
   datePublished: string;
   description: string;
   path: string;
@@ -54,10 +59,12 @@ export type ArticleStructuredDataParams = {
 export function createArticleStructuredData({
   datePublished,
   description,
+  locale,
   path,
   title,
 }: ArticleStructuredDataParams): WithContext<Article> {
   const baseUrl = getBaseUrl();
+  const url = `${baseUrl}${locale === "en" ? "" : `/${locale}`}${path}`;
 
   return {
     "@context": "https://schema.org",
@@ -70,9 +77,9 @@ export function createArticleStructuredData({
     datePublished,
     description,
     headline: title,
-    inLanguage: "ja-JP",
+    inLanguage: locale === "en" ? "en-US" : "ja-JP",
     mainEntityOfPage: {
-      "@id": `${baseUrl}${path}`,
+      "@id": url,
       "@type": "WebPage",
     },
     publisher: {
