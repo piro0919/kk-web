@@ -13,6 +13,8 @@ export type PortfolioCategory = {
   items: PortfolioItem[];
   /** messages の Portfolio 配下の名前空間。 */
   namespace?: string;
+  /** サムネイルを出すかどうか。npm のように絵が要らない分類では false。 */
+  withThumbnail?: boolean;
 };
 
 export const WEB_SERVICES: PortfolioCategory = {
@@ -216,6 +218,7 @@ export const NPM_PACKAGES: PortfolioCategory = {
     },
   ],
   namespace: "Npm",
+  withThumbnail: false,
 };
 
 export const EXTENSIONS: PortfolioCategory = {
