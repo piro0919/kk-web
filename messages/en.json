@@ -12,6 +12,10 @@
       "macopyText": "An alternative Clipy app for Mac.",
       "playerText": "A media player app for Mac."
     },
+    "Extension": {
+      "hideKindleOrdersName": "Hide Kindle Orders",
+      "hideKindleOrdersText": "A Firefox extension that hides Kindle orders on the Amazon.co.jp order history page."
+    },
     "Npm": {
       "nextPushText": "Web Push notifications for Next.js App Router.",
       "nextSubrouterText": "A package for handling multiple subdomains in Next.js without using a monorepo.",
