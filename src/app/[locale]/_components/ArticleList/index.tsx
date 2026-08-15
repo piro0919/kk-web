@@ -58,11 +58,15 @@ export default function ArticleList({
 
     if (!sentinel || isReachingEnd) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some(({ isIntersecting }) => isIntersecting)) {
-        void loadMore();
-      }
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some(({ isIntersecting }) => isIntersecting)) {
+          void loadMore();
+        }
+      },
+      // 下端に着く前に読み始める。
+      { rootMargin: "1200px 0px" },
+    );
 
     observer.observe(sentinel);
 
