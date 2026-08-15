@@ -2,6 +2,8 @@ export type PortfolioItem = {
   /** 畳んだもの。一覧の下にまとめ、公開ページではなくリポジトリへ繋ぐ。 */
   archived?: boolean;
   href: string;
+  /** 紹介ページ。npm のように配布先と紹介ページが別なときに使う。 */
+  lp?: string;
   /** 表示名。翻訳キーがある場合は messages から引く。 */
   name?: string;
   nameKey?: string;
@@ -158,36 +160,42 @@ export const NPM_PACKAGES: PortfolioCategory = {
   items: [
     {
       href: "https://www.npmjs.com/package/@piro0919/next-push",
+      lp: "https://next-push.kkweb.io/",
       name: "@piro0919/next-push",
       repo: "https://github.com/piro0919/next-push",
       textKey: "nextPushText",
     },
     {
       href: "https://www.npmjs.com/package/use-ear",
+      lp: "https://use-ear.kkweb.io/",
       name: "use-ear",
       repo: "https://github.com/piro0919/use-ear",
       textKey: "useEarText",
     },
     {
       href: "https://www.npmjs.com/package/use-right-click",
+      lp: "https://use-right-click.kkweb.io/",
       name: "use-right-click",
       repo: "https://github.com/piro0919/use-right-click",
       textKey: "useRightClickText",
     },
     {
       href: "https://www.npmjs.com/package/next-subrouter",
+      lp: "https://next-subrouter.kkweb.io/",
       name: "next-subrouter",
       repo: "https://github.com/piro0919/next-subrouter",
       textKey: "nextSubrouterText",
     },
     {
       href: "https://www.npmjs.com/package/react-page-border",
+      lp: "https://react-page-border.kkweb.io/",
       name: "react-page-border",
       repo: "https://github.com/piro0919/react-page-border",
       textKey: "reactPageBorderText",
     },
     {
       href: "https://www.npmjs.com/package/use-show-window-size",
+      lp: "https://use-show-window-size.kkweb.io/",
       name: "use-show-window-size",
       repo: "https://github.com/piro0919/use-show-window-size",
       textKey: "useShowWindowSizeText",
@@ -200,25 +208,27 @@ export const NPM_PACKAGES: PortfolioCategory = {
     },
     {
       href: "https://www.npmjs.com/package/react-three-toggle",
+      lp: "https://react-three-toggle.kkweb.io/",
       name: "react-three-toggle",
       repo: "https://github.com/piro0919/react-three-toggle",
       textKey: "reactThreeToggleText",
     },
     {
       href: "https://www.npmjs.com/package/react-comic-viewer",
+      lp: "https://react-comic-viewer.kkweb.io/",
       name: "react-comic-viewer",
       repo: "https://github.com/piro0919/react-comic-viewer",
       textKey: "reactComicViewerText",
     },
     {
       href: "https://www.npmjs.com/package/use-pwa",
+      lp: "https://use-pwa.kkweb.io/",
       name: "use-pwa",
       repo: "https://github.com/piro0919/use-pwa",
       textKey: "usePwaText",
     },
   ],
   namespace: "Npm",
-  withThumbnail: false,
 };
 
 export const EXTENSIONS: PortfolioCategory = {
