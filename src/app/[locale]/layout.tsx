@@ -26,8 +26,13 @@ import ThemeToggle from "./_components/ThemeToggle";
 import "github-markdown-css";
 import "./globals.css";
 
-// 欧文のナビゲーション用。708 と同じ書体。
-const righteous = Righteous({ subsets: ["latin"], weight: "400" });
+// 欧文の見出しとナビゲーション用。708 と同じ書体。
+// CSS から var(--font-righteous) で参照する。
+const righteous = Righteous({
+  subsets: ["latin"],
+  variable: "--font-righteous",
+  weight: "400",
+});
 const jkg = localFont({
   display: "swap",
   fallback: ["sans-serif"],
@@ -71,7 +76,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
-      <body className={jkg.className}>
+      <body className={`${jkg.className} ${righteous.variable}`}>
         <StructuredData data={websiteStructuredData} />
         <StructuredData data={createPersonStructuredData()} />
         <NextIntlClientProvider>
@@ -80,13 +85,9 @@ export default async function RootLayout({
             <Frame />
             <ThemeToggle />
             <LocaleSwitch />
-            <div className={righteous.className}>
-              <Navigation />
-            </div>
+            <Navigation />
             {children}
-            <div className={righteous.className}>
-              <MobileMenu />
-            </div>
+            <MobileMenu />
             <Analytics />
             <SpeedInsights />
           </ThemeProvider>

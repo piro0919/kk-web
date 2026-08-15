@@ -4,6 +4,7 @@
   border: none;
   color: var(--color-foreground);
   cursor: pointer;
+  font-family: var(--font-righteous), sans-serif;
   font-size: 1.2rem;
   letter-spacing: 1px;
   padding: 8px;

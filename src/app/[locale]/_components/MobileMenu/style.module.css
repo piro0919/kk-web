@@ -5,6 +5,7 @@
   border-radius: 0 0 6px 6px;
   bottom: calc(var(--frame-padding) + 1px);
   display: none;
+  font-family: var(--font-righteous), sans-serif;
   left: calc(var(--frame-padding) + 1px);
   padding-bottom: env(safe-area-inset-bottom);
   position: fixed;

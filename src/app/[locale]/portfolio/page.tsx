@@ -36,7 +36,7 @@ export default async function Page({
 
   return (
     <main>
-      <MenuList items={ITEMS} />
+      <MenuList heading="PORTFOLIO" items={ITEMS} />
     </main>
   );
 }

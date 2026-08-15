@@ -1,4 +1,5 @@
 .heading {
+  font-family: var(--font-righteous), sans-serif;
   font-size: 2.4rem;
   padding: 8px 0 16px;
   text-align: center;
@@ -13,12 +14,9 @@
 }
 
 .item {
-  background-color: var(--color-background);
-  background-image: radial-gradient(
-    var(--color-foreground) 1px,
-    transparent 1px
-  );
-  background-size: 16px 16px;
+  /* 破線の外側は半透明にして、背後の背景をぼかす。額縁の帯と同じ作り。 */
+  backdrop-filter: blur(2px);
+  background-color: var(--color-frame-band);
   display: flex;
   flex: 1 1 320px;
   padding: 12px;
@@ -26,6 +24,7 @@
 
 .itemInner {
   align-content: start;
+  background: var(--color-background);
   border: 1px dashed var(--color-line);
   border-radius: 6px;
   display: grid;
@@ -57,13 +56,13 @@
 }
 
 @media (width >= 980px) {
+  .item {
+    padding: 24px;
+  }
+
   .heading {
     font-size: 3.2rem;
     padding: 16px 0 24px;
-  }
-
-  .item {
-    padding: 24px;
   }
 
   .itemInner {
