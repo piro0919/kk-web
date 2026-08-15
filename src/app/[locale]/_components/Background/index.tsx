@@ -99,7 +99,6 @@ export default function Background(): null | React.JSX.Element {
           </div>
         ))}
       </div>
-      <div className={styles.pattern} />
     </div>
   );
 }

@@ -60,19 +60,6 @@
   opacity: var(--tile-opacity);
 }
 
-.pattern {
-  background-image: radial-gradient(
-    var(--color-foreground) 1px,
-    transparent 1px
-  );
-  /* ress が * に no-repeat を当てているので、ここで戻す。 */
-  background-repeat: repeat;
-  background-size: 16px 16px;
-  inset: 0;
-  opacity: 0.15;
-  position: absolute;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .tiles,
   .tile {

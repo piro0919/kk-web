@@ -2,7 +2,13 @@
 import { Link } from "@/i18n/navigation";
 import pageSize from "@/libs/pageSize";
 import { useLocale } from "next-intl";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./style.module.css";
 
 export type ArticleListItem = {
@@ -21,6 +27,12 @@ export type ArticleListProps = {
   items: ArticleListItem[];
 };
 
+/** 読み込み済みの続き。記事から一覧へ戻ったとき、同じ高さで描き直すために持っておく。
+    ページを再読み込みすると消える。 */
+const cache = new Map<string, ArticleListItem[]>();
+/** 離れるときのスクロール位置。ブラウザの復元は続きを描く前に走るので、自前で戻す。 */
+const scrollCache = new Map<string, number>();
+
 export default function ArticleList({
   external = false,
   heading,
@@ -28,10 +40,13 @@ export default function ArticleList({
   items,
 }: ArticleListProps): React.JSX.Element {
   const locale = useLocale();
-  const [loaded, setLoaded] = useState<ArticleListItem[]>([]);
+  const cacheKey = `${heading}-${locale}`;
+  const [loaded, setLoaded] = useState<ArticleListItem[]>(
+    () => cache.get(cacheKey) ?? [],
+  );
   const [isReachingEnd, setIsReachingEnd] = useState(!infinite);
   const isLoadingRef = useRef(false);
-  const pageRef = useRef(1);
+  const pageRef = useRef(1 + loaded.length / pageSize);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const loadMore = useCallback(async (): Promise<void> => {
     if (isLoadingRef.current) return;
@@ -44,14 +59,61 @@ export default function ArticleList({
 
     pageRef.current += 1;
 
-    setLoaded((prev) => [...prev, ...next]);
+    setLoaded((prev) => {
+      const merged = [...prev, ...next];
+
+      cache.set(cacheKey, merged);
+
+      return merged;
+    });
 
     if (next.length < pageSize) {
       setIsReachingEnd(true);
     }
 
     isLoadingRef.current = false;
-  }, [locale]);
+  }, [cacheKey, locale]);
+
+  useLayoutEffect(() => {
+    const saved = scrollCache.get(cacheKey);
+
+    if (typeof saved !== "number" || loaded.length === 0) return;
+
+    // ブラウザや Next 側の復元があとから走るので、少しのあいだ位置を保つ。
+    // 利用者が触ったらすぐやめる。
+    const start = performance.now();
+
+    let frame = 0;
+    let isCancelled = false;
+
+    const cancel = (): void => {
+      isCancelled = true;
+    };
+    const hold = (): void => {
+      if (isCancelled) return;
+
+      window.scrollTo(0, saved);
+
+      if (performance.now() - start < 800) {
+        frame = requestAnimationFrame(hold);
+      }
+    };
+
+    frame = requestAnimationFrame(hold);
+
+    window.addEventListener("wheel", cancel, { passive: true });
+    window.addEventListener("touchstart", cancel, { passive: true });
+    window.addEventListener("keydown", cancel);
+
+    return (): void => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("wheel", cancel);
+      window.removeEventListener("touchstart", cancel);
+      window.removeEventListener("keydown", cancel);
+    };
+    // 出入りのときだけでよいので、位置の変化は追わない。
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cacheKey]);
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
@@ -102,7 +164,14 @@ export default function ArticleList({
                   {inner}
                 </a>
               ) : (
-                <Link className={styles.itemInner} href={href}>
+                <Link
+                  onClick={(): void => {
+                    // 戻ってきたときに同じ位置へ戻すため、離れる直前の位置を控える。
+                    scrollCache.set(cacheKey, window.scrollY);
+                  }}
+                  className={styles.itemInner}
+                  href={href}
+                >
                   {inner}
                 </Link>
               )}
