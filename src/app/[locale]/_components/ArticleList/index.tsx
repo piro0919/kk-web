@@ -1,4 +1,8 @@
+"use client";
 import { Link } from "@/i18n/navigation";
+import pageSize from "@/libs/pageSize";
+import { useLocale } from "next-intl";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
 
 export type ArticleListItem = {
@@ -12,19 +16,66 @@ export type ArticleListProps = {
   /** 外部サイトへ飛ばす一覧かどうか。NOTE のように別ドメインへ出る場合に立てる。 */
   external?: boolean;
   heading: string;
+  /** 立てると、下端に着いたときに続きを読み込む。 */
+  infinite?: boolean;
   items: ArticleListItem[];
 };
 
 export default function ArticleList({
   external = false,
   heading,
+  infinite = false,
   items,
 }: ArticleListProps): React.JSX.Element {
+  const locale = useLocale();
+  const [loaded, setLoaded] = useState<ArticleListItem[]>([]);
+  const [isReachingEnd, setIsReachingEnd] = useState(!infinite);
+  const isLoadingRef = useRef(false);
+  const pageRef = useRef(1);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const loadMore = useCallback(async (): Promise<void> => {
+    if (isLoadingRef.current) return;
+
+    isLoadingRef.current = true;
+
+    const prefix = locale === "en" ? "" : `/${locale}`;
+    const response = await fetch(`${prefix}/articles?page=${pageRef.current}`);
+    const next = (await response.json()) as ArticleListItem[];
+
+    pageRef.current += 1;
+
+    setLoaded((prev) => [...prev, ...next]);
+
+    if (next.length < pageSize) {
+      setIsReachingEnd(true);
+    }
+
+    isLoadingRef.current = false;
+  }, [locale]);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+
+    if (!sentinel || isReachingEnd) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some(({ isIntersecting }) => isIntersecting)) {
+        void loadMore();
+      }
+    });
+
+    observer.observe(sentinel);
+
+    return (): void => {
+      observer.disconnect();
+    };
+  }, [isReachingEnd, loadMore]);
+
   return (
     <>
       <h1 className={styles.heading}>{heading}</h1>
       <ul className={styles.list}>
-        {items.map(({ date, href, text, title }) => {
+        {[...items, ...loaded].map(({ date, href, text, title }) => {
           const inner = (
             <>
               <div className={styles.titleBlock}>
@@ -55,6 +106,9 @@ export default function ArticleList({
           );
         })}
       </ul>
+      {isReachingEnd ? null : (
+        <div className={styles.sentinel} ref={sentinelRef} />
+      )}
     </>
   );
 }

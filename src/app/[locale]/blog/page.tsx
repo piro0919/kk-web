@@ -1,5 +1,6 @@
 import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
+import pageSize from "@/libs/pageSize";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import ArticleList from "../_components/ArticleList";
@@ -28,17 +29,19 @@ export default async function Page({
   setRequestLocale(locale);
 
   const articles = await getArticles(locale as "en" | "ja");
+  const firstPage = articles.slice(0, pageSize);
 
   return (
     <main>
       <ArticleList
-        items={articles.map(({ date, slug, text, title }) => ({
+        items={firstPage.map(({ date, slug, text, title }) => ({
           date,
           href: `/blog/${slug}`,
           text,
           title,
         }))}
         heading="BLOG"
+        infinite={true}
       />
     </main>
   );
