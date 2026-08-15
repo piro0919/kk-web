@@ -1,4 +1,6 @@
 export type PortfolioItem = {
+  /** 畳んだもの。一覧の下にまとめ、公開ページではなくリポジトリへ繋ぐ。 */
+  archived?: boolean;
   href: string;
   /** 表示名。翻訳キーがある場合は messages から引く。 */
   name?: string;
@@ -16,6 +18,7 @@ export type PortfolioCategory = {
 export const WEB_SERVICES: PortfolioCategory = {
   items: [
     {
+      archived: true,
       href: "https://high-low.kkweb.io/",
       nameKey: "highOrLowName",
       repo: "https://github.com/piro0919/high-low",
@@ -34,18 +37,21 @@ export const WEB_SERVICES: PortfolioCategory = {
       textKey: "ogpimggenText",
     },
     {
+      archived: true,
       href: "https://peraichi.kkweb.io/",
       nameKey: "peraichiName",
       repo: "https://github.com/piro0919/peraichi",
       textKey: "peraichiText",
     },
     {
+      archived: true,
       href: "https://youtube-growth.kkweb.io/",
       nameKey: "youtubeName",
       repo: "https://github.com/piro0919/youtube-growth",
       textKey: "youtubeText",
     },
     {
+      archived: true,
       href: "https://kantanka.kkweb.io",
       nameKey: "kantankaName",
       repo: "https://github.com/piro0919/kantanka",
@@ -58,6 +64,7 @@ export const WEB_SERVICES: PortfolioCategory = {
       textKey: "pokerText",
     },
     {
+      archived: true,
       href: "https://recban.kkweb.io",
       nameKey: "recbanName",
       repo: "https://github.com/piro0919/recban",
@@ -209,6 +216,10 @@ export const NPM_PACKAGES: PortfolioCategory = {
     },
   ],
   namespace: "Npm",
+};
+
+export const EXTENSIONS: PortfolioCategory = {
+  items: [],
 };
 
 export const MOVIES: PortfolioCategory = {

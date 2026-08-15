@@ -1,7 +1,8 @@
 import getMetadata from "@/libs/getMetadata";
+import { EXTENSIONS } from "@/libs/portfolio";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import MenuList from "../_components/MenuList";
+import CardList from "../../_components/CardList";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -14,19 +15,10 @@ export async function generateMetadata({
 
   return getMetadata({
     locale: locale as "en" | "ja",
-    path: "/portfolio",
-    subTitle: "PORTFOLIO",
+    path: "/portfolio/extension",
+    subTitle: "FIREFOX EXTENSION",
   });
 }
-
-const ITEMS = [
-  { href: "/portfolio/web-service", label: "WEB SERVICE" },
-  { href: "/portfolio/web-site", label: "WEB SITE" },
-  { href: "/portfolio/application", label: "APPLICATION" },
-  { href: "/portfolio/npm-package", label: "NPM PACKAGE" },
-  { href: "/portfolio/extension", label: "FIREFOX EXTENSION" },
-  { href: "/portfolio/movie", label: "MOVIE" },
-];
 
 export default async function Page({
   params,
@@ -37,7 +29,11 @@ export default async function Page({
 
   return (
     <main>
-      <MenuList heading="PORTFOLIO" items={ITEMS} />
+      <CardList
+        category={EXTENSIONS}
+        heading="FIREFOX EXTENSION"
+        locale={locale as "en" | "ja"}
+      />
     </main>
   );
 }
