@@ -13,7 +13,7 @@
 }
 
 .inner {
-  border: 1px dashed #000;
+  border: 1px dashed var(--color-line);
   border-radius: 6px;
   display: grid;
   gap: 12px;
@@ -42,8 +42,15 @@
   --base-size-16: 1.6rem;
   --base-size-24: 2.4rem;
   --base-size-40: 4rem;
+  /* github-markdown-css は OS 設定で明暗を決めるので、
+     こちらのテーマ切り替えに追従するよう地の色だけ上書きする。 */
   background: transparent;
+  color: var(--color-foreground);
   font-size: 1.4rem;
+}
+
+.body :global(a) {
+  color: var(--color-accent);
 }
 
 .body :global(img) {

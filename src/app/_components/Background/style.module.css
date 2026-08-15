@@ -43,7 +43,7 @@
 
 .tile img {
   object-fit: contain;
-  opacity: 0.25;
+  opacity: var(--tile-opacity);
 }
 
 .pattern {

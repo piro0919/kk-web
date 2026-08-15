@@ -4,9 +4,27 @@
   --color-background: #fff;
   --color-foreground: #333;
   --color-accent: #49abb8;
+  --color-danger: #b33e5c;
+
+  /* 破線の枠と区切り線。額縁もカードもこの色を見る。 */
+  --color-line: #333;
+
+  /* 背景タイルの濃さ。暗い地では沈んで汚れて見えるので落とす。 */
+  --tile-opacity: 0.25;
+
+  /* 額縁の帯。背景タイルをうっすら透かす。 */
+  --color-frame-band: rgb(255 255 255 / 75%);
 
   /* 額縁の帯の太さ。Frame とコンテンツの余白で共有する。 */
   --frame-padding: 8px;
+}
+
+[data-theme="dark"] {
+  --color-background: #202124;
+  --color-foreground: #bdc1c6;
+  --color-line: #bdc1c6;
+  --color-frame-band: rgb(32 33 36 / 75%);
+  --tile-opacity: 0.12;
 }
 
 @media (width >= 980px) {
