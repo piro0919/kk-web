@@ -11,8 +11,6 @@ export type Article = {
   title: string;
 };
 
-const ARTICLES_PATH = path.join(process.cwd(), "src/markdown-pages/ja");
-
 function parse(fileContents: string): Article {
   const { content, metadata } = parseMD(fileContents);
   const { date, slug, title } = metadata as {
@@ -31,16 +29,24 @@ function parse(fileContents: string): Article {
   };
 }
 
-/** 日付の新しい順に全記事を返す。 */
-export default async function getArticles(): Promise<Article[]> {
-  const filenames = await fs.readdir(ARTICLES_PATH);
+/** 指定した言語の記事を、日付の新しい順に返す。 */
+export default async function getArticles(
+  locale: "en" | "ja",
+): Promise<Article[]> {
+  const articlesPath = path.join(
+    process.cwd(),
+    "src/markdown-pages",
+    locale === "en" ? "en" : "ja",
+  );
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
+  const filenames = await fs.readdir(articlesPath);
   const articles = await Promise.all(
     filenames
       .filter((filename) => filename.endsWith(".md"))
       .map(async (filename) => {
         // eslint-disable-next-line security/detect-non-literal-fs-filename
         const fileContents = await fs.readFile(
-          path.join(ARTICLES_PATH, filename),
+          path.join(articlesPath, filename),
           "utf8",
         );
 

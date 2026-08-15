@@ -1,4 +1,5 @@
 /* eslint-disable filenames/match-exported, filenames/match-regex */
+import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
 const projectRoot = import.meta.dirname;
@@ -71,4 +72,6 @@ const nextConfig: NextConfig = {
   typedRoutes: true,
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

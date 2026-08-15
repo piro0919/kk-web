@@ -1,0 +1,19 @@
+/* テーマ切り替えの左隣、額縁の内側の右上に置く。 */
+.button {
+  background: transparent;
+  border: none;
+  color: var(--color-foreground);
+  cursor: pointer;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  padding: 8px;
+  position: fixed;
+  right: calc(var(--frame-padding) + 42px);
+  top: calc(var(--frame-padding) + 9px);
+  transition: color 150ms;
+  z-index: 2;
+}
+
+.button:hover {
+  color: var(--color-accent);
+}
