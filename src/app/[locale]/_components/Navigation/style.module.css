@@ -13,11 +13,17 @@
 
 .list {
   align-items: center;
+
+  /* 下をくぐる本文が透けないよう、リンクの背後に帯を敷く。 */
+  backdrop-filter: blur(2px);
+  background: var(--color-frame-band);
+  border-radius: 999px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px 24px;
   justify-content: center;
   list-style: none;
+  padding: 8px 24px;
   pointer-events: auto;
 }
 

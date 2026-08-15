@@ -37,6 +37,8 @@ const jkg = localFont({
   display: "swap",
   fallback: ["sans-serif"],
   src: "./jkg.woff2",
+  // 太さを明示しないとブラウザが擬似ボールドを作らない。
+  weight: "400",
 });
 
 export function generateStaticParams(): { locale: string }[] {
