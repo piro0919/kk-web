@@ -22,9 +22,9 @@ export default async function CardList({
   });
   const resolved = await Promise.all(
     items.map(
-      async ({ archived = false, href, name, nameKey, repo, textKey }) => {
-        // 畳んだものは公開ページが無いので、リンク先はリポジトリにする。
-        const target = archived ? (repo ?? href) : href;
+      async ({ archived = false, href, lp, name, nameKey, repo, textKey }) => {
+        // 畳んだものはリポジトリへ。紹介ページがあればそちらを主にする。
+        const target = archived ? (repo ?? href) : (lp ?? href);
         // 絵はサイト自身の og:image だけ。畳んだものは絵を出さない。
         const thumbnail =
           archived || !withThumbnail ? null : await getOgpImage(target);
