@@ -12,6 +12,10 @@
       "macopyText": "Mac 向けのオルタナティブ Clipy アプリです。",
       "playerText": "Mac 向けの Media Player アプリです。"
     },
+    "Extension": {
+      "hideKindleOrdersName": "Hide Kindle Orders",
+      "hideKindleOrdersText": "Amazon.co.jp の注文履歴から Kindle 版の注文を隠す Firefox 拡張機能です。"
+    },
     "Npm": {
       "nextPushText": "Next.js App Router 向けの Web Push 通知パッケージです。",
       "nextSubrouterText": "Next.js でモノレポを使用せず複数のサブドメインに対応するためのパッケージです。",

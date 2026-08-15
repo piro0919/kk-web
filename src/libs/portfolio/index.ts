@@ -222,7 +222,15 @@ export const NPM_PACKAGES: PortfolioCategory = {
 };
 
 export const EXTENSIONS: PortfolioCategory = {
-  items: [],
+  items: [
+    {
+      href: "https://hide-kindle-orders.kkweb.io",
+      nameKey: "hideKindleOrdersName",
+      repo: "https://github.com/piro0919/amazon-order-hide-kindle",
+      textKey: "hideKindleOrdersText",
+    },
+  ],
+  namespace: "Extension",
 };
 
 export const MOVIES: PortfolioCategory = {
