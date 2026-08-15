@@ -1,0 +1,115 @@
+/* 708 の額縁。画面に固定し、外周の帯だけを白の半透明で塗り、
+   その内側に破線が流れるボーダーを重ねる。 */
+
+.frame {
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1;
+}
+
+/* 外周の帯。中央をくり抜くので、コンテンツの上には乗らない。 */
+.frame::before {
+  backdrop-filter: blur(1px);
+  background: rgb(255 255 255 / 75%);
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    var(--frame-padding) 100%,
+    var(--frame-padding) var(--frame-padding),
+    calc(100% - var(--frame-padding)) var(--frame-padding),
+    calc(100% - var(--frame-padding)) calc(100% - var(--frame-padding)),
+    var(--frame-padding) calc(100% - var(--frame-padding)),
+    var(--frame-padding) 100%,
+    100% 100%,
+    100% 0%
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+/* 流れる破線のボーダー。4辺を repeating-linear-gradient で描き、
+   背景位置を14pxずらし続けることで動いて見せる。 */
+
+.frame::after {
+  animation: border-flow 1s infinite linear;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    ),
+    repeating-linear-gradient(
+      270deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    );
+  background-position:
+    0 0,
+    0 0,
+    100% 0,
+    0 100%;
+  background-repeat: no-repeat;
+  background-size:
+    1px calc(100% + 14px),
+    calc(100% + 14px) 1px,
+    1px calc(100% + 14px),
+    calc(100% + 14px) 1px;
+  border-radius: 6px;
+  content: "";
+  inset: var(--frame-padding);
+  position: absolute;
+}
+
+@media (width >= 980px) {
+  .frame::after {
+    border-radius: 12px;
+  }
+}
+
+@keyframes border-flow {
+  from {
+    background-position:
+      0 0,
+      -14px 0,
+      100% -14px,
+      0 100%;
+  }
+
+  to {
+    background-position:
+      0 -14px,
+      0 0,
+      100% 0,
+      -14px 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame::after {
+    animation: none;
+  }
+}

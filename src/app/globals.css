@@ -1,0 +1,51 @@
+@import "ress";
+
+:root {
+  --color-background: #fff;
+  --color-foreground: #333;
+
+  /* 額縁の帯の太さ。Frame とコンテンツの余白で共有する。 */
+  --frame-padding: 8px;
+}
+
+@media (width >= 980px) {
+  :root {
+    --frame-padding: 16px;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media (width < 768px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  min-height: 100dvh;
+  padding: calc(var(--frame-padding) + 8px);
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+canvas,
+img,
+picture,
+svg,
+video {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}

@@ -41,3 +41,7 @@ sitemap*.xml
 # Lighthouse CI reports
 .lighthouseci
 .envrc
+
+# Claude Code / Playwright MCP artifacts
+.claude/worktrees/
+.playwright-mcp/
