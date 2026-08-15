@@ -92,7 +92,6 @@
 .thumbnail,
 .noImage {
   aspect-ratio: 16 / 9;
-  border: 1px dashed var(--color-line);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -103,9 +102,10 @@
   object-fit: cover;
 }
 
-/* og:image を持たないサイト用の代わり。 */
+/* og:image を持たないサイト用の代わり。枠はこちらにだけ付ける。 */
 .noImage {
   align-items: center;
+  border: 1px dashed var(--color-line);
   display: flex;
   font-family: var(--font-righteous), sans-serif;
   font-size: 1rem;
