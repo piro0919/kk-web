@@ -1,6 +1,8 @@
 import getArticles from "@/libs/getArticles";
+import { createArticleStructuredData } from "@/libs/structuredData";
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
+import StructuredData from "../../_components/StructuredData";
 import Article from "./_components/Article";
 
 type PageProps = {
@@ -38,6 +40,14 @@ export default async function Page({
 
   return (
     <main>
+      <StructuredData
+        data={createArticleStructuredData({
+          datePublished: article.date,
+          description: article.text,
+          path: `/blog/${article.slug}`,
+          title: article.title,
+        })}
+      />
       <Article article={article} />
     </main>
   );
