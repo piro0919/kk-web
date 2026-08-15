@@ -33,35 +33,35 @@
   background-image:
     repeating-linear-gradient(
       0deg,
-      #000,
-      #000 10px,
+      var(--color-line),
+      var(--color-line) 10px,
       transparent 10px,
       transparent 14px,
-      #000 14px
+      var(--color-line) 14px
     ),
     repeating-linear-gradient(
       90deg,
-      #000,
-      #000 10px,
+      var(--color-line),
+      var(--color-line) 10px,
       transparent 10px,
       transparent 14px,
-      #000 14px
+      var(--color-line) 14px
     ),
     repeating-linear-gradient(
       180deg,
-      #000,
-      #000 10px,
+      var(--color-line),
+      var(--color-line) 10px,
       transparent 10px,
       transparent 14px,
-      #000 14px
+      var(--color-line) 14px
     ),
     repeating-linear-gradient(
       270deg,
-      #000,
-      #000 10px,
+      var(--color-line),
+      var(--color-line) 10px,
       transparent 10px,
       transparent 14px,
-      #000 14px
+      var(--color-line) 14px
     );
   background-position:
     0 0,

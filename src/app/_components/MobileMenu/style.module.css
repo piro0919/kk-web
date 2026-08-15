@@ -1,7 +1,7 @@
 /* 額縁の内側の下端に貼り付くフッターメニュー。768px 未満だけ出す。 */
 .mobileMenu {
   backdrop-filter: blur(1px);
-  background: rgb(255 255 255 / 75%);
+  background: var(--color-frame-band);
   border-radius: 0 0 6px 6px;
   bottom: calc(var(--frame-padding) + 1px);
   display: none;

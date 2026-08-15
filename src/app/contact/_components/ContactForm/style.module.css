@@ -32,7 +32,7 @@
 }
 
 .error {
-  color: #b33e5c;
+  color: var(--color-danger);
   font-size: 1.2rem;
 }
 
