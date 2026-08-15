@@ -1,0 +1,148 @@
+.heading {
+  font-size: 2.4rem;
+  padding: 8px 0 16px;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  filter: drop-shadow(4px 4px 4px rgb(0 0 0 / 25%));
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.item {
+  background-color: var(--color-background);
+  background-image: radial-gradient(
+    var(--color-foreground) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+  display: flex;
+  flex: 1 1 320px;
+  padding: 12px;
+}
+
+/* 708 のカードと同じ、内側に破線を回した枠。一覧では止めておき、
+   触れたときだけ流す。数百件ぶんを常時動かすと重いため。 */
+
+.itemInner {
+  align-content: start;
+  animation: card-border-flow 1s infinite linear paused;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    ),
+    repeating-linear-gradient(
+      270deg,
+      #000,
+      #000 10px,
+      transparent 10px,
+      transparent 14px,
+      #000 14px
+    );
+  background-position:
+    0 0,
+    0 0,
+    100% 0,
+    0 100%;
+  background-repeat: no-repeat;
+  background-size:
+    1px calc(100% + 14px),
+    calc(100% + 14px) 1px,
+    1px calc(100% + 14px),
+    calc(100% + 14px) 1px;
+  border-radius: 6px;
+  display: grid;
+  flex: 1;
+  gap: 6px;
+  grid-template-columns: 100%;
+  padding: 12px;
+}
+
+.item:hover .itemInner {
+  animation-play-state: running;
+}
+
+.title {
+  font-size: 1.8rem;
+}
+
+.text {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.date {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+@keyframes card-border-flow {
+  from {
+    background-position:
+      0 0,
+      -14px 0,
+      100% -14px,
+      0 100%;
+  }
+
+  to {
+    background-position:
+      0 -14px,
+      0 0,
+      100% 0,
+      -14px 100%;
+  }
+}
+
+@media (width >= 980px) {
+  .heading {
+    font-size: 3.2rem;
+    padding: 16px 0 24px;
+  }
+
+  .item {
+    padding: 24px;
+  }
+
+  .itemInner {
+    border-radius: 12px;
+    gap: 12px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item:hover .itemInner {
+    animation-play-state: paused;
+  }
+}

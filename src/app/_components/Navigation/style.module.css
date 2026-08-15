@@ -1,0 +1,48 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  position: sticky;
+  top: calc(var(--frame-padding) + 1px);
+  z-index: 2;
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: center;
+  list-style: none;
+}
+
+.item {
+  align-items: center;
+  display: flex;
+  gap: 12px 24px;
+}
+
+/* 項目のあいだの縦棒。最後の項目には出さない。 */
+.item:not(:last-child)::after {
+  background: var(--color-foreground);
+  content: "";
+  display: block;
+  height: 16px;
+  width: 2px;
+}
+
+.link {
+  transition: color 150ms;
+}
+
+.link:hover,
+.current {
+  color: var(--color-accent);
+}
+
+/* 768px 未満は MobileMenu に譲る。 */
+@media (width < 768px) {
+  .navigation {
+    display: none;
+  }
+}

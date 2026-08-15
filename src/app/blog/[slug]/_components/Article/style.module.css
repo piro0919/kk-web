@@ -1,0 +1,70 @@
+.article {
+  background-color: var(--color-background);
+  background-image: radial-gradient(
+    var(--color-foreground) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+  filter: drop-shadow(4px 4px 4px rgb(0 0 0 / 25%));
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 12px;
+  width: 100%;
+}
+
+.inner {
+  border: 1px dashed #000;
+  border-radius: 6px;
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.title {
+  font-size: 2.4rem;
+}
+
+.date {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.hr {
+  background: var(--color-foreground);
+  border: none;
+  height: 1px;
+}
+
+/* github-markdown-css の余白を rem 基準に合わせる。 */
+.body {
+  --base-size-4: 0.4rem;
+  --base-size-8: 0.8rem;
+  --base-size-16: 1.6rem;
+  --base-size-24: 2.4rem;
+  --base-size-40: 4rem;
+  background: transparent;
+  font-size: 1.4rem;
+}
+
+.body :global(img) {
+  max-width: 320px;
+}
+
+.back {
+  color: var(--color-accent);
+}
+
+@media (width >= 980px) {
+  .article {
+    padding: 24px;
+  }
+
+  .inner {
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 3.2rem;
+  }
+}
