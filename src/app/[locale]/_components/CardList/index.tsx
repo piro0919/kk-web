@@ -24,8 +24,7 @@ export default async function CardList({
       // 畳んだものは公開ページが残っていないことがあるので、リポジトリへ繋ぐ。
       href: archived ? (repo ?? href) : href,
       name: nameKey ? t(nameKey) : (name ?? ""),
-      // 畳んだものはカード自体がリポジトリ行きなので、アイコンは出さない。
-      repo: archived ? undefined : repo,
+      repo,
       text: textKey ? t(textKey) : "",
     }),
   );
