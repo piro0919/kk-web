@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { type ComponentProps } from "react";
+import { FiChevronRight } from "react-icons/fi";
 import styles from "./style.module.css";
 
 export type MenuListItem = {
@@ -8,22 +9,28 @@ export type MenuListItem = {
 };
 
 export type MenuListProps = {
+  heading: string;
   items: MenuListItem[];
 };
 
-/** WRITING や PORTFOLIO のような、下位ページへ振り分けるだけの画面で使う。 */
-export default function MenuList({ items }: MenuListProps): React.JSX.Element {
+/** WRITING や PORTFOLIO のような、下位ページへ振り分ける画面で使う。 */
+export default function MenuList({
+  heading,
+  items,
+}: MenuListProps): React.JSX.Element {
   return (
-    <div className={styles.wrapper}>
+    <>
+      <h1 className={styles.heading}>{heading}</h1>
       <ul className={styles.list}>
         {items.map(({ href, label }) => (
           <li className={styles.item} key={label}>
             <Link className={styles.itemInner} href={href}>
-              {label}
+              <h2 className={styles.title}>{label}</h2>
+              <FiChevronRight className={styles.chevron} size={20} />
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }

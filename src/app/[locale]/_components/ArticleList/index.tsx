@@ -27,9 +27,11 @@ export default function ArticleList({
         {items.map(({ date, href, text, title }) => {
           const inner = (
             <>
-              <h2 className={styles.title}>{title}</h2>
+              <div className={styles.titleBlock}>
+                <h2 className={styles.title}>{title}</h2>
+                <p className={styles.date}>{date}</p>
+              </div>
               <p className={styles.text}>{text}</p>
-              <p className={styles.date}>{date}</p>
             </>
           );
 

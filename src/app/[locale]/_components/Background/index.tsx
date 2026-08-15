@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./style.module.css";
 
 // 4×4 の1ブロック。行と列の両方で2キャラが入れ違いになるよう市松に並べる。
@@ -26,8 +26,24 @@ const TILE_IMAGES = [
 // 4×4 ブロックの一辺。画面幅によらず固定なので、キャラの大きさはどこでも同じ。
 const BLOCK_SIZE = 376;
 
+/** 0〜15 をばらけさせた並び。タイルが1枚ずつ現れる順番になる。 */
+function shuffleOrder(): number[] {
+  const pool = TILE_IMAGES.map((_, index) => index);
+  const order: number[] = [];
+
+  while (pool.length > 0) {
+    const picked = pool.splice(Math.floor(Math.random() * pool.length), 1);
+
+    order.push(...picked);
+  }
+
+  return order;
+}
+
 export default function Background(): null | React.JSX.Element {
   const [{ columns, rows }, setGrid] = useState({ columns: 0, rows: 0 });
+  // 708 と同じく、全ブロックで同じ順番に出す。
+  const order = useMemo(shuffleOrder, []);
 
   useEffect(() => {
     const measure = (): void => {
@@ -69,8 +85,14 @@ export default function Background(): null | React.JSX.Element {
           (_, blockIndex) => `block-${blockIndex}`,
         ).map((blockKey) => (
           <div className={styles.block} key={blockKey}>
-            {TILE_IMAGES.map((src) => (
-              <div className={styles.tile} key={src}>
+            {TILE_IMAGES.map((src, tileIndex) => (
+              <div
+                style={{
+                  animationDelay: `${0.1 * order.indexOf(tileIndex)}s`,
+                }}
+                className={styles.tile}
+                key={src}
+              >
                 <Image alt="" fill={true} quality={75} src={src} />
               </div>
             ))}

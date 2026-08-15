@@ -33,7 +33,7 @@ export default async function Page({
 
   return (
     <main>
-      <MenuList items={ITEMS} />
+      <MenuList heading="WRITING" items={ITEMS} />
     </main>
   );
 }

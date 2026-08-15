@@ -1,5 +1,6 @@
 .navigation {
   display: flex;
+  font-family: var(--font-righteous), sans-serif;
   justify-content: center;
   padding: 24px 0;
 
