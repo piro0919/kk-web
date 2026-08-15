@@ -5,12 +5,23 @@
   text-align: center;
 }
 
+/* 記事一覧と同じ縦一列。 */
+.subHeading {
+  font-family: var(--font-righteous), sans-serif;
+  font-size: 1.8rem;
+  opacity: 0.6;
+  padding: 32px 0 12px;
+  text-align: center;
+}
+
 .list {
-  display: flex;
+  display: grid;
   filter: drop-shadow(4px 4px 4px rgb(0 0 0 / 25%));
-  flex-wrap: wrap;
   gap: 8px;
   list-style: none;
+  margin: 0 auto;
+  max-width: 720px;
+  width: 100%;
 }
 
 .item {
@@ -18,8 +29,7 @@
   backdrop-filter: blur(2px);
   background-color: var(--color-frame-band);
   display: flex;
-  flex: 1 1 320px;
-  padding: 12px;
+  padding: 8px;
 }
 
 .itemInner {
@@ -31,47 +41,81 @@
   flex: 1;
   gap: 6px;
   grid-template-columns: 100%;
-  padding: 12px;
-}
+  padding: 16px;
 
-.titleBlock {
-  align-items: center;
-  display: flex;
-  gap: 8px;
+  /* 作品名のリンクをカード全面に広げるための基準。 */
+  position: relative;
 }
 
 .title {
   font-size: 1.8rem;
+
+  /* JKG は太字を持たないので、線を足して太らせる。 */
+  -webkit-text-stroke: 0.4px currentcolor;
   transition: color 150ms;
 }
 
-.name:hover .title {
+.itemInner:hover .title {
   color: var(--color-accent);
 }
 
-.repo {
-  color: var(--color-accent);
-  display: flex;
-  font-size: 1.2rem;
+.text {
+  opacity: 0.75;
 }
 
 @media (width >= 980px) {
-  .item {
-    padding: 24px;
-  }
-
   .heading {
     font-size: 3.2rem;
     padding: 16px 0 24px;
   }
 
+  .item {
+    padding: 12px;
+  }
+
   .itemInner {
     border-radius: 12px;
-    gap: 12px;
-    padding: 24px;
+    padding: 20px 24px;
   }
 
   .title {
     font-size: 2rem;
   }
+}
+
+.titleBlock {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.name {
+  min-width: 0;
+}
+
+/* カードのどこを押しても公開ページへ飛ぶようにする。 */
+.name::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.repo {
+  color: var(--color-foreground);
+  display: flex;
+  flex-shrink: 0;
+  opacity: 0.6;
+
+  /* 全面に広げたリンクより前に出す。 */
+  position: relative;
+  transition:
+    color 150ms,
+    opacity 150ms;
+  z-index: 1;
+}
+
+.repo:hover {
+  color: var(--color-accent);
+  opacity: 1;
 }
