@@ -63,7 +63,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
-    remotePatterns: [],
+    // OGP 画像は任意のドメインから来るため、https を広く許可する。
+    remotePatterns: [{ hostname: "**", protocol: "https" }],
   },
   outputFileTracingRoot: projectRoot,
   turbopack: {
