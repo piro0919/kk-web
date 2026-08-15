@@ -1,0 +1,64 @@
+.wrapper {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.tiles {
+  animation: drift 30s linear infinite;
+  display: grid;
+  grid-auto-rows: var(--block-size);
+  grid-template-columns: repeat(var(--columns), var(--block-size));
+  will-change: transform;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(
+      calc(var(--block-size) * -1),
+      calc(var(--block-size) * -1)
+    );
+  }
+}
+
+.block {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+.tile {
+  aspect-ratio: 1 / 1;
+  background: var(--color-background);
+  border-radius: 12px;
+  margin: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tile img {
+  object-fit: contain;
+  opacity: 0.25;
+}
+
+.pattern {
+  background-image: radial-gradient(
+    var(--color-foreground) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+  inset: 0;
+  opacity: 0.15;
+  position: absolute;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tiles {
+    animation: none;
+  }
+}
