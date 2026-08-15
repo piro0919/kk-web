@@ -3,7 +3,8 @@
     "submitButton": "Send",
     "submitError": "Failed to send",
     "submitSuccess": "Message sent successfully",
-    "submitting": "Sending..."
+    "submitting": "Sending...",
+    "recaptcha": "This site is protected by reCAPTCHA and the Google <privacy>Privacy Policy</privacy> and <terms>Terms of Service</terms> apply."
   },
   "Portfolio": {
     "Applications": {

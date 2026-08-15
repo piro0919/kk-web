@@ -87,14 +87,9 @@ video {
   }
 }
 
-/* reCAPTCHA のバッジ。額縁の内側に収め、モバイルではフッターメニューも避ける。 */
-.grecaptcha-badge {
-  bottom: calc(var(--frame-padding) + 12px) !important;
-  right: calc(var(--frame-padding) + 12px) !important;
-}
+/* reCAPTCHA のバッジは隠し、代わりに規約の文言をフォームに置く。
+   バッジは画面の隅に居座り、狭い画面では送信ボタンに被るため。 */
 
-@media (width < 768px) {
-  .grecaptcha-badge {
-    bottom: calc(var(--frame-padding) + 72px) !important;
-  }
+.grecaptcha-badge {
+  visibility: hidden;
 }

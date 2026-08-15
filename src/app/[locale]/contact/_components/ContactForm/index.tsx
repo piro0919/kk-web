@@ -150,6 +150,30 @@ export default function ContactForm(): React.JSX.Element {
           name="message"
         />
       </div>
+      <p className={styles.recaptcha}>
+        {t.rich("recaptcha", {
+          privacy: (chunks) => (
+            <a
+              className={styles.recaptchaLink}
+              href="https://policies.google.com/privacy"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {chunks}
+            </a>
+          ),
+          terms: (chunks) => (
+            <a
+              className={styles.recaptchaLink}
+              href="https://policies.google.com/terms"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {chunks}
+            </a>
+          ),
+        })}
+      </p>
       <div className={styles.submitBlock}>
         {statusKey === null ? null : (
           <p className={styles.status}>{t(statusKey)}</p>

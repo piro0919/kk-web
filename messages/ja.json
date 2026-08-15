@@ -3,7 +3,8 @@
     "submitButton": "送信する",
     "submitError": "送信に失敗しました",
     "submitSuccess": "メッセージを送信しました",
-    "submitting": "送信しています…"
+    "submitting": "送信しています…",
+    "recaptcha": "このサイトは reCAPTCHA によって保護されており、Google の <privacy>プライバシーポリシー</privacy> と <terms>利用規約</terms> が適用されます。"
   },
   "Portfolio": {
     "Applications": {
