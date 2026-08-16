@@ -27,14 +27,33 @@
   font-size: 2.4rem;
 }
 
+/* 似顔絵は右へ回り込ませる。絵より下に来た行は全幅に戻るので、
+   Job のような長い行が折り返さない。float を効かせるため、
+   一覧と項目は grid ではなく通常フローで組む。 */
+
+.avatar {
+  border-radius: 6px;
+  float: right;
+  height: auto;
+  margin: 0 0 8px 16px;
+  width: 88px;
+}
+
 .list {
-  display: grid;
-  gap: 8px;
+  display: block;
 }
 
 .item {
-  display: grid;
-  gap: 2px;
+  display: block;
+}
+
+.item + .item {
+  margin-top: 8px;
+}
+
+.item dd {
+  margin-inline-start: 0;
+  margin-top: 2px;
 }
 
 .label {

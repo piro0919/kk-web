@@ -1,6 +1,7 @@
 import getMetadata from "@/libs/getMetadata";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import Image from "next/image";
 import styles from "./style.module.css";
 
 type PageProps = {
@@ -40,6 +41,15 @@ export default async function Page({
           <div className={styles.panel}>
             <h1 className={styles.heading}>ABOUT</h1>
             <dl className={styles.list}>
+              {/* 回り込ませる要素は、回り込ませたい文字より前に置く。 */}
+              <Image
+                alt="piro"
+                className={styles.avatar}
+                height={88}
+                priority={true}
+                src="/piro.png"
+                width={88}
+              />
               {ITEMS.map(({ label, text }) => (
                 <div className={styles.item} key={label}>
                   <dt className={styles.label}>{label}</dt>
