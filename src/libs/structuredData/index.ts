@@ -38,6 +38,7 @@ export function createPersonStructuredData(): WithContext<Person> {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    image: `${baseUrl}/piro.png`,
     jobTitle: "Frontend Developer",
     name: "piro",
     sameAs: ["https://github.com/piro0919", "https://twitter.com/piro0919"],
