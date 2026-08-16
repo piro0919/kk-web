@@ -18,37 +18,35 @@ export default async function Image(): Promise<ImageResponse> {
   ]);
 
   return new ImageResponse(
-    (
-      <OgpFrame background={background} metan={metan} tsumugi={tsumugi}>
-        {/* 吹き出しは立ち絵より前。中身の字は吹き出しの白地に載る。 */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            position: "absolute",
-            top: 110,
-            width: "100%",
-          }}
-        >
-          <img alt="" height={273 / 1.2} src={bubble} width={512 / 1.2} />
-        </div>
-        <div
-          style={{
-            color: "#000",
-            display: "flex",
-            fontSize: 44,
-            fontStyle: "italic",
-            fontWeight: 700,
-            justifyContent: "center",
-            position: "absolute",
-            top: 178,
-            width: "100%",
-          }}
-        >
-          {text}
-        </div>
-      </OgpFrame>
-    ),
+    <OgpFrame background={background} metan={metan} tsumugi={tsumugi}>
+      {/* 吹き出しは立ち絵より前。中身の字は吹き出しの白地に載る。 */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+          top: 110,
+          width: "100%",
+        }}
+      >
+        <img alt="" height={273 / 1.2} src={bubble} width={512 / 1.2} />
+      </div>
+      <div
+        style={{
+          color: "#000",
+          display: "flex",
+          fontSize: 44,
+          fontStyle: "italic",
+          fontWeight: 700,
+          justifyContent: "center",
+          position: "absolute",
+          top: 178,
+          width: "100%",
+        }}
+      >
+        {text}
+      </div>
+    </OgpFrame>,
     {
       ...size,
       fonts: [
