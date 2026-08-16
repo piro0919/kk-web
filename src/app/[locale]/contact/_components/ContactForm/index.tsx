@@ -51,8 +51,9 @@ function getStatusKey(status: Status): null | string {
 export default function ContactForm(): React.JSX.Element {
   const {
     control,
-    formState: { errors, isSubmitting },
+    formState: { errors, isDirty, isSubmitting },
     register,
+    reset,
   } = useForm<FieldTypes>({
     defaultValues: { email: "", message: "", name: "", subject: "" },
     progressive: true,
@@ -68,6 +69,13 @@ export default function ContactForm(): React.JSX.Element {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  // 送信の結果はいつまでも残さない。次を書き始めたら消す。
+  useEffect(() => {
+    if (isDirty && (status === "error" || status === "success")) {
+      setStatus("");
+    }
+  }, [isDirty, status]);
 
   const t = useTranslations("Contact");
   const statusKey = getStatusKey(status);
@@ -89,6 +97,8 @@ export default function ContactForm(): React.JSX.Element {
       }}
       onSuccess={(): void => {
         setStatus("success");
+        // 送れたら入力は空に戻す。同じ内容を二重に送らせない。
+        reset();
       }}
       action="/email"
       className={styles.form}
