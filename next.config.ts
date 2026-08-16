@@ -37,6 +37,7 @@ const nextConfig: NextConfig = {
       // チャンクを再検証しなくなり、コードを直しても反映されない。
       ...(isProduction
         ? [
+            // コードと書体はファイル名にハッシュが入るので固定して良い。
             {
               headers: [
                 {
@@ -44,8 +45,18 @@ const nextConfig: NextConfig = {
                   value: "public, max-age=31536000, immutable",
                 },
               ],
-              source:
-                "/(.*)\\.(js|css|woff|woff2|png|jpg|jpeg|gif|webp|avif|svg|ico)",
+              source: "/(.*)\\.(js|css|woff|woff2)",
+            },
+            // 画像は public 配下が名前のまま置き換わる。immutable にすると
+            // 差し替えても最長1年間そのままになるので、再検証させる。
+            {
+              headers: [
+                {
+                  key: "Cache-Control",
+                  value: "public, max-age=86400, stale-while-revalidate=604800",
+                },
+              ],
+              source: "/(.*)\\.(png|jpg|jpeg|gif|webp|avif|svg|ico)",
             },
             {
               headers: [
