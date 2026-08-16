@@ -6,7 +6,15 @@
     "submitSuccess": "Message sent successfully",
     "submitting": "Sending..."
   },
-  "StructuredData": {
-    "siteDescription": "Software Developer piro's website"
+  "Site": {
+    "description": "Software Developer piro's website"
+  },
+  "Ui": {
+    "linkOnPlatform": "{name} on {platform}",
+    "linkOnRepository": "{name} on GitHub",
+    "support": "Support me on Buy Me a Coffee",
+    "switchLocale": "日本語に切り替える",
+    "themeToDark": "Switch to dark mode",
+    "themeToLight": "Switch to light mode"
   }
 }

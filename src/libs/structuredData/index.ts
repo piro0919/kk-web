@@ -15,7 +15,7 @@ export async function createWebSiteStructuredData({
   locale,
 }: StructuredDataParams): Promise<WithContext<WebSite>> {
   const baseUrl = getBaseUrl();
-  const t = await getTranslations({ locale, namespace: "StructuredData" });
+  const t = await getTranslations({ locale, namespace: "Site" });
 
   return {
     "@context": "https://schema.org",
@@ -25,7 +25,7 @@ export async function createWebSiteStructuredData({
       name: "piro",
       url: baseUrl,
     },
-    description: t("siteDescription"),
+    description: t("description"),
     inLanguage: locale === "en" ? "en-US" : "ja-JP",
     name: "kk-web",
     url: locale === "en" ? baseUrl : `${baseUrl}/${locale}`,
