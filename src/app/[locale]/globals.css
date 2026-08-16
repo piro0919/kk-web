@@ -17,6 +17,11 @@
 
   /* 額縁の帯の太さ。Frame とコンテンツの余白で共有する。 */
   --frame-padding: 8px;
+
+  /* ナビゲーションが流れの中で占める高さ。Navigation がこの値で描き、
+     画面いっぱいに中央寄せするページが同じ値だけ下余白を取って打ち消す。
+     ナビは帯を持たず背景に浮いているので、見る側は画面全体を面として見る。 */
+  --nav-height: 85px;
 }
 
 [data-theme="dark"] {
@@ -55,11 +60,22 @@ body {
   padding: calc(var(--frame-padding) + 8px);
 }
 
-/* ナビゲーションを除いた残り全部を本文に渡す。 */
+/* ナビゲーションを除いた残り全部を本文に渡す。
+   下にナビと同じ高さの余白を置き、上下の余白を揃える。これで
+   中央寄せのページは画面全体に対する中央へ戻り、スクロールする
+   ページは最後の要素と額縁のあいだに上と同じだけの余白ができる。
+   ナビが出ない狭い画面では要らない。 */
+
 body > main {
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+@media (width >= 768px) {
+  body > main {
+    padding-bottom: var(--nav-height);
+  }
 }
 
 a {
