@@ -27,6 +27,10 @@ export type ArticleListProps = {
   items: ArticleListItem[];
 };
 
+/** 下端の何画面ぶん手前で読み始めるか。画面の高さに対する比で持つので、
+    縦に長い画面でも短い画面でも同じ体感になる。監視の余白と読み込み後の
+    再判定で共有する。 */
+const loadAhead = 2.5;
 /** 読み込み済みの続き。記事から一覧へ戻ったとき、同じ高さで描き直すために持っておく。
     ページを再読み込みすると消える。 */
 const cache = new Map<string, ArticleListItem[]>();
@@ -53,25 +57,30 @@ export default function ArticleList({
 
     isLoadingRef.current = true;
 
-    const prefix = locale === "en" ? "" : `/${locale}`;
-    const response = await fetch(`${prefix}/articles?page=${pageRef.current}`);
-    const next = (await response.json()) as ArticleListItem[];
+    try {
+      const prefix = locale === "en" ? "" : `/${locale}`;
+      const response = await fetch(
+        `${prefix}/articles?page=${pageRef.current}`,
+      );
+      const next = (await response.json()) as ArticleListItem[];
 
-    pageRef.current += 1;
+      pageRef.current += 1;
 
-    setLoaded((prev) => {
-      const merged = [...prev, ...next];
+      setLoaded((prev) => {
+        const merged = [...prev, ...next];
 
-      cache.set(cacheKey, merged);
+        cache.set(cacheKey, merged);
 
-      return merged;
-    });
+        return merged;
+      });
 
-    if (next.length < pageSize) {
-      setIsReachingEnd(true);
+      if (next.length < pageSize) {
+        setIsReachingEnd(true);
+      }
+    } finally {
+      // 途中で失敗しても閉じておく。閉じ忘れると二度と読めなくなる。
+      isLoadingRef.current = false;
     }
-
-    isLoadingRef.current = false;
   }, [cacheKey, locale]);
 
   useLayoutEffect(() => {
@@ -127,7 +136,7 @@ export default function ArticleList({
         }
       },
       // 下端に着く前に読み始める。
-      { rootMargin: "1200px 0px" },
+      { rootMargin: `${loadAhead * 100}% 0px` },
     );
 
     observer.observe(sentinel);
@@ -136,6 +145,29 @@ export default function ArticleList({
       observer.disconnect();
     };
   }, [isReachingEnd, loadMore]);
+
+  // IntersectionObserver は交差の状態が変わったときにしか呼ばれない。
+  // 1ページ読んでも番兵がまだ手前に居ると、そこで止まってしまうので、
+  // 描き終えたあとに測り直して、必要ならもう1ページ読む。
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+
+    if (!sentinel || isReachingEnd) return;
+
+    const frame = requestAnimationFrame(() => {
+      const { top } = sentinel.getBoundingClientRect();
+
+      if (top - window.innerHeight < window.innerHeight * loadAhead) {
+        void loadMore();
+      }
+    });
+
+    return (): void => {
+      cancelAnimationFrame(frame);
+    };
+    // loaded は本文で使わないが、描き直しの合図として要る。
+     
+  }, [isReachingEnd, loadMore, loaded]);
 
   return (
     <>
