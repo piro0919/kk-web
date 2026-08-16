@@ -25,6 +25,8 @@ const TILE_IMAGES = [
 ];
 // 4×4 ブロックの一辺。画面幅によらず固定なので、キャラの大きさはどこでも同じ。
 const BLOCK_SIZE = 376;
+// タイル1枚の表示幅。sizes を書かないと画面幅ぶんの絵を取りに行く。
+const TILE_SIZE = BLOCK_SIZE / 4;
 
 /** 0〜15 をばらけさせた並び。タイルが1枚ずつ現れる順番になる。 */
 function shuffleOrder(): number[] {
@@ -93,7 +95,13 @@ export default function Background(): null | React.JSX.Element {
                 className={styles.tile}
                 key={src}
               >
-                <Image alt="" fill={true} quality={75} src={src} />
+                <Image
+                  alt=""
+                  fill={true}
+                  quality={75}
+                  sizes={`${TILE_SIZE}px`}
+                  src={src}
+                />
               </div>
             ))}
           </div>
