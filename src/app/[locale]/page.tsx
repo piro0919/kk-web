@@ -1,5 +1,5 @@
-import getDailyCharacter from "@/libs/getDailyCharacter";
 import { setRequestLocale } from "next-intl/server";
+import getDailyCharacter from "@/libs/getDailyCharacter";
 import BubbleHero from "./_components/BubbleHero";
 
 // 立ち絵を日替わりにするため、1 時間ごとに作り直す。これが無いと

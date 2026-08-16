@@ -1,6 +1,6 @@
-import getMetadata from "@/libs/getMetadata";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import getMetadata from "@/libs/getMetadata";
 import ContactForm from "./_components/ContactForm";
 import styles from "./style.module.css";
 

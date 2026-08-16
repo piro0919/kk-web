@@ -45,7 +45,7 @@ function shuffleOrder(): number[] {
 export default function Background(): null | React.JSX.Element {
   const [{ columns, rows }, setGrid] = useState({ columns: 0, rows: 0 });
   // 708 と同じく、全ブロックで同じ順番に出す。
-  const order = useMemo(shuffleOrder, []);
+  const order = useMemo(() => shuffleOrder(), []);
 
   useEffect(() => {
     const measure = (): void => {

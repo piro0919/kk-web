@@ -12,6 +12,9 @@ export default function ThemeToggle(): null | React.JSX.Element {
 
   // サーバーでは配色が決まらないので、載ってから描く。
   useEffect(() => {
+    // 配色はサーバーでは決まらない。組み立て中の画面と食い違わせないため、
+    // ここは状態を変える以外に手がない。
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

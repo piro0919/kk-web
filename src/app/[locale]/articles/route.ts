@@ -1,6 +1,6 @@
+import { type NextRequest, NextResponse } from "next/server";
 import getArticles from "@/libs/getArticles";
 import pageSize from "@/libs/pageSize";
-import { type NextRequest, NextResponse } from "next/server";
 
 export type GetArticlesResponseBody = {
   date: string;

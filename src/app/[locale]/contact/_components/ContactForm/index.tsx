@@ -1,5 +1,4 @@
 "use client";
-import env from "@/env";
 import { ErrorMessage } from "@hookform/error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSetCookie } from "cookies-next/client";
@@ -16,6 +15,7 @@ import { createPortal } from "react-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
+import env from "@/env";
 import {
   createEmailSchema,
   type PostEmailRequestFormData,
@@ -57,7 +57,7 @@ export default function ContactForm(): React.JSX.Element {
   );
   const {
     control,
-    formState: { errors, isDirty, isSubmitting },
+    formState: { errors, isSubmitting },
     register,
     reset,
   } = useForm<FieldTypes>({
@@ -73,15 +73,11 @@ export default function ContactForm(): React.JSX.Element {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // 描き終えてから出す必要がある。組み立て中の画面と食い違わせないため、
+    // ここは状態を変える以外に手がない。
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
   }, []);
-
-  // 失敗の表示はいつまでも残さない。書き直し始めたら消す。
-  useEffect(() => {
-    if (isDirty && status === "error") {
-      setStatus("");
-    }
-  }, [isDirty, status]);
 
   const statusKey = getStatusKey(status);
 
@@ -107,6 +103,10 @@ export default function ContactForm(): React.JSX.Element {
 
   return (
     <Form
+      onChange={(): void => {
+        // 失敗の表示はいつまでも残さない。書き直し始めたら消す。
+        setStatus((current) => (current === "error" ? "" : current));
+      }}
       onError={(): void => {
         setStatus("error");
       }}

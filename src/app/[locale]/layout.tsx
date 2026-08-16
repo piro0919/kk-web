@@ -1,10 +1,4 @@
 // eslint-disable-next-line filenames/match-exported
-import { routing } from "@/i18n/routing";
-import getMetadata from "@/libs/getMetadata";
-import {
-  createPersonStructuredData,
-  createWebSiteStructuredData,
-} from "@/libs/structuredData";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
@@ -16,6 +10,12 @@ import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { type ReactNode } from "react";
+import { routing } from "@/i18n/routing";
+import getMetadata from "@/libs/getMetadata";
+import {
+  createPersonStructuredData,
+  createWebSiteStructuredData,
+} from "@/libs/structuredData";
 import Background from "./_components/Background";
 import Frame from "./_components/Frame";
 import LocaleSwitch from "./_components/LocaleSwitch";

@@ -1,10 +1,10 @@
+import { type Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
 import { createArticleStructuredData } from "@/libs/structuredData";
-import { type Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
 import StructuredData from "../../_components/StructuredData";
 import Article from "./_components/Article";
 

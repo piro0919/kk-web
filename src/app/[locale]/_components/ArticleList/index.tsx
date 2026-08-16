@@ -1,6 +1,4 @@
 "use client";
-import { Link } from "@/i18n/navigation";
-import pageSize from "@/libs/pageSize";
 import { useLocale } from "next-intl";
 import {
   useCallback,
@@ -9,6 +7,8 @@ import {
   useRef,
   useState,
 } from "react";
+import { Link } from "@/i18n/navigation";
+import pageSize from "@/libs/pageSize";
 import styles from "./style.module.css";
 
 export type ArticleListItem = {

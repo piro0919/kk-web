@@ -1,6 +1,6 @@
-import getMetadata from "@/libs/getMetadata";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import getMetadata from "@/libs/getMetadata";
 import MenuList from "../_components/MenuList";
 
 type PageProps = {

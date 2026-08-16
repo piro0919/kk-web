@@ -1,9 +1,9 @@
-import getOgpImage from "@/libs/getOgpImage";
-import { type CategoryName, getPortfolio } from "@/libs/portfolio";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { SiNiconico, SiNpm, SiYoutube } from "react-icons/si";
+import getOgpImage from "@/libs/getOgpImage";
+import { type CategoryName, getPortfolio } from "@/libs/portfolio";
 import styles from "./style.module.css";
 import type { IconType } from "react-icons";
 

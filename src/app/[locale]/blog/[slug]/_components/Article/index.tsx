@@ -1,7 +1,7 @@
-import { Link } from "@/i18n/navigation";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import { Link } from "@/i18n/navigation";
 import styles from "./style.module.css";
 import type { Article as ArticleType } from "@/libs/getArticles";
 

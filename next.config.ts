@@ -1,12 +1,13 @@
-/* eslint-disable filenames/match-exported, filenames/match-regex */
+/* eslint-disable filenames/match-regex */
 import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 
 const projectRoot = import.meta.dirname;
 const isProduction = process.env.NODE_ENV === "production";
 const nextConfig: NextConfig = {
+  // Next 16 で React Compiler が試験扱いを外れ、直下の設定になった。
+  reactCompiler: true,
   experimental: {
-    reactCompiler: true,
     typedEnv: true,
     useLightningcss: true,
   },
@@ -58,15 +59,6 @@ const nextConfig: NextConfig = {
               ],
               source: "/(.*)\\.(png|jpg|jpeg|gif|webp|avif|svg|ico)",
             },
-            {
-              headers: [
-                {
-                  key: "Cache-Control",
-                  value: "public, max-age=31536000, immutable",
-                },
-              ],
-              source: "/_next/static/(.*)",
-            },
           ]
         : []),
     ];
@@ -112,7 +104,6 @@ const nextConfig: NextConfig = {
   },
   typedRoutes: true,
 };
-
 const withNextIntl = createNextIntlPlugin();
 
 export default withNextIntl(nextConfig);

@@ -1,7 +1,7 @@
-import env from "@/env";
 import axios from "axios";
 import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import env from "@/env";
 import { emailSchema } from "./schema";
 
 export type { PostEmailRequestFormData } from "./schema";

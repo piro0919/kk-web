@@ -1,7 +1,7 @@
-import getMetadata from "@/libs/getMetadata";
-import getNoteArticles from "@/libs/getNoteArticles";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import getMetadata from "@/libs/getMetadata";
+import getNoteArticles from "@/libs/getNoteArticles";
 import ArticleList from "../_components/ArticleList";
 
 type PageProps = {

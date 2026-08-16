@@ -1,7 +1,7 @@
-import getMetadata from "@/libs/getMetadata";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import getMetadata from "@/libs/getMetadata";
 import styles from "./style.module.css";
 
 type PageProps = {

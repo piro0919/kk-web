@@ -1,5 +1,7 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 import tsParser from "@typescript-eslint/parser";
 import css from "eslint-plugin-css";
 import cssModules from "eslint-plugin-css-modules";
@@ -21,6 +23,23 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
 });
 const eslintConfig = [
+  // next lint は暗黙に除いていた。eslint を直に呼ぶので自分で書く。
+  {
+    ignores: [
+      ".claude/**",
+      ".next/**",
+      "coverage/**",
+      "dist/**",
+      "node_modules/**",
+      "public/**",
+      // 設定ファイルと型宣言は tsconfig の対象外で、型情報を要する規則が
+      // 通らない。next lint が暗黙に外していたのと同じ範囲。
+      "**/*.config.{js,mjs,ts}",
+      "**/*.d.ts",
+      ".prettierrc.js",
+      "scripts/**",
+    ],
+  },
   {
     files: ["**/*.{js,jsx,ts,tsx,mjs}"],
   },
@@ -31,10 +50,12 @@ const eslintConfig = [
     "plugin:no-unsanitized/recommended-legacy",
     "plugin:promise/recommended",
     "plugin:security/recommended-legacy",
-    "next/core-web-vitals",
-    "next/typescript",
     "prettier",
   ),
+  // eslint-config-next は 16 から flat 形式を直接出す。互換層を通すと
+  // eslint 10 で設定の検証に落ちるので、そのまま読み込む。
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     languageOptions: {
       ecmaVersion: 2024,
@@ -44,6 +65,11 @@ const eslintConfig = [
         warnOnUnsupportedTypeScriptVersion: false,
       },
       sourceType: "module",
+    },
+    // eslint-plugin-react は React の版を自力で探そうとして、eslint 10 では
+    // 落ちる。版を直接教えて、探させない。
+    settings: {
+      react: { version: "19.2" },
     },
     plugins: {
       css,
@@ -173,16 +199,16 @@ const eslintConfig = [
       "perfectionist/sort-imports": [
         "error",
         {
+          // perfectionist 5 で "object" という分類が無くなった。
           groups: [
             ["builtin", "external"],
             "internal",
             ["parent", "sibling"],
             "index",
-            "object",
             "type",
             "unknown",
           ],
-          newlinesBetween: "never",
+          newlinesBetween: 0,
           order: "asc",
           type: "natural",
         },
@@ -197,7 +223,8 @@ const eslintConfig = [
       "perfectionist/sort-jsx-props": [
         "error",
         {
-          groups: ["multiline", "shorthand", "unknown"],
+          // perfectionist 5 で multiline / shorthand の分類名が変わった。
+          groups: ["multiline-prop", "shorthand-prop", "unknown"],
           order: "asc",
           type: "natural",
         },

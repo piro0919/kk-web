@@ -1,6 +1,6 @@
 "use client";
-import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import styles from "./style.module.css";
 
 export default function LocaleSwitch(): React.JSX.Element {

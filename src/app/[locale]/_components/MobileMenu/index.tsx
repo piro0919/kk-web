@@ -1,6 +1,6 @@
 "use client";
-import { Link, usePathname } from "@/i18n/navigation";
 import { FiBookOpen, FiEdit3, FiHome, FiMail, FiUser } from "react-icons/fi";
+import { Link, usePathname } from "@/i18n/navigation";
 import styles from "./style.module.css";
 
 const ITEMS = [

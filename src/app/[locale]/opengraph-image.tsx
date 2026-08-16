@@ -1,6 +1,6 @@
 /* eslint-disable filenames/match-exported, filenames/match-regex */
-import { loadGoogleFont, loadImage, OGP_SIZE, OgpFrame } from "@/libs/ogpImage";
 import { ImageResponse } from "next/og";
+import { loadGoogleFont, loadImage, OGP_SIZE, OgpFrame } from "@/libs/ogpImage";
 
 export const alt = "kk-web";
 
