@@ -14,7 +14,14 @@ export type DailyCharacter = {
  * ビルドした日の絵のまま固まる。
  */
 export default function getDailyCharacter(inverted = false): DailyCharacter {
-  const date = new Date().getDate();
+  // 日付は日本時間で数える。動かす場所は協定世界時なので、そのままだと
+  // 日本の朝 9 時に切り替わってしまう。
+  const date = Number(
+    new Intl.DateTimeFormat("en-US", {
+      day: "numeric",
+      timeZone: "Asia/Tokyo",
+    }).format(new Date()),
+  );
   const isTsumugi = date % 2 > 0 !== inverted;
   const index = date % (isTsumugi ? TSUMUGI_COUNT : METAN_COUNT);
   const suffix = index.toString().padStart(2, "0");
