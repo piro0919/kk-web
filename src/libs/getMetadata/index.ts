@@ -3,6 +3,8 @@ import getBaseUrl from "../getBaseUrl";
 
 export type GetMetadataParams = {
   description?: string;
+  /** 既定は共通の opengraph-image。記事のように専用の絵があるときだけ渡す。 */
+  imagePath?: string;
   locale: "en" | "ja";
   path?: string;
   subTitle?: string;
@@ -11,6 +13,7 @@ export type GetMetadataParams = {
 
 export default function getMetadata({
   description = "Frontend Developer piro's website",
+  imagePath,
   locale,
   path = "/",
   subTitle = "",
@@ -25,7 +28,7 @@ export default function getMetadata({
   const image = {
     alt: "kk-web",
     height: 630,
-    url: `${baseUrl}${localePrefix}/opengraph-image`,
+    url: `${baseUrl}${localePrefix}${imagePath ?? "/opengraph-image"}`,
     width: 1200,
   };
 
