@@ -1,4 +1,5 @@
 import { type Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import getBaseUrl from "../getBaseUrl";
 
 export type GetMetadataParams = {
@@ -6,20 +7,24 @@ export type GetMetadataParams = {
   /** 既定は共通の opengraph-image。記事のように専用の絵があるときだけ渡す。 */
   imagePath?: string;
   locale: "en" | "ja";
+  /** その URL が存在する言語。記事は片方しか無いことがあるので絞れるようにする。 */
+  locales?: ("en" | "ja")[];
   path?: string;
   subTitle?: string;
   type?: "article" | "website";
 };
 
-export default function getMetadata({
-  description = "Software Developer piro's website",
+export default async function getMetadata({
+  description,
   imagePath,
   locale,
+  locales = ["en", "ja"],
   path = "/",
   subTitle = "",
   type = "website",
-}: GetMetadataParams): Metadata {
+}: GetMetadataParams): Promise<Metadata> {
   const baseUrl = getBaseUrl();
+  const t = await getTranslations({ locale, namespace: "Site" });
   // 英語は接頭辞なしが正。canonical と og:url で同じ URL を出す。
   const localePrefix = locale === "en" ? "" : `/${locale}`;
   const url = `${baseUrl}${localePrefix}${path}`;
@@ -34,23 +39,29 @@ export default function getMetadata({
     url: `${baseUrl}/${locale}${imagePath ?? "/opengraph-image"}`,
     width: 1200,
   };
+  // 存在しない言語版を指すと、その指定はまるごと無視される。
+  // 実際にある言語だけ並べる。
+  const languages = Object.fromEntries(
+    locales.map((available) => [
+      available,
+      `${baseUrl}${available === "en" ? "" : `/${available}`}${path}`,
+    ]),
+  );
+  const text = description ?? t("description");
 
   return {
     alternates: {
       canonical: url,
-      languages: {
-        en: `${baseUrl}${path}`,
-        ja: `${baseUrl}/ja${path}`,
-      },
+      languages,
     },
     applicationName: "kk-web",
     authors: [{ name: "piro", url: baseUrl }],
     creator: "piro",
-    description,
+    description: text,
     metadataBase: new URL(baseUrl),
     openGraph: {
       alternateLocale: locale === "en" ? "ja_JP" : "en_US",
-      description,
+      description: text,
       images: [image],
       locale: locale === "en" ? "en_US" : "ja_JP",
       siteName: "kk-web",
