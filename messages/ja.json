@@ -6,7 +6,15 @@
     "submitSuccess": "メッセージを送信しました",
     "submitting": "送信しています…"
   },
-  "StructuredData": {
-    "siteDescription": "ソフトウェアデベロッパー piro のウェブサイト"
+  "Site": {
+    "description": "ソフトウェアデベロッパー piro のウェブサイト"
+  },
+  "Ui": {
+    "linkOnPlatform": "{name} を {platform} で見る",
+    "linkOnRepository": "{name} の GitHub リポジトリ",
+    "support": "Buy Me a Coffee で支援する",
+    "switchLocale": "Switch to English",
+    "themeToDark": "ダークモードにする",
+    "themeToLight": "ライトモードにする"
   }
 }

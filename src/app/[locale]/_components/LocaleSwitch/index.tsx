@@ -1,10 +1,13 @@
 "use client";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import styles from "./style.module.css";
 
 export default function LocaleSwitch(): React.JSX.Element {
   const locale = useLocale();
+  // 読み上げ文字は切り替えた先の言葉で書く。今の言語のファイルに、
+  // 切り替え先の言葉で入れてある。
+  const t = useTranslations("Ui");
   const pathname = usePathname();
   const router = useRouter();
   const next = locale === "en" ? "ja" : "en";
@@ -14,7 +17,7 @@ export default function LocaleSwitch(): React.JSX.Element {
       onClick={(): void => {
         router.replace(pathname, { locale: next });
       }}
-      aria-label={next === "ja" ? "日本語に切り替える" : "Switch to English"}
+      aria-label={t("switchLocale")}
       className={styles.button}
       type="button"
     >

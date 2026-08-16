@@ -1,5 +1,6 @@
 import getOgpImage from "@/libs/getOgpImage";
 import { type CategoryName, getPortfolio } from "@/libs/portfolio";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { SiNiconico, SiNpm, SiYoutube } from "react-icons/si";
@@ -31,6 +32,7 @@ export default async function CardList({
   heading,
   locale,
 }: CardListProps): Promise<React.JSX.Element> {
+  const t = await getTranslations({ locale, namespace: "Ui" });
   const items = getPortfolio(category, locale);
   const resolved = await Promise.all(
     items.map(async (item) => ({
@@ -79,11 +81,10 @@ export default async function CardList({
                 <div className={styles.links}>
                   {altUrl && alt && AltIcon ? (
                     <a
-                      aria-label={
-                        locale === "ja"
-                          ? `${name} を ${alt.label} で見る`
-                          : `${name} on ${alt.label}`
-                      }
+                      aria-label={t("linkOnPlatform", {
+                        name,
+                        platform: alt.label,
+                      })}
                       className={styles.repo}
                       href={altUrl}
                       rel="noopener noreferrer"
@@ -94,11 +95,7 @@ export default async function CardList({
                   ) : null}
                   {repo ? (
                     <a
-                      aria-label={
-                        locale === "ja"
-                          ? `${name} の GitHub リポジトリ`
-                          : `${name} on GitHub`
-                      }
+                      aria-label={t("linkOnRepository", { name })}
                       className={styles.repo}
                       href={repo}
                       rel="noopener noreferrer"
