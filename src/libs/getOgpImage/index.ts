@@ -57,12 +57,59 @@ async function resolveImage(url: string): Promise<null | string> {
   }
 }
 
+/** 動画の置き場ごとに、絵の URL を直に組み立てる。 */
+const VIDEO_SOURCES: {
+  candidates: (id: string) => string[];
+  match: RegExp;
+}[] = [
+  {
+    // 大きいほうが無い古い動画があるので、順に当てる。
+    candidates: (id) => [
+      `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+      `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+    ],
+    match: /(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/,
+  },
+  {
+    candidates: (id) => [
+      `https://nicovideo.cdn.nimg.jp/thumbnails/${id}/${id}.L`,
+      `https://nicovideo.cdn.nimg.jp/thumbnails/${id}/${id}`,
+    ],
+    match: /nicovideo\.jp\/watch\/[a-z]{2}(\d+)/,
+  },
+];
+
+/**
+ * 動画は配信元の絵を直に指す。ページを読みに行くと、その時々の混み具合や
+ * 読みに行った場所によって断られることがあり、実際に本番だけ絵が欠けていた。
+ * 番号から組み立てれば、そこは揺れない。
+ */
+async function getVideoThumbnail(url: string): Promise<null | string> {
+  for (const { candidates, match } of VIDEO_SOURCES) {
+    const id = match.exec(url)?.[1];
+
+    if (id === undefined) continue;
+
+    for (const candidate of candidates(id)) {
+      const resolved = await resolveImage(candidate);
+
+      if (resolved !== null) return resolved;
+    }
+  }
+
+  return null;
+}
+
 /**
  * ページの og:image を取り出す。取れなければ null。
  * 外部サイト頼みなので、必ず時間で打ち切る。取得は24時間ごと。
  */
 export default async function getOgpImage(url: string): Promise<null | string> {
   try {
+    const video = await getVideoThumbnail(url);
+
+    if (video !== null) return video;
+
     const controller = new AbortController();
     const timeout = setTimeout(() => {
       controller.abort();
