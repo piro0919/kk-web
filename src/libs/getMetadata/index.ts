@@ -3,7 +3,6 @@ import getBaseUrl from "../getBaseUrl";
 
 export type GetMetadataParams = {
   description?: string;
-  imageUrl?: string;
   locale: "en" | "ja";
   path?: string;
   subTitle?: string;
@@ -12,19 +11,27 @@ export type GetMetadataParams = {
 
 export default function getMetadata({
   description = "Frontend Developer piro's website",
-  imageUrl: imageUrlParam,
   locale,
   path = "/",
   subTitle = "",
-  type = "article",
+  type = "website",
 }: GetMetadataParams): Metadata {
   const baseUrl = getBaseUrl();
-  const imageUrl = imageUrlParam ?? `${baseUrl}/${locale}/opengraph-image`;
+  // 英語は接頭辞なしが正。canonical と og:url で同じ URL を出す。
   const localePrefix = locale === "en" ? "" : `/${locale}`;
+  const url = `${baseUrl}${localePrefix}${path}`;
+  // 下位ページが generateMetadata を持つと親の openGraph ごと差し替わり、
+  // opengraph-image.tsx の自動挿入が効かない。全ページで明示する。
+  const image = {
+    alt: "kk-web",
+    height: 630,
+    url: `${baseUrl}${localePrefix}/opengraph-image`,
+    width: 1200,
+  };
 
   return {
     alternates: {
-      canonical: `${baseUrl}${localePrefix}${path}`,
+      canonical: url,
       languages: {
         en: `${baseUrl}${path}`,
         ja: `${baseUrl}/ja${path}`,
@@ -38,16 +45,12 @@ export default function getMetadata({
     openGraph: {
       alternateLocale: locale === "en" ? "ja_JP" : "en_US",
       description,
-      images: [
-        {
-          url: imageUrl,
-        },
-      ],
+      images: [image],
       locale: locale === "en" ? "en_US" : "ja_JP",
       siteName: "kk-web",
       title: `${subTitle && `${subTitle} - `}kk-web`,
       type,
-      url: `${baseUrl}/${locale}${path}`,
+      url,
     },
     robots: {
       follow: true,
@@ -56,7 +59,7 @@ export default function getMetadata({
     title: `${subTitle && `${subTitle} - `}kk-web`,
     twitter: {
       card: "summary_large_image",
-      images: imageUrl,
+      images: [image],
     },
   };
 }
