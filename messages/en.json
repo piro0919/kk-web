@@ -1,12 +1,15 @@
 {
   "Contact": {
+    "invalidEmail": "Enter a valid email address",
     "recaptcha": "This site is protected by reCAPTCHA and the Google <privacy>Privacy Policy</privacy> and <terms>Terms of Service</terms> apply.",
+    "required": "This field is required",
     "sendAnother": "Send another",
     "sentBody": "Thank you for reaching out. I will read it and get back to you.",
     "sentHeading": "Message sent",
     "submitButton": "Send",
     "submitError": "Failed to send",
-    "submitting": "Sending..."
+    "submitting": "Sending...",
+    "tooLong": "This is too long"
   },
   "Site": {
     "description": "Software Developer piro's website"

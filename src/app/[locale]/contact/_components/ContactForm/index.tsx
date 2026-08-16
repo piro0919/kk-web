@@ -8,6 +8,7 @@ import {
   type ReactElement,
   type ReactNode,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -15,17 +16,13 @@ import { createPortal } from "react-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
-import { z } from "zod";
+import {
+  createEmailSchema,
+  type PostEmailRequestFormData,
+} from "../../../email/schema";
 import styles from "./style.module.css";
 
-const schema = z.object({
-  email: z.string().email(),
-  message: z.string().min(1),
-  name: z.string().min(1),
-  subject: z.string().min(1),
-});
-
-type FieldTypes = z.infer<typeof schema>;
+type FieldTypes = PostEmailRequestFormData;
 
 const FIELDS = [
   { label: "Name", name: "name", type: "text" },
@@ -47,6 +44,17 @@ function getStatusKey(status: Status): null | string {
 }
 
 export default function ContactForm(): React.JSX.Element {
+  const t = useTranslations("Contact");
+  // 検証の条件はサーバー側と同じものを使い、文言だけ見る人の言葉に差し替える。
+  const schema = useMemo(
+    () =>
+      createEmailSchema({
+        invalidEmail: t("invalidEmail"),
+        required: t("required"),
+        tooLong: t("tooLong"),
+      }),
+    [t],
+  );
   const {
     control,
     formState: { errors, isDirty, isSubmitting },
@@ -75,7 +83,6 @@ export default function ContactForm(): React.JSX.Element {
     }
   }, [isDirty, status]);
 
-  const t = useTranslations("Contact");
   const statusKey = getStatusKey(status);
 
   // 送れたらフォームごと差し替える。住所も履歴も変えずに、
