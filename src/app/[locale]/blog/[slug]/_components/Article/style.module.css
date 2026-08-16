@@ -18,11 +18,10 @@
   padding: 16px;
 }
 
+/* 一覧と同じ書体。本物の太字を持つので、線を足す必要がない。 */
 .title {
+  font-family: var(--font-title), sans-serif;
   font-size: 2.4rem;
-
-  /* JKG は太字を持たないので、一覧と同じく線を足して太らせる。 */
-  -webkit-text-stroke: 0.4px currentcolor;
 }
 
 .date {
