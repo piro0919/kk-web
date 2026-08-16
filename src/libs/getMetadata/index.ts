@@ -25,10 +25,13 @@ export default function getMetadata({
   const url = `${baseUrl}${localePrefix}${path}`;
   // 下位ページが generateMetadata を持つと親の openGraph ごと差し替わり、
   // opengraph-image.tsx の自動挿入が効かない。全ページで明示する。
+  // 画像は接頭辞を必ず付ける。middleware の matcher が opengraph-image を
+  // 除外しているので、接頭辞なしだと英語の記事画像が 404 になる。
+  // canonical と違い、ここは正規 URL である必要がない。
   const image = {
     alt: "kk-web",
     height: 630,
-    url: `${baseUrl}${localePrefix}${imagePath ?? "/opengraph-image"}`,
+    url: `${baseUrl}/${locale}${imagePath ?? "/opengraph-image"}`,
     width: 1200,
   };
 
