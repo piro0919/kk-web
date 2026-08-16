@@ -9,5 +9,7 @@ export default defineConfig({
   },
   test: {
     environment: "node",
+    // 作業用の複製が .claude 配下に残っていると、同じテストを重ねて拾う。
+    exclude: ["**/node_modules/**", ".claude/**"],
   },
 });
