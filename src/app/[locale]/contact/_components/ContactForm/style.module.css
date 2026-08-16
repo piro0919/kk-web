@@ -69,3 +69,22 @@
 .recaptchaLink {
   color: var(--color-accent);
 }
+
+/* 送信できたあと、フォームと入れ替わる表示。 */
+.sent {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.sentHeading {
+  color: var(--color-accent);
+  font-family: var(--font-title), sans-serif;
+  font-size: 1.8rem;
+}
+
+.sentBody {
+  font-size: 1.3rem;
+}
