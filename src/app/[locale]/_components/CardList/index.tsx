@@ -1,44 +1,43 @@
 import getOgpImage from "@/libs/getOgpImage";
-import { getTranslations } from "next-intl/server";
+import { type CategoryName, getPortfolio } from "@/libs/portfolio";
 import Image from "next/image";
-import { FiGithub } from "react-icons/fi";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { SiNiconico, SiNpm, SiYoutube } from "react-icons/si";
 import styles from "./style.module.css";
-import type { PortfolioCategory } from "@/libs/portfolio";
+import type { IconType } from "react-icons";
+
+/** 置き場ごとの見た目。増える一覧なので URL から判る形にしておく。 */
+function platformOf(url: string): { icon: IconType; label: string } {
+  if (url.includes("nicovideo.jp"))
+    return { icon: SiNiconico, label: "niconico" };
+
+  if (url.includes("npmjs.com")) return { icon: SiNpm, label: "npm" };
+
+  if (url.includes("youtube.com") || url.includes("youtu.be")) {
+    return { icon: SiYoutube, label: "YouTube" };
+  }
+
+  return { icon: FiExternalLink, label: "" };
+}
 
 export type CardListProps = {
-  category: PortfolioCategory;
+  category: CategoryName;
   heading: string;
   locale: "en" | "ja";
 };
 
 export default async function CardList({
-  category: { items, namespace, withThumbnail = true },
+  category,
   heading,
   locale,
 }: CardListProps): Promise<React.JSX.Element> {
-  const t = await getTranslations({
-    locale,
-    namespace: `Portfolio.${namespace ?? "WebService"}`,
-  });
+  const items = getPortfolio(category, locale);
   const resolved = await Promise.all(
-    items.map(
-      async ({ archived = false, href, lp, name, nameKey, repo, textKey }) => {
-        // 畳んだものはリポジトリへ。紹介ページがあればそちらを主にする。
-        const target = archived ? (repo ?? href) : (lp ?? href);
-        // 絵はサイト自身の og:image だけ。畳んだものは絵を出さない。
-        const thumbnail =
-          archived || !withThumbnail ? null : await getOgpImage(target);
-
-        return {
-          archived,
-          href: target,
-          name: nameKey ? t(nameKey) : (name ?? ""),
-          repo,
-          text: textKey ? t(textKey) : "",
-          thumbnail,
-        };
-      },
-    ),
+    items.map(async (item) => ({
+      ...item,
+      // 絵はサイト自身の og:image だけ。畳んだものは絵を出さない。
+      thumbnail: item.archived ? null : await getOgpImage(item.href),
+    })),
   );
   const live = resolved.filter(({ archived }) => !archived);
   const archivedItems = resolved.filter(({ archived }) => archived);
@@ -46,59 +45,81 @@ export default async function CardList({
     list: typeof resolved,
     withThumbnail = true,
   ): React.JSX.Element[] =>
-    list.map(({ href, name, repo, text, thumbnail }) => (
-      <li className={styles.item} key={href}>
-        <div
-          className={`${styles.itemInner} ${withThumbnail ? "" : styles.withoutThumbnail}`}
-        >
-          {!withThumbnail ? null : thumbnail === null ? (
-            <div className={styles.noImage}>NO IMAGE</div>
-          ) : (
-            <div className={styles.thumbnail}>
-              <Image
-                alt=""
-                fill={true}
-                sizes="(width < 768px) 120px, 176px"
-                src={thumbnail}
-              />
-            </div>
-          )}
-          <div className={styles.texts}>
-            <div className={styles.titleBlock}>
-              <a
-                className={styles.name}
-                href={href}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <h2 className={styles.title}>{name}</h2>
-              </a>
-              {repo ? (
+    list.map(({ altUrl, href, name, repo, text, thumbnail }) => {
+      const alt = altUrl ? platformOf(altUrl) : null;
+      const AltIcon = alt?.icon;
+
+      return (
+        <li className={styles.item} key={href}>
+          <div
+            className={`${styles.itemInner} ${withThumbnail ? "" : styles.withoutThumbnail}`}
+          >
+            {!withThumbnail ? null : thumbnail === null ? (
+              <div className={styles.noImage}>NO IMAGE</div>
+            ) : (
+              <div className={styles.thumbnail}>
+                <Image
+                  alt=""
+                  fill={true}
+                  sizes="(width < 768px) 120px, 176px"
+                  src={thumbnail}
+                />
+              </div>
+            )}
+            <div className={styles.texts}>
+              <div className={styles.titleBlock}>
                 <a
-                  aria-label={
-                    locale === "ja"
-                      ? `${name} の GitHub リポジトリ`
-                      : `${name} on GitHub`
-                  }
-                  className={styles.repo}
-                  href={repo}
+                  className={styles.name}
+                  href={href}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <FiGithub size={18} />
+                  <h2 className={styles.title}>{name}</h2>
                 </a>
-              ) : null}
+                <div className={styles.links}>
+                  {altUrl && alt && AltIcon ? (
+                    <a
+                      aria-label={
+                        locale === "ja"
+                          ? `${name} を ${alt.label} で見る`
+                          : `${name} on ${alt.label}`
+                      }
+                      className={styles.repo}
+                      href={altUrl}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <AltIcon size={18} />
+                    </a>
+                  ) : null}
+                  {repo ? (
+                    <a
+                      aria-label={
+                        locale === "ja"
+                          ? `${name} の GitHub リポジトリ`
+                          : `${name} on GitHub`
+                      }
+                      className={styles.repo}
+                      href={repo}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <FiGithub size={18} />
+                    </a>
+                  ) : null}
+                </div>
+              </div>
+              {text ? <p className={styles.text}>{text}</p> : null}
             </div>
-            {text ? <p className={styles.text}>{text}</p> : null}
           </div>
-        </div>
-      </li>
-    ));
+        </li>
+      );
+    });
 
   return (
     <>
       <h1 className={styles.heading}>{heading}</h1>
-      <ul className={styles.list}>{renderItems(live, withThumbnail)}</ul>
+      <ul className={styles.list}>{renderItems(live)}</ul>
       {archivedItems.length > 0 ? (
         <>
           <h2 className={styles.subHeading}>ARCHIVED</h2>

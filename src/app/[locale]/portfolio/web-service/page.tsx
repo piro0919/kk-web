@@ -1,5 +1,4 @@
 import getMetadata from "@/libs/getMetadata";
-import { WEB_SERVICES } from "@/libs/portfolio";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import CardList from "../../_components/CardList";
@@ -30,7 +29,7 @@ export default async function Page({
   return (
     <main>
       <CardList
-        category={WEB_SERVICES}
+        category="WEB SERVICE"
         heading="WEB SERVICE"
         locale={locale as "en" | "ja"}
       />
