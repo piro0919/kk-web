@@ -26,7 +26,7 @@ export default async function Image(): Promise<ImageResponse> {
             display: "flex",
             justifyContent: "center",
             position: "absolute",
-            top: 150,
+            top: 110,
             width: "100%",
           }}
         >
@@ -41,7 +41,7 @@ export default async function Image(): Promise<ImageResponse> {
             fontWeight: 700,
             justifyContent: "center",
             position: "absolute",
-            top: 218,
+            top: 178,
             width: "100%",
           }}
         >
