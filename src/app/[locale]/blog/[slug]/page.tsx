@@ -32,11 +32,20 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const articles = await getArticles(locale as "en" | "ja");
   const article = articles.find((item) => item.slug === slug);
+  // 記事は片方の言語にしか無いことが多い。書いてある言語だけを別言語版として出す。
+  const written = await Promise.all(
+    routing.locales.map(async (available) => {
+      const written = await getArticles(available);
+
+      return written.some((item) => item.slug === slug) ? available : null;
+    }),
+  );
 
   return getMetadata({
     description: article?.text,
     imagePath: `/blog/${slug}/opengraph-image`,
     locale: locale as "en" | "ja",
+    locales: written.filter((item) => item !== null),
     path: `/blog/${slug}`,
     subTitle: article?.title,
     type: "article",
