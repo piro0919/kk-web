@@ -1,9 +1,11 @@
 {
   "Contact": {
     "recaptcha": "このサイトは reCAPTCHA によって保護されており、Google の <privacy>プライバシーポリシー</privacy> と <terms>利用規約</terms> が適用されます。",
+    "sendAnother": "もう一度送る",
+    "sentBody": "ご連絡ありがとうございます。内容を確認のうえ、追ってご返信します。",
+    "sentHeading": "送信しました",
     "submitButton": "送信する",
     "submitError": "送信に失敗しました",
-    "submitSuccess": "メッセージを送信しました",
     "submitting": "送信しています…"
   },
   "Site": {

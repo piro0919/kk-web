@@ -41,8 +41,6 @@ function getStatusKey(status: Status): null | string {
       return "submitError";
     case "sending":
       return "submitting";
-    case "success":
-      return "submitSuccess";
     default:
       return null;
   }
@@ -70,15 +68,35 @@ export default function ContactForm(): React.JSX.Element {
     setIsMounted(true);
   }, []);
 
-  // 送信の結果はいつまでも残さない。次を書き始めたら消す。
+  // 失敗の表示はいつまでも残さない。書き直し始めたら消す。
   useEffect(() => {
-    if (isDirty && (status === "error" || status === "success")) {
+    if (isDirty && status === "error") {
       setStatus("");
     }
   }, [isDirty, status]);
 
   const t = useTranslations("Contact");
   const statusKey = getStatusKey(status);
+
+  // 送れたらフォームごと差し替える。住所も履歴も変えずに、
+  // 画面が切り替わったことがはっきり分かるようにする。
+  if (status === "success") {
+    return (
+      <div className={styles.sent}>
+        <p className={styles.sentHeading}>{t("sentHeading")}</p>
+        <p className={styles.sentBody}>{t("sentBody")}</p>
+        <button
+          onClick={(): void => {
+            setStatus("");
+          }}
+          className={styles.submitButton}
+          type="button"
+        >
+          {t("sendAnother")}
+        </button>
+      </div>
+    );
+  }
 
   return (
     <Form
@@ -97,7 +115,7 @@ export default function ContactForm(): React.JSX.Element {
       }}
       onSuccess={(): void => {
         setStatus("success");
-        // 送れたら入力は空に戻す。同じ内容を二重に送らせない。
+        // 同じ内容を二重に送らせない。もう一度送るときは空から始める。
         reset();
       }}
       action="/email"

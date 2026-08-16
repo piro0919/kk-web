@@ -1,9 +1,11 @@
 {
   "Contact": {
     "recaptcha": "This site is protected by reCAPTCHA and the Google <privacy>Privacy Policy</privacy> and <terms>Terms of Service</terms> apply.",
+    "sendAnother": "Send another",
+    "sentBody": "Thank you for reaching out. I will read it and get back to you.",
+    "sentHeading": "Message sent",
     "submitButton": "Send",
     "submitError": "Failed to send",
-    "submitSuccess": "Message sent successfully",
     "submitting": "Sending..."
   },
   "Site": {
