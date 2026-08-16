@@ -77,6 +77,21 @@ const nextConfig: NextConfig = {
     // OGP 画像は任意のドメインから来るため、https を広く許可する。
     remotePatterns: [{ hostname: "**", protocol: "https" }],
   },
+  // OGP 画像は public の絵をファイルから読む。ファイル名が変数なので
+  // 依存追跡が静的に見つけられず、関数に同梱されない。明示して入れる。
+  outputFileTracingIncludes: {
+    "/[locale]/blog/[slug]/opengraph-image": [
+      "./public/ogp-background.png",
+      "./public/metan_05.png",
+      "./public/tsumugi_24.png",
+    ],
+    "/[locale]/opengraph-image": [
+      "./public/bubble.png",
+      "./public/ogp-background.png",
+      "./public/metan_05.png",
+      "./public/tsumugi_24.png",
+    ],
+  },
   outputFileTracingRoot: projectRoot,
   turbopack: {
     root: projectRoot,
