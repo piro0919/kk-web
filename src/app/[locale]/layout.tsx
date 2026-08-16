@@ -25,6 +25,8 @@ import StructuredData from "./_components/StructuredData";
 import SupportLink from "./_components/SupportLink";
 import ThemeToggle from "./_components/ThemeToggle";
 import "github-markdown-css";
+// github-markdown-css の配色を data-theme に紐づけ直す。読み込む順が要る。
+import "./markdown-theme.css";
 import "./globals.css";
 
 // 欧文の見出しとナビゲーション用。708 と同じ書体。
