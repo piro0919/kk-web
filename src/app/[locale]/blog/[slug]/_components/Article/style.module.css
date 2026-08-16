@@ -18,6 +18,15 @@
   padding: 16px;
 }
 
+/* グリッドの子は既定で min-width: auto なので、中身が縮まない要素が
+   あるとトラックごと広がる。コードブロックが画面幅を超えると、記事全体が
+   横にはみ出していた。子を縮められるようにして、はみ出しは pre の中の
+   横スクロールに閉じ込める。 */
+
+.inner > * {
+  min-width: 0;
+}
+
 /* 一覧と同じ書体。本物の太字を持つので、線を足す必要がない。 */
 .title {
   font-family: var(--font-title), sans-serif;
@@ -42,8 +51,8 @@
   --base-size-16: 1.6rem;
   --base-size-24: 2.4rem;
   --base-size-40: 4rem;
-  /* github-markdown-css は OS 設定で明暗を決めるので、
-     こちらのテーマ切り替えに追従するよう地の色だけ上書きする。 */
+  /* 地の色はサイトのものを使う。github-markdown-css 側の配色を
+     テーマに追従させる手当ては markdown-theme.css にある。 */
   background: transparent;
   color: var(--color-foreground);
 
