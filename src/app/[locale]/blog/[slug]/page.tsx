@@ -38,6 +38,7 @@ export async function generateMetadata({
     locale: locale as "en" | "ja",
     path: `/blog/${slug}`,
     subTitle: article?.title,
+    type: "article",
   });
 }
 
