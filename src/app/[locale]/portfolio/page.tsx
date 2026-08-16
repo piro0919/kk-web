@@ -24,7 +24,7 @@ const ITEMS = [
   { href: "/portfolio/web-site", label: "WEB SITE" },
   { href: "/portfolio/application", label: "APPLICATION" },
   { href: "/portfolio/npm-package", label: "NPM PACKAGE" },
-  { href: "/portfolio/extension", label: "FIREFOX EXTENSION" },
+  { href: "/portfolio/extension", label: "EXTENSION" },
   { href: "/portfolio/movie", label: "MOVIE" },
 ];
 

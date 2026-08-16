@@ -1,5 +1,4 @@
 import getMetadata from "@/libs/getMetadata";
-import { EXTENSIONS } from "@/libs/portfolio";
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import CardList from "../../_components/CardList";
@@ -16,7 +15,7 @@ export async function generateMetadata({
   return getMetadata({
     locale: locale as "en" | "ja",
     path: "/portfolio/extension",
-    subTitle: "FIREFOX EXTENSION",
+    subTitle: "EXTENSION",
   });
 }
 
@@ -30,8 +29,8 @@ export default async function Page({
   return (
     <main>
       <CardList
-        category={EXTENSIONS}
-        heading="FIREFOX EXTENSION"
+        category="EXTENSION"
+        heading="EXTENSION"
         locale={locale as "en" | "ja"}
       />
     </main>

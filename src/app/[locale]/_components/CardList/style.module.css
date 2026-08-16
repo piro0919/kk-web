@@ -141,6 +141,14 @@
   z-index: 1;
 }
 
+/* 置き場のアイコンはまとめて右端へ。題名との間だけを空ける。 */
+.links {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
 .repo {
   color: var(--color-foreground);
   display: flex;

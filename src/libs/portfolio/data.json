@@ -1,0 +1,687 @@
+{
+  "WEB SERVICE": [
+    {
+      "archived": true,
+      "descriptionEn": "A service for sending Web Push notifications.",
+      "descriptionJa": "Web プッシュ通知を配信できるサービスです。",
+      "name": "Nesh",
+      "repo": "https://github.com/piro0919/nesh",
+      "url": "https://nesh.kkweb.io"
+    },
+    {
+      "descriptionEn": "A service that turns Markdown into an org chart.",
+      "descriptionJa": "Markdown から組織図を作れるサービスです。",
+      "name": "Chain",
+      "repo": "https://github.com/piro0919/chain",
+      "url": "https://chain.kkweb.io"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A service to track your daily energy levels.",
+      "descriptionJa": "毎日のエネルギーレベルを記録できるサービスです。",
+      "name": "High or Low",
+      "repo": "https://github.com/piro0919/high-low",
+      "url": "https://high-low.kkweb.io/"
+    },
+    {
+      "descriptionEn": "A service that sorts web comics by day of the week.",
+      "descriptionJa": "Web で連載されている漫画を曜日ごとに振り分けるサービスです。",
+      "name": "ComicTime",
+      "repo": "https://github.com/piro0919/comic-time",
+      "url": "https://comictime.kkweb.io/"
+    },
+    {
+      "descriptionEn": "A service that generates OGP images.",
+      "descriptionJa": "OGP 画像を生成できるサービスです。",
+      "name": "OGP Image Generator",
+      "repo": "https://github.com/piro0919/ogp-image-generator",
+      "url": "https://ogpimggen.kkweb.io/"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A service that lets you share notes across multiple devices.",
+      "descriptionJa": "複数端末でメモが共有できるサービスです。",
+      "name": "Peraichi",
+      "nameJa": "ぺらいち",
+      "repo": "https://github.com/piro0919/peraichi",
+      "url": "https://peraichi.kkweb.io/"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A service that analyzes your YouTube channel and gives advice.",
+      "descriptionJa": "YouTube チャンネルを解析し、アドバイスするサービスです。",
+      "name": "YouTube Growth",
+      "repo": "https://github.com/piro0919/youtube-growth",
+      "url": "https://youtube-growth.kkweb.io/"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A service for posting tanka, Japanese short poems.",
+      "descriptionJa": "短歌を投稿できるサービスです。",
+      "name": "Kantanka",
+      "nameJa": "かんたんか",
+      "repo": "https://github.com/piro0919/kantanka",
+      "url": "https://kantanka.kkweb.io"
+    },
+    {
+      "descriptionEn": "A tool for playing Planning Poker.",
+      "descriptionJa": "プランニングポーカーができるサービスです。",
+      "name": "Planning Poker",
+      "repo": "https://github.com/piro0919/planning-poker",
+      "url": "https://planning-poker.kkweb.io"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A service to find or recruit band members.",
+      "descriptionJa": "バンドメンバーを募集したり探したりできるサービスです。",
+      "name": "Recban",
+      "nameJa": "りくばん！",
+      "repo": "https://github.com/piro0919/recban",
+      "url": "https://recban.kkweb.io"
+    },
+    {
+      "descriptionEn": "An archive of articles from the media site 'Omocoro'.",
+      "descriptionJa": "メディアサイト「オモコロ」の記事をまとめたサービスです。",
+      "name": "Omocoro Archive",
+      "nameJa": "オモコロアーカイブ",
+      "repo": "https://github.com/piro0919/omocoro-archive",
+      "url": "https://omocoro-archive.kkweb.io"
+    },
+    {
+      "descriptionEn": "An unofficial reader for 'Omocoro' and 'Daily Portal Z' articles.",
+      "descriptionJa": "メディアサイト「オモコロ」と「デイリーポータルＺ」の記事をまとめたサービスです。",
+      "name": "Omocoro & Daily Portal Z Reader",
+      "nameJa": "オモコロ&デイリーポータルＺ非公式リーダー",
+      "repo": "https://github.com/piro0919/omocoro-dailyportalz",
+      "url": "https://omocoro-daily.kkweb.io"
+    },
+    {
+      "descriptionEn": "A timer for the board game 'Limit Shiritori Party!'.",
+      "descriptionJa": "ボードゲーム「限界しりとりパーティー！」のタイマーとして使えるサービスです。",
+      "name": "Shiritori Timer",
+      "nameJa": "限界しりとりタイマー",
+      "repo": "https://github.com/piro0919/siritori-timer",
+      "url": "https://siritori-timer.kkweb.io"
+    },
+    {
+      "descriptionEn": "A service that makes recipes easier to find.",
+      "descriptionJa": "レシピを探しやすくするサービスです。",
+      "name": "Recigle",
+      "nameJa": "レシグル",
+      "repo": "https://github.com/piro0919/recigle",
+      "url": "https://recigle.kkweb.io"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A service that turns a YouTube video into a quiz you can play with friends.",
+      "descriptionJa": "YouTube の動画からクイズを作って対戦できるサービスです。",
+      "name": "YouTube Quiz Generator",
+      "repo": "https://github.com/piro0919/youtube-quiz-generator",
+      "url": "https://youtube-quiz-battle.kkweb.io"
+    }
+  ],
+  "WEB SITE": [
+    {
+      "descriptionEn": "Website for composer Jun Narita.",
+      "descriptionJa": "作曲家「成田旬」さんのサイトを作成しました。",
+      "name": "Natsuzolab",
+      "repo": "https://github.com/piro0919/natsuzolab",
+      "url": "https://www.natsuzolab.com"
+    },
+    {
+      "descriptionEn": "Website for a fish shop operating in Fukuyama, Hiroshima.",
+      "descriptionJa": "広島県福山市で営業している魚屋「金尾本店」のサイトを作成しました。",
+      "name": "Kanao Honten",
+      "nameJa": "金尾本店",
+      "repo": "https://github.com/piro0919/kanao-honten",
+      "url": "https://kanaohonten.vercel.app"
+    },
+    {
+      "descriptionEn": "Website for illustrator '7:08'.",
+      "descriptionJa": "イラストレーター「7:08」さんのサイトを作成しました。",
+      "name": "7:08",
+      "repo": "https://github.com/piro0919/708",
+      "url": "https://www.nbhyakuhati.com"
+    },
+    {
+      "descriptionEn": "Website for illustrator 'Konta'.",
+      "descriptionJa": "イラストレーター「こんた」さんのサイトを作成しました。",
+      "name": "1stKontact",
+      "repo": "https://github.com/piro0919/1st-kontact",
+      "url": "https://konta-niki.com/"
+    }
+  ],
+  "APPLICATION": [
+    {
+      "descriptionEn": "A macOS menu bar app that collects notifications into a quiet inbox.",
+      "descriptionJa": "macOS の通知をアプリごとにまとめて読める、メニューバーアプリです。",
+      "name": "Nonja",
+      "repo": "https://github.com/piro0919/nonja",
+      "url": "https://nonja.kkweb.io"
+    },
+    {
+      "descriptionEn": "A macOS menu bar app that mounts Google Drive in Finder.",
+      "descriptionJa": "Google ドライブを Finder に繋ぐ、Mac 向けのメニューバーアプリです。",
+      "name": "Gocci",
+      "repo": "https://github.com/piro0919/gocci",
+      "url": "https://gocci.kkweb.io"
+    },
+    {
+      "descriptionEn": "A macOS menu bar app that shows whether you are on ethernet or Wi-Fi.",
+      "descriptionJa": "有線と Wi-Fi のどちらで繋がっているかを示す、Mac 向けのメニューバーアプリです。",
+      "name": "Konechi",
+      "repo": "https://github.com/piro0919/konechi",
+      "url": "https://konechi.kkweb.io"
+    },
+    {
+      "descriptionEn": "A hands-free voice AI assistant for Mac that lives in your menu bar.",
+      "descriptionJa": "「chappie」と呼びかけて使う、Mac 向けの音声 AI アシスタントです。",
+      "name": "Chappie",
+      "repo": "https://github.com/piro0919/chappie",
+      "url": "https://chappie.kkweb.io"
+    },
+    {
+      "descriptionEn": "A comic reader for macOS that opens archives and image folders directly.",
+      "descriptionJa": "圧縮ファイルや画像フォルダをそのまま開ける、Mac 向けの漫画ビューアーです。",
+      "name": "Mekuri",
+      "repo": "https://github.com/piro0919/mekuri",
+      "url": "https://mekuri.kkweb.io"
+    },
+    {
+      "descriptionEn": "A Mac app that opens meeting URLs automatically.",
+      "descriptionJa": "ミーティングの URL を自動で開く、Mac 向けのアプリです。",
+      "name": "Galopen",
+      "repo": "https://github.com/piro0919/galopen",
+      "url": "https://galopen.kkweb.io/"
+    },
+    {
+      "descriptionEn": "A clipboard manager for Mac, an alternative to Clipy.",
+      "descriptionJa": "Clipy の代わりに使える、Mac 向けのクリップボード管理アプリです。",
+      "name": "Macopy",
+      "repo": "https://github.com/piro0919/macopy",
+      "url": "https://macopy.kkweb.io/"
+    },
+    {
+      "descriptionEn": "A media player for Mac.",
+      "descriptionJa": "Mac 向けのメディアプレイヤーです。",
+      "name": "Mac Classic Player",
+      "repo": "https://github.com/piro0919/mac-classic-player",
+      "url": "https://mcp.kkweb.io/"
+    }
+  ],
+  "NPM PACKAGE": [
+    {
+      "descriptionEn": "Web Push notifications for Next.js App Router.",
+      "descriptionJa": "Next.js App Router 向けの Web Push 通知パッケージです。",
+      "lp": "https://next-push.kkweb.io/",
+      "name": "@piro0919/next-push",
+      "repo": "https://github.com/piro0919/next-push",
+      "url": "https://www.npmjs.com/package/@piro0919/next-push"
+    },
+    {
+      "descriptionEn": "A custom hook for wake word detection using the Web Speech API.",
+      "descriptionJa": "Web Speech API を使ったウェイクワード検出のカスタムフックです。",
+      "lp": "https://use-ear.kkweb.io/",
+      "name": "use-ear",
+      "repo": "https://github.com/piro0919/use-ear",
+      "url": "https://www.npmjs.com/package/use-ear"
+    },
+    {
+      "descriptionEn": "A custom hook that detects right-click events.",
+      "descriptionJa": "右クリックイベントを検知するカスタムフックです。",
+      "lp": "https://use-right-click.kkweb.io/",
+      "name": "use-right-click",
+      "repo": "https://github.com/piro0919/use-right-click",
+      "url": "https://www.npmjs.com/package/use-right-click"
+    },
+    {
+      "descriptionEn": "A Next.js package for serving multiple subdomains without a monorepo.",
+      "descriptionJa": "モノレポを使わずに複数のサブドメインへ対応する、Next.js 向けのパッケージです。",
+      "lp": "https://next-subrouter.kkweb.io/",
+      "name": "next-subrouter",
+      "repo": "https://github.com/piro0919/next-subrouter",
+      "url": "https://www.npmjs.com/package/next-subrouter"
+    },
+    {
+      "descriptionEn": "A component that adds a border around the entire screen.",
+      "descriptionJa": "画面全体にフチをつけるコンポーネントです。",
+      "lp": "https://react-page-border.kkweb.io/",
+      "name": "react-page-border",
+      "repo": "https://github.com/piro0919/react-page-border",
+      "url": "https://www.npmjs.com/package/react-page-border"
+    },
+    {
+      "descriptionEn": "A custom hook that displays the window size in real time at the top right.",
+      "descriptionJa": "画面右上にウィンドウサイズをリアルタイムで表示するカスタムフックです。",
+      "lp": "https://use-show-window-size.kkweb.io/",
+      "name": "use-show-window-size",
+      "repo": "https://github.com/piro0919/use-show-window-size",
+      "url": "https://www.npmjs.com/package/use-show-window-size"
+    },
+    {
+      "descriptionEn": "A script to find unused component files in a Next.js project.",
+      "descriptionJa": "Next.js のプロジェクトから、使われていないコンポーネントを洗い出すスクリプトです。",
+      "name": "@piro0919/next-unused",
+      "repo": "https://github.com/piro0919/next-unused",
+      "url": "https://www.npmjs.com/package/@piro0919/next-unused"
+    },
+    {
+      "descriptionEn": "A toggle button component that supports three or more states.",
+      "descriptionJa": "3 つ以上の状態を切り替えられるトグルボタンのコンポーネントです。",
+      "lp": "https://react-three-toggle.kkweb.io/",
+      "name": "react-three-toggle",
+      "repo": "https://github.com/piro0919/react-three-toggle",
+      "url": "https://www.npmjs.com/package/react-three-toggle"
+    },
+    {
+      "descriptionEn": "A component for reading images in a two-page spread.",
+      "descriptionJa": "画像を見開きで読めるコンポーネントです。",
+      "lp": "https://react-comic-viewer.kkweb.io/",
+      "name": "react-comic-viewer",
+      "repo": "https://github.com/piro0919/react-comic-viewer",
+      "url": "https://www.npmjs.com/package/react-comic-viewer"
+    },
+    {
+      "descriptionEn": "A custom hook that exposes PWA state and installation functions.",
+      "descriptionJa": "PWA の状態とインストール操作を扱うカスタムフックです。",
+      "lp": "https://use-pwa.kkweb.io/",
+      "name": "use-pwa",
+      "repo": "https://github.com/piro0919/use-pwa",
+      "url": "https://www.npmjs.com/package/use-pwa"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "A custom hook for Firestore's onSnapshot.",
+      "descriptionJa": "Firestore の onSnapshot を扱うカスタムフックです。",
+      "name": "use-on-snapshot",
+      "repo": "https://github.com/piro0919/use-on-snapshot",
+      "url": "https://www.npmjs.com/package/use-on-snapshot"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "Connects Next.js to Firebase Authentication.",
+      "descriptionJa": "Next.js と Firebase Authentication の接続を簡単にするパッケージです。",
+      "name": "next-firebase-authentication",
+      "repo": "https://github.com/piro0919/next-firebase-authentication",
+      "url": "https://www.npmjs.com/package/next-firebase-authentication"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "An install and update handler for PWA.",
+      "descriptionJa": "PWA のインストールと更新を扱うカスタムフックです。",
+      "name": "use-pwa2",
+      "repo": "https://github.com/piro0919/use-pwa2",
+      "url": "https://www.npmjs.com/package/use-pwa2"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "Adds transitions to react-router-dom.",
+      "descriptionJa": "react-router-dom に画面遷移の動きを足すパッケージです。",
+      "name": "react-router-dom-transition2",
+      "repo": "https://github.com/piro0919/react-router-dom-transition2",
+      "url": "https://www.npmjs.com/package/react-router-dom-transition2"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "Draggable React component that respects CSS-transformed (scaled) parent containers.",
+      "descriptionJa": "拡大縮小された親要素の中でも正しく動く、ドラッグ移動のコンポーネントです。",
+      "name": "react-scalable-draggable",
+      "repo": "https://github.com/piro0919/react-scalable-draggable",
+      "url": "https://www.npmjs.com/package/react-scalable-draggable"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "Tiny, headless layout primitive for React with header/footer/left/right sidebar slots built on CSS Grid.",
+      "descriptionJa": "ヘッダー・フッター・左右のサイドバーを CSS Grid で組む、小さなレイアウト用コンポーネントです。",
+      "name": "react-web-template",
+      "repo": "https://github.com/piro0919/react-web-template",
+      "url": "https://www.npmjs.com/package/react-web-template"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "Headless route transition wrapper for React Router v6/v7 with dual-layer rendering and CSS-driven animations.",
+      "descriptionJa": "React Router v6・v7 向けの、画面遷移に動きをつけるラッパーです。二層で描き、動きは CSS で指定します。",
+      "name": "react-router-dom-transition",
+      "repo": "https://github.com/piro0919/react-router-dom-transition",
+      "url": "https://www.npmjs.com/package/react-router-dom-transition"
+    },
+    {
+      "archived": true,
+      "descriptionEn": "Headless, compound popup component for React with portal, ESC, scroll lock, and focus trap.",
+      "descriptionJa": "React 向けの、見た目を持たないポップアップのコンポーネントです。ポータル、Esc での閉じ、スクロール固定、フォーカスの閉じ込めに対応します。",
+      "name": "simple-react-popup",
+      "repo": "https://github.com/piro0919/simple-react-popup",
+      "url": "https://www.npmjs.com/package/simple-react-popup"
+    }
+  ],
+  "EXTENSION": [
+    {
+      "descriptionEn": "A Firefox extension that hides Kindle orders on the Amazon.co.jp order history page.",
+      "descriptionJa": "Amazon.co.jp の注文履歴から Kindle 版の注文を隠す Firefox 拡張機能です。",
+      "name": "Hide Kindle Orders",
+      "repo": "https://github.com/piro0919/amazon-order-hide-kindle",
+      "url": "https://hide-kindle-orders.kkweb.io"
+    }
+  ],
+  "MOVIE": [
+    {
+      "altUrl": "https://www.nicovideo.jp/watch/sm8620134",
+      "descriptionEn": "Vocal: こっとん, せんせい / Music & Lyrics: DATEKEN",
+      "descriptionJa": "歌：こっとん・せんせい／詞曲：DATEKEN",
+      "name": "イマジネイション",
+      "url": "https://www.youtube.com/watch?v=99EfW593qHk"
+    },
+    {
+      "altUrl": "https://www.nicovideo.jp/watch/sm16503822",
+      "descriptionEn": "Vocal: GUMI / Music & Lyrics: AIR田F",
+      "descriptionJa": "歌：GUMI／詞曲：AIR田F",
+      "name": "黒靴下症候群",
+      "url": "https://www.youtube.com/watch?v=KlVgG3sDU50"
+    },
+    {
+      "altUrl": "https://www.nicovideo.jp/watch/sm26003890",
+      "descriptionEn": "Vocal: Hatsune Miku (Dark) / Music & Lyrics: AIR田F",
+      "descriptionJa": "歌：初音ミク（Dark）／詞曲：AIR田F",
+      "name": "昼に見たゆめ",
+      "url": "https://www.youtube.com/watch?v=eRun7O02asA"
+    },
+    {
+      "descriptionEn": "Vocal: Nekomura Iroha / Lyrics: はいのことん / Music: 夏空P / Illustration: 乃良",
+      "descriptionJa": "歌：猫村いろは／詞：はいのことん／曲：夏空P／絵：乃良",
+      "name": "胡蝶のミメシス",
+      "url": "https://www.youtube.com/watch?v=IwvJUQzBjwE"
+    },
+    {
+      "descriptionEn": "Vocal: Hatsune Miku (Dark) / Lyrics: こゆき / Music: 夏空P / Illustration: まりる",
+      "descriptionJa": "歌：初音ミク（Dark）／詞：こゆき／曲：夏空P／絵：まりる",
+      "name": "ルナと小鳥とプラットホーム",
+      "url": "https://www.youtube.com/watch?v=XB51jOqIl6E"
+    },
+    {
+      "descriptionEn": "Vocal: Nekomura Iroha / Lyrics: こゆき / Music: 夏空P / Illustration: まりる",
+      "descriptionJa": "歌：猫村いろは／詞：こゆき／曲：夏空P／絵：まりる",
+      "name": "ONE NIGHT PIECE",
+      "url": "https://www.youtube.com/watch?v=WAHyA3aDvAQ"
+    },
+    {
+      "descriptionEn": "Vocal: Nekomura Iroha / Lyrics: こゆき / Music: 夏空P / Illustration: UuGA",
+      "descriptionJa": "歌：猫村いろは／詞：こゆき／曲：夏空P／絵：UuGA",
+      "name": "オオカミ少女",
+      "url": "https://www.youtube.com/watch?v=DSJEITsGv4Q"
+    },
+    {
+      "descriptionEn": "Vocal: Kamui Gakupo / Lyrics: こゆき / Music: 夏空P / Illustration: touno",
+      "descriptionJa": "歌：神威がくぽ／詞：こゆき／曲：夏空P／絵：touno",
+      "name": "ショットガン・ペインティング",
+      "url": "https://www.youtube.com/watch?v=cs9eHyhmHks"
+    },
+    {
+      "descriptionEn": "Vocal: GUMI / Lyrics: はいのことん / Music: 夏空P / Illustration: こみね",
+      "descriptionJa": "歌：GUMI／詞：はいのことん／曲：夏空P／絵：こみね",
+      "name": "ローレライの衣",
+      "url": "https://www.youtube.com/watch?v=jH5XCof23sI"
+    },
+    {
+      "descriptionEn": "Vocal: GUMI / Lyrics: あきてる / Music: 夏空P / Illustration: touno",
+      "descriptionJa": "歌：GUMI／詞：あきてる／曲：夏空P／絵：touno",
+      "name": "ハートに描いたアルカディア",
+      "url": "https://www.youtube.com/watch?v=IDGyFTfstXQ"
+    },
+    {
+      "descriptionEn": "Vocal: GUMI, Hatsune Miku / Lyrics: こゆき / Music: 夏空P / Illustration: touno",
+      "descriptionJa": "歌：GUMI・初音ミク／詞：こゆき／曲：夏空P／絵：touno",
+      "name": "寒がりミートパイ",
+      "url": "https://www.youtube.com/watch?v=dnDCwInvQM0"
+    },
+    {
+      "descriptionEn": "Vocal: Kamui Gakupo / Lyrics: こゆき / Music: 夏空P / Illustration: よーちか",
+      "descriptionJa": "歌：神威がくぽ／詞：こゆき／曲：夏空P／絵：よーちか",
+      "name": "Marriage Fraud",
+      "url": "https://www.youtube.com/watch?v=EqAXhEwMNuY"
+    },
+    {
+      "descriptionEn": "Vocal: GUMI (Whisper) / Lyrics: あきてる / Music: 夏空P / Illustration: みぃは",
+      "descriptionJa": "歌：GUMI（Whisper）／詞：あきてる／曲：夏空P／絵：みぃは",
+      "name": "虹色スペクトル",
+      "url": "https://www.youtube.com/watch?v=CpwGKX2gNQo"
+    },
+    {
+      "descriptionEn": "Vocal: Sister Cleaire / Illustration: しぐれうい / Mix: midrino",
+      "descriptionJa": "歌：シスター・クレア／絵：しぐれうい／MIX：midrino",
+      "name": "Catch You Catch Me",
+      "url": "https://www.youtube.com/watch?v=LqxwWFjP4qg"
+    },
+    {
+      "descriptionEn": "Vocal: ぽんちゃん / Arrangement: Jun Narita / Filming: Shota Mori",
+      "descriptionJa": "歌：ぽんちゃん／編曲：成田旬／撮影：森翔太",
+      "name": "ヒラヒラヒラク秘密ノ扉",
+      "url": "https://www.youtube.com/watch?v=RDHDQk10yV4"
+    },
+    {
+      "descriptionEn": "Music: 幽閉サテライト / Illustration: 梅毒",
+      "descriptionJa": "楽曲：幽閉サテライト／絵：梅毒",
+      "name": "ヒトリシズカ",
+      "url": "https://www.nicovideo.jp/watch/sm25587756"
+    },
+    {
+      "descriptionEn": "Illustration: なか",
+      "descriptionJa": "絵：なか",
+      "name": "フレイムハート",
+      "url": "https://www.nicovideo.jp/watch/sm23998735"
+    },
+    {
+      "name": "ラヴ・サジタリウス",
+      "url": "https://www.nicovideo.jp/watch/sm19396542"
+    },
+    {
+      "descriptionEn": "Vocal: rila, くぃあ, つなこ / Mix: くぃあ / Illustration: tora",
+      "descriptionJa": "歌：rila・くぃあ・つなこ／MIX：くぃあ／絵：tora",
+      "name": "チュッ！夏パ～ティ",
+      "url": "https://www.nicovideo.jp/watch/sm19121710"
+    },
+    {
+      "descriptionEn": "Vocal: Megurine Luka / Music & Lyrics: 6thらうど / Illustration: 野崎威月, 葉月幹",
+      "descriptionJa": "歌：巡音ルカ／詞曲：6thらうど／絵：野崎威月・葉月幹",
+      "name": "SOLOISM",
+      "url": "https://www.nicovideo.jp/watch/sm18229888"
+    },
+    {
+      "descriptionEn": "Vocal: Kaai Yuki / Music & Lyrics: kk2 / Illustration: 仮眠",
+      "descriptionJa": "歌：歌愛ユキ／詞曲：kk2／絵：仮眠",
+      "name": "ブルータワー",
+      "url": "https://www.nicovideo.jp/watch/sm17830504"
+    },
+    {
+      "descriptionEn": "Vocal: GUMI / Music & Lyrics: kk2",
+      "descriptionJa": "歌：GUMI／詞曲：kk2",
+      "name": "絶望ロケット",
+      "url": "https://www.nicovideo.jp/watch/sm17633830"
+    },
+    {
+      "descriptionEn": "Vocal: ウタウンジャー / Original song: DATEKEN, はにちゃむ★",
+      "descriptionJa": "歌：ウタウンジャー／原曲：DATEKEN・はにちゃむ★",
+      "name": "Drawing Palette",
+      "url": "https://www.nicovideo.jp/watch/sm17505586"
+    },
+    {
+      "descriptionEn": "Vocal: ウタウンジャー",
+      "descriptionJa": "歌：ウタウンジャー",
+      "name": "ゴシップ",
+      "url": "https://www.nicovideo.jp/watch/sm17371202"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい, ドゥーン, NAL and others / Illustration: +TA",
+      "descriptionJa": "歌：せんせい・ドゥーン・NAL ほか／絵：+TA",
+      "name": "アウトオブエデン",
+      "url": "https://www.nicovideo.jp/watch/sm14966613"
+    },
+    {
+      "descriptionEn": "Vocal: 卑猥戦隊☆ウタウンジャー / Original song: DATEKEN",
+      "descriptionJa": "歌：卑猥戦隊☆ウタウンジャー／原曲：DATEKEN",
+      "name": "trick art!",
+      "url": "https://www.nicovideo.jp/watch/sm14794868"
+    },
+    {
+      "descriptionEn": "Vocal: Nekomura Iroha / Music & Lyrics: なきゃむりゃ / Illustration: みぃは",
+      "descriptionJa": "歌：猫村いろは／詞曲：なきゃむりゃ／絵：みぃは",
+      "name": "マトリックスシンドローム",
+      "url": "https://www.nicovideo.jp/watch/sm14639759"
+    },
+    {
+      "descriptionEn": "Vocal: GUMI / Music & Lyrics: kk2 / Illustration: こたつ",
+      "descriptionJa": "歌：GUMI／詞曲：kk2／絵：こたつ",
+      "name": "Trap",
+      "url": "https://www.nicovideo.jp/watch/sm14614150"
+    },
+    {
+      "descriptionEn": "Vocal: 卑猥戦隊☆ウタウンジャー / Original song: 仕事してP",
+      "descriptionJa": "歌：卑猥戦隊☆ウタウンジャー／原曲：仕事してP",
+      "name": "東ノ暁　西ノ黄昏",
+      "url": "https://www.nicovideo.jp/watch/sm14575682"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい, NAL / Lyrics: NAL / Music: NAL, 320 / Illustration: +TA",
+      "descriptionJa": "歌：せんせい・NAL／詞：NAL／曲：NAL・320／絵：+TA",
+      "name": "冬の空蝉",
+      "url": "https://www.nicovideo.jp/watch/sm13730680"
+    },
+    {
+      "descriptionEn": "Vocal: 和音 / Original song: DATEKEN / Mix: らせを",
+      "descriptionJa": "歌：和音／原曲：DATEKEN／MIX：らせを",
+      "name": "君が生まれた日",
+      "url": "https://www.nicovideo.jp/watch/sm13679053"
+    },
+    {
+      "descriptionEn": "Vocal: 青田愛子, ヒゲとメガネと / Original song: 夏空P / Illustration: うらら",
+      "descriptionJa": "歌：青田愛子・ヒゲとメガネと／原曲：夏空P／絵：うらら",
+      "name": "スタンプ",
+      "url": "https://www.nicovideo.jp/watch/sm13533658"
+    },
+    {
+      "descriptionEn": "Vocal: 厳選茶葉 and others / Illustration: しヴぇ, はる蔵",
+      "descriptionJa": "歌：厳選茶葉 ほか／絵：しヴぇ・はる蔵",
+      "name": "Smiling",
+      "url": "https://www.nicovideo.jp/watch/sm12658331"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい, るし / Illustration: うらら",
+      "descriptionJa": "歌：せんせい・るし／絵：うらら",
+      "name": "チョコレート・トレイン",
+      "url": "https://www.nicovideo.jp/watch/sm11541217"
+    },
+    {
+      "descriptionEn": "Vocal: るし",
+      "descriptionJa": "歌：るし",
+      "name": "オトナのオモチャ",
+      "url": "https://www.nicovideo.jp/watch/sm11198610"
+    },
+    {
+      "descriptionEn": "Vocal: るし / Mix: NAL",
+      "descriptionJa": "歌：るし／MIX：NAL",
+      "name": "いろは唄",
+      "url": "https://www.nicovideo.jp/watch/sm11143475"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい / Mix: marque / Illustration: うらら",
+      "descriptionJa": "歌：せんせい／MIX：marque／絵：うらら",
+      "name": "え？あぁ、そう。",
+      "url": "https://www.nicovideo.jp/watch/sm10737301"
+    },
+    {
+      "descriptionEn": "Vocal: 江戸なう。",
+      "descriptionJa": "歌：江戸なう。",
+      "name": "桜前線異常ナシ",
+      "url": "https://www.nicovideo.jp/watch/sm10669708"
+    },
+    {
+      "descriptionEn": "Vocal: 厳選茶葉, るし, NAL and others",
+      "descriptionJa": "歌：厳選茶葉・るし・NAL ほか",
+      "name": "ゆらゆらふわふわ",
+      "url": "https://www.nicovideo.jp/watch/sm9928678"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい / Mix: るし",
+      "descriptionJa": "歌：せんせい／MIX：るし",
+      "name": "About Us",
+      "url": "https://www.nicovideo.jp/watch/sm9220790"
+    },
+    {
+      "descriptionEn": "Vocal: 厳選茶葉 / Mix: 安",
+      "descriptionJa": "歌：厳選茶葉／MIX：安",
+      "name": "朝焼け、君の唄。",
+      "url": "https://www.nicovideo.jp/watch/sm9162551"
+    },
+    {
+      "descriptionEn": "Vocal: NAL, ドゥーン, くまちょう / Illustration: うらら",
+      "descriptionJa": "歌：NAL・ドゥーン・くまちょう／絵：うらら",
+      "name": "参月の雨",
+      "url": "https://www.nicovideo.jp/watch/sm8968710"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい, 厳選茶葉, るし / Illustration: +TA",
+      "descriptionJa": "歌：せんせい・厳選茶葉・るし／絵：+TA",
+      "name": "赤い雨",
+      "url": "https://www.nicovideo.jp/watch/sm8968626"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい / Chorus: こっとん, NAL / Mix: 安",
+      "descriptionJa": "歌：せんせい／コーラス：こっとん・NAL／MIX：安",
+      "name": "ゆらゆらふわふわ",
+      "url": "https://www.nicovideo.jp/watch/sm8804572"
+    },
+    {
+      "descriptionEn": "Vocal: るし / Chorus & Mix: NAL",
+      "descriptionJa": "歌：るし／コーラス・MIX：NAL",
+      "name": "ピアノ×フォルテ×スキャンダル",
+      "url": "https://www.nicovideo.jp/watch/sm8610930"
+    },
+    {
+      "descriptionEn": "Vocal: NAL, せんせい, Doon, るし",
+      "descriptionJa": "歌：NAL・せんせい・Doon・るし",
+      "name": "人柱アリス",
+      "url": "https://www.nicovideo.jp/watch/sm8534939"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい / Mix: Doon",
+      "descriptionJa": "歌：せんせい／MIX：Doon",
+      "name": "Just Be Friends",
+      "url": "https://www.nicovideo.jp/watch/sm8007239"
+    },
+    {
+      "descriptionEn": "Vocal: しーぷ.",
+      "descriptionJa": "歌：しーぷ.",
+      "name": "右肩の蝶",
+      "url": "https://www.nicovideo.jp/watch/sm7783731"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい / Mix: Doon",
+      "descriptionJa": "歌：せんせい／MIX：Doon",
+      "name": "モノクロアクト",
+      "url": "https://www.nicovideo.jp/watch/sm7612511"
+    },
+    {
+      "descriptionEn": "Vocal: るし / Guitar: shige",
+      "descriptionJa": "歌：るし／ギター：shige",
+      "name": "愛してない",
+      "url": "https://www.nicovideo.jp/watch/sm7402340"
+    },
+    {
+      "descriptionEn": "Vocal: せんせい / Mix: Doon",
+      "descriptionJa": "歌：せんせい／MIX：Doon",
+      "name": "rain stops, good-bye",
+      "url": "https://www.nicovideo.jp/watch/sm7193573"
+    },
+    {
+      "descriptionEn": "Vocal: るし",
+      "descriptionJa": "歌：るし",
+      "name": "右肩の蝶",
+      "url": "https://www.nicovideo.jp/watch/sm6846984"
+    },
+    {
+      "descriptionEn": "Vocal: るし, てん",
+      "descriptionJa": "歌：るし・てん",
+      "name": "Cyclone",
+      "url": "https://www.nicovideo.jp/watch/sm5525790"
+    }
+  ]
+}
