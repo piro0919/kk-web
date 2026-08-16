@@ -21,20 +21,31 @@ function extractOgImage(html: string): null | string {
   return match ? match[1] : null;
 }
 
+async function probe(url: string, init: RequestInit): Promise<null | Response> {
+  return Promise.race([
+    fetch(url, { ...init, next: { revalidate: 86400 } }),
+    new Promise<null>((resolve) => setTimeout(() => resolve(null), TIMEOUT_MS)),
+  ]);
+}
+
 /**
  * og:image が実際に画像として開けるか確かめ、最終的な URL を返す。
  * 旧ドメインを指したまま、301 で画像ではないページへ飛ぶことがある。
  */
 async function resolveImage(url: string): Promise<null | string> {
   try {
-    const response = await Promise.race([
-      fetch(url, { method: "HEAD", next: { revalidate: 86400 } }),
-      new Promise<null>((resolve) =>
-        setTimeout(() => resolve(null), TIMEOUT_MS),
-      ),
-    ]);
+    let response = await probe(url, { method: "HEAD" });
 
-    if (!response || !response.ok) {
+    // ニコニコの配信元のように HEAD を 415 で断るところがある。
+    // その場合は先頭 1 バイトだけ取って種類を確かめる。
+    if (!response?.ok) {
+      response = await probe(url, {
+        headers: { range: "bytes=0-0" },
+        method: "GET",
+      });
+    }
+
+    if (!response?.ok) {
       return null;
     }
 
