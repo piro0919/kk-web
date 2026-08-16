@@ -1,9 +1,10 @@
 // eslint-disable-next-line filenames/match-regex
+import getDailyCharacter from "@/libs/getDailyCharacter";
 import BubbleHero from "./_components/BubbleHero";
 
 export default function NotFound(): React.JSX.Element {
   // トップと逆のキャラを出す。
-  const isTsumugi = !(new Date().getDate() % 2 > 0);
+  const { isTsumugi } = getDailyCharacter(true);
 
   return (
     <main>
