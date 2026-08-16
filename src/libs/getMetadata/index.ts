@@ -12,7 +12,7 @@ export type GetMetadataParams = {
 };
 
 export default function getMetadata({
-  description = "Frontend Developer piro's website",
+  description = "Software Developer piro's website",
   imagePath,
   locale,
   path = "/",
