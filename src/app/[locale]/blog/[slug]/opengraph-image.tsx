@@ -40,30 +40,28 @@ export default async function Image({
   ]);
 
   return new ImageResponse(
-    (
-      <OgpFrame background={background} metan={metan} tsumugi={tsumugi}>
-        {/* 題名は立ち絵より上に収める。長いほど字を小さくして、
+    <OgpFrame background={background} metan={metan} tsumugi={tsumugi}>
+      {/* 題名は立ち絵より上に収める。長いほど字を小さくして、
             いちばん長い題名でも3行に収まり、立ち絵に掛からないようにする。 */}
-        <div
-          style={{
-            alignItems: "center",
-            color: "#fff",
-            display: "flex",
-            fontSize: titleSize(text),
-            fontWeight: 700,
-            justifyContent: "center",
-            left: 100,
-            lineHeight: 1.35,
-            position: "absolute",
-            textAlign: "center",
-            top: 104,
-            width: 1000,
-          }}
-        >
-          {text}
-        </div>
-      </OgpFrame>
-    ),
+      <div
+        style={{
+          alignItems: "center",
+          color: "#fff",
+          display: "flex",
+          fontSize: titleSize(text),
+          fontWeight: 700,
+          justifyContent: "center",
+          left: 100,
+          lineHeight: 1.35,
+          position: "absolute",
+          textAlign: "center",
+          top: 104,
+          width: 1000,
+        }}
+      >
+        {text}
+      </div>
+    </OgpFrame>,
     {
       ...size,
       fonts: [

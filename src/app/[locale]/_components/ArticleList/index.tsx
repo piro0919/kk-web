@@ -166,7 +166,6 @@ export default function ArticleList({
       cancelAnimationFrame(frame);
     };
     // loaded は本文で使わないが、描き直しの合図として要る。
-     
   }, [isReachingEnd, loadMore, loaded]);
 
   return (
