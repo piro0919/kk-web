@@ -74,8 +74,22 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
-    // OGP 画像は任意のドメインから来るため、https を広く許可する。
-    remotePatterns: [{ hostname: "**", protocol: "https" }],
+    // 全ホストを許すと、誰でも kkweb.io を画像の中継所として使えてしまい、
+    // 画像最適化の枠と転送量を他人に使われる。ポートフォリオのサムネイルが
+    // 実際に来る先だけを並べる。
+    // 作品を足してサムネイルが出ないときは、その og:image の配信元をここへ。
+    remotePatterns: [
+      // 自分の作品の置き場。
+      { hostname: "**.kkweb.io", protocol: "https" },
+      { hostname: "**.vercel.app", protocol: "https" },
+      // 動画の配信元。
+      { hostname: "i.ytimg.com", protocol: "https" },
+      { hostname: "**.cdn.nimg.jp", protocol: "https" },
+      // 受託や共同制作で、先方の置き場にあるもの。
+      { hostname: "konta-niki.com", protocol: "https" },
+      { hostname: "www.natsuzolab.com", protocol: "https" },
+      { hostname: "www.nbhyakuhati.com", protocol: "https" },
+    ],
   },
   // OGP 画像は public の絵をファイルから読む。ファイル名が変数なので
   // 依存追跡が静的に見つけられず、関数に同梱されない。明示して入れる。
