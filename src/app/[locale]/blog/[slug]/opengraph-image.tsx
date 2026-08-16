@@ -13,6 +13,20 @@ type ImageProps = {
   params: { locale: string; slug: string };
 };
 
+/**
+ * 題名の長さから字の大きさを決める。日本語は1文字が字の大きさとほぼ同じ幅を
+ * 取るので、幅 1000px に何文字入るかで行数が決まる。3行までに収める。
+ */
+function titleSize(text: string): number {
+  if (text.length <= 16) return 60;
+
+  if (text.length <= 30) return 48;
+
+  if (text.length <= 48) return 40;
+
+  return 34;
+}
+
 export default async function Image({
   params,
 }: ImageProps): Promise<ImageResponse> {
@@ -28,21 +42,22 @@ export default async function Image({
   return new ImageResponse(
     (
       <OgpFrame background={background} metan={metan} tsumugi={tsumugi}>
-        {/* 題名は立ち絵の上。長さで文字の大きさを変え、はみ出さないようにする。 */}
+        {/* 題名は立ち絵より上に収める。長いほど字を小さくして、
+            いちばん長い題名でも3行に収まり、立ち絵に掛からないようにする。 */}
         <div
           style={{
             alignItems: "center",
             color: "#fff",
             display: "flex",
-            fontSize: text.length > 28 ? 44 : 56,
+            fontSize: titleSize(text),
             fontWeight: 700,
             justifyContent: "center",
-            left: 120,
-            lineHeight: 1.4,
+            left: 100,
+            lineHeight: 1.35,
             position: "absolute",
             textAlign: "center",
-            top: 130,
-            width: 960,
+            top: 104,
+            width: 1000,
           }}
         >
           {text}
@@ -53,8 +68,8 @@ export default async function Image({
       ...size,
       fonts: [
         {
-          data: await loadGoogleFont("Noto+Sans+JP:wght@700", text),
-          name: "Noto_Sans_JP",
+          data: await loadGoogleFont("Zen+Kaku+Gothic+New:wght@700", text),
+          name: "Zen_Kaku_Gothic_New",
           style: "normal",
           weight: 700,
         },
