@@ -41,8 +41,9 @@ export async function POST(
 
   const token = request.cookies.get("token");
 
+  // 人の証明が付いていない。送る側の問題なので 400 番台で返す。
   if (!token) {
-    return NextResponse.json({ result: false }, { status: 500 });
+    return NextResponse.json({ result: false }, { status: 400 });
   }
 
   const { value } = token;
@@ -52,8 +53,9 @@ export async function POST(
     `https://www.google.com/recaptcha/api/siteverify?secret=${env.RECAPTCHA_SECRET_KEY}&response=${value}`,
   );
 
+  // 人の証明に通らなかった。断りなので 403。
   if (!success) {
-    return NextResponse.json({ result: false }, { status: 500 });
+    return NextResponse.json({ result: false }, { status: 403 });
   }
 
   const data = await request.formData();
