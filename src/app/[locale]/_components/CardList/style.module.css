@@ -47,11 +47,12 @@
   position: relative;
 }
 
-.title {
-  font-size: 1.8rem;
+/* 作品名だけ別書体。日本語もラテン文字も同じ顔で出る。
+   本物の太字を持つので、JKG のように線を足す必要がない。 */
 
-  /* JKG は太字を持たないので、線を足して太らせる。 */
-  -webkit-text-stroke: 0.4px currentcolor;
+.title {
+  font-family: var(--font-title), sans-serif;
+  font-size: 1.8rem;
   transition: color 150ms;
 }
 

@@ -43,11 +43,10 @@
   justify-content: space-between;
 }
 
+/* 作品名と同じ書体。本物の太字を持つので、線を足す必要がない。 */
 .title {
+  font-family: var(--font-title), sans-serif;
   font-size: 1.8rem;
-
-  /* JKG は太字を持たず擬似ボールドも効かないので、線を足して太らせる。 */
-  -webkit-text-stroke: 0.4px currentcolor;
   transition: color 150ms;
 }
 
