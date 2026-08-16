@@ -11,7 +11,7 @@ import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
-import { Righteous } from "next/font/google";
+import { Righteous, Zen_Kaku_Gothic_New as TitleFont } from "next/font/google";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import Script from "next/script";
@@ -22,6 +22,7 @@ import LocaleSwitch from "./_components/LocaleSwitch";
 import MobileMenu from "./_components/MobileMenu";
 import Navigation from "./_components/Navigation";
 import StructuredData from "./_components/StructuredData";
+import SupportLink from "./_components/SupportLink";
 import ThemeToggle from "./_components/ThemeToggle";
 import "github-markdown-css";
 import "./globals.css";
@@ -32,6 +33,14 @@ const righteous = Righteous({
   subsets: ["latin"],
   variable: "--font-righteous",
   weight: "400",
+});
+// 作品名用。日本語もラテン文字も持ち、太字があるので線を足さずに済む。
+// 日本語の字は unicode-range で細かく配られる。next/font に japanese の
+// サブセット指定が無いので、subsets を書かず preload を切る。
+const titleFont = TitleFont({
+  preload: false,
+  variable: "--font-title",
+  weight: "700",
 });
 const jkg = localFont({
   display: "swap",
@@ -78,15 +87,20 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
-      <body className={`${jkg.className} ${righteous.variable}`}>
+      <body
+        className={`${jkg.className} ${righteous.variable} ${titleFont.variable}`}
+      >
         <StructuredData data={websiteStructuredData} />
         <StructuredData data={createPersonStructuredData()} />
         <NextIntlClientProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="light">
             <Background />
             <Frame />
-            <ThemeToggle />
+            {/* 3つとも fixed で座標を指定するので、書いた順が見た目の順になる
+                わけではない。左から並ぶとおりに書いて、Tab の移動順を合わせる。 */}
+            <SupportLink />
             <LocaleSwitch />
+            <ThemeToggle />
             <Navigation />
             {children}
             <MobileMenu />

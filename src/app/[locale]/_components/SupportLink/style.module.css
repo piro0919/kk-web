@@ -1,0 +1,17 @@
+/* 言語切り替えの左隣、額縁の内側の右上に置く。 */
+.link {
+  align-items: center;
+  color: var(--color-foreground);
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  position: fixed;
+  right: calc(var(--frame-padding) + 80px);
+  top: calc(var(--frame-padding) + 8px);
+  transition: color 150ms;
+  z-index: 2;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
