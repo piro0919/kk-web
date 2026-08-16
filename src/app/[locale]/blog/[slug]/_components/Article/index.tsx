@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import styles from "./style.module.css";
 import type { Article as ArticleType } from "@/libs/getArticles";
@@ -21,7 +22,11 @@ export default function Article({ article }: ArticleProps): React.JSX.Element {
         <p className={styles.date}>{date}</p>
         <hr className={styles.hr} />
         <div className={`markdown-body ${styles.body}`}>
-          <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+          {/* 昔の記事は本文に生の HTML を書いている。素通しにしないと
+              タグが文字のまま出るので通す。中身は自分で書いた md だけ。 */}
+          <Markdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>
+            {content}
+          </Markdown>
         </div>
         <Link className={styles.back} href="/blog">
           ← BLOG
