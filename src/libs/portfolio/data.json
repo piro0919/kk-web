@@ -24,8 +24,8 @@
       "url": "https://high-low.kkweb.io/"
     },
     {
-      "descriptionEn": "A service that sorts web comics by day of the week.",
-      "descriptionJa": "Web で連載されている漫画を曜日ごとに振り分けるサービスです。",
+      "descriptionEn": "Follow web comics and check their updates, sorted by day of the week.",
+      "descriptionJa": "追いかけている Web 漫画の更新を、曜日ごとにまとめて確認できるサービスです。",
       "name": "ComicTime",
       "repo": "https://github.com/piro0919/comic-time",
       "url": "https://comictime.kkweb.io/"
