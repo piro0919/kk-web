@@ -95,7 +95,7 @@ export default async function RootLayout({
         <StructuredData data={websiteStructuredData} />
         <StructuredData data={createPersonStructuredData()} />
         <NextIntlClientProvider>
-          <ThemeProvider attribute="data-theme" defaultTheme="light">
+          <ThemeProvider attribute="data-theme" defaultTheme="system">
             <Background />
             <Frame />
             {/* 3つとも fixed で座標を指定するので、書いた順が見た目の順になる
