@@ -101,15 +101,53 @@ async function getVideoThumbnail(url: string): Promise<null | string> {
 }
 
 /**
+ * ロケールごとに og:image を出し分けているサイトがある。入口が素のままなら
+ * 既定のロケール（英語）の絵が返るので、日本語の画面では /ja を先に当てる。
+ * 対応していないサイトは 404 で返るだけなので、そのときは入口をそのまま使う。
+ */
+function localizedCandidate(url: string, locale: "en" | "ja"): null | string {
+  if (locale !== "ja") return null;
+
+  try {
+    const parsed = new URL(url);
+
+    // 入口そのものでないときは、下に /ja を足しても別のページにはならない。
+    if (parsed.pathname !== "/") return null;
+
+    parsed.pathname = "/ja";
+
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
+/**
  * ページの og:image を取り出す。取れなければ null。
  * 外部サイト頼みなので、必ず時間で打ち切る。取得は24時間ごと。
  */
-export default async function getOgpImage(url: string): Promise<null | string> {
+export default async function getOgpImage(
+  url: string,
+  locale: "en" | "ja",
+): Promise<null | string> {
+  const video = await getVideoThumbnail(url);
+
+  if (video !== null) return video;
+
+  const localized = localizedCandidate(url, locale);
+
+  if (localized !== null) {
+    const image = await fetchOgImage(localized);
+
+    if (image !== null) return image;
+  }
+
+  return fetchOgImage(url);
+}
+
+/** 1つの URL から og:image を取り出す。取れなければ null。 */
+async function fetchOgImage(url: string): Promise<null | string> {
   try {
-    const video = await getVideoThumbnail(url);
-
-    if (video !== null) return video;
-
     const controller = new AbortController();
     const timeout = setTimeout(() => {
       controller.abort();

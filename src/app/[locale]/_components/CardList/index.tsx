@@ -38,7 +38,7 @@ export default async function CardList({
     items.map(async (item) => ({
       ...item,
       // 絵はサイト自身の og:image だけ。畳んだものは絵を出さない。
-      thumbnail: item.archived ? null : await getOgpImage(item.href),
+      thumbnail: item.archived ? null : await getOgpImage(item.href, locale),
     })),
   );
   const live = resolved.filter(({ archived }) => !archived);
