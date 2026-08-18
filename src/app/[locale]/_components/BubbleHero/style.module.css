@@ -18,8 +18,12 @@
   width: 536px;
 }
 
+/* 背景のタイルと同じ跳ね方で現れる。尻尾の先を起点にするので、
+   しゃべった側から吹き出しが膨らむように見える。 */
+
 .bubble {
   align-items: center;
+  animation: bubble-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) 600ms both;
   display: flex;
   height: 136px;
   justify-content: center;
@@ -27,14 +31,29 @@
   width: 256px;
 }
 
+@keyframes bubble-pop {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* 尻尾の先は bubble.png の 80.5% / 94.9% の位置。めたんは絵を
+   左右反転して使うので、横だけ裏返した値にする。 */
+
 .left {
   left: 0;
   top: 0;
+  transform-origin: 80.5% 94.9%;
 }
 
 .right {
   right: 0;
   top: 0;
+  transform-origin: 19.5% 94.9%;
 }
 
 .text {
@@ -86,5 +105,11 @@
   .metan {
     height: 213.7349px; /* 1772 / 8.3 */
     width: 239.759px; /* 1990 / 8.3 */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble {
+    animation: none;
   }
 }
