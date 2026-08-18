@@ -36,6 +36,7 @@
     "@eslint/compat": "2.1.0",
     "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "9.39.4",
+    "@lhci/cli": "0.15.1",
     "@secretlint/secretlint-rule-preset-recommend": "13.0.4",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/node": "26.2.0",
@@ -62,6 +63,7 @@
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-unused-imports": "4.4.1",
     "eslint-plugin-write-good-comments": "0.2.0",
+    "fontkit": "2.0.4",
     "lefthook": "2.1.10",
     "next-sitemap": "4.2.3",
     "prettier": "3.9.6",
@@ -74,6 +76,7 @@
     "stylelint-high-performance-animation": "2.0.0",
     "stylelint-no-unused-selectors": "1.0.40",
     "stylelint-order": "8.1.1",
+    "subset-font": "2.5.0",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   },
@@ -83,7 +86,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "lighthouse": "pnpm exec @lhci/cli autorun",
+    "lighthouse": "pnpm build && lhci autorun",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:secret": "pnpm exec secretlint --maskSecrets '**/*'",
@@ -93,7 +96,8 @@
     "secretlint": "secretlint '**/*'",
     "start": "next start",
     "test": "vitest run",
-    "type-check": "tsc --noemit"
+    "type-check": "tsc --noemit",
+    "font:subset": "node scripts/subset-font.mjs"
   },
   "version": "0.1.0"
 }

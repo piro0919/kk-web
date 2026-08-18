@@ -6,7 +6,6 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { Righteous, Zen_Kaku_Gothic_New as TitleFont } from "next/font/google";
-import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { type ReactNode } from "react";
@@ -25,9 +24,11 @@ import Navigation from "./_components/Navigation";
 import StructuredData from "./_components/StructuredData";
 import SupportLink from "./_components/SupportLink";
 import ThemeToggle from "./_components/ThemeToggle";
+import jkgFont from "./jkgFont";
 import "github-markdown-css";
 // github-markdown-css の配色を data-theme に紐づけ直す。読み込む順が要る。
 import "./markdown-theme.css";
+import "./jkg-font.css";
 import "./globals.css";
 
 // 欧文の見出しとナビゲーション用。708 と同じ書体。
@@ -44,13 +45,6 @@ const titleFont = TitleFont({
   preload: false,
   variable: "--font-title",
   weight: "700",
-});
-const jkg = localFont({
-  display: "swap",
-  fallback: ["sans-serif"],
-  src: "./jkg.woff2",
-  // 太さを明示しないとブラウザが擬似ボールドを作らない。
-  weight: "400",
 });
 
 export function generateStaticParams(): { locale: string }[] {
@@ -90,9 +84,17 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
-      <body
-        className={`${jkg.className} ${righteous.variable} ${titleFont.variable}`}
-      >
+      <head>
+        {/* 本文の書体。CSS を読み終わるまで待たせない。 */}
+        <link
+          as="font"
+          crossOrigin="anonymous"
+          href={jkgFont}
+          rel="preload"
+          type="font/woff2"
+        />
+      </head>
+      <body className={`${righteous.variable} ${titleFont.variable}`}>
         <StructuredData data={websiteStructuredData} />
         <StructuredData data={createPersonStructuredData()} />
         <NextIntlClientProvider>

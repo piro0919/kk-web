@@ -52,7 +52,8 @@ This is a multilingual (English/Japanese) Next.js 15 blog/portfolio website usin
 
 - CSS Modules for component-specific styles
 - Global styles in `src/app/[locale]/globals.css`
-- Custom Japanese font (JKG) loaded locally
+- Custom Japanese font (JKG) split into two `unicode-range` subsets by `pnpm font:subset`;
+  the common set loads on every page and the rest only when a rare kanji appears
 - Responsive design with mobile menu component
 
 ## Important Notes

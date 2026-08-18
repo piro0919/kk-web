@@ -53,6 +53,9 @@ body {
   color: var(--color-foreground);
   display: flex;
   flex-direction: column;
+
+  /* 本文の書体。@font-face は jkg-font.css にあり、pnpm font:subset が書く。 */
+  font-family: "JK Gothic L", sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.5px;
   line-height: 1.5;
