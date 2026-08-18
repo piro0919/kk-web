@@ -27,7 +27,10 @@ export default async function getMetadata({
   const t = await getTranslations({ locale, namespace: "Site" });
   // 英語は接頭辞なしが正。canonical と og:url で同じ URL を出す。
   const localePrefix = locale === "en" ? "" : `/${locale}`;
-  const url = `${baseUrl}${localePrefix}${path}`;
+  // トップの path は "/" で来る。そのまま繋ぐと /ja/ になり、実体の /ja へ
+  // 308 で飛ぶ URL を canonical と hreflang が指してしまう。空に均す。
+  const pathname = path === "/" ? "" : path;
+  const url = `${baseUrl}${localePrefix}${pathname}`;
   // 下位ページが generateMetadata を持つと親の openGraph ごと差し替わり、
   // opengraph-image.tsx の自動挿入が効かない。全ページで明示する。
   // 画像は接頭辞を必ず付ける。middleware の matcher が opengraph-image を
@@ -44,7 +47,7 @@ export default async function getMetadata({
   const languages = Object.fromEntries(
     locales.map((available) => [
       available,
-      `${baseUrl}${available === "en" ? "" : `/${available}`}${path}`,
+      `${baseUrl}${available === "en" ? "" : `/${available}`}${pathname}`,
     ]),
   );
   const text = description ?? t("description");
