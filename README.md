@@ -94,7 +94,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 - `pnpm font:subset` - Split `jkg.woff2` into two unicode-range subsets under `public/fonts/`
   (run it after adding content; the generated CSS and preload path are committed)
-- `pnpm lighthouse` - Run Lighthouse CI for performance testing
+- `pnpm lighthouse` - Build, then run Lighthouse CI against `http://localhost:4173`
+  (configured in `.lighthouserc.json`; reports land in `.lighthouseci/`)
 
 ### Adding Blog Posts
 
