@@ -1,3 +1,8 @@
+# worktree で lefthook が走るたび、.husky の hook がそのツリーの
+# node_modules を指す絶対パスに書き換わっていた。暗黙の再インストールを
+# 止める。lefthook.yml を変えたときは lefthook install を手で叩くこと。
+no_auto_install: true
+
 pre-commit:
   parallel: true
   commands:
