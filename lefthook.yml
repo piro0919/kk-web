@@ -11,10 +11,9 @@ pre-commit:
       stage_fixed: true
     secretlint:
       glob: "**/*"
-      # secretlint は受け取った道筋を glob として読む。App Router の [locale] や
-      # [...rest] の角括弧が文字クラスと解釈され、どれにも当たらず落ちるので、
-      # 角括弧を打ち消してから渡す。
-      run: pnpm exec secretlint --maskSecrets $(echo {staged_files} | sed 's/[][]/\\&/g')
+      # 角括弧はそのまま渡す。実在する道筋は先に見に行くので、App Router の
+      # [locale] でも当たる。逆に \[ で打ち消すと、どれにも当たらず落ちる。
+      run: pnpm exec secretlint --maskSecrets {staged_files}
     stylelint:
       glob: "**/*.css"
       run: pnpm exec stylelint --fix {staged_files}
