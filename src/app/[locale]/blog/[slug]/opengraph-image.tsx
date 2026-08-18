@@ -10,7 +10,9 @@ export const size = OGP_SIZE;
 export const contentType = "image/png";
 
 type ImageProps = {
-  params: { locale: string; slug: string };
+  // Next 16 で params は Promise になった。同期で読むと undefined になり、
+  // 題名が見つからず kk-web の画像が出る。
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 /**
@@ -30,7 +32,7 @@ function titleSize(text: string): number {
 export default async function Image({
   params,
 }: ImageProps): Promise<ImageResponse> {
-  const { locale, slug } = params;
+  const { locale, slug } = await params;
   const articles = await getArticles(locale as "en" | "ja");
   const text = articles.find((item) => item.slug === slug)?.title ?? "kk-web";
   const [background, metan, tsumugi] = await Promise.all([
