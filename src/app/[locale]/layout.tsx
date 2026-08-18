@@ -18,6 +18,7 @@ import {
 } from "@/libs/structuredData";
 import Background from "./_components/Background";
 import Frame from "./_components/Frame";
+import Hotjar from "./_components/Hotjar";
 import LocaleSwitch from "./_components/LocaleSwitch";
 import MobileMenu from "./_components/MobileMenu";
 import Navigation from "./_components/Navigation";
@@ -107,6 +108,7 @@ export default async function RootLayout({
             {children}
             <MobileMenu />
             <Analytics />
+            <Hotjar />
             <SpeedInsights />
           </ThemeProvider>
         </NextIntlClientProvider>

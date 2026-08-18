@@ -3,9 +3,13 @@ import { z } from "zod";
 
 const env = createEnv({
   client: {
+    NEXT_PUBLIC_HOTJAR_ID: z.string().min(1),
+    NEXT_PUBLIC_HOTJAR_SV: z.string().min(1),
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
   },
   runtimeEnv: {
+    NEXT_PUBLIC_HOTJAR_ID: process.env.NEXT_PUBLIC_HOTJAR_ID,
+    NEXT_PUBLIC_HOTJAR_SV: process.env.NEXT_PUBLIC_HOTJAR_SV,
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
     NODEMAILER_AUTH_PASS: process.env.NODEMAILER_AUTH_PASS,
     NODEMAILER_AUTH_USER: process.env.NODEMAILER_AUTH_USER,

@@ -38,9 +38,9 @@ This is a multilingual (English/Japanese) Next.js 15 blog/portfolio website usin
 
 - **Blog System**: Markdown-based blog with parsing using `parse-md` and `react-markdown`
 - **Contact Form**: Uses React Hook Form with reCAPTCHA and Nodemailer
-- **Analytics**: Integrated Hotjar, Vercel Analytics, and Umami
+- **Analytics**: Vercel Analytics and Speed Insights, Umami, and Hotjar. Umami's tracker and collection endpoint are proxied through `/stats/*` by the rewrites in `vercel.json`, so the site's own domain serves them. Hotjar waits for the first click, scroll, or touch before loading
 - **Environment Management**: Type-safe environment variables using `@t3-oss/env-nextjs`
-- **Image Handling**: Next.js Image component with unoptimized images for static hosting
+- **Image Handling**: Next.js Image component with AVIF and WebP output; `remotePatterns` lists the hosts portfolio thumbnails may come from
 
 ### Development Tools
 
