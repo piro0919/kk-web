@@ -3,113 +3,74 @@
 
 .frame {
   inset: 0;
+  overflow: hidden;
   pointer-events: none;
   position: fixed;
   z-index: 1;
 }
 
-/* 外周の帯。中央をくり抜くので、コンテンツの上には乗らない。 */
+/* 外周の帯。内側を角丸にくり抜いた形が要るので、角丸の矩形から
+   外へ向かって box-shadow を広げ、はみ出た分を .frame で切る。 */
+
 .frame::before {
-  backdrop-filter: blur(1px);
-  background: var(--color-frame-band);
-  clip-path: polygon(
-    0% 0%,
-    0% 100%,
-    var(--frame-padding) 100%,
-    var(--frame-padding) var(--frame-padding),
-    calc(100% - var(--frame-padding)) var(--frame-padding),
-    calc(100% - var(--frame-padding)) calc(100% - var(--frame-padding)),
-    var(--frame-padding) calc(100% - var(--frame-padding)),
-    var(--frame-padding) 100%,
-    100% 100%,
-    100% 0%
-  );
-  content: "";
-  inset: 0;
-  position: absolute;
-}
-
-/* 流れる破線のボーダー。4辺を repeating-linear-gradient で描き、
-   背景位置を14pxずらし続けることで動いて見せる。 */
-
-.frame::after {
-  animation: border-flow 1s infinite linear;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      var(--color-line),
-      var(--color-line) 10px,
-      transparent 10px,
-      transparent 14px,
-      var(--color-line) 14px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      var(--color-line),
-      var(--color-line) 10px,
-      transparent 10px,
-      transparent 14px,
-      var(--color-line) 14px
-    ),
-    repeating-linear-gradient(
-      180deg,
-      var(--color-line),
-      var(--color-line) 10px,
-      transparent 10px,
-      transparent 14px,
-      var(--color-line) 14px
-    ),
-    repeating-linear-gradient(
-      270deg,
-      var(--color-line),
-      var(--color-line) 10px,
-      transparent 10px,
-      transparent 14px,
-      var(--color-line) 14px
-    );
-  background-position:
-    0 0,
-    0 0,
-    100% 0,
-    0 100%;
-  background-repeat: no-repeat;
-  background-size:
-    1px calc(100% + 14px),
-    calc(100% + 14px) 1px,
-    1px calc(100% + 14px),
-    calc(100% + 14px) 1px;
   border-radius: 6px;
+  box-shadow: 0 0 0 100vmax var(--color-frame-band);
   content: "";
   inset: var(--frame-padding);
   position: absolute;
 }
 
 @media (width >= 980px) {
-  .frame::after {
+  .frame::before {
     border-radius: 12px;
+  }
+}
+
+/* 流れる破線のボーダー。角丸長方形ひと筆で描き、dashoffset を
+   ずらし続けることで四隅を途切れさせずに動いて見せる。
+   rect のパスは左上始まりなので、180度回して右下始まりにする。 */
+
+.border {
+  height: calc(100% - var(--frame-padding) * 2);
+  inset: var(--frame-padding);
+  position: absolute;
+  width: calc(100% - var(--frame-padding) * 2);
+}
+
+.rect {
+  animation: border-flow 1s infinite linear;
+  fill: none;
+  height: calc(100% - 1px);
+  rx: 6px;
+  stroke: var(--color-line);
+  stroke-dasharray: 10 4;
+  stroke-width: 1;
+  transform: rotate(180deg);
+  transform-box: fill-box;
+  transform-origin: center;
+  width: calc(100% - 1px);
+  x: 0.5px;
+  y: 0.5px;
+}
+
+@media (width >= 980px) {
+  .rect {
+    rx: 12px;
   }
 }
 
 @keyframes border-flow {
   from {
-    background-position:
-      0 0,
-      -14px 0,
-      100% -14px,
-      0 100%;
+    stroke-dashoffset: 0;
   }
 
   to {
-    background-position:
-      0 -14px,
-      0 0,
-      100% 0,
-      -14px 100%;
+    stroke-dashoffset: -14;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .frame::after {
+  .rect {
     animation: none;
   }
 }
