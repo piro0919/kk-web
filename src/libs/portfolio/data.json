@@ -160,6 +160,13 @@
       "url": "https://nonja.kkweb.io"
     },
     {
+      "descriptionEn": "A macOS menu bar app that covers status icons with cute girl characters.",
+      "descriptionJa": "メニューバーのアイコンを女の子のキャラクターに差し替える、Mac 向けのアプリです。",
+      "name": "Okigae",
+      "repo": "https://github.com/piro0919/okigae",
+      "url": "https://okigae.kkweb.io"
+    },
+    {
       "descriptionEn": "A macOS menu bar app that mounts Google Drive in Finder.",
       "descriptionJa": "Google ドライブを Finder に繋ぐ、Mac 向けのメニューバーアプリです。",
       "name": "Gocci",
