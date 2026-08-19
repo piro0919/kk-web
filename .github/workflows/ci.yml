@@ -1,6 +1,6 @@
 # 手元では lefthook が eslint・prettier・stylelint・tsc・secretlint を見ている。
-# ここはそれに加えてテストを走らせ、Renovate の PR でも同じ検査が通ることを確かめる。
-# ビルドは Vercel のプレビューが PR ごとに回すので、ここでは重ねない。
+# ここはそれに加えてテストと Lighthouse を走らせ、Renovate の PR でも同じ検査が
+# 通ることを確かめる。本番ビルドの確認は Vercel のプレビューが PR ごとに回す。
 name: CI
 
 on:
@@ -44,3 +44,39 @@ jobs:
 
       - name: Test
         run: pnpm test
+
+  # 速い検査を待たせないよう別の仕事にする。閾値は .lighthouserc.json 側。
+  # performance だけ warn なので、数字の揺れでは落ちない。落ちるのは
+  # アクセシビリティ・best practices・SEO が 0.9 を割ったときだけ。
+  lighthouse:
+    runs-on: ubuntu-latest
+    # 中身は本物でなくてよい。@t3-oss/env-nextjs が空を弾くので置くだけ。
+    # 計測するページに reCAPTCHA も Hotjar も出てこない。
+    env:
+      NEXT_PUBLIC_HOTJAR_ID: "0"
+      NEXT_PUBLIC_HOTJAR_SV: "0"
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ci
+      NODEMAILER_AUTH_PASS: ci
+      NODEMAILER_AUTH_USER: ci@example.com
+      RECAPTCHA_SECRET_KEY: ci
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          cache: pnpm
+          node-version: 24
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lighthouse
+        run: pnpm lighthouse
+
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          retention-days: 7
