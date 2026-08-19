@@ -53,8 +53,11 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
 
 - CSS Modules for component-specific styles
 - Global styles in `src/app/[locale]/globals.css`
-- Custom Japanese font (JKG) split into two `unicode-range` subsets by `pnpm font:subset`;
-  the common set loads on every page and the rest only when a rare kanji appears
+- Two self-hosted Japanese fonts, each split into two `unicode-range` subsets by
+  `pnpm font:subset`: JKG for body text and Zen Kaku Gothic New for titles and work names.
+  The common set loads on every page and the rest only when a rare kanji appears.
+  Zen Kaku used to come from `next/font`, which emitted 122 `@font-face` rules — 40KB of
+  render-blocking CSS on every page
 - Responsive design with mobile menu component
 
 ## Important Notes

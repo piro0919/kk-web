@@ -18,6 +18,10 @@
   /* 額縁の帯の太さ。Frame とコンテンツの余白で共有する。 */
   --frame-padding: 8px;
 
+  /* 作品名と記事の題名に使う書体。@font-face は zkgn-font.css にあり、
+     pnpm font:subset が書く。本文の JKG と違い、本物の太字を持つ。 */
+  --font-title: "Zen Kaku Gothic New", "Zen Kaku Gothic New Fallback";
+
   /* ナビゲーションが流れの中で占める高さ。Navigation がこの値で描き、
      画面いっぱいに中央寄せするページが同じ値だけ下余白を取って打ち消す。
      ナビは帯を持たず背景に浮いているので、見る側は画面全体を面として見る。 */

@@ -93,8 +93,9 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 **Other:**
 
-- `pnpm font:subset` - Split `jkg.woff2` into two unicode-range subsets under `public/fonts/`
-  (run it after adding content; the generated CSS and preload path are committed)
+- `pnpm font:subset` - Split `jkg.woff2` and `zkgn.woff2` into two unicode-range subsets each
+  under `public/fonts/` (run it after adding content, then run Prettier over the generated CSS;
+  the generated CSS and preload path are committed)
 - `pnpm lighthouse` - Build, then run Lighthouse CI against `http://localhost:4173`
   (configured in `.lighthouserc.json`; reports land in `.lighthouseci/`)
 
