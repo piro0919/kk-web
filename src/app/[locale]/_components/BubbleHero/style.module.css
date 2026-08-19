@@ -29,7 +29,6 @@
   justify-content: center;
   position: absolute;
   width: 256px;
-  z-index: 1;
 }
 
 @keyframes bubble-pop {
