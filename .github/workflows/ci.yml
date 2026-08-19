@@ -77,6 +77,10 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with:
+          # .lighthouseci は隠しディレクトリ。これを立てないと既定で除かれ、
+          # 「何も見つからない」と言われて中身が消える。仕事は緑のままなので
+          # 気付きにくい。
+          include-hidden-files: true
           name: lighthouse
           path: .lighthouseci
           retention-days: 7
