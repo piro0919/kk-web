@@ -19,7 +19,8 @@
       "Bash(npm run build:*)",
       "Bash(npm uninstall:*)",
       "Bash(npx eslint:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(curl -sS -H \"Authorization: Bearer $(cat ~/.vercel-audit-token)\" https://api.vercel.com/:*)"
     ],
     "deny": []
   }
