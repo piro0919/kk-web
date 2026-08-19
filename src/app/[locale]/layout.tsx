@@ -25,9 +25,10 @@ import StructuredData from "./_components/StructuredData";
 import SupportLink from "./_components/SupportLink";
 import ThemeToggle from "./_components/ThemeToggle";
 import jkgFont from "./jkgFont";
-import "github-markdown-css";
-// github-markdown-css の配色を data-theme に紐づけ直す。読み込む順が要る。
-import "./markdown-theme.css";
+// 記事本文の書式（github-markdown-css と、その配色を data-theme に
+// 紐づけ直す markdown-theme.css）はここでは読まない。使うのは記事ページ
+// だけなので、Article が読む。全ページに載せると、記事一覧では 40KB 弱が
+// 丸ごと未使用のまま描画を止めていた。
 import "./jkg-font.css";
 import "./globals.css";
 

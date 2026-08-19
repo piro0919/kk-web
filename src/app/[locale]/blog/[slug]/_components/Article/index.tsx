@@ -2,6 +2,12 @@ import Markdown, { type ExtraProps } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { Link } from "@/i18n/navigation";
+// 本文の書式。markdown-body を出すのはここだけなので、この道筋でだけ読む。
+// style.module.css より先に置く。あとに置くと、この土台のほうが強くなり、
+// 書体も余白も github の既定に戻ってしまう。
+import "github-markdown-css";
+// github-markdown-css の配色を data-theme に紐づけ直す。読み込む順が要る。
+import "../../../../markdown-theme.css";
 import styles from "./style.module.css";
 import type { Article as ArticleType } from "@/libs/getArticles";
 
