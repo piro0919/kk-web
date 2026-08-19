@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import { routing, toLocale } from "@/i18n/routing";
 import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
 import { createArticleStructuredData } from "@/libs/structuredData";
@@ -30,7 +30,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const articles = await getArticles(locale as "en" | "ja");
+  const articles = await getArticles(toLocale(locale));
   const article = articles.find((item) => item.slug === slug);
   // 記事は片方の言語にしか無いことが多い。書いてある言語だけを別言語版として出す。
   const written = await Promise.all(
@@ -44,7 +44,7 @@ export async function generateMetadata({
   return getMetadata({
     description: article?.text,
     imagePath: `/blog/${slug}/opengraph-image`,
-    locale: locale as "en" | "ja",
+    locale: toLocale(locale),
     locales: written.filter((item) => item !== null),
     path: `/blog/${slug}`,
     subTitle: article?.title,
@@ -59,7 +59,7 @@ export default async function Page({
 
   setRequestLocale(locale);
 
-  const articles = await getArticles(locale as "en" | "ja");
+  const articles = await getArticles(toLocale(locale));
   const article = articles.find((item) => item.slug === slug);
 
   if (!article) {
@@ -72,7 +72,7 @@ export default async function Page({
         data={createArticleStructuredData({
           datePublished: article.date,
           description: article.text,
-          locale: locale as "en" | "ja",
+          locale: toLocale(locale),
           path: `/blog/${article.slug}`,
           title: article.title,
         })}

@@ -1,3 +1,4 @@
+import { type Locale } from "@/i18n/routing";
 import snapshot from "./data.json";
 
 /**
@@ -50,7 +51,7 @@ const data: Partial<Record<CategoryName, PortfolioItem[]>> = snapshot;
 
 export function getPortfolio(
   category: CategoryName,
-  locale: "en" | "ja",
+  locale: Locale,
 ): ResolvedItem[] {
   const items = data[category] ?? [];
 

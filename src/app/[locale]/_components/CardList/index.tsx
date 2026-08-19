@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { SiNiconico, SiNpm, SiYoutube } from "react-icons/si";
+import { type Locale } from "@/i18n/routing";
 import getOgpImage from "@/libs/getOgpImage";
 import { type CategoryName, getPortfolio } from "@/libs/portfolio";
 import styles from "./style.module.css";
@@ -24,7 +25,7 @@ function platformOf(url: string): { icon: IconType; label: string } {
 export type CardListProps = {
   category: CategoryName;
   heading: string;
-  locale: "en" | "ja";
+  locale: Locale;
 };
 
 export default async function CardList({

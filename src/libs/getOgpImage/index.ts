@@ -1,3 +1,5 @@
+import { type Locale } from "@/i18n/routing";
+
 const TIMEOUT_MS = 6000;
 
 /** 相対パスの og:image を絶対 URL に直す。 */
@@ -105,7 +107,7 @@ async function getVideoThumbnail(url: string): Promise<null | string> {
  * 既定のロケール（英語）の絵が返るので、日本語の画面では /ja を先に当てる。
  * 対応していないサイトは 404 で返るだけなので、そのときは入口をそのまま使う。
  */
-function localizedCandidate(url: string, locale: "en" | "ja"): null | string {
+function localizedCandidate(url: string, locale: Locale): null | string {
   if (locale !== "ja") return null;
 
   try {
@@ -128,7 +130,7 @@ function localizedCandidate(url: string, locale: "en" | "ja"): null | string {
  */
 export default async function getOgpImage(
   url: string,
-  locale: "en" | "ja",
+  locale: Locale,
 ): Promise<null | string> {
   const video = await getVideoThumbnail(url);
 

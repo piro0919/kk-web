@@ -1,5 +1,6 @@
 /* eslint-disable filenames/match-exported, filenames/match-regex */
 import { ImageResponse } from "next/og";
+import { toLocale } from "@/i18n/routing";
 import getArticles from "@/libs/getArticles";
 import { loadGoogleFont, loadImage, OGP_SIZE, OgpFrame } from "@/libs/ogpImage";
 
@@ -33,7 +34,7 @@ export default async function Image({
   params,
 }: ImageProps): Promise<ImageResponse> {
   const { locale, slug } = await params;
-  const articles = await getArticles(locale as "en" | "ja");
+  const articles = await getArticles(toLocale(locale));
   const text = articles.find((item) => item.slug === slug)?.title ?? "kk-web";
   const [background, metan, tsumugi] = await Promise.all([
     loadImage("ogp-background.png"),

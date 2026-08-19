@@ -9,7 +9,7 @@ import { Righteous, Zen_Kaku_Gothic_New as TitleFont } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { type ReactNode } from "react";
-import { routing } from "@/i18n/routing";
+import { routing, toLocale } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import {
   createPersonStructuredData,
@@ -58,7 +58,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  return getMetadata({ locale: locale as "en" | "ja", type: "website" });
+  return getMetadata({ locale: toLocale(locale), type: "website" });
 }
 
 type RootLayoutProps = {
@@ -79,7 +79,7 @@ export default async function RootLayout({
   setRequestLocale(locale);
 
   const websiteStructuredData = await createWebSiteStructuredData({
-    locale: locale as "en" | "ja",
+    locale: toLocale(locale),
   });
 
   return (

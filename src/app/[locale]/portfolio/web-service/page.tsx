@@ -1,5 +1,6 @@
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { toLocale } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import CardList from "../../_components/CardList";
 
@@ -13,7 +14,7 @@ export async function generateMetadata({
   const { locale } = await params;
 
   return getMetadata({
-    locale: locale as "en" | "ja",
+    locale: toLocale(locale),
     path: "/portfolio/web-service",
     subTitle: "WEB SERVICE",
   });
@@ -31,7 +32,7 @@ export default async function Page({
       <CardList
         category="WEB SERVICE"
         heading="WEB SERVICE"
-        locale={locale as "en" | "ja"}
+        locale={toLocale(locale)}
       />
     </main>
   );

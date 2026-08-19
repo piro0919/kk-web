@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import { toLocale } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import styles from "./style.module.css";
 
@@ -14,7 +15,7 @@ export async function generateMetadata({
   const { locale } = await params;
 
   return getMetadata({
-    locale: locale as "en" | "ja",
+    locale: toLocale(locale),
     path: "/about",
     subTitle: "ABOUT",
   });

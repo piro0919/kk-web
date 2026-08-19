@@ -5,10 +5,11 @@ import {
   type WebSite,
   type WithContext,
 } from "schema-dts";
+import { type Locale } from "@/i18n/routing";
 import getBaseUrl from "../getBaseUrl";
 
 export type StructuredDataParams = {
-  locale: "en" | "ja";
+  locale: Locale;
 };
 
 export async function createWebSiteStructuredData({

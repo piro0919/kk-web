@@ -1,14 +1,15 @@
 import { type Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { type Locale } from "@/i18n/routing";
 import getBaseUrl from "../getBaseUrl";
 
 export type GetMetadataParams = {
   description?: string;
   /** 既定は共通の opengraph-image。記事のように専用の絵があるときだけ渡す。 */
   imagePath?: string;
-  locale: "en" | "ja";
+  locale: Locale;
   /** その URL が存在する言語。記事は片方しか無いことがあるので絞れるようにする。 */
-  locales?: ("en" | "ja")[];
+  locales?: Locale[];
   path?: string;
   subTitle?: string;
   type?: "article" | "website";
