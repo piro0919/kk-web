@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import removeMarkdown from "markdown-to-text";
 import parseMD from "parse-md";
 import path from "path";
+import { type Locale } from "@/i18n/routing";
 
 export type Article = {
   content: string;
@@ -50,10 +51,13 @@ function parse(fileContents: string): Article {
   };
 }
 
-/** 指定した言語の記事を、日付の新しい順に返す。 */
-export default async function getArticles(
-  locale: "en" | "ja",
-): Promise<Article[]> {
+/** 記事はビルド時に固定なので、言語ごとに一度読んだら使い回す。 */
+const cache = new Map<Locale, Promise<Article[]>>();
+// 開発中だけは毎回読み直す。md は import していないので Next が変更に
+// 気付けず、覚えたままだと記事を足しても再起動するまで出てこない。
+const isCacheable = process.env.NODE_ENV !== "development";
+
+async function read(locale: Locale): Promise<Article[]> {
   const articlesPath = path.join(
     process.cwd(),
     "src/markdown-pages",
@@ -76,4 +80,32 @@ export default async function getArticles(
   );
 
   return articles.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+/**
+ * 指定した言語の記事を、日付の新しい順に返す。
+ * 記事1本を出すのに generateMetadata・本体・OGP 画像から何度も呼ばれる。
+ * 毎回 500 近いファイルを読み直すとビルドが記事数の二乗で伸びるので、
+ * 読み込みそのものを言語ごとに1回へ畳む。失敗は覚えず、次で読み直す。
+ */
+export default async function getArticles(locale: Locale): Promise<Article[]> {
+  if (!isCacheable) {
+    return read(locale);
+  }
+
+  const cached = cache.get(locale);
+
+  if (cached) {
+    return cached;
+  }
+
+  const pending = read(locale).catch((error: unknown) => {
+    cache.delete(locale);
+
+    throw error;
+  });
+
+  cache.set(locale, pending);
+
+  return pending;
 }
