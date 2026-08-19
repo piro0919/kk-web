@@ -41,8 +41,10 @@ export default async function Page({
         <div className={styles.mat}>
           <div className={styles.panel}>
             <h1 className={styles.heading}>ABOUT</h1>
-            <dl className={styles.list}>
-              {/* 回り込ませる要素は、回り込ませたい文字より前に置く。 */}
+            {/* 回り込ませる要素は、回り込ませたい文字より前に置く。
+                絵は dl の直下には置けない。かといって panel は grid なので、
+                並べただけでは float が効かない。両方を通常フローの箱に入れる。 */}
+            <div className={styles.body}>
               <Image
                 alt="piro"
                 className={styles.avatar}
@@ -51,13 +53,15 @@ export default async function Page({
                 src="/piro.png"
                 width={88}
               />
-              {ITEMS.map(({ label, text }) => (
-                <div className={styles.item} key={label}>
-                  <dt className={styles.label}>{label}</dt>
-                  <dd>{text}</dd>
-                </div>
-              ))}
-            </dl>
+              <dl className={styles.list}>
+                {ITEMS.map(({ label, text }) => (
+                  <div className={styles.item} key={label}>
+                    <dt className={styles.label}>{label}</dt>
+                    <dd>{text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
         </div>
       </div>

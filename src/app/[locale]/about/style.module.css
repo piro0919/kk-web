@@ -31,6 +31,10 @@
    Job のような長い行が折り返さない。float を効かせるため、
    一覧と項目は grid ではなく通常フローで組む。 */
 
+.body {
+  display: block;
+}
+
 .avatar {
   border-radius: 6px;
   float: right;
