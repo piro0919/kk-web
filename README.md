@@ -1,6 +1,6 @@
 # kk-web
 
-A multilingual personal blog and portfolio website built with Next.js 15, featuring English and Japanese content.
+A multilingual personal blog and portfolio website built with Next.js 16, featuring English and Japanese content.
 
 ## Features
 
@@ -16,8 +16,8 @@ A multilingual personal blog and portfolio website built with Next.js 15, featur
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router and React 19
-- **Runtime**: Node.js 20+ (required for React 19)
+- **Framework**: Next.js 16 with App Router and React 19
+- **Runtime**: Node.js 20+ (Node.js 24 in CI)
 - **Styling**: CSS Modules with Stylelint
 - **Internationalization**: next-intl with locale routing
 - **Content**: Markdown parsing with react-markdown, remark-gfm, and rehype-raw
@@ -31,8 +31,8 @@ A multilingual personal blog and portfolio website built with Next.js 15, featur
 
 ### Prerequisites
 
-- Node.js 20+ (required for React 19)
-- npm/yarn/pnpm
+- Node.js 20+
+- pnpm (the version in `packageManager` is pinned; enable it with `corepack enable`)
 
 ### Installation
 
@@ -84,6 +84,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 - `pnpm type-check` - Run TypeScript type checking
 - `pnpm prettier` - Format code with Prettier
 - `pnpm lint:style` - Run Stylelint with auto-fix for CSS files
+- `pnpm test` - Run the Vitest suite once
 
 **Security:**
 
@@ -96,6 +97,12 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
   (run it after adding content; the generated CSS and preload path are committed)
 - `pnpm lighthouse` - Build, then run Lighthouse CI against `http://localhost:4173`
   (configured in `.lighthouserc.json`; reports land in `.lighthouseci/`)
+
+### Continuous Integration
+
+`.github/workflows/ci.yml` runs type checking, ESLint, Stylelint, Prettier's check mode,
+Secretlint, and the test suite on every pull request and on pushes to `main`.
+Production builds are covered by Vercel's preview deployments, so CI does not repeat them.
 
 ### Adding Blog Posts
 

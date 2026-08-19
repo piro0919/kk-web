@@ -14,10 +14,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm lint:style` - Run Stylelint with auto-fix for CSS files
 - `pnpm lint:secret` - Check for secrets in files with masking
 - `pnpm secretlint` - Check for secrets in files
+- `pnpm test` - Run the Vitest suite once
 
 ## Architecture Overview
 
-This is a multilingual (English/Japanese) Next.js 15 blog/portfolio website using the App Router with the following key architectural patterns:
+This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website using the App Router with the following key architectural patterns:
 
 ### Internationalization (i18n)
 
