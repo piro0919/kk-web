@@ -1,0 +1,46 @@
+# 手元では lefthook が eslint・prettier・stylelint・tsc・secretlint を見ている。
+# ここはそれに加えてテストを走らせ、Renovate の PR でも同じ検査が通ることを確かめる。
+# ビルドは Vercel のプレビューが PR ごとに回すので、ここでは重ねない。
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  cancel-in-progress: true
+  group: ci-${{ github.ref }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          cache: pnpm
+          node-version: 24
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Lint styles
+        run: pnpm exec stylelint '**/*.css'
+
+      - name: Check formatting
+        run: pnpm exec prettier --check .
+
+      - name: Secretlint
+        run: pnpm secretlint
+
+      - name: Test
+        run: pnpm test
