@@ -56,16 +56,17 @@ describe("getPortfolio", () => {
     }
   });
 
-  it("does not leave one locale's description behind", () => {
-    // 説明そのものが無い作品はあってよい。捕まえたいのは、片方の言語だけ
-    // 書いて、もう片方を書き忘れた状態のほう。
-    const described = (locale: (typeof locales)[number]): string[] =>
-      CATEGORY_NAMES.flatMap((category) =>
+  it("describes every item that is on show, in both locales", () => {
+    // 畳んだものは説明を省いてよい。表に出ているものは Notion 側で両方の
+    // 言語を埋めてあるので、片方でも書き忘れたらここで止まる。
+    for (const locale of locales) {
+      const undescribed = CATEGORY_NAMES.flatMap((category) =>
         getPortfolio(category, locale)
-          .filter(({ text }) => text !== "")
-          .map(({ href }) => href),
+          .filter(({ archived, text }) => !archived && text === "")
+          .map(({ name }) => name),
       );
 
-    expect(described("ja")).toEqual(described("en"));
+      expect(undescribed).toEqual([]);
+    }
   });
 });
