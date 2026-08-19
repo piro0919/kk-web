@@ -15,7 +15,6 @@ import { createPortal } from "react-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, Form, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
-import env from "@/env";
 import {
   createEmailSchema,
   type PostEmailRequestFormData,
@@ -43,7 +42,14 @@ function getStatusKey(status: Status): null | string {
   }
 }
 
-export default function ContactForm(): React.JSX.Element {
+export type ContactFormProps = {
+  /** reCAPTCHA の公開鍵。@/env をここで読むと zod ごと持ち込むので受け取る。 */
+  recaptchaSiteKey: string;
+};
+
+export default function ContactForm({
+  recaptchaSiteKey,
+}: ContactFormProps): React.JSX.Element {
   const t = useTranslations("Contact");
   // 検証の条件はサーバー側と同じものを使い、文言だけ見る人の言葉に差し替える。
   const schema = useMemo(
@@ -131,11 +137,7 @@ export default function ContactForm(): React.JSX.Element {
     >
       {isMounted
         ? createPortal(
-            <ReCAPTCHA
-              ref={ref}
-              sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              size="invisible"
-            />,
+            <ReCAPTCHA ref={ref} sitekey={recaptchaSiteKey} size="invisible" />,
             document.body,
           )
         : null}

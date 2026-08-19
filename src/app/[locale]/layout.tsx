@@ -9,6 +9,7 @@ import { Righteous } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { type ReactNode } from "react";
+import env from "@/env";
 import { routing, toLocale } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import {
@@ -104,7 +105,10 @@ export default async function RootLayout({
             {children}
             <MobileMenu />
             <Analytics />
-            <Hotjar />
+            <Hotjar
+              id={env.NEXT_PUBLIC_HOTJAR_ID}
+              sv={env.NEXT_PUBLIC_HOTJAR_SV}
+            />
             <SpeedInsights />
           </ThemeProvider>
         </NextIntlClientProvider>

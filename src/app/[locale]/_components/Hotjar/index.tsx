@@ -1,12 +1,20 @@
 "use client";
 import { Fragment, useEffect } from "react";
-import env from "@/env";
+
+export type HotjarProps = {
+  id: string;
+  sv: string;
+};
 
 /**
  * Hotjar の記録。読み込みは最初の操作まで待ち、そこから 2.5 秒置く。
  * 直帰した人には一度も取りに行かないので、初期表示の邪魔をしない。
+ *
+ * 番号は受け取る。ここで @/env を読むと、その検証に使っている zod ごと
+ * 全ページの JS に載る。この部品は額縁と同じくどのページにも居るので、
+ * 読む場所を server 側へ寄せておく。
  */
-export default function Hotjar(): React.JSX.Element {
+export default function Hotjar({ id, sv }: HotjarProps): React.JSX.Element {
   useEffect(() => {
     if (process.env.NODE_ENV === "development") {
       return;
@@ -22,8 +30,8 @@ export default function Hotjar(): React.JSX.Element {
       const { hotjar } = await import("react-hotjar");
 
       hotjar.initialize({
-        id: parseInt(env.NEXT_PUBLIC_HOTJAR_ID, 10),
-        sv: parseInt(env.NEXT_PUBLIC_HOTJAR_SV, 10),
+        id: parseInt(id, 10),
+        sv: parseInt(sv, 10),
       });
     };
     // 最初のクリック・スクロール・タッチで一度だけ動かす。
@@ -52,7 +60,7 @@ export default function Hotjar(): React.JSX.Element {
       document.removeEventListener("scroll", handleUserInteraction);
       document.removeEventListener("touchstart", handleUserInteraction);
     };
-  }, []);
+  }, [id, sv]);
 
   return <Fragment />;
 }

@@ -1,5 +1,6 @@
 import { type Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import env from "@/env";
 import { toLocale } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import ContactForm from "./_components/ContactForm";
@@ -34,7 +35,9 @@ export default async function Page({
         <div className={styles.mat}>
           <div className={styles.panel}>
             <h1 className={styles.heading}>CONTACT</h1>
-            <ContactForm />
+            <ContactForm
+              recaptchaSiteKey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            />
           </div>
         </div>
       </div>
