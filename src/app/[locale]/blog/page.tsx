@@ -5,6 +5,7 @@ import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
 import ArticleList from "../_components/ArticleList";
+import Pager from "../_components/Pager";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -31,6 +32,7 @@ export default async function Page({
 
   const articles = await getArticles(toLocale(locale));
   const firstPage = articles.slice(0, pageSize);
+  const total = Math.max(1, Math.ceil(articles.length / pageSize));
 
   return (
     <main>
@@ -44,6 +46,7 @@ export default async function Page({
         heading="BLOG"
         infinite={true}
       />
+      <Pager basePath="/blog" current={1} total={total} />
     </main>
   );
 }

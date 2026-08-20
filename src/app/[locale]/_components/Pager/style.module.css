@@ -1,0 +1,59 @@
+/* 一覧の下に置く頁送り。額縁や記事カードと同じ破線の見た目に合わせる。 */
+.pager {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 24px 8px 8px;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+}
+
+.page,
+.currentPage,
+.step,
+.stepDisabled {
+  border: 1px dashed var(--color-line);
+  border-radius: 6px;
+  display: grid;
+  min-width: 2.4rem;
+  padding: 6px 10px;
+  place-items: center;
+  transition: color 150ms;
+}
+
+.page:hover,
+.step:hover {
+  color: var(--color-accent);
+}
+
+.currentPage {
+  background: var(--color-frame-band);
+  color: var(--color-accent);
+}
+
+.stepDisabled {
+  border-style: dotted;
+  opacity: 0.4;
+}
+
+/* 省略記号は枠を持たせず、数字の並びの隙間として見せる。 */
+.gap {
+  align-self: end;
+  opacity: 0.5;
+  padding: 6px 2px;
+}
+
+@media (width >= 980px) {
+  .pager {
+    gap: 16px;
+    padding: 32px 12px 8px;
+  }
+}
