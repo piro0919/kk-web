@@ -19,12 +19,10 @@ import {
 import Background from "./_components/Background";
 import Frame from "./_components/Frame";
 import Hotjar from "./_components/Hotjar";
-import LocaleSwitch from "./_components/LocaleSwitch";
 import MobileMenu from "./_components/MobileMenu";
 import Navigation from "./_components/Navigation";
 import StructuredData from "./_components/StructuredData";
-import SupportLink from "./_components/SupportLink";
-import ThemeToggle from "./_components/ThemeToggle";
+import UtilityBar from "./_components/UtilityBar";
 import jkgFont from "./jkgFont";
 // 記事本文の書式（github-markdown-css と、その配色を data-theme に
 // 紐づけ直す markdown-theme.css）はここでは読まない。使うのは記事ページ
@@ -96,11 +94,7 @@ export default async function RootLayout({
           <ThemeProvider attribute="data-theme" defaultTheme="system">
             <Background />
             <Frame />
-            {/* 3つとも fixed で座標を指定するので、書いた順が見た目の順になる
-                わけではない。左から並ぶとおりに書いて、Tab の移動順を合わせる。 */}
-            <SupportLink />
-            <LocaleSwitch />
-            <ThemeToggle />
+            <UtilityBar />
             <Navigation />
             {children}
             <MobileMenu />

@@ -1,0 +1,17 @@
+/* 額縁の内側の右上。ナビの帯と対になる。
+   3つとも fixed で散らばっていると、下をくぐる本文にそのまま重なるので、
+   まとめて同じ帯に載せる。 */
+
+.bar {
+  align-items: center;
+  backdrop-filter: blur(2px);
+  background: var(--color-frame-band);
+  border-radius: 999px;
+  display: flex;
+  gap: 4px;
+  padding: 0 6px;
+  position: fixed;
+  right: calc(var(--frame-padding) + 2px);
+  top: calc(var(--frame-padding) + 4px);
+  z-index: 2;
+}

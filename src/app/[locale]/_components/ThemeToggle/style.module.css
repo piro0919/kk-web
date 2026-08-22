@@ -1,4 +1,4 @@
-/* 額縁の内側、右上に置く。 */
+/* UtilityBar の中、いちばん右に並ぶ。 */
 .button {
   align-items: center;
   background: transparent;
@@ -8,11 +8,7 @@
   display: flex;
   justify-content: center;
   padding: 8px;
-  position: fixed;
-  right: calc(var(--frame-padding) + 8px);
-  top: calc(var(--frame-padding) + 8px);
   transition: color 150ms;
-  z-index: 2;
 }
 
 .button:hover {
