@@ -67,6 +67,27 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
 - All user-facing text should be internationalized through the next-intl system
 - CSS classes should follow the existing CSS Modules pattern with co-located styles
 
+## Renovate's ESLint major PR keeps failing on abandoned plugins
+
+ESLint 10 removed `context.getSourceCode()` and `context.getFilename()`. Plugins that
+still call them crash the whole run with a `TypeError` before a single file is linted, so
+the failure names one rule but usually hides several more behind it. Three have been
+dropped for this so far: `eslint-plugin-ext`, `eslint-plugin-write-good-comments` and
+`eslint-plugin-css-modules`. None has published a release since 2023 — check
+`npm view <plugin> time.modified` before looking for a fix that does not exist.
+
+Fixing them one per CI round is slow, and the local ESLint is still v9 so a clean
+`pnpm lint` here proves nothing about the PR. Reproduce the PR's environment instead:
+
+    git fetch origin renovate/major-other-major-updates
+    git checkout -b tmp FETCH_HEAD
+    pnpm install --no-frozen-lockfile
+    npx eslint .
+
+Then keep removing until it is clean, apply the same edits to `main`, and let Renovate
+rebase. Run the rest of the CI job on that branch too — type-check, stylelint, prettier,
+secretlint, test — before pushing.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
