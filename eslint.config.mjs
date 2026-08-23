@@ -5,7 +5,6 @@ import nextTypescript from "eslint-config-next/typescript";
 import tsParser from "@typescript-eslint/parser";
 import css from "eslint-plugin-css";
 import cssModules from "eslint-plugin-css-modules";
-import ext from "eslint-plugin-ext";
 import perfectionist from "eslint-plugin-perfectionist";
 import promise from "eslint-plugin-promise";
 import unusedImports from "eslint-plugin-unused-imports";
@@ -74,7 +73,6 @@ const eslintConfig = [
     plugins: {
       css,
       "css-modules": cssModules,
-      ext,
       filenames: fixupPluginRules(filenamesPlugin),
       perfectionist,
       promise,
@@ -99,7 +97,6 @@ const eslintConfig = [
       "@typescript-eslint/strict-boolean-expressions": "off",
       "css-modules/no-unused-class": [2, { camelCase: true }],
       "css-modules/no-undef-class": [2, { camelCase: true }],
-      "ext/lines-between-object-properties": ["error", "never"],
       "filenames/match-exported": ["error", ["camel", "kebab", "pascal"]],
       "filenames/match-regex": "error",
       "filenames/no-index": "off",

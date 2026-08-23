@@ -170,9 +170,6 @@ importers:
       eslint-plugin-css-modules:
         specifier: 2.12.0
         version: 2.12.0(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))
-      eslint-plugin-ext:
-        specifier: 0.1.0
-        version: 0.1.0
       eslint-plugin-filenames:
         specifier: 1.3.2
         version: 1.3.2(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))
@@ -2705,9 +2702,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=7.0.0'
-
-  eslint-plugin-ext@0.1.0:
-    resolution: {integrity: sha512-CbZgte+kC8u6uymkwtgDPHLgA3IRbhermH88o9VXDh4Pa1ds1QIo0ojJc+mvq5zjf3mm4GT/pTTFYZT9nQORyg==}
 
   eslint-plugin-filenames@1.3.2:
     resolution: {integrity: sha512-tqxJTiEM5a0JmRCUYQmxw23vtTxrb2+a3Q2mMOPhFxvt7ZQQJmdiuMby9B/vUAuVMghyP7oET+nIf6EO6CBd/w==}
@@ -8083,8 +8077,6 @@ snapshots:
       eslint-compat-utils: 0.6.5(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))
       known-css-properties: 0.37.0
       postcss-value-parser: 4.2.0
-
-  eslint-plugin-ext@0.1.0: {}
 
   eslint-plugin-filenames@1.3.2(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2)):
     dependencies:
