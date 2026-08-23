@@ -4,11 +4,9 @@ import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import nextTypescript from "eslint-config-next/typescript";
 import tsParser from "@typescript-eslint/parser";
 import css from "eslint-plugin-css";
-import cssModules from "eslint-plugin-css-modules";
 import perfectionist from "eslint-plugin-perfectionist";
 import promise from "eslint-plugin-promise";
 import unusedImports from "eslint-plugin-unused-imports";
-import writeGoodComments from "eslint-plugin-write-good-comments";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { fixupPluginRules } from "@eslint/compat";
@@ -72,12 +70,10 @@ const eslintConfig = [
     },
     plugins: {
       css,
-      "css-modules": cssModules,
       filenames: fixupPluginRules(filenamesPlugin),
       perfectionist,
       promise,
       "unused-imports": unusedImports,
-      "write-good-comments": writeGoodComments,
     },
     rules: {
       "@next/next/no-html-link-for-pages": "error",
@@ -95,8 +91,6 @@ const eslintConfig = [
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/promise-function-async": "error",
       "@typescript-eslint/strict-boolean-expressions": "off",
-      "css-modules/no-unused-class": [2, { camelCase: true }],
-      "css-modules/no-undef-class": [2, { camelCase: true }],
       "filenames/match-exported": ["error", ["camel", "kebab", "pascal"]],
       "filenames/match-regex": "error",
       "filenames/no-index": "off",
@@ -279,7 +273,6 @@ const eslintConfig = [
           varsIgnorePattern: "^_",
         },
       ],
-      "write-good-comments/write-good-comments": "error",
     },
   },
   {
