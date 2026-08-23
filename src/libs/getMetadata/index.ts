@@ -45,12 +45,17 @@ export default async function getMetadata({
   };
   // 存在しない言語版を指すと、その指定はまるごと無視される。
   // 実際にある言語だけ並べる。
-  const languages = Object.fromEntries(
-    locales.map((available) => [
-      available,
-      `${baseUrl}${available === "en" ? "" : `/${available}`}${pathname}`,
-    ]),
-  );
+  const href = (available: Locale): string =>
+    `${baseUrl}${available === "en" ? "" : `/${available}`}${pathname}`;
+  // x-default は既定の言語に向ける。言語を選べない利用者に、どれを見せるかを
+  // 決めておく。片方しか無い記事では、その存在する方に向ける。
+  const fallback = locales.includes("en") ? "en" : locales[0];
+  const languages = {
+    ...Object.fromEntries(
+      locales.map((available) => [available, href(available)]),
+    ),
+    "x-default": href(fallback),
+  };
   const text = description ?? t("description");
 
   return {

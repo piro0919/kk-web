@@ -1,6 +1,68 @@
-import { promises as fs } from "node:fs";
+import { promises as fs, readdirSync } from "node:fs";
 import path from "node:path";
 import parseMD from "parse-md";
+
+const locales = ["en", "ja"];
+const defaultLocale = "en";
+
+/* 記事は片方の言語しか無いものが多い。存在しない言語版を指した hreflang は
+   まるごと無視されるので、実際にある言語だけを並べる */
+const blogSlugs = Object.fromEntries(
+  locales.map((locale) => {
+    const dir = path.join(process.cwd(), "src/markdown-pages", locale);
+
+    try {
+      return [
+        locale,
+        new Set(
+          readdirSync(dir)
+            .filter((file) => file.endsWith(".md"))
+            .map((file) => file.replace(".md", "")),
+        ),
+      ];
+    } catch {
+      return [locale, new Set()];
+    }
+  }),
+);
+
+function localesFor(loc) {
+  const matched = loc.match(/^\/blog\/(.+)$/);
+
+  if (!matched) return locales;
+
+  return locales.filter((locale) => blogSlugs[locale].has(matched[1]));
+}
+
+function href(locale, loc) {
+  const prefix = locale === defaultLocale ? "" : `/${locale}`;
+
+  return `https://kkweb.io${prefix}${loc === "/" ? "" : loc}`;
+}
+
+/* 1つの言語しか無いページに hreflang を付けても意味がないので、
+   2つ揃っているものだけに付ける */
+function alternateRefs(loc) {
+  const available = localesFor(loc);
+
+  if (available.length < 2) return [];
+
+  return [
+    ...available.map((locale) => ({
+      href: href(locale, loc),
+      hreflang: locale,
+      hrefIsAbsolute: true,
+    })),
+    {
+      href: href(
+        available.includes(defaultLocale) ? defaultLocale : available[0],
+        loc,
+      ),
+      hreflang: "x-default",
+      hrefIsAbsolute: true,
+    },
+  ];
+}
 
 /** @type {import('next-sitemap').IConfig} */
 const config = {
@@ -18,6 +80,7 @@ const config = {
       changefreq: sitemapConfig.changefreq,
       priority: sitemapConfig.priority,
       lastmod: sitemapConfig.autoLastmod ? new Date().toISOString() : undefined,
+      alternateRefs: alternateRefs(rewritten),
     };
   },
 
@@ -63,6 +126,7 @@ const config = {
             loc: `${urlPrefix}/blog/${slug}`,
             changefreq: "daily",
             priority: 0.7,
+            alternateRefs: alternateRefs(`/blog/${slug}`),
             ...(lastmod ? { lastmod } : {}),
           });
         }
