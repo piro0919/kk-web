@@ -26,12 +26,43 @@ const blogSlugs = Object.fromEntries(
   }),
 );
 
+const pageSize = 20;
+
+/* 一覧のページ数。1ページ目は /blog が持つので、/blog/page/N は 2..totalPages */
+function totalPages(locale) {
+  return Math.max(1, Math.ceil(blogSlugs[locale].size / pageSize));
+}
+
+/* transform に渡る loc は /ja/... のように言語接頭辞が付いている。
+   hreflang の組み立ては接頭辞の無い形で行うので、先に剥がす */
+function stripLocale(loc) {
+  for (const locale of locales) {
+    if (locale === defaultLocale) continue;
+
+    if (loc === `/${locale}`) return "/";
+
+    if (loc.startsWith(`/${locale}/`)) return loc.slice(locale.length + 1);
+  }
+
+  return loc;
+}
+
 function localesFor(loc) {
-  const matched = loc.match(/^\/blog\/(.+)$/);
+  const article = loc.match(/^\/blog\/(?!page\/)(.+)$/);
 
-  if (!matched) return locales;
+  if (article) {
+    return locales.filter((locale) => blogSlugs[locale].has(article[1]));
+  }
 
-  return locales.filter((locale) => blogSlugs[locale].has(matched[1]));
+  const pager = loc.match(/^\/blog\/page\/(\d+)$/);
+
+  if (pager) {
+    const page = Number(pager[1]);
+
+    return locales.filter((locale) => page <= totalPages(locale));
+  }
+
+  return locales;
 }
 
 function href(locale, loc) {
@@ -80,7 +111,7 @@ const config = {
       changefreq: sitemapConfig.changefreq,
       priority: sitemapConfig.priority,
       lastmod: sitemapConfig.autoLastmod ? new Date().toISOString() : undefined,
-      alternateRefs: alternateRefs(rewritten),
+      alternateRefs: alternateRefs(stripLocale(rewritten)),
     };
   },
 
