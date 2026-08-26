@@ -43,6 +43,9 @@ export default function BubbleHero({
             alt=""
             fill={true}
             quality={100}
+            /* 吹き出しは 256px 幅、狭い画面では 170.6667px。指定しないと
+               fill が 100vw 扱いになり、1920px 幅を取りに行ってしまう。 */
+            sizes="(width < 768px) 171px, 256px"
             src="/bubble.png"
             style={isTsumugi ? undefined : { scale: "-1 1" }}
           />
