@@ -218,6 +218,30 @@
   ],
   "NPM PACKAGE": [
     {
+      "descriptionEn": "Splits a font into a common tier and a rare tier with unicode-range, dropping no glyph.",
+      "descriptionJa": "書体を字を落とさず2枚に分け、珍しい字は必要になってから取りに行かせます。",
+      "lp": "https://unicode-range-split.kkweb.io/",
+      "name": "unicode-range-split",
+      "repo": "https://github.com/piro0919/unicode-range-split",
+      "url": "https://www.npmjs.com/package/unicode-range-split"
+    },
+    {
+      "descriptionEn": "Builds canonical and hreflang metadata for a next-intl site.",
+      "descriptionJa": "next-intl のサイト向けに canonical と hreflang を組み立てます。",
+      "lp": "https://next-intl-alternates.kkweb.io/",
+      "name": "next-intl-alternates",
+      "repo": "https://github.com/piro0919/next-intl-alternates",
+      "url": "https://www.npmjs.com/package/next-intl-alternates"
+    },
+    {
+      "descriptionEn": "A React hook that reports the first time a visitor touches the page.",
+      "descriptionJa": "訪れた人が最初に画面へ触れた時を知らせる React のフックです。",
+      "lp": "https://use-first-interaction.kkweb.io/",
+      "name": "use-first-interaction",
+      "repo": "https://github.com/piro0919/use-first-interaction",
+      "url": "https://www.npmjs.com/package/use-first-interaction"
+    },
+    {
       "descriptionEn": "An ESLint rule that catches tests which pass without checking anything.",
       "descriptionJa": "何も確かめずに緑になるテストを止める ESLint 規則です。",
       "lp": "https://eslint-plugin-hollow-tests.kkweb.io/",
