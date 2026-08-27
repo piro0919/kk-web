@@ -218,6 +218,27 @@
   ],
   "NPM PACKAGE": [
     {
+      "descriptionEn": "An ESLint rule that catches tests which pass without checking anything.",
+      "descriptionJa": "何も確かめずに緑になるテストを止める ESLint 規則です。",
+      "name": "eslint-plugin-hollow-tests",
+      "repo": "https://github.com/piro0919/eslint-plugin-hollow-tests",
+      "url": "https://www.npmjs.com/package/eslint-plugin-hollow-tests"
+    },
+    {
+      "descriptionEn": "Opens the microphone once and shares its audio frames with every consumer.",
+      "descriptionJa": "マイクを1本だけ開き、音声を必要なものすべてへ配ります。",
+      "name": "shared-microphone",
+      "repo": "https://github.com/piro0919/shared-microphone",
+      "url": "https://www.npmjs.com/package/shared-microphone"
+    },
+    {
+      "descriptionEn": "A realtime speech recognition client for the AmiVoice Cloud Platform API.",
+      "descriptionJa": "AmiVoice のリアルタイム音声認識クライアントです。",
+      "name": "amivoice-realtime",
+      "repo": "https://github.com/piro0919/amivoice-realtime",
+      "url": "https://www.npmjs.com/package/amivoice-realtime"
+    },
+    {
       "descriptionEn": "Web Push notifications for Next.js App Router.",
       "descriptionJa": "Next.js App Router 向けの Web Push 通知パッケージです。",
       "lp": "https://next-push.kkweb.io/",
