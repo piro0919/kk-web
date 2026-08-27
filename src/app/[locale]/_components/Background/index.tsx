@@ -27,6 +27,8 @@ const TILE_IMAGES = [
 const BLOCK_SIZE = 376;
 // タイル1枚の表示幅。sizes を書かないと画面幅ぶんの絵を取りに行く。
 const TILE_SIZE = BLOCK_SIZE / 4;
+// タイル1枚ぶんの間隔。16枚で 1.5 秒かけて出そろう。
+const STEP = 0.1;
 
 /** 0〜15 をばらけさせた並び。タイルが1枚ずつ現れる順番になる。 */
 function shuffleOrder(): number[] {
@@ -44,8 +46,12 @@ function shuffleOrder(): number[] {
 
 export default function Background(): null | React.JSX.Element {
   const [{ columns, rows }, setGrid] = useState({ columns: 0, rows: 0 });
-  // 708 と同じく、全ブロックで同じ順番に出す。
-  const order = useMemo(() => shuffleOrder(), []);
+  const blockCount = columns * rows;
+  // ブロックごとに別の順番で出す。画面全体が同じ動きに揃うのを避ける。
+  const orders = useMemo(
+    () => Array.from({ length: blockCount }, () => shuffleOrder()),
+    [blockCount],
+  );
 
   useEffect(() => {
     const measure = (): void => {
@@ -82,15 +88,12 @@ export default function Background(): null | React.JSX.Element {
         }
         className={styles.tiles}
       >
-        {Array.from(
-          { length: columns * rows },
-          (_, blockIndex) => `block-${blockIndex}`,
-        ).map((blockKey) => (
-          <div className={styles.block} key={blockKey}>
+        {orders.map((order, blockIndex) => (
+          <div className={styles.block} key={`block-${blockIndex}`}>
             {TILE_IMAGES.map((src, tileIndex) => (
               <div
                 style={{
-                  animationDelay: `${0.1 * order.indexOf(tileIndex)}s`,
+                  animationDelay: `${STEP * order.indexOf(tileIndex)}s`,
                 }}
                 className={styles.tile}
                 key={src}
