@@ -77,7 +77,7 @@
     "vitest": "4.1.11"
   },
   "name": "kk-web",
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@11.25.0",
   "private": true,
   "scripts": {
     "build": "next build",
