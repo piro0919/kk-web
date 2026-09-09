@@ -214,6 +214,13 @@
       "name": "Mac Classic Player",
       "repo": "https://github.com/piro0919/mac-classic-player",
       "url": "https://mcp.kkweb.io/"
+    },
+    {
+      "descriptionEn": "An image viewer for macOS where the window is the image.",
+      "descriptionJa": "窓が画像そのものになる、Mac 向けの画像ビューアです。",
+      "name": "Macview",
+      "repo": "https://github.com/piro0919/macview",
+      "url": "https://macview.kkweb.io"
     }
   ],
   "NPM PACKAGE": [
