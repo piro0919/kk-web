@@ -11,5 +11,5 @@ overrides:
   react-loader-spinner>react-dom: ^19.2.8
   react-scrollbar-size>react: ^19.2.8
   stylelint-css-modules-no-global-scoped-selector>stylelint: 17.15.0
-  stylelint-no-unused-selectors>stylelint: 17.14.1
+  stylelint-no-unused-selectors>stylelint: 17.15.0
   zod: 4.5.4
