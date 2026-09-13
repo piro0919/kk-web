@@ -73,7 +73,7 @@
     "stylelint-no-unused-selectors": "1.0.40",
     "stylelint-order": "8.1.1",
     "subset-font": "2.5.0",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "vitest": "4.1.11"
   },
   "name": "kk-web",
