@@ -188,9 +188,6 @@ importers:
       eslint-plugin-unused-imports:
         specifier: 4.4.1
         version: 4.4.1(@typescript-eslint/eslint-plugin@8.67.0(@typescript-eslint/parser@8.67.0(eslint@10.9.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.9.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.9.0(jiti@2.6.1)(supports-color@10.2.2))
-      fontkit:
-        specifier: 2.0.4
-        version: 2.0.4
       lefthook:
         specifier: 2.1.10
         version: 2.1.10
@@ -227,12 +224,12 @@ importers:
       stylelint-order:
         specifier: 8.1.1
         version: 8.1.1(stylelint@17.14.1(supports-color@10.2.2)(typescript@6.0.3))
-      subset-font:
-        specifier: 2.5.0
-        version: 2.5.0
       typescript:
         specifier: 6.0.3
         version: 6.0.3
+      unicode-range-split:
+        specifier: ^0.1.0
+        version: 0.1.0
       vitest:
         specifier: 4.1.11
         version: 4.1.11(@types/node@26.2.0)(jsdom@15.2.1)(vite@8.2.2(@types/node@26.2.0)(jiti@2.6.1))
@@ -5298,6 +5295,10 @@ packages:
 
   unicode-properties@1.4.1:
     resolution: {integrity: sha512-CLjCCLQ6UuMxWnbIylkisbRj31qxHPAurvena/0iwSVbQ2G1VY5/HjV0IRabOEbDHlzZlRdCrD4NhB0JtU40Pg==}
+
+  unicode-range-split@0.1.0:
+    resolution: {integrity: sha512-2YVuIINojqCl05+Zkm0S1b+4/e3Z8E6ikV53VVYAtVST7+HPArquS8WjWte3bEoNIiQrKsEZH0OP50hIddDvSQ==}
+    hasBin: true
 
   unicode-trie@2.0.0:
     resolution: {integrity: sha512-x7bc76x0bm4prf1VLg79uhAzKw8DVboClSN5VxJuQ+LKDOVEW9CdH+VY7SP+vX7xCYQqzzgQpFqz15zeLvAtZQ==}
@@ -11355,6 +11356,11 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
       unicode-trie: 2.0.0
+
+  unicode-range-split@0.1.0:
+    dependencies:
+      fontkit: 2.0.4
+      subset-font: 2.5.0
 
   unicode-trie@2.0.0:
     dependencies:
