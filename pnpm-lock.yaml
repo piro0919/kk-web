@@ -228,8 +228,8 @@ importers:
         specifier: 6.0.3
         version: 6.0.3
       unicode-range-split:
-        specifier: ^0.1.0
-        version: 0.1.0
+        specifier: ^0.1.1
+        version: 0.1.1
       vitest:
         specifier: 4.1.11
         version: 4.1.11(@types/node@26.2.0)(jsdom@15.2.1)(vite@8.2.2(@types/node@26.2.0)(jiti@2.6.1))
@@ -5061,8 +5061,8 @@ packages:
     engines: {node: '>=20.19.0'}
     hasBin: true
 
-  subset-font@2.5.0:
-    resolution: {integrity: sha512-Vsa8ngQ/ohhUj0an7on49y9jLZ2rK5U+T1FzPM4/ZQY0xUy5mLis6BfFtPGzecTjFgYXQlvY7FlsJF4t3R/6Ug==}
+  subset-font@2.7.0:
+    resolution: {integrity: sha512-KoBEshkhodCspvR8DweQFkxRB0OxLmXiWV49y8O5fksD9gf/qBK8gcLwUOlGP4ktm55t2Ot0gLRsVQLT4391QQ==}
 
   supports-color@10.2.2:
     resolution: {integrity: sha512-SS+jx45GF1QjgEXQx4NJZV9ImqmO2NPz5FNsIHrsDjh2YsHnawpan7SNQ1o8NuhrbHZy9AZhIoCUiCeaW/C80g==}
@@ -5296,8 +5296,8 @@ packages:
   unicode-properties@1.4.1:
     resolution: {integrity: sha512-CLjCCLQ6UuMxWnbIylkisbRj31qxHPAurvena/0iwSVbQ2G1VY5/HjV0IRabOEbDHlzZlRdCrD4NhB0JtU40Pg==}
 
-  unicode-range-split@0.1.0:
-    resolution: {integrity: sha512-2YVuIINojqCl05+Zkm0S1b+4/e3Z8E6ikV53VVYAtVST7+HPArquS8WjWte3bEoNIiQrKsEZH0OP50hIddDvSQ==}
+  unicode-range-split@0.1.1:
+    resolution: {integrity: sha512-zHLtH8NA2XAzRaroWuIQIm00LClVlUbQ/0kWS1FVZuFE94EwGovqOiM4Rzl0XTi+pMqUY5ZVo4tK3XT+D3paSA==}
     hasBin: true
 
   unicode-trie@2.0.0:
@@ -11091,11 +11091,10 @@ snapshots:
       - supports-color
       - typescript
 
-  subset-font@2.5.0:
+  subset-font@2.7.0:
     dependencies:
       fontverter: 2.0.0
       harfbuzzjs: 0.10.3
-      lodash: 4.18.1
       p-limit: 3.1.0
 
   supports-color@10.2.2: {}
@@ -11357,10 +11356,10 @@ snapshots:
       base64-js: 1.5.1
       unicode-trie: 2.0.0
 
-  unicode-range-split@0.1.0:
+  unicode-range-split@0.1.1:
     dependencies:
       fontkit: 2.0.4
-      subset-font: 2.5.0
+      subset-font: 2.7.0
 
   unicode-trie@2.0.0:
     dependencies:

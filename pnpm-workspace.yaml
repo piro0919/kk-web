@@ -6,6 +6,8 @@ allowBuilds:
   lefthook: true
   sharp: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - unicode-range-split@0.1.1
 overrides:
   react-loader-spinner>react: ^19.3.0
   react-loader-spinner>react-dom: ^19.3.0

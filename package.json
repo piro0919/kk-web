@@ -72,7 +72,7 @@
     "stylelint-no-unused-selectors": "1.0.40",
     "stylelint-order": "8.1.1",
     "typescript": "6.0.3",
-    "unicode-range-split": "^0.1.0",
+    "unicode-range-split": "^0.1.1",
     "vitest": "4.1.11"
   },
   "name": "kk-web",
