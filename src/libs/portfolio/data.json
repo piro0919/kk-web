@@ -118,13 +118,6 @@
       "name": "YouTube Quiz Generator",
       "repo": "https://github.com/piro0919/youtube-quiz-generator",
       "url": "https://youtube-quiz-battle.kkweb.io"
-    },
-    {
-      "descriptionEn": "A service that measures the structure of manzai routines and shows where each act and routine sits.",
-      "descriptionJa": "漫才のネタの構造を測って、芸人とネタの位置を並べるサービスです。",
-      "name": "Waraitics",
-      "nameJa": "ワライティクス",
-      "url": "https://waraitics.kkweb.io"
     }
   ],
   "WEB SITE": [
