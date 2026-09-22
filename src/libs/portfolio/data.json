@@ -1,6 +1,12 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A service that builds shifts from working conditions written in plain words.",
+      "descriptionJa": "勤務条件を言葉のまま受け取って、シフトを組むサービスです。",
+      "name": "Spatto",
+      "url": "https://spatto.app"
+    },
+    {
       "archived": true,
       "descriptionEn": "A service for sending Web Push notifications.",
       "descriptionJa": "Web プッシュ通知を配信できるサービスです。",

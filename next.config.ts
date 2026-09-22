@@ -74,6 +74,7 @@ const nextConfig: NextConfig = {
       // 自分の作品の置き場。
       { hostname: "**.kkweb.io", protocol: "https" },
       { hostname: "**.vercel.app", protocol: "https" },
+      { hostname: "spatto.app", protocol: "https" },
       // 動画の配信元。
       { hostname: "i.ytimg.com", protocol: "https" },
       { hostname: "**.cdn.nimg.jp", protocol: "https" },
