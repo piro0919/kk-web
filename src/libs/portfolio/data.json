@@ -159,6 +159,13 @@
   ],
   "APPLICATION": [
     {
+      "descriptionEn": "A macOS menu bar app that notices when Claude Code is waiting for permission and takes you to it.",
+      "descriptionJa": "Claude Code の許可待ちに気付いて、そのウィンドウへ連れて行く、Mac 向けのメニューバーアプリです。",
+      "name": "Hawky",
+      "repo": "https://github.com/piro0919/hawky",
+      "url": "https://hawky.kkweb.io"
+    },
+    {
       "descriptionEn": "An image viewer for macOS where the window is the image.",
       "descriptionJa": "窓が画像そのものになる、Mac 向けの画像ビューアです。",
       "name": "Macview",
