@@ -60,6 +60,17 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
   render-blocking CSS on every page
 - Responsive design with mobile menu component
 
+## Portfolio data comes from Notion
+
+`src/libs/portfolio/data.json` is generated. The source is the private Notion database
+"Portfolio". Edit the row in Notion, then run `pnpm portfolio:export` and commit the diff.
+Never edit the JSON by hand — the next export overwrites it.
+
+The script needs `NOTION_TOKEN` in `.env.local`: the internal connection
+"kk-web portfolio export", which has read access to that one database. The build never
+calls Notion. A row whose URL column is empty is left out of the site on purpose; that is
+how unfinished or withdrawn work is hidden.
+
 ## Important Notes
 
 - The site uses markdown files for blog content - posts are date-prefixed (YYYYMMDD format)

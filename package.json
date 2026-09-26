@@ -92,7 +92,8 @@
     "start": "next start",
     "test": "vitest run",
     "type-check": "tsc --noemit",
-    "font:subset": "node scripts/subset-font.mjs"
+    "font:subset": "node scripts/subset-font.mjs",
+    "portfolio:export": "node --env-file-if-exists=.env.local scripts/export-portfolio.mjs"
   },
   "version": "0.1.0"
 }
