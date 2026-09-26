@@ -1,6 +1,13 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A Carp fan site for news, videos and live scores, with comments on each.",
+      "descriptionJa": "カープのニュースや動画、試合の速報をまとめて見られて、コメントもできるファンサイトです。",
+      "name": "Koidamashii",
+      "nameJa": "鯉魂",
+      "url": "https://koidamashii.kkweb.io"
+    },
+    {
       "descriptionEn": "A service that builds shifts from working conditions written in plain words.",
       "descriptionJa": "勤務条件を言葉のまま受け取って、シフトを組むサービスです。",
       "name": "Spatto",
