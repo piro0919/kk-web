@@ -166,6 +166,13 @@
   ],
   "APPLICATION": [
     {
+      "descriptionEn": "A macOS menu bar app that stacks the watts your Mac draws from its charger above the charger's max.",
+      "descriptionJa": "充電器から引いている電力と最大の電力を、メニューバーに2段で出す Mac 向けのアプリです。",
+      "name": "Wacchi",
+      "repo": "https://github.com/piro0919/wacchi",
+      "url": "https://wacchi.kkweb.io"
+    },
+    {
       "descriptionEn": "A macOS menu bar app that notices when Claude Code is waiting for permission and takes you to it.",
       "descriptionJa": "Claude Code の許可待ちに気付いて、そのウィンドウへ連れて行く、Mac 向けのメニューバーアプリです。",
       "name": "Hawky",
