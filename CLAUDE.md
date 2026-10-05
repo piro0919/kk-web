@@ -63,7 +63,7 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
 ## Portfolio data comes from Notion
 
 `src/libs/portfolio/data.json` is generated. The source is the private Notion database
-"Portfolio". Edit the row in Notion, then run `pnpm portfolio:export` and commit the diff.
+"ポートフォリオ" (column names are in Japanese). Edit the row in Notion, then run `pnpm portfolio:export` and commit the diff.
 Never edit the JSON by hand — the next export overwrites it.
 
 The script needs `NOTION_TOKEN` in `.env.local`: the internal connection

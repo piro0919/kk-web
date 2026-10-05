@@ -74,14 +74,14 @@ function text(prop) {
 function toItem(p) {
   // キーはアルファベット順。空の列はキーごと出さない。
   const item = {
-    altUrl: text(p["Alt URL"]),
-    archived: p.Archived?.checkbox || undefined,
-    descriptionEn: text(p["Description EN"]),
-    descriptionJa: text(p["Description JA"]),
+    altUrl: text(p["別URL"]),
+    archived: p["公開停止"]?.checkbox || undefined,
+    descriptionEn: text(p["英語の説明"]),
+    descriptionJa: text(p["日本語の説明"]),
     lp: text(p.LP),
-    name: text(p.Name),
-    nameJa: text(p["Name JA"]),
-    repo: text(p.Repo),
+    name: text(p["名前"]),
+    nameJa: text(p["日本語名"]),
+    repo: text(p["リポジトリ"]),
     url: text(p.URL),
   };
 
@@ -94,11 +94,11 @@ const rows = await queryAll();
 const grouped = Object.fromEntries(CATEGORIES.map((c) => [c, []]));
 
 for (const row of rows) {
-  const category = text(row.properties.Category);
+  const category = text(row.properties["種類"]);
 
   if (!(category in grouped)) {
     throw new Error(
-      `カテゴリが不明な行があります: ${text(row.properties.Name)} (${category})`,
+      `カテゴリが不明な行があります: ${text(row.properties["名前"])} (${category})`,
     );
   }
 
@@ -107,7 +107,7 @@ for (const row of rows) {
 
   grouped[category].push({
     item: toItem(row.properties),
-    order: row.properties.Order?.number ?? Infinity,
+    order: row.properties["並び順"]?.number ?? Infinity,
   });
 }
 
