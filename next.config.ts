@@ -1,6 +1,7 @@
 /* eslint-disable filenames/match-regex */
 import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
+import getArticleRedirects from "./src/libs/getArticleRedirects";
 
 const projectRoot = import.meta.dirname;
 const isProduction = process.env.NODE_ENV === "production";
@@ -100,6 +101,12 @@ const nextConfig: NextConfig = {
     ],
   },
   outputFileTracingRoot: projectRoot,
+  // 片方の言語にしか無い記事の古い住所を、書いてある言語へ送る。
+  // ページの中に置くと作り直しで消える（一度消えた）ので、ここに置いて
+  // src/__tests__/articleRedirects.test.ts で守る。
+  async redirects() {
+    return getArticleRedirects();
+  },
   turbopack: {
     root: projectRoot,
   },
