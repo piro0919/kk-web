@@ -467,8 +467,8 @@
   ],
   "EXTENSION": [
     {
-      "descriptionEn": "Get your two-factor codes from the Firefox toolbar without reaching for your phone. Click one to copy it and fill it in.",
-      "descriptionJa": "スマートフォンを取り出さずに、Firefox のツールバーから2段階認証のコードを出せる拡張機能です。押せばコピーして、入力欄にも入れます。",
+      "descriptionEn": "A Firefox extension that shows your two-factor codes from the toolbar.",
+      "descriptionJa": "2段階認証のコードを Firefox のツールバーから出せる拡張機能です。",
       "name": "Aikotoba",
       "repo": "https://github.com/piro0919/aikotoba",
       "url": "https://aikotoba.kkweb.io"
