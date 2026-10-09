@@ -1,6 +1,13 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A music player for Vocaloid songs. Pick by producer, voice or year, and listen through the original videos.",
+      "descriptionJa": "ボカロ曲を、ずっと聴ける音楽プレイヤーです。ボカロP・歌声・年代から選んで、本家の動画で流します。",
+      "name": "Vocafy",
+      "repo": "https://github.com/piro0919/vocafy",
+      "url": "https://vocafy.kkweb.io"
+    },
+    {
       "descriptionEn": "A Carp fan site for news, videos and live scores, with comments on each.",
       "descriptionJa": "カープのニュースや動画、試合の速報をまとめて見られて、コメントもできるファンサイトです。",
       "name": "Koidamashii",
