@@ -1,8 +1,8 @@
 {
   "WEB SERVICE": [
     {
-      "descriptionEn": "A music player for Vocaloid songs. Pick by producer, voice or year, and listen through the original videos.",
-      "descriptionJa": "ボカロ曲を、ずっと聴ける音楽プレイヤーです。ボカロP・歌声・年代から選んで、本家の動画で流します。",
+      "descriptionEn": "A service for listening to Vocaloid songs through the original videos, picked by producer, voice or year.",
+      "descriptionJa": "ボカロ曲をボカロP・歌声・年代から選んで、本家の動画で聴けるサービスです。",
       "name": "Vocafy",
       "repo": "https://github.com/piro0919/vocafy",
       "url": "https://vocafy.kkweb.io"
