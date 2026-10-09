@@ -465,6 +465,13 @@
       "name": "Hide Kindle Orders",
       "repo": "https://github.com/piro0919/amazon-order-hide-kindle",
       "url": "https://hide-kindle-orders.kkweb.io"
+    },
+    {
+      "descriptionEn": "Get your two-factor codes from the Firefox toolbar without reaching for your phone. Click one to copy it and fill it in.",
+      "descriptionJa": "スマートフォンを取り出さずに、Firefox のツールバーから2段階認証のコードを出せる拡張機能です。押せばコピーして、入力欄にも入れます。",
+      "name": "Aikotoba",
+      "repo": "https://github.com/piro0919/aikotoba",
+      "url": "https://aikotoba.kkweb.io"
     }
   ],
   "MOVIE": [
