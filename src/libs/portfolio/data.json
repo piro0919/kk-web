@@ -166,6 +166,13 @@
   ],
   "APPLICATION": [
     {
+      "descriptionEn": "A macOS app that keeps watch over your launchd jobs, records every run and opens any of them in Claude Code inside Cursor or VS Code.",
+      "descriptionJa": "launchd の定期実行を見張って実行のたびに結果を残し、気になる実行を Cursor や VS Code の Claude Code で開ける、Mac 向けのアプリです。",
+      "name": "Owler",
+      "repo": "https://github.com/piro0919/owler",
+      "url": "https://owler.kkweb.io"
+    },
+    {
       "descriptionEn": "A macOS app that replaces Finder's right-click menu with one you choose the items of.",
       "descriptionJa": "Finder の右クリックメニューを、自分で選んだ項目だけのメニューに置き換える、Mac 向けのアプリです。",
       "name": "Ocomenu",
