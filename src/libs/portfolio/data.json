@@ -138,6 +138,13 @@
       "name": "YouTube Quiz Generator",
       "repo": "https://github.com/piro0919/youtube-quiz-generator",
       "url": "https://youtube-quiz-battle.kkweb.io"
+    },
+    {
+      "descriptionEn": "A record book for high jump, long jump, triple jump and pole vault athletes, for practice and competitions.",
+      "descriptionJa": "走高跳・走幅跳・三段跳・棒高跳の選手が、練習と大会の記録をつけるサービスです。",
+      "name": "Jumps Lab",
+      "repo": "https://github.com/piro0919/jumps-lab",
+      "url": "https://jumpslab.kkweb.io"
     }
   ],
   "WEB SITE": [
