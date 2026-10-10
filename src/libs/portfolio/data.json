@@ -467,6 +467,13 @@
   ],
   "EXTENSION": [
     {
+      "descriptionEn": "A Firefox extension that lines up your other Google accounts under your avatar on the Google top page.",
+      "descriptionJa": "Google のトップページで、ほかの Google アカウントを右上のアイコンの下に並べる Firefox 拡張機能です。",
+      "name": "Account Switcher for Google",
+      "repo": "https://github.com/piro0919/account-switcher-for-google",
+      "url": "https://account-switcher-for-google.kkweb.io"
+    },
+    {
       "descriptionEn": "A Firefox extension that shows your two-factor codes from the toolbar.",
       "descriptionJa": "2段階認証のコードを Firefox のツールバーから出せる拡張機能です。",
       "name": "Aikotoba",
