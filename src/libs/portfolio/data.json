@@ -180,6 +180,13 @@
   ],
   "APPLICATION": [
     {
+      "descriptionEn": "A Mac app that shows Vercel Web Analytics for all your projects in one window.",
+      "descriptionJa": "Vercel で公開している全サイトの訪問者数とページビューを、1つの窓に並べて見られる Mac 向けのアプリです。",
+      "name": "VStats",
+      "repo": "https://github.com/piro0919/vstats",
+      "url": "https://vstats.kkweb.io"
+    },
+    {
       "descriptionEn": "A Mac app that lists the results of your scheduled jobs and lets you look into any run with Claude Code.",
       "descriptionJa": "Mac で定期実行している処理の結果を一覧で見られて、気になった回を Claude Code で調べられるアプリです。",
       "name": "Owler",
