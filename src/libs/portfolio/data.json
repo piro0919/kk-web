@@ -58,6 +58,7 @@
       "url": "https://comictime.kkweb.io/"
     },
     {
+      "archived": true,
       "descriptionEn": "A service that generates OGP images.",
       "descriptionJa": "OGP 画像を生成できるサービスです。",
       "name": "OGP Image Generator",
