@@ -181,6 +181,13 @@
   ],
   "APPLICATION": [
     {
+      "descriptionEn": "A macOS menu bar app that shows how much of your Claude Code limits you have used and when they reset.",
+      "descriptionJa": "Claude Code の使用率と、次にリセットされる日時を、メニューバーに出す Mac 向けのアプリです。",
+      "name": "Parroo",
+      "repo": "https://github.com/piro0919/parroo",
+      "url": "https://parroo.kkweb.io"
+    },
+    {
       "descriptionEn": "A Mac app that shows Vercel Web Analytics for all your projects in one window.",
       "descriptionJa": "Vercel で公開している全サイトの訪問者数とページビューを、1つの窓に並べて見られる Mac 向けのアプリです。",
       "name": "VStats",
