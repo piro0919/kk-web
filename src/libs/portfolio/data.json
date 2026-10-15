@@ -1,6 +1,13 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A browser mystery game that plays Uketsu's novel Strange Houses like the Famicom adventure Portopia Serial Murder Case.",
+      "descriptionJa": "雨穴さんの小説『変な家』を、ファミコン版『ポートピア連続殺人事件』のように遊べるブラウザゲームです。",
+      "name": "Strange Houses",
+      "nameJa": "へんな いえ",
+      "url": "https://hennaie.kkweb.io"
+    },
+    {
       "descriptionEn": "A record book for high jump, long jump, triple jump and pole vault athletes, for practice and competitions.",
       "descriptionJa": "走高跳・走幅跳・三段跳・棒高跳の選手が、練習と大会の記録をつけるサービスです。",
       "name": "Jumps Lab",
