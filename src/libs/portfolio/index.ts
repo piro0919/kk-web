@@ -16,6 +16,7 @@ export const CATEGORY_NAMES = [
   "NPM PACKAGE",
   "EXTENSION",
   "MOVIE",
+  "GAME",
 ] as const;
 
 export type CategoryName = (typeof CATEGORY_NAMES)[number];

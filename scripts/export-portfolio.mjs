@@ -14,6 +14,7 @@ const CATEGORIES = [
   "NPM PACKAGE",
   "EXTENSION",
   "MOVIE",
+  "GAME",
 ];
 
 const token = process.env.NOTION_TOKEN;

@@ -27,6 +27,7 @@ const ITEMS = [
   { href: "/portfolio/npm-package", label: "NPM PACKAGE" },
   { href: "/portfolio/extension", label: "EXTENSION" },
   { href: "/portfolio/movie", label: "MOVIE" },
+  { href: "/portfolio/game", label: "GAME" },
 ];
 
 export default async function Page({

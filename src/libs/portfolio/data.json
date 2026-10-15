@@ -1,13 +1,6 @@
 {
   "WEB SERVICE": [
     {
-      "descriptionEn": "A fan game of Uketsu's novel Strange Houses: a retro, Famicom-style adventure you play in the browser.",
-      "descriptionJa": "雨穴さんの小説『変な家』のファンゲームです。ファミコン風のレトロゲーム調アドベンチャーとして、ブラウザで遊べます。",
-      "name": "Strange Houses",
-      "nameJa": "へんな いえ",
-      "url": "https://hennaie.kkweb.io"
-    },
-    {
       "descriptionEn": "A record book for high jump, long jump, triple jump and pole vault athletes, for practice and competitions.",
       "descriptionJa": "走高跳・走幅跳・三段跳・棒高跳の選手が、練習と大会の記録をつけるサービスです。",
       "name": "Jumps Lab",
@@ -838,6 +831,15 @@
       "descriptionJa": "歌：るし・てん",
       "name": "Cyclone",
       "url": "https://www.nicovideo.jp/watch/sm5525790"
+    }
+  ],
+  "GAME": [
+    {
+      "descriptionEn": "A fan game of Uketsu's novel Strange Houses: a retro, Famicom-style adventure you play in the browser.",
+      "descriptionJa": "雨穴さんの小説『変な家』のファンゲームです。ファミコン風のレトロゲーム調アドベンチャーとして、ブラウザで遊べます。",
+      "name": "Strange Houses",
+      "nameJa": "へんな いえ",
+      "url": "https://hennaie.kkweb.io"
     }
   ]
 }
