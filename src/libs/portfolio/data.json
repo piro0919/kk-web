@@ -295,6 +295,14 @@
   ],
   "NPM PACKAGE": [
     {
+      "descriptionEn": "Controls the Niconico embed player from your page, with a preloader that starts playback inside a tap on iPhone and iPad.",
+      "descriptionJa": "ニコニコ動画の埋め込みプレイヤーをページから操作します。iPhone や iPad でも押した瞬間に流れるよう、先に読み込んでおく仕組みも付いています。",
+      "lp": "https://niconico-embed-player.kkweb.io/",
+      "name": "niconico-embed-player",
+      "repo": "https://github.com/piro0919/niconico-embed-player",
+      "url": "https://www.npmjs.com/package/niconico-embed-player"
+    },
+    {
       "descriptionEn": "Splits a font into a common tier and a rare tier with unicode-range, dropping no glyph.",
       "descriptionJa": "書体を字を落とさず2枚に分け、珍しい字は必要になってから取りに行かせます。",
       "lp": "https://unicode-range-split.kkweb.io/",
