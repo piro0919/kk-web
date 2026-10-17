@@ -1,6 +1,13 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A service for listening to songs by former Johnny's artists, album by album, through YouTube videos.",
+      "descriptionJa": "旧ジャニーズのアーティストの曲を、アルバムごとに YouTube の動画で聴けるサービスです。",
+      "name": "Janify",
+      "repo": "https://github.com/piro0919/janify",
+      "url": "https://janify.kkweb.io"
+    },
+    {
       "descriptionEn": "A record book for high jump, long jump, triple jump and pole vault athletes, for practice and competitions.",
       "descriptionJa": "走高跳・走幅跳・三段跳・棒高跳の選手が、練習と大会の記録をつけるサービスです。",
       "name": "Jumps Lab",
