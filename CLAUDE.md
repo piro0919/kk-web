@@ -59,6 +59,9 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
   Zen Kaku used to come from `next/font`, which emitted 122 `@font-face` rules — 40KB of
   render-blocking CSS on every page
 - Responsive design with mobile menu component
+- Scrolling down hides the menus and scrolling up brings them back: on desktop only the
+  centre navigation, below 768px the UtilityBar and MobileMenu. `HideOnScroll` only sets
+  `data-scroll-hidden` on `<html>`; each component's CSS decides how it hides
 
 ## Portfolio data comes from Notion
 

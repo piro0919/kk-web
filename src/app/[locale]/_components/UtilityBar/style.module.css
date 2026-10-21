@@ -15,3 +15,27 @@
   top: calc(var(--frame-padding) + 4px);
   z-index: 2;
 }
+
+/* 768px 未満は、下へスクロールしている間だけ上へ隠す。
+   動かした分だけ同じ側を切り落とし、元の上端より外へは出さない。
+   デスクトップは本文の邪魔にならないので出したままにする。 */
+@media (width < 768px) {
+  .bar {
+    clip-path: inset(0);
+    transition:
+      clip-path 200ms ease,
+      transform 200ms ease;
+  }
+
+  :global(html[data-scroll-hidden]) .bar:not(:has(:focus-visible)) {
+    clip-path: inset(100% 0 0 0);
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}

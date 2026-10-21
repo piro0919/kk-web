@@ -3,6 +3,9 @@
   font-family: var(--font-righteous), sans-serif;
   height: var(--nav-height);
   justify-content: center;
+
+  /* 隠れるときは額縁の線の位置で切り、枠の向こうへ引っ込んで見せる。 */
+  overflow: clip;
   padding: 24px 0;
 
   /* 帯の余白がテーマ切り替えボタンのクリックを奪わないようにする。 */
@@ -26,6 +29,19 @@
   list-style: none;
   padding: 8px 24px;
   pointer-events: auto;
+  transition: transform 200ms ease;
+}
+
+/* 下へスクロールしている間は上へ隠す。Tab で中に入ったら出す。 */
+:global(html[data-scroll-hidden]) .navigation:not(:has(:focus-visible)) .list {
+  pointer-events: none;
+  transform: translateY(calc(-100% - 24px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .list {
+    transition: none;
+  }
 }
 
 .item {

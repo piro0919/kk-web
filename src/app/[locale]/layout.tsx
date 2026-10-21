@@ -18,6 +18,7 @@ import {
 } from "@/libs/structuredData";
 import Background from "./_components/Background";
 import Frame from "./_components/Frame";
+import HideOnScroll from "./_components/HideOnScroll";
 import Hotjar from "./_components/Hotjar";
 import MobileMenu from "./_components/MobileMenu";
 import Navigation from "./_components/Navigation";
@@ -98,6 +99,7 @@ export default async function RootLayout({
             <Navigation />
             {children}
             <MobileMenu />
+            <HideOnScroll />
             <Analytics />
             <Hotjar
               id={env.NEXT_PUBLIC_HOTJAR_ID}

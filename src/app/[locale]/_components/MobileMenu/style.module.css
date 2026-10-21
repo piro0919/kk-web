@@ -44,6 +44,25 @@
 
 @media (width < 768px) {
   .mobileMenu {
+    clip-path: inset(0);
     display: block;
+    transition:
+      clip-path 200ms ease,
+      transform 200ms ease;
+  }
+}
+
+/* 下へスクロールしている間は下へ隠す。動かした分だけ下を切り落とし、
+   額縁の線より外へは出さない。Tab で中に入ったら出す。 */
+
+:global(html[data-scroll-hidden]) .mobileMenu:not(:has(:focus-visible)) {
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobileMenu {
+    transition: none;
   }
 }
