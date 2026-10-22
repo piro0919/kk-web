@@ -1,6 +1,12 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A service for supporting creators the way you buy onigiri at a shop. The fillings are images, writing, audio and videos the shop owner made.",
+      "descriptionJa": "お店で、おにぎりを買うように支援できるサービスです。具材は、店主お手製の画像・文章・音声・動画です。",
+      "name": "Send an Onigiri",
+      "url": "https://onigiri.kkweb.io"
+    },
+    {
       "descriptionEn": "A service for listening to songs by former Johnny's artists, album by album, through YouTube videos.",
       "descriptionJa": "旧ジャニーズのアーティストの曲を、アルバムごとに YouTube の動画で聴けるサービスです。",
       "name": "Janify",
