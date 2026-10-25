@@ -1,8 +1,8 @@
 {
   "WEB SERVICE": [
     {
-      "descriptionEn": "A service for supporting creators the way you buy onigiri at a shop. The fillings are images, writing, audio and videos the shop owner made.",
-      "descriptionJa": "お店で、おにぎりを買うように支援できるサービスです。具材は、店主お手製の画像・文章・音声・動画です。",
+      "descriptionEn": "A service for supporting creators the way you buy onigiri at a shop. The fillings are images, writing and audio the shop owner made.",
+      "descriptionJa": "お店で、おにぎりを買うように支援できるサービスです。具材は、店主お手製の画像・文章・音声です。",
       "name": "Send an Onigiri",
       "url": "https://onigiri.kkweb.io"
     },
