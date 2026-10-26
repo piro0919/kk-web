@@ -861,6 +861,13 @@
       "name": "Strange Houses",
       "nameJa": "へんな いえ",
       "url": "https://hennaie.kkweb.io"
+    },
+    {
+      "descriptionEn": "A fan game of the YouTube channel Yurindo Shika Shiranai Sekai: a Game Boy Advance-style mystery adventure you play in the browser.",
+      "descriptionJa": "YouTube チャンネル「有隣堂しか知らない世界」のファンゲームです。ゲームボーイアドバンス風の謎解きアドベンチャーとして、ブラウザで遊べます。",
+      "name": "Only Yurindo Knows: The Trial",
+      "nameJa": "有隣堂しか知らない裁判",
+      "url": "https://yuusai.kkweb.io"
     }
   ]
 }
