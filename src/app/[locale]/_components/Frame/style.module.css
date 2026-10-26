@@ -9,20 +9,30 @@
   z-index: 1;
 }
 
-/* 外周の帯。内側を角丸にくり抜いた形が要るので、角丸の矩形から
-   外へ向かって box-shadow を広げ、はみ出た分を .frame で切る。 */
+/* 外周の帯。内側を角丸にくり抜いた形が要り、ナビの帯と同じく
+   背後をぼかしたい。box-shadow には backdrop-filter が効かないので、
+   画面より大きい要素に太い透明の border を付け、padding-box を
+   mask で抜く。内側の角丸は border-radius から border の太さを
+   引いた値になる。はみ出た分は .frame で切る。 */
 
 .frame::before {
-  border-radius: 6px;
-  box-shadow: 0 0 0 100vmax var(--color-frame-band);
+  --frame-band-width: 100vmax;
+  backdrop-filter: blur(2px);
+  background: var(--color-frame-band);
+  border: var(--frame-band-width) solid transparent;
+  border-radius: calc(var(--frame-band-width) + 6px);
   content: "";
-  inset: var(--frame-padding);
+  inset: calc(var(--frame-padding) - var(--frame-band-width));
+  mask:
+    linear-gradient(#000 0 0) border-box,
+    linear-gradient(#000 0 0) padding-box;
+  mask-composite: exclude;
   position: absolute;
 }
 
 @media (width >= 980px) {
   .frame::before {
-    border-radius: 12px;
+    border-radius: calc(var(--frame-band-width) + 12px);
   }
 }
 
