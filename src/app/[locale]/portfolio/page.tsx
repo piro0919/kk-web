@@ -28,6 +28,7 @@ const ITEMS = [
   { href: "/portfolio/extension", label: "EXTENSION" },
   { href: "/portfolio/movie", label: "MOVIE" },
   { href: "/portfolio/game", label: "GAME" },
+  { href: "/portfolio/skill", label: "SKILL" },
 ];
 
 export default async function Page({

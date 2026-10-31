@@ -17,6 +17,7 @@ export const CATEGORY_NAMES = [
   "EXTENSION",
   "MOVIE",
   "GAME",
+  "SKILL",
 ] as const;
 
 export type CategoryName = (typeof CATEGORY_NAMES)[number];

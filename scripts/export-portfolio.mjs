@@ -15,6 +15,7 @@ const CATEGORIES = [
   "EXTENSION",
   "MOVIE",
   "GAME",
+  "SKILL",
 ];
 
 const token = process.env.NOTION_TOKEN;

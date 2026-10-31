@@ -869,5 +869,14 @@
       "nameJa": "へんな いえ",
       "url": "https://hennaie.kkweb.io"
     }
+  ],
+  "SKILL": [
+    {
+      "descriptionEn": "A Claude Code skill. Say \"make it Google-ish\" and it rewrites the screens of your repository in that product's color, spacing and wording.",
+      "descriptionJa": "Claude Code のスキルです。「Google っぽくして」と言うと、作業中のリポジトリの画面を、その製品の色・余白・言い回しで書き換えます。",
+      "name": "Poi",
+      "repo": "https://github.com/piro0919/poi",
+      "url": "https://poi.kkweb.io"
+    }
   ]
 }
