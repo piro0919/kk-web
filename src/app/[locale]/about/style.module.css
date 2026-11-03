@@ -65,6 +65,27 @@
   font-size: 1.2rem;
 }
 
+/* 長い文でカードを広げない。幅は他の行で決まり、この文はその中で折り返す。 */
+.statement {
+  contain: inline-size;
+}
+
+.link {
+  text-decoration: underline;
+  transition: color 150ms;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+/* 768px 以上は上のナビに CONTACT があるので、モバイルメニューの代わりのリンクは要らない。 */
+@media (width >= 768px) {
+  .contact {
+    display: none;
+  }
+}
+
 @media (width >= 980px) {
   .mat {
     padding: 24px;

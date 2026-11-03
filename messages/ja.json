@@ -15,6 +15,7 @@
     "description": "ソフトウェアデベロッパー piro のウェブサイト"
   },
   "Ui": {
+    "amazonAssociate": "Amazonのアソシエイトとして、kk-web は適格販売により収入を得ています。",
     "linkOnPlatform": "{name} を {platform} で見る",
     "linkOnRepository": "{name} の GitHub リポジトリ",
     "support": "Buy Me a Coffee で支援する",

@@ -10,6 +10,7 @@ A multilingual personal blog and portfolio website built with Next.js 16, featur
 - 📧 **Contact Form** - Integrated contact form with reCAPTCHA protection
 - 📊 **Analytics** - Hotjar, Vercel Analytics, and Umami
 - 🎨 **Portfolio Sections** - Showcase applications, web services, NPM packages, and more
+- ❤️ **Favorites** - Up to nine recommended products per genre, linked to Amazon
 - 🔒 **Security** - Comprehensive linting with security rules and secret detection
 - 🎯 **Performance** - Turbopack for fast development, static optimization
 - 🌙 **Theme Support** - Dark/light theme switching with next-themes

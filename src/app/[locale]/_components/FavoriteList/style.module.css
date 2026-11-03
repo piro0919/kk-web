@@ -1,0 +1,109 @@
+.heading {
+  font-family: var(--font-righteous), sans-serif;
+  font-size: 2.4rem;
+  padding: 8px 0 16px;
+  text-align: center;
+}
+
+/* モバイルは1列、タブレットは2列、デスクトップは3×3。 */
+.list {
+  display: grid;
+  filter: drop-shadow(4px 4px 4px rgb(0 0 0 / 25%));
+  gap: 8px;
+  list-style: none;
+  margin: 0 auto;
+  max-width: 720px;
+  width: 100%;
+}
+
+.item {
+  /* 破線の外側は半透明にして、背後の背景をぼかす。額縁の帯と同じ作り。 */
+  backdrop-filter: blur(2px);
+  background-color: var(--color-frame-band);
+  display: flex;
+  padding: 8px;
+}
+
+.itemInner {
+  align-content: start;
+  background: var(--color-background);
+  border: 1px dashed var(--color-line);
+  border-radius: 6px;
+  display: grid;
+  flex: 1;
+  gap: 6px;
+  min-width: 0;
+  padding: 16px;
+
+  /* 品名のリンクをカード全面に広げるための基準。 */
+  position: relative;
+}
+
+/* 商品写真は地が白いものが多いので、暗い配色でも白い台に載せる。 */
+.image {
+  background: #fff;
+  border-radius: 4px;
+  height: 200px;
+  object-fit: contain;
+  padding: 8px;
+  width: 100%;
+}
+
+.name {
+  min-width: 0;
+}
+
+/* カードのどこを押しても商品ページへ飛ぶようにする。 */
+.name::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.title {
+  font-family: var(--font-title), sans-serif;
+  font-size: 1.8rem;
+  overflow-wrap: anywhere;
+  transition: color 150ms;
+}
+
+.itemInner:hover .title {
+  color: var(--color-accent);
+}
+
+.text {
+  opacity: 0.75;
+  overflow-wrap: anywhere;
+}
+
+@media (width >= 768px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 980px) {
+  .heading {
+    font-size: 3.2rem;
+    padding: 16px 0 24px;
+  }
+
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1080px;
+  }
+
+  .item {
+    padding: 12px;
+  }
+
+  .itemInner {
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

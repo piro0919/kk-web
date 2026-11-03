@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import { toLocale } from "@/i18n/routing";
 import getMetadata from "@/libs/getMetadata";
 import styles from "./style.module.css";
@@ -35,6 +36,8 @@ export default async function Page({
 
   setRequestLocale(locale);
 
+  const t = await getTranslations("Ui");
+
   return (
     <main>
       <div className={styles.wrapper}>
@@ -60,6 +63,18 @@ export default async function Page({
                     <dd>{text}</dd>
                   </div>
                 ))}
+                <div className={`${styles.item} ${styles.contact}`}>
+                  <dt className={styles.label}>Contact</dt>
+                  <dd>
+                    <Link className={styles.link} href="/contact">
+                      Here
+                    </Link>
+                  </dd>
+                </div>
+                <div className={styles.item}>
+                  <dt className={styles.label}>Ads</dt>
+                  <dd className={styles.statement}>{t("amazonAssociate")}</dd>
+                </div>
               </dl>
             </div>
           </div>

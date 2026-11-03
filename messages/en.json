@@ -15,6 +15,7 @@
     "description": "Software Developer piro's website"
   },
   "Ui": {
+    "amazonAssociate": "As an Amazon Associate, kk-web earns from qualifying purchases.",
     "linkOnPlatform": "{name} on {platform}",
     "linkOnRepository": "{name} on GitHub",
     "support": "Support me on Buy Me a Coffee",

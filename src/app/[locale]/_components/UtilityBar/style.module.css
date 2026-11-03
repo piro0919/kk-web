@@ -13,7 +13,9 @@
   position: fixed;
   right: calc(var(--frame-padding) + 2px);
   top: calc(var(--frame-padding) + 4px);
-  z-index: 2;
+
+  /* 980px 未満ではナビの帯の右端と重なる。帯にクリックを奪われないよう上に置く。 */
+  z-index: 3;
 }
 
 /* 768px 未満は、下へスクロールしている間だけ上へ隠す。

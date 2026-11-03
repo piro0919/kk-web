@@ -1,5 +1,5 @@
 "use client";
-import { FiBookOpen, FiEdit3, FiHome, FiMail, FiUser } from "react-icons/fi";
+import { FiBookOpen, FiEdit3, FiHeart, FiHome, FiUser } from "react-icons/fi";
 import { Link, usePathname } from "@/i18n/navigation";
 import styles from "./style.module.css";
 
@@ -17,8 +17,19 @@ const ITEMS = [
     label: "WRITING",
     paths: ["/writing", "/blog", "/note"],
   },
-  { href: "/contact", Icon: FiMail, label: "CONTACT", paths: ["/contact"] },
-  { href: "/about", Icon: FiUser, label: "ABOUT", paths: ["/about"] },
+  {
+    href: "/favorites",
+    Icon: FiHeart,
+    label: "FAVORITES",
+    paths: ["/favorites"],
+  },
+  // CONTACT は5個に収めるため外した。ABOUT からリンクしている。
+  {
+    href: "/about",
+    Icon: FiUser,
+    label: "ABOUT",
+    paths: ["/about", "/contact"],
+  },
 ] as const;
 
 export default function MobileMenu(): React.JSX.Element {

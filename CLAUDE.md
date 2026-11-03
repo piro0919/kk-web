@@ -74,6 +74,23 @@ The script needs `NOTION_TOKEN` in `.env.local`: the internal connection
 calls Notion. A row whose URL column is empty is left out of the site on purpose; that is
 how unfinished or withdrawn work is hidden.
 
+## Favorites data comes from Notion
+
+`src/libs/favorites/data.json` is generated the same way. The source is the private Notion
+database "Favorites" (https://app.notion.com/p/72103272d79f4d5ab0ed162ddabe6a51). Edit the
+row in Notion, then run `pnpm favorites:export` and commit the diff. Never edit the JSON by
+hand. Each genre holds at most 9 items: the export and `favorites.test.ts` both fail above
+that, so take one out when adding a tenth. A row whose URL column is empty is left out.
+It uses the same `NOTION_TOKEN`; the connection "kk-web portfolio export" was granted this
+database too. The image column holds an image URL shown directly with `unoptimized`, so it
+does not need an entry in `remotePatterns`; `favorites.test.ts` fails if a row has none.
+
+The mobile menu keeps five items, so CONTACT is not in it; ABOUT links to the contact form
+below 768px. From 768px up the navigation has CONTACT, so ABOUT hides that link.
+
+Favorites and many blog posts carry Amazon Associates links. The participation statement
+that the operating agreement (section 5) requires lives on ABOUT only, under the `Ads` label.
+
 ## Important Notes
 
 - The site uses markdown files for blog content - posts are date-prefixed (YYYYMMDD format)
