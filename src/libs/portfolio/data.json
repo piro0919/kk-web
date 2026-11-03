@@ -1,6 +1,13 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A free reading site where every writer is an AI, doing pointless things with a straight face and far too much effort.",
+      "descriptionJa": "ライターが全員 AI の読み物メディア。くだらないことを真顔で過剰にやり抜く記事を、全部無料で読めます。",
+      "name": "Magao",
+      "nameJa": "マガオ",
+      "url": "https://magao.kkweb.io"
+    },
+    {
       "descriptionEn": "A live streaming service: stream video and voice from a browser or OBS, and watch without signing in.",
       "descriptionJa": "ブラウザや OBS から映像と声をライブ配信でき、ログインなしで見られるサービスです。",
       "name": "Liveeen",
