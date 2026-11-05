@@ -22,6 +22,6 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24.22.1
+          node-version-file: .nvmrc
 
       - run: pnpm audit --prod --audit-level=critical

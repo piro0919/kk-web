@@ -49,6 +49,7 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
 - **Git Hooks**: Lefthook configuration runs ESLint, Prettier, Stylelint, TypeScript, and Secretlint on pre-commit, and the tests on pre-push
 - **Code Quality**: Comprehensive ESLint config with security, perfectionist, and import plugins. `eslint-plugin-hollow-tests` rejects tests whose assertions all sit inside a loop or a branch, so assert the collection is not empty before walking it
 - **Scheduled checks**: `.github/workflows/audit.yml` runs `pnpm audit --prod --audit-level=critical` every Monday. It stays out of CI so an unfixable advisory cannot block Renovate
+- **Node version**: `.nvmrc` is the one place CI reads it from
 - **Vercel previews**: `scripts/vercel-ignore.sh` skips them on `renovate/*` branches. The Lighthouse job in CI runs the production build for those
 - **Type Safety**: Strict TypeScript with `@total-typescript/ts-reset` and custom type definitions
 
