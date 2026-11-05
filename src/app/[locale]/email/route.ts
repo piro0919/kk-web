@@ -55,13 +55,19 @@ async function verifyToken(token: string): Promise<boolean> {
     );
 
     if (!response.ok) {
+      // eslint-disable-next-line no-console -- 問い合わせが届かない原因を、関数のログで追えるようにする。
+      console.error(`reCAPTCHA responded with ${response.status}`);
+
       return false;
     }
 
     const { success } = (await response.json()) as { success?: boolean };
 
     return success === true;
-  } catch {
+  } catch (error) {
+    // eslint-disable-next-line no-console -- 問い合わせが届かない原因を、関数のログで追えるようにする。
+    console.error("reCAPTCHA verification failed", error);
+
     return false;
   }
 }
@@ -121,7 +127,11 @@ export async function POST(
     });
 
     return NextResponse.json({ result: true }, { status: 200 });
-  } catch {
+  } catch (error) {
+    // 送り主の名前や本文は残さない。追いたいのは送れなかった理由だけ。
+    // eslint-disable-next-line no-console -- 問い合わせが届かない原因を、関数のログで追えるようにする。
+    console.error("Failed to send contact email", error);
+
     return NextResponse.json({ result: false }, { status: 500 });
   }
 }
