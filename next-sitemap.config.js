@@ -99,6 +99,9 @@ function alternateRefs(loc) {
 const config = {
   siteUrl: "https://kkweb.io/",
   generateRobotsTxt: true,
+  // 既定のままだと、記事以外の全ページの lastmod がビルドした時刻になる。
+  // 中身が変わっていないのに毎回更新と申告しないよう、日付は記事だけに付ける。
+  autoLastmod: false,
   exclude: ["/_next/*", "/*?dpl=*", "/*image", "/*staffs*"],
 
   // Next.js outputs English routes as /en/*, but runtime canonical is prefix-less.

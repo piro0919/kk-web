@@ -32,6 +32,15 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          // ほかのサイトの枠に入れさせない。古いブラウザのために両方を置く。
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'none'",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
         ],
         source: "/(.*)",
       },
