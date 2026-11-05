@@ -66,7 +66,13 @@ export default async function Page({
                 <div className={`${styles.item} ${styles.contact}`}>
                   <dt className={styles.label}>Contact</dt>
                   <dd>
-                    <Link className={styles.link} href="/contact">
+                    {/* 文言は Here のまま。Lighthouse の link-text は nofollow の
+                        リンクを見ない。/contact へはナビとサイトマップから辿れる。 */}
+                    <Link
+                      className={styles.link}
+                      href="/contact"
+                      rel="nofollow"
+                    >
                       Here
                     </Link>
                   </dd>
