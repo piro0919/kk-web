@@ -82,7 +82,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 - `pnpm lint` - Run ESLint
 - `pnpm lint:fix` - Fix ESLint issues
-- `pnpm type-check` - Run TypeScript type checking
+- `pnpm type-check` - Regenerate route types, then run TypeScript type checking
+- `pnpm knip` - Find unused files, exports and dependencies
 - `pnpm prettier` - Format code with Prettier
 - `pnpm lint:style` - Run Stylelint with auto-fix for CSS files
 - `pnpm test` - Run the Vitest suite once
@@ -103,8 +104,10 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ### Continuous Integration
 
 `.github/workflows/ci.yml` runs type checking, ESLint, Stylelint, Prettier's check mode,
-Secretlint, and the test suite on every pull request and on pushes to `main`.
-Production builds are covered by Vercel's preview deployments, so CI does not repeat them.
+Secretlint, the test suite, knip, and a production build with Lighthouse on every pull
+request and on pushes to `main`. Renovate branches skip Vercel's preview deployments.
+`.github/workflows/audit.yml` checks production dependencies for critical advisories every
+Monday.
 
 ### Adding Blog Posts
 

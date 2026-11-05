@@ -12,7 +12,7 @@ pre-commit:
       stage_fixed: true
     prettier:
       glob: "**/*"
-      run: pnpm exec prettier --write {staged_files}
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
       stage_fixed: true
     secretlint:
       glob: "**/*"
@@ -23,9 +23,16 @@ pre-commit:
       glob: "**/*.css"
       run: pnpm exec stylelint --fix {staged_files}
       stage_fixed: true
+    # 経路の型（.next/types）を作り直してから確かめる。古いままだと、足した
+    # ページや消したページの型を見ずに判定してしまう。
     typescript:
-      run: pnpm exec tsc --noEmit
+      run: pnpm type-check
 commit-msg:
   scripts:
     "commitlint.sh":
       runner: bash
+# main へ直接 push するので、PR の検査より前にここで止める。
+pre-push:
+  commands:
+    test:
+      run: pnpm test

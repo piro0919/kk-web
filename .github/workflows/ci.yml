@@ -1,12 +1,17 @@
-# 手元では lefthook が eslint・prettier・stylelint・tsc・secretlint を見ている。
-# ここはそれに加えてテストと Lighthouse を走らせ、Renovate の PR でも同じ検査が
-# 通ることを確かめる。本番ビルドの確認は Vercel のプレビューが PR ごとに回す。
+# 手元では lefthook が eslint・prettier・stylelint・tsc・secretlint とテストを
+# 見ている。ここはそれに加えて knip と Lighthouse を走らせ、Renovate の PR でも
+# 同じ検査が通ることを確かめる。本番ビルドの確認は lighthouse の仕事が兼ねる。
+# Renovate のブランチは Vercel のプレビューを作らない（scripts/vercel-ignore.sh）。
 name: CI
 
 on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   cancel-in-progress: true
@@ -15,6 +20,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
 
@@ -45,11 +51,15 @@ jobs:
       - name: Test
         run: pnpm test
 
+      - name: Find unused code
+        run: pnpm knip
+
   # 速い検査を待たせないよう別の仕事にする。閾値は .lighthouserc.json 側。
   # performance だけ warn なので、数字の揺れでは落ちない。落ちるのは
   # アクセシビリティ・best practices・SEO が 0.9 を割ったときだけ。
   lighthouse:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     # 中身は本物でなくてよい。@t3-oss/env-nextjs が空を弾くので置くだけ。
     # 計測するページに reCAPTCHA も Hotjar も出てこない。
     env:

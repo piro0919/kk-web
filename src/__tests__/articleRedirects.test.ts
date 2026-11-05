@@ -40,10 +40,15 @@ describe("article redirects in next.config", () => {
     const [en, ja] = await Promise.all([getArticles("en"), getArticles("ja")]);
     const jaSlugs = new Set(ja.map(({ slug }) => slug));
     const redirects = await configuredRedirects();
+    // 今は英語だけの記事が無い。増えたときに転送が漏れていれば、ここで止まる。
+    const missing = en
+      .filter(({ slug }) => !jaSlugs.has(slug))
+      .filter(
+        ({ slug }) => redirects.get(`/ja/blog/${slug}`) !== `/blog/${slug}`,
+      )
+      .map(({ slug }) => slug);
 
-    for (const { slug } of en.filter(({ slug }) => !jaSlugs.has(slug))) {
-      expect(redirects.get(`/ja/blog/${slug}`)).toBe(`/blog/${slug}`);
-    }
+    expect(missing).toEqual([]);
   });
 
   it("never redirects away from an article that exists", async () => {
@@ -53,6 +58,8 @@ describe("article redirects in next.config", () => {
       ...ja.map(({ slug }) => `/ja/blog/${slug}`),
     ]);
     const redirects = await configuredRedirects();
+
+    expect(redirects.size).toBeGreaterThan(0);
 
     for (const source of redirects.keys()) {
       expect(existing.has(source)).toBe(false);

@@ -23,7 +23,7 @@ export const CATEGORY_NAMES = [
 export type CategoryName = (typeof CATEGORY_NAMES)[number];
 
 /** data.json の1件。列は Notion と同じ。 */
-export type PortfolioItem = {
+type PortfolioItem = {
   /** 同じものが別の場所にもあるとき。カードの脇にアイコンで出す。 */
   altUrl?: string;
   /** 畳んだもの。一覧の下にまとめ、公開ページではなくリポジトリへ繋ぐ。 */

@@ -12,6 +12,8 @@ describe("getArticles", () => {
   it("reduces the front matter slug to its last segment", async () => {
     const articles = await getArticles("ja");
 
+    expect(articles.length).toBeGreaterThan(0);
+
     for (const { slug } of articles) {
       expect(slug).not.toContain("/");
       expect(slug).not.toBe("");
@@ -28,6 +30,8 @@ describe("getArticles", () => {
   it("keeps the excerpt on one line and within the limit", async () => {
     const articles = await getArticles("ja");
 
+    expect(articles.length).toBeGreaterThan(0);
+
     for (const { text } of articles) {
       expect(text).not.toMatch(/[\n\r]/);
       // 語の途中で切らないぶん短くなることはあっても、上限は越えない。
@@ -37,15 +41,14 @@ describe("getArticles", () => {
   });
 
   it("gives every article a title and a date", async () => {
-    for (const locale of ["en", "ja"] as const) {
-      const articles = await getArticles(locale);
+    const [en, ja] = await Promise.all([getArticles("en"), getArticles("ja")]);
 
-      expect(articles.length).toBeGreaterThan(0);
+    expect(en.length).toBeGreaterThan(0);
+    expect(ja.length).toBeGreaterThan(0);
 
-      for (const { date, title } of articles) {
-        expect(title).toBeTruthy();
-        expect(date).toMatch(/^\d{4}-\d{2}-\d{2}/);
-      }
+    for (const { date, title } of [...en, ...ja]) {
+      expect(title).toBeTruthy();
+      expect(date).toMatch(/^\d{4}-\d{2}-\d{2}/);
     }
   });
 

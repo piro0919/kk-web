@@ -1,0 +1,27 @@
+# 本番の依存に critical の脆弱性が無いかを週に1回見る。落ちれば GitHub からメールが届く。
+# CI には入れない。直す版がまだ無い脆弱性が1件あるだけで CI が赤のままになり、
+# Renovate の自動マージが全部止まる（spatto で起きた）。
+name: Audit
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 9:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.22.1
+
+      - run: pnpm audit --prod --audit-level=critical

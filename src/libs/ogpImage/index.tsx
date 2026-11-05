@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 /** サイトのダークモードと同じ地の色。 */
-export const OGP_BACKGROUND = "#202124";
+const OGP_BACKGROUND = "#202124";
 
 export const OGP_SIZE = { height: 630, width: 1200 };
 

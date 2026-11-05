@@ -9,7 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm start` - Start production server
 - `pnpm lint` - Run ESLint
 - `pnpm lint:fix` - Run ESLint with auto-fix
-- `pnpm type-check` - Run TypeScript type checking without emitting files
+- `pnpm type-check` - Regenerate the route types with `next typegen`, then run TypeScript without emitting files
+- `pnpm knip` - Find unused files, exports and dependencies (`knip.json` lists the ones it cannot see, such as ESLint plugins named by string)
 - `pnpm prettier` - Format code with Prettier
 - `pnpm lint:style` - Run Stylelint with auto-fix for CSS files
 - `pnpm lint:secret` - Check for secrets in files with masking
@@ -45,8 +46,10 @@ This is a multilingual (English/Japanese) Next.js 16 blog/portfolio website usin
 
 ### Development Tools
 
-- **Git Hooks**: Lefthook configuration runs ESLint, Prettier, Stylelint, TypeScript, and Secretlint on pre-commit
-- **Code Quality**: Comprehensive ESLint config with security, perfectionist, and import plugins
+- **Git Hooks**: Lefthook configuration runs ESLint, Prettier, Stylelint, TypeScript, and Secretlint on pre-commit, and the tests on pre-push
+- **Code Quality**: Comprehensive ESLint config with security, perfectionist, and import plugins. `eslint-plugin-hollow-tests` rejects tests whose assertions all sit inside a loop or a branch, so assert the collection is not empty before walking it
+- **Scheduled checks**: `.github/workflows/audit.yml` runs `pnpm audit --prod --audit-level=critical` every Monday. It stays out of CI so an unfixable advisory cannot block Renovate
+- **Vercel previews**: `scripts/vercel-ignore.sh` skips them on `renovate/*` branches. The Lighthouse job in CI runs the production build for those
 - **Type Safety**: Strict TypeScript with `@total-typescript/ts-reset` and custom type definitions
 
 ### Styling Approach

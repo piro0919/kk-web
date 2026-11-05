@@ -5,6 +5,7 @@ import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import nextTypescript from "eslint-config-next/typescript";
 import tsParser from "@typescript-eslint/parser";
 import css from "eslint-plugin-css";
+import hollowTests from "eslint-plugin-hollow-tests";
 import perfectionist from "eslint-plugin-perfectionist";
 import promise from "eslint-plugin-promise";
 import unusedImports from "eslint-plugin-unused-imports";
@@ -278,8 +279,10 @@ const eslintConfig = [
   },
   {
     files: ["src/__tests__/**"],
+    plugins: { "hollow-tests": hollowTests },
     rules: {
       "filenames/match-regex": "off",
+      "hollow-tests/no-hollow-test": "error",
     },
   },
   // 名前の無い数字を警告する（全リポジトリで共有する piro0919/eslint-config）

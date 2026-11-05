@@ -17,7 +17,7 @@ export type FavoriteGenre = (typeof FAVORITE_GENRES)[number];
 export const FAVORITE_LIMIT = 9;
 
 /** data.json の1件。列は Notion と同じ。 */
-export type FavoriteItem = {
+type FavoriteItem = {
   descriptionEn?: string;
   descriptionJa?: string;
   image?: string;

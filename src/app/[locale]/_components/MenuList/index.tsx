@@ -3,7 +3,7 @@ import { FiChevronRight } from "react-icons/fi";
 import { Link } from "@/i18n/navigation";
 import styles from "./style.module.css";
 
-export type MenuListItem = {
+type MenuListItem = {
   href: ComponentProps<typeof Link>["href"];
   label: string;
 };
