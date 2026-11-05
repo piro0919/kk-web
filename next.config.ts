@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
             key: "X-Frame-Options",
             value: "DENY",
           },
+          // このサイトはどれも使わない。読み込んだ外部の計測にも使わせない。
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), geolocation=(), microphone=()",
+          },
         ],
         source: "/(.*)",
       },

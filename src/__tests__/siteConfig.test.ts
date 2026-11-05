@@ -16,6 +16,16 @@ describe("response headers", () => {
     );
     expect(values.get("X-Frame-Options")).toBe("DENY");
   });
+
+  it("turns off the camera, location and microphone", async () => {
+    const rules = (await nextConfig.headers?.()) ?? [];
+    const headers = rules.find(({ source }) => source === "/(.*)")?.headers;
+    const values = new Map(headers?.map(({ key, value }) => [key, value]));
+
+    expect(values.get("Permissions-Policy")).toBe(
+      "camera=(), geolocation=(), microphone=()",
+    );
+  });
 });
 
 describe("sitemap", () => {
