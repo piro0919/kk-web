@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { type ArticleListItem } from "@/app/[locale]/_components/ArticleList";
+import { toLocale } from "@/i18n/routing";
 import getArticles from "@/libs/getArticles";
 import pageSize from "@/libs/pageSize";
 
@@ -17,7 +18,7 @@ export async function GET(
   // 読めない値は先頭として扱う。負の頁を渡されて末尾が返るのを防ぐ。
   const page =
     Number.isSafeInteger(requested) && requested >= 0 ? requested : 0;
-  const articles = await getArticles(locale === "en" ? "en" : "ja");
+  const articles = await getArticles(toLocale(locale));
   const items = articles
     .slice(page * pageSize, (page + 1) * pageSize)
     .map(({ date, slug, text, title }) => ({

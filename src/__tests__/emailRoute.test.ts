@@ -20,12 +20,12 @@ vi.mock("@/env", () => ({
 const message = "本文はログに残さない";
 
 /** 連投の制限に掛からないよう、呼ぶたびに別の場所から来たことにする。 */
-function createRequest(ip: string): NextRequest {
+function createRequest(ip: string, name = "Sender"): NextRequest {
   const body = new FormData();
 
   body.set("email", "sender@example.com");
   body.set("message", message);
-  body.set("name", "Sender");
+  body.set("name", name);
   body.set("subject", "Subject");
 
   const request = new NextRequest("https://kkweb.io/ja/email", {
@@ -94,6 +94,67 @@ describe("POST /[locale]/email", () => {
 
     expect(response.status).toBe(403);
     expect(consoleError).toHaveBeenCalledWith("reCAPTCHA responded with 503");
+  });
+
+  it("logs when reCAPTCHA rejects the secret key", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(
+        Response.json({
+          "error-codes": ["invalid-input-secret"],
+          success: false,
+        }),
+      ),
+    );
+
+    const response = await POST(createRequest("192.0.2.5"));
+
+    expect(response.status).toBe(403);
+    expect(consoleError).toHaveBeenCalledWith(
+      "reCAPTCHA rejected the secret key",
+      ["invalid-input-secret"],
+    );
+  });
+
+  it("answers 400 when the body cannot be read", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ success: true })),
+    );
+
+    const request = new NextRequest("https://kkweb.io/ja/email", {
+      body: "not a form",
+      headers: { "x-forwarded-for": "192.0.2.6" },
+      method: "POST",
+    });
+
+    request.cookies.set("token", "token");
+
+    const response = await POST(request);
+
+    expect(response.status).toBe(400);
+  });
+
+  it("passes the sender's name so symbols cannot break the reply address", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ success: true })),
+    );
+    sendMail.mockResolvedValue({});
+
+    const response = await POST(
+      createRequest("192.0.2.7", "株式会社A: 山田 (営業)"),
+    );
+
+    expect(response.status).toBe(200);
+    expect(sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        replyTo: {
+          address: "sender@example.com",
+          name: "株式会社A: 山田 (営業)",
+        },
+      }),
+    );
   });
 
   it("stays quiet when a person simply fails the check", async () => {

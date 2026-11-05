@@ -6,10 +6,15 @@ import nextConfig from "../../next.config";
 const { additionalPaths, transform } = sitemapConfig as Required<IConfig>;
 
 describe("response headers", () => {
-  it("refuses to be framed by another site", async () => {
+  async function siteHeaders(): Promise<Map<string, string>> {
     const rules = (await nextConfig.headers?.()) ?? [];
     const headers = rules.find(({ source }) => source === "/(.*)")?.headers;
-    const values = new Map(headers?.map(({ key, value }) => [key, value]));
+
+    return new Map(headers?.map(({ key, value }) => [key, value]));
+  }
+
+  it("refuses to be framed by another site", async () => {
+    const values = await siteHeaders();
 
     expect(values.get("Content-Security-Policy")).toBe(
       "frame-ancestors 'none'",
@@ -18,9 +23,7 @@ describe("response headers", () => {
   });
 
   it("turns off the camera, location and microphone", async () => {
-    const rules = (await nextConfig.headers?.()) ?? [];
-    const headers = rules.find(({ source }) => source === "/(.*)")?.headers;
-    const values = new Map(headers?.map(({ key, value }) => [key, value]));
+    const values = await siteHeaders();
 
     expect(values.get("Permissions-Policy")).toBe(
       "camera=(), geolocation=(), microphone=()",

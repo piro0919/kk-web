@@ -61,7 +61,17 @@ async function verifyToken(token: string): Promise<boolean> {
       return false;
     }
 
-    const { success } = (await response.json()) as { success?: boolean };
+    const { "error-codes": errorCodes = [], success } =
+      (await response.json()) as {
+        "error-codes"?: string[];
+        success?: boolean;
+      };
+
+    // 鍵の失効や設定違いでは全員が断られる。人の失敗と見分けて残す。
+    if (errorCodes.some((code) => code.endsWith("-input-secret"))) {
+      // eslint-disable-next-line no-console -- 問い合わせが届かない原因を、関数のログで追えるようにする。
+      console.error("reCAPTCHA rejected the secret key", errorCodes);
+    }
 
     return success === true;
   } catch (error) {
@@ -94,7 +104,8 @@ export async function POST(
     return NextResponse.json({ result: false }, { status: 403 });
   }
 
-  const data = await request.formData();
+  // 読めない本文も入力の誤りとして扱い、下の 400 に合流させる。
+  const data = await request.formData().catch(() => new FormData());
   const parsed = emailSchema.safeParse({
     email: data.get("email"),
     message: data.get("message"),
@@ -120,7 +131,8 @@ export async function POST(
     });
 
     await transporter.sendMail({
-      replyTo: `${name} <${email}>`,
+      // 文字列で組むと、名前の「:」や括弧が宛先の構文として解釈されて崩れる。
+      replyTo: { address: email, name },
       subject: `【kk-web】${subject}`,
       text: message,
       to: env.NODEMAILER_AUTH_USER,
