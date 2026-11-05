@@ -27,5 +27,12 @@ export async function GET(
       title,
     }));
 
-  return NextResponse.json(items);
+  // 記事はリポジトリの中にあり、変わるのはデプロイのときだけ。毎回読み直さず
+  // CDN に持たせる。ブラウザには持たせない。
+  return NextResponse.json(items, {
+    headers: {
+      "Cache-Control":
+        "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800",
+    },
+  });
 }
