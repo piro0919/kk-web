@@ -462,7 +462,6 @@
       "descriptionEn": "A custom hook for Firestore's onSnapshot.",
       "descriptionJa": "Firestore の onSnapshot を扱うカスタムフックです。",
       "name": "use-on-snapshot",
-      "repo": "https://github.com/piro0919/use-on-snapshot",
       "url": "https://www.npmjs.com/package/use-on-snapshot"
     },
     {
