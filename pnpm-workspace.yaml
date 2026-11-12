@@ -8,6 +8,9 @@ allowBuilds:
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - unicode-range-split@0.1.1
+catalog:
+  "@typescript-eslint/eslint-plugin": 8.67.0
+  "@typescript-eslint/parser": 8.67.0
 overrides:
   react-loader-spinner>react: ^19.3.1
   react-loader-spinner>react-dom: ^19.3.1
@@ -15,3 +18,8 @@ overrides:
   stylelint-css-modules-no-global-scoped-selector>stylelint: 17.16.0
   stylelint-no-unused-selectors>stylelint: 17.16.0
   zod: 4.6.7
+  # eslint-config-next pulls typescript-eslint with ^8, which resolves to a newer plugin than the
+  # pinned one. Two copies make ESLint stop with "Cannot redefine plugin @typescript-eslint",
+  # which failed every lock file maintenance PR. Keep them on the catalog version.
+  "@typescript-eslint/eslint-plugin": "catalog:"
+  "@typescript-eslint/parser": "catalog:"
