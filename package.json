@@ -73,7 +73,7 @@
     "stylelint-high-performance-animation": "2.0.0",
     "stylelint-no-unused-selectors": "1.0.40",
     "stylelint-order": "8.1.3",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "unicode-range-split": "^0.2.0",
     "vitest": "4.1.12"
   },
