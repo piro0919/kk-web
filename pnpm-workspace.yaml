@@ -9,8 +9,8 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - unicode-range-split@0.1.1
 catalog:
-  "@typescript-eslint/eslint-plugin": 8.67.0
-  "@typescript-eslint/parser": 8.67.0
+  "@typescript-eslint/eslint-plugin": 8.72.2
+  "@typescript-eslint/parser": 8.72.2
 overrides:
   react-loader-spinner>react: ^19.3.1
   react-loader-spinner>react-dom: ^19.3.1
