@@ -15,8 +15,8 @@ overrides:
   react-loader-spinner>react: ^19.3.1
   react-loader-spinner>react-dom: ^19.3.1
   react-scrollbar-size>react: ^19.3.1
-  stylelint-css-modules-no-global-scoped-selector>stylelint: 17.16.0
-  stylelint-no-unused-selectors>stylelint: 17.16.0
+  stylelint-css-modules-no-global-scoped-selector>stylelint: 18.0.0
+  stylelint-no-unused-selectors>stylelint: 18.0.0
   zod: 4.6.7
   # eslint-config-next pulls typescript-eslint with ^8, which resolves to a newer plugin than the
   # pinned one. Two copies make ESLint stop with "Cannot redefine plugin @typescript-eslint",
