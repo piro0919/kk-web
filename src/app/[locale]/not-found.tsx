@@ -1,4 +1,4 @@
-// eslint-disable-next-line filenames/match-regex
+/* eslint-disable filenames/match-regex */
 import getDailyCharacter from "@/libs/getDailyCharacter";
 import BubbleHero from "./_components/BubbleHero";
 
