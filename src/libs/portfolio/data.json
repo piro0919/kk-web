@@ -322,6 +322,14 @@
   ],
   "NPM PACKAGE": [
     {
+      "descriptionEn": "Rebuilds a photo of a paper document as a clean PDF with real text, tables and boxes, using your own Claude, OpenAI or Gemini key.",
+      "descriptionJa": "紙の書類を撮った写真を読み取り、写真を貼るのではなく、文字と表を組み直した PDF にします。",
+      "lp": "https://image-to-pdf.kkweb.io/",
+      "name": "@piro0919/image-to-pdf",
+      "repo": "https://github.com/piro0919/image-to-pdf",
+      "url": "https://www.npmjs.com/package/@piro0919/image-to-pdf"
+    },
+    {
       "descriptionEn": "Controls the Niconico embed player from your page, with a preloader that starts playback inside a tap on iPhone and iPad.",
       "descriptionJa": "ニコニコ動画の埋め込みプレイヤーをページから操作します。iPhone や iPad でも押した瞬間に流れるよう、先に読み込んでおく仕組みも付いています。",
       "lp": "https://niconico-embed-player.kkweb.io/",
