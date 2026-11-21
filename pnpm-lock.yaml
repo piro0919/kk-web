@@ -325,7 +325,7 @@ importers:
         specifier: 19.1.0-rc.3
         version: 19.1.0-rc.3
       eslint:
-        specifier: ^10.14.0
+        specifier: ^10.15.0
         version: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
       eslint-config-next:
         specifier: 16.4.6
@@ -349,8 +349,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))
       eslint-plugin-perfectionist:
-        specifier: 5.13.0
-        version: 5.13.0(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        specifier: 5.14.0
+        version: 5.14.0(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-promise:
         specifier: 7.3.0
         version: 7.3.0(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))
@@ -388,11 +388,11 @@ importers:
         specifier: 1.0.2
         version: 1.0.2(stylelint@18.0.0)(supports-color@10.2.2)
       stylelint-declaration-block-no-ignored-properties:
-        specifier: 3.0.0
-        version: 3.0.0(stylelint@18.0.0)
+        specifier: 3.1.0
+        version: 3.1.0(stylelint@18.0.0)
       stylelint-high-performance-animation:
-        specifier: 2.0.0
-        version: 2.0.0(stylelint@18.0.0)
+        specifier: 2.1.0
+        version: 2.1.0(stylelint@18.0.0)
       stylelint-no-unused-selectors:
         specifier: 1.0.40
         version: 1.0.40(stylelint@18.0.0)(supports-color@10.2.2)
@@ -3183,8 +3183,8 @@ packages:
     peerDependencies:
       eslint: ^9 || ^10
 
-  eslint-plugin-perfectionist@5.13.0:
-    resolution: {integrity: sha512-kPlqE2Kdh0njsad9S9xL/xnq+NNVUsga/uS3yf6axE0RddACM3Q+idJyethC7R+C9b73+NRhAWvKyXPrkl0nFA==}
+  eslint-plugin-perfectionist@5.14.0:
+    resolution: {integrity: sha512-z8mINHD3a4lMwtCuBJ5d5oZjfKwFjWF1gVKXxnUr04beCFwFYQP4TWd+182Mnk038n5Wc+LtSuvQMpbnPvdVSg==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: ^8.45.0 || ^9.0.0 || ^10.0.0
@@ -5527,16 +5527,16 @@ packages:
     peerDependencies:
       stylelint: 18.0.0
 
-  stylelint-declaration-block-no-ignored-properties@3.0.0:
-    resolution: {integrity: sha512-3ml4NgSW6nkHQrk+/ounU7Qljfb7e7FayHzU7Mry6rF9X28RXyPLD2bNn4QVOO7t98d5EGCCVkNbHCZSx+bNUQ==}
+  stylelint-declaration-block-no-ignored-properties@3.1.0:
+    resolution: {integrity: sha512-zz87S/umlmsLvD12JeQ8i8YzqZfNdGzC631ArELO0pOC5LCV5DdxnLYd9r12BsHBArXFisYWUKagGOOaDfed+w==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: ^17.0.0
+      stylelint: ^17.0.0 || ^18.0.0
 
-  stylelint-high-performance-animation@2.0.0:
-    resolution: {integrity: sha512-wzxxfxJFyL7UKc91427EHmi6gNRXB0cBdsyCfIuXZFRb6Xv1qw8elNbF61e/tJRoRcavAGsZICivVsHCD3Mhug==}
+  stylelint-high-performance-animation@2.1.0:
+    resolution: {integrity: sha512-VmWdi9ImcvwO45ub+rvrayYTnTdz582QTmFs+B0vG/JUtFwCnXQzhE/tQmdlnl9bL6r/ZNctSN/nytpHbncehA==}
     peerDependencies:
-      stylelint: ^17.0.0
+      stylelint: ^17.0.0 || ^18.0.0
 
   stylelint-no-unused-selectors@1.0.40:
     resolution: {integrity: sha512-NSx1OuW1a0xr9x6ms1RYY8TysBrsu3pfBdoY4HQ+p4DUvlrH7lE1ao+Bd7sxlqJClp12ocRK+b6mk+fD/cYrRg==}
@@ -8696,7 +8696,7 @@ snapshots:
     dependencies:
       eslint: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
 
-  eslint-plugin-perfectionist@5.13.0(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+  eslint-plugin-perfectionist@5.14.0(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@typescript-eslint/types': 8.72.2
       '@typescript-eslint/utils': 8.72.2(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
@@ -11707,11 +11707,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  stylelint-declaration-block-no-ignored-properties@3.0.0(stylelint@18.0.0):
+  stylelint-declaration-block-no-ignored-properties@3.1.0(stylelint@18.0.0):
     dependencies:
       stylelint: 18.0.0
 
-  stylelint-high-performance-animation@2.0.0(stylelint@18.0.0):
+  stylelint-high-performance-animation@2.1.0(stylelint@18.0.0):
     dependencies:
       postcss-value-parser: 4.2.0
       stylelint: 18.0.0
