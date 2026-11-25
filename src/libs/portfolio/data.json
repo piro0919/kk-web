@@ -323,6 +323,14 @@
   ],
   "NPM PACKAGE": [
     {
+      "descriptionEn": "Detects cross-tenant reads in a Supabase project from its API gateway logs.",
+      "descriptionJa": "Supabase のプロジェクトの API ゲートウェイのログを読み、あるテナントの利用者が別のテナントの行を受け取った読み取りを報告します。",
+      "lp": "https://supatripwire.kkweb.io/",
+      "name": "supatripwire",
+      "repo": "https://github.com/piro0919/supatripwire",
+      "url": "https://www.npmjs.com/package/supatripwire"
+    },
+    {
       "descriptionEn": "Rebuilds a photo of a paper document as a clean PDF with real text, tables and boxes, using your own Claude, OpenAI or Gemini key.",
       "descriptionJa": "紙の書類を撮った写真を読み取り、写真を貼るのではなく、文字と表を組み直した PDF にします。",
       "lp": "https://image-to-pdf.kkweb.io/",
