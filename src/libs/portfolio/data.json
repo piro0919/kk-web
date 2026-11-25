@@ -285,6 +285,7 @@
       "url": "https://konechi.kkweb.io"
     },
     {
+      "archived": true,
       "descriptionEn": "A hands-free voice AI assistant for Mac that lives in your menu bar.",
       "descriptionJa": "「chappie」と呼びかけて使う、Mac 向けの音声 AI アシスタントです。",
       "name": "Chappie",
