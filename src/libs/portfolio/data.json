@@ -208,6 +208,13 @@
   ],
   "APPLICATION": [
     {
+      "descriptionEn": "A macOS app that changes how the menu bar looks: Default, Rounded or Split.",
+      "descriptionJa": "メニューバーの見た目を、そのまま・角丸・左右に分割の3つから選んで変える、Mac 向けのアプリです。",
+      "name": "Ice Ball",
+      "repo": "https://github.com/piro0919/ice-ball",
+      "url": "https://github.com/piro0919/ice-ball"
+    },
+    {
       "descriptionEn": "A macOS menu bar app that shows how much of your Claude Code limits you have used and when they reset.",
       "descriptionJa": "Claude Code の使用率と、次にリセットされる日時を、メニューバーに出す Mac 向けのアプリです。",
       "name": "Parroo",
