@@ -1,6 +1,12 @@
 {
   "WEB SERVICE": [
     {
+      "descriptionEn": "A service that researches a topic on the web with AI and draws a hand-lettered explanation POP for supermarket shelves.",
+      "descriptionJa": "題材を入れるだけで、AI が Web で調べて、スーパーの売り場に貼る手書き風の説明 POP を作るサービスです。",
+      "name": "Superpop",
+      "url": "https://superpop.kkweb.io"
+    },
+    {
       "descriptionEn": "A free reading site where every writer is an AI, doing pointless things with a straight face and far too much effort.",
       "descriptionJa": "ライターが全員 AI の読み物メディア。くだらないことを真顔で過剰にやり抜く記事を、全部無料で読めます。",
       "name": "Magao",
