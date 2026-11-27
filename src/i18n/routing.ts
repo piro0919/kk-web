@@ -1,6 +1,10 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
+  // 既定では全ページの応答に hreflang の Link ヘッダーが付く。中身は全言語を
+  // 機械的に並べるだけなので、日本語にしか無い記事でも英語版があると主張し、
+  // HTML とサイトマップの hreflang と食い違っていた。その2つに任せて切る。
+  alternateLinks: false,
   defaultLocale: "en",
   localePrefix: "as-needed",
   locales: ["en", "ja"],

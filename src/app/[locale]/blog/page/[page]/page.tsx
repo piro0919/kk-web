@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { routing, toLocale } from "@/i18n/routing";
 import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
+import getPagerLocales from "@/libs/getPagerLocales";
 import pageSize from "@/libs/pageSize";
 import ArticleList from "../../../_components/ArticleList";
 import Pager from "../../../_components/Pager";
@@ -45,6 +46,8 @@ export async function generateMetadata({
 
   return getMetadata({
     locale: toLocale(locale),
+    // 既定は両言語。日本語にしか無いページ番号で、404 の英語版を指してしまう。
+    locales: await getPagerLocales(Number(page)),
     path: `/blog/page/${page}`,
     subTitle: `BLOG (${page})`,
   });
