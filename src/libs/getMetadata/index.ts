@@ -49,10 +49,13 @@ export default async function getMetadata({
     `${baseUrl}${available === "en" ? "" : `/${available}`}${pathname}`;
   // x-default は既定の言語に向ける。言語を選べない利用者に、どれを見せるかを
   // 決めておく。片方しか無い記事では、その存在する方に向ける。
-  const fallback = locales.includes("en") ? "en" : locales[0];
+  // どの言語にも無いと渡されたら（範囲外のページ番号など）、表示している
+  // 言語だけを並べる。空のまま進むと x-default の住所に undefined が入る。
+  const present = locales.length > 0 ? locales : [locale];
+  const fallback = present.includes("en") ? "en" : present[0];
   const languages = {
     ...Object.fromEntries(
-      locales.map((available) => [available, href(available)]),
+      present.map((available) => [available, href(available)]),
     ),
     "x-default": href(fallback),
   };

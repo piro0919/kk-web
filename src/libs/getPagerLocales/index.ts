@@ -1,6 +1,6 @@
 import { type Locale, routing } from "@/i18n/routing";
 import getArticles from "../getArticles";
-import pageSize from "../pageSize";
+import totalPages from "../totalPages";
 
 /**
  * 記事一覧の N ページ目が存在する言語を返す。
@@ -11,10 +11,7 @@ export default async function getPagerLocales(page: number): Promise<Locale[]> {
   const counts = await Promise.all(
     routing.locales.map(async (locale) => ({
       locale,
-      total: Math.max(
-        1,
-        Math.ceil((await getArticles(locale)).length / pageSize),
-      ),
+      total: totalPages((await getArticles(locale)).length),
     })),
   );
 

@@ -4,6 +4,7 @@ import { toLocale } from "@/i18n/routing";
 import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
 import pageSize from "@/libs/pageSize";
+import totalPages from "@/libs/totalPages";
 import ArticleList from "../_components/ArticleList";
 import Pager from "../_components/Pager";
 
@@ -32,7 +33,7 @@ export default async function Page({
 
   const articles = await getArticles(toLocale(locale));
   const firstPage = articles.slice(0, pageSize);
-  const total = Math.max(1, Math.ceil(articles.length / pageSize));
+  const total = totalPages(articles.length);
 
   return (
     <main>

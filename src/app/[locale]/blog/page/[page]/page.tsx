@@ -6,16 +6,13 @@ import getArticles from "@/libs/getArticles";
 import getMetadata from "@/libs/getMetadata";
 import getPagerLocales from "@/libs/getPagerLocales";
 import pageSize from "@/libs/pageSize";
+import totalPages from "@/libs/totalPages";
 import ArticleList from "../../../_components/ArticleList";
 import Pager from "../../../_components/Pager";
 
 type PageProps = {
   params: Promise<{ locale: string; page: string }>;
 };
-
-function totalPages(count: number): number {
-  return Math.max(1, Math.ceil(count / pageSize));
-}
 
 /** 2ページ目以降だけを作る。1ページ目は /blog が持っているので、
     ここで作ると同じ内容が2つの URL に出てしまう。 */
