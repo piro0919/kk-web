@@ -222,16 +222,16 @@ importers:
         version: 0.13.11(typescript@6.0.3)(zod@4.6.7)
       '@vercel/analytics':
         specifier: 2.0.1
-        version: 2.0.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        version: 2.0.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       '@vercel/speed-insights':
         specifier: 2.1.0
-        version: 2.1.0(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        version: 2.1.0(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
       cookies-next:
         specifier: 6.1.1
-        version: 6.1.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        version: 6.1.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       fast-xml-parser:
         specifier: 5.12.1
         version: 5.12.1
@@ -243,10 +243,10 @@ importers:
         version: 0.1.1
       next:
         specifier: 16.4.6
-        version: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        version: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       next-intl:
         specifier: ^4.16.2
-        version: 4.16.2(@swc/helpers@0.5.24)(@types/react@19.3.3)(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        version: 4.16.2(@swc/helpers@0.5.24)(@types/react@19.3.3)(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -313,7 +313,7 @@ importers:
         version: 10.0.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))
       '@lhci/cli':
         specifier: 0.16.1
-        version: 0.16.1(@types/node@26.6.7)(ajv@8.20.0)(supports-color@10.2.2)
+        version: 0.16.1(@types/node@26.6.10)(ajv@8.20.0)(supports-color@10.2.2)
       '@piro0919/eslint-config':
         specifier: github:piro0919/eslint-config#v1.1.0
         version: https://codeload.github.com/piro0919/eslint-config/tar.gz/d2927b7c3cd5a7a1eaa23dd5611ef7e1fe0a7be4(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(tailwindcss@4.3.5)(typescript@6.0.3)
@@ -324,13 +324,13 @@ importers:
         specifier: 0.6.1
         version: 0.6.1
       '@types/node':
-        specifier: 26.6.7
-        version: 26.6.7
+        specifier: 26.6.10
+        version: 26.6.10
       '@types/nodemailer':
         specifier: 8.0.2
         version: 8.0.2
       '@types/react':
-        specifier: ^19.3.1
+        specifier: ^19.3.3
         version: 19.3.3
       '@types/react-dom':
         specifier: ^19.3.0
@@ -390,11 +390,11 @@ importers:
         specifier: 6.48.0
         version: 6.48.0
       lefthook:
-        specifier: 2.2.2
-        version: 2.2.2
+        specifier: 2.2.3
+        version: 2.2.3
       next-sitemap:
         specifier: 4.2.3
-        version: 4.2.3(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
+        version: 4.2.3(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
       prettier:
         specifier: 3.10.1
         version: 3.10.1
@@ -432,8 +432,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       vitest:
-        specifier: 5.1.1
-        version: 5.1.1(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(jsdom@15.2.1)(vite@8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1))
+        specifier: 5.1.2
+        version: 5.1.2(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(jsdom@15.2.1)(vite@8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1))
 
 packages:
 
@@ -2045,8 +2045,8 @@ packages:
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
 
-  '@types/node@26.6.7':
-    resolution: {integrity: sha512-tovuRfrUILu6v46bMG+BgXxMvsqPBx2WO2as8Rpln+JTff1dbexMtAM4KFTejmL0axsnSWViCW7MecUQpLuBRA==}
+  '@types/node@26.6.10':
+    resolution: {integrity: sha512-WJuPHoGB8WNQuTksNF7SOQpnH02PXeDYz4iueWbBT6/hTWnShY5F3T/hoJA3fY9+uYReDZ7pyTKKx83jQa7aGg==}
 
   '@types/nodemailer@8.0.2':
     resolution: {integrity: sha512-c7M5ox8p0nEOfbJ2E9Qcmt8/QCu/VzsiAhzBiZbvky2PhKZDHpKB3sQHBM5MEZNkCfBOaS6S9//AGPRTNB7IaA==}
@@ -2348,8 +2348,8 @@ packages:
       vue-router:
         optional: true
 
-  '@vitest/mocker@5.1.1':
-    resolution: {integrity: sha512-b2OgTB4+3ImWIVafXKazJXwLKwQxUNnix6b3xUvUTMh7RyXlrtzoxfZr8aEz9zkHOMAS4K5lu3TvFWoiVeVTQg==}
+  '@vitest/mocker@5.1.2':
+    resolution: {integrity: sha512-UGc97wUIy0Ji2+9GxzHEJiOhiwkaukgE7VYcUNnjpX3sWnwQ8XogmNXX4WyOukxYgKb8Nh2XFa7KId0ZjpmVhQ==}
     peerDependencies:
       msw: ^2.4.9 || ^3.0.0
       vite: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -2359,8 +2359,8 @@ packages:
       vite:
         optional: true
 
-  '@vitest/spy@5.1.1':
-    resolution: {integrity: sha512-6K8C6alQG1/Yc8/ZI22iJS7JEsxPdVzqtqDq+/xM4Z0mGVykemMVjLhqMy/q6/IHYG3kKD8hKSwRen/ZdyI9vQ==}
+  '@vitest/spy@5.1.2':
+    resolution: {integrity: sha512-PQl0/3+p9GaY71+MHywN6oyHfLhVDD5kcbm7oNRldA2F0ExMU3S8RQdnpteJ9gFAdK5P6KCgE6LqCpUgy57KzA==}
 
   abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
@@ -4148,63 +4148,63 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
-  lefthook-android-arm64@2.2.2:
-    resolution: {integrity: sha512-wb9rQQFLX7u1dJLxvMrq9VUfMYi5kxM7tJQ6Y4mWEOwaU+SmIm2wjoT/nromKq27Y8fh2Qd7FgCD3G1wfW8CnQ==}
+  lefthook-android-arm64@2.2.3:
+    resolution: {integrity: sha512-6HTMwHghm4SkGvavVsJcNzyAqY8+Pzo4V5aIFcV/HOk50XMz0fkk6fVa5mm/teac+qMGUBC5tBoe8UbTB8/y+w==}
     cpu: [arm64]
     os: [android]
 
-  lefthook-darwin-arm64@2.2.2:
-    resolution: {integrity: sha512-6V8D3bLnD/60Xhqn0o2EQD6H3Fe/U9LGkt4WF1O/3eBHbux+5ZJqoH0hfrC+Bi9Dy1Ve1AWxiAY7U2asYl8qVA==}
+  lefthook-darwin-arm64@2.2.3:
+    resolution: {integrity: sha512-aT/CSZU80xMKH0dlqVQvP9VL3zIHduPToRm3ApnHRQz2UOv6mcPA5SY9xm8bnV4JRZPc5dCdw/6swAIMx3cvUw==}
     cpu: [arm64]
     os: [darwin]
 
-  lefthook-darwin-x64@2.2.2:
-    resolution: {integrity: sha512-fH/kArZ9ZZ65wCFtvBMgGcq25qwQpkQ5jp93ba+8wpjgxxzjczYGluwHvM/NQDJWLOFXuKXW0yFs76SramQkyQ==}
+  lefthook-darwin-x64@2.2.3:
+    resolution: {integrity: sha512-Dw3oBLuM/Y4OmIXvxMQLgC348W0A+c66Md/UEBKNwTpmsAn92/SmH8Y2d3pL6OZaF1v5jZYVZJcm9ZfKfmF1KQ==}
     cpu: [x64]
     os: [darwin]
 
-  lefthook-freebsd-arm64@2.2.2:
-    resolution: {integrity: sha512-MCRsU01ju989QQffOfS3gCeFfyVDXs5B/FzR65fmrNvqcxb98fldvfzzoAbnK2q6SBJlRT3QT1tNEMCxddCwlA==}
+  lefthook-freebsd-arm64@2.2.3:
+    resolution: {integrity: sha512-NIcV0GgkI0ELwMU7nvtoVAmINyGzMgnxMd4UD1XU7V9KsS4lpeUCFSpq9tQ+DldDHS2N+0r43xhK7tfD8Yj8fA==}
     cpu: [arm64]
     os: [freebsd]
 
-  lefthook-freebsd-x64@2.2.2:
-    resolution: {integrity: sha512-LkKuJU0S2oLimeoHwPTy1TLWB6GcN0t5lLxiXNlsBKUkr6R47QRcvPMZMoXmu3IetQtd+WliXMLE8qTwi2fqBg==}
+  lefthook-freebsd-x64@2.2.3:
+    resolution: {integrity: sha512-UOirudaxbFsK0UdX2pnhvTubdWvQLGq1XQwO9lQI/9LQqPLfTYPc3RwzMVGnTx38CpI10SzLW6Vzg5Ci86aWWw==}
     cpu: [x64]
     os: [freebsd]
 
-  lefthook-linux-arm64@2.2.2:
-    resolution: {integrity: sha512-d+HFtS2DEKaOnD7vRU0tUz8pNgHwsUYmQ22+1dyXpOrXGyzNXR0AqX5KsIRF36JGhVvO5X5Anw5QYgR3mxVSuA==}
+  lefthook-linux-arm64@2.2.3:
+    resolution: {integrity: sha512-ApK5MzPiVVXrpuATEKrjuaWxgDjqeKYBSy+LMGmMJR5YKOZ/jjT+tzrG+96j7MbCZNw1hgMFFsFQ8vOQCjq1LA==}
     cpu: [arm64]
     os: [linux]
 
-  lefthook-linux-x64@2.2.2:
-    resolution: {integrity: sha512-N/OlQyAhcU6RAXjrwFxLsh70sn96rBoi+XkuLJ8CVBkk9Ci3VDXQayDZTNz5B1xML8RwoMcV8Wblniy1xFOmSA==}
+  lefthook-linux-x64@2.2.3:
+    resolution: {integrity: sha512-Rf9ka61fGBC9MT45VZ8ZVNaqYF9qOdBddsk8g49iEjZej55NQl2WbbRdfS2GaEGCrW3/P+sV45YJ2MCL5pQcPg==}
     cpu: [x64]
     os: [linux]
 
-  lefthook-openbsd-arm64@2.2.2:
-    resolution: {integrity: sha512-6G/gKXcpIwC+XcODg7ELZYP/hIrVIHQxhy2GoRdVyecmpGMFj+BZo3iqcUmeWusQMuL+UdNexbkrUaeJalIkNw==}
+  lefthook-openbsd-arm64@2.2.3:
+    resolution: {integrity: sha512-j+6+DuQeIDNxYb3+5mJNO8ZipPy2bia/7aJIMeBxOQAN13hKQn4PDWk8ZYNYPJagC6sI8VAUm3Zgx3myZPGHVQ==}
     cpu: [arm64]
     os: [openbsd]
 
-  lefthook-openbsd-x64@2.2.2:
-    resolution: {integrity: sha512-eMJGi3/tqKEqu7XCZlqwQWRtK5JlL/9diaqqgRlEdlRD7GxwzHZN21z6awbITum9emea3lALvXFe6V8odQLGOA==}
+  lefthook-openbsd-x64@2.2.3:
+    resolution: {integrity: sha512-ljsKlRyAsl1MGiGFj9Z2Hw5ST0+9r3owjZr7N+7ykDhPnMNpzKen6SxP6f1KTU+ogkyRdvI7VjocrG7tp+O6RA==}
     cpu: [x64]
     os: [openbsd]
 
-  lefthook-windows-arm64@2.2.2:
-    resolution: {integrity: sha512-4P1EaQb5xG1zhYD1RLJ6TEGdFkmHkB+Slqx6yRDPKuBDNxMiD0+kTAAdUY2E8xPuRR35xHpVPR+b3/HtzPrjQQ==}
+  lefthook-windows-arm64@2.2.3:
+    resolution: {integrity: sha512-HMd8SgEA7kaNxBac3u5i6i3Md+u3w4wICTo5xU27N4PRHfPoqVY6BlsBKMMeQ/NZecY7jxvBhvKIygtuGxQ8Mg==}
     cpu: [arm64]
     os: [win32]
 
-  lefthook-windows-x64@2.2.2:
-    resolution: {integrity: sha512-9Ck4zancQilBfXT3ZeRipm7Lcq4RQfxyMpy8SAVINw0t/BrbjsT25V46ZuziERcwdajnE4myfMzC33GoCBwr7g==}
+  lefthook-windows-x64@2.2.3:
+    resolution: {integrity: sha512-EOjQvGbnUB/xKuJjf0wbueosou5l8BGAwdpzHJeWFIZQpXvE456UqV2mxdz8RcIZfRT6xuejiOvfHE52M/Guiw==}
     cpu: [x64]
     os: [win32]
 
-  lefthook@2.2.2:
-    resolution: {integrity: sha512-37fYHAhL12r1twaEV0PA5TwoIT491eTGGYjhhXxlYNMq3DSkiGZBQ++Jfk5maXj0vq52NRauLtMikBKtbNJs3Q==}
+  lefthook@2.2.3:
+    resolution: {integrity: sha512-EXg+t+7tKvZ7XsJZcgApiyVPKtBBmJTzIzNTkh5/c4IYZ6MnzOXWwLAuOHu90xqtk8DU9ODX7DvO1r+/Xsg1Vw==}
     hasBin: true
 
   levn@0.3.0:
@@ -6035,20 +6035,20 @@ packages:
       yaml:
         optional: true
 
-  vitest@5.1.1:
-    resolution: {integrity: sha512-trVmzUFOSraCZcI3uZIMD5FqBh4atFkC/XuJP/IU7qtyQay0FCs3Ia+0QiQ2JJwGyWG/xrcBoJNel2+O7kEZ0g==}
+  vitest@5.1.2:
+    resolution: {integrity: sha512-VIa2wXV208WraXUbzH+dQUrGcFpPuaiRA8HlhXS8R6/sy9cynw6OMqGj8fmAlH1hot7huTCtWUE14+FdXU3eLw==}
     engines: {node: ^22.12.0 || ^24.0.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@opentelemetry/api': ^1.9.0
       '@types/node': ^22.0.0 || >=24.0.0
-      '@vitest/browser-playwright': 5.1.1
-      '@vitest/browser-preview': 5.1.1
+      '@vitest/browser-playwright': 5.1.2
+      '@vitest/browser-preview': 5.1.2
       '@vitest/browser-webdriverio': ^5.0.0-beta.5 || >=5.0.0
-      '@vitest/coverage-istanbul': 5.1.1
-      '@vitest/coverage-v8': 5.1.1
-      '@vitest/ui': 5.1.1
+      '@vitest/coverage-istanbul': 5.1.2
+      '@vitest/coverage-v8': 5.1.2
+      '@vitest/ui': 5.1.2
       happy-dom: '*'
       jsdom: '*'
       vite: ^6.4.0 || ^7.0.0 || ^8.0.0
@@ -6843,12 +6843,12 @@ snapshots:
   '@img/sharp-win32-x64@0.35.5':
     optional: true
 
-  '@inquirer/external-editor@1.0.3(@types/node@26.6.7)':
+  '@inquirer/external-editor@1.0.3(@types/node@26.6.10)':
     dependencies:
       chardet: 2.2.0
       iconv-lite: 0.7.3
     optionalDependencies:
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
 
   '@isaacs/nonrecursive-glob-match@1.1.0': {}
 
@@ -6879,14 +6879,14 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@lhci/cli@0.16.1(@types/node@26.6.7)(ajv@8.20.0)(supports-color@10.2.2)':
+  '@lhci/cli@0.16.1(@types/node@26.6.10)(ajv@8.20.0)(supports-color@10.2.2)':
     dependencies:
       '@lhci/utils': 0.16.1(ajv@8.20.0)(proxy-agent@8.0.2(supports-color@10.2.2))(supports-color@10.2.2)
       chrome-launcher: 0.13.4(supports-color@10.2.2)
       compression: 1.8.2(supports-color@10.2.2)
       debug: 4.4.3(supports-color@10.2.2)
       express: 4.22.3(supports-color@10.2.2)
-      inquirer: 8.2.7(@types/node@26.6.7)
+      inquirer: 8.2.7(@types/node@26.6.10)
       isomorphic-fetch: 3.0.0
       lighthouse: 13.6.0(ajv@8.20.0)(proxy-agent@8.0.2(supports-color@10.2.2))(supports-color@10.2.2)
       lighthouse-logger: 1.2.0(supports-color@10.2.2)
@@ -7585,13 +7585,13 @@ snapshots:
 
   '@types/ms@2.1.0': {}
 
-  '@types/node@26.6.7':
+  '@types/node@26.6.10':
     dependencies:
       undici-types: 8.9.0
 
   '@types/nodemailer@8.0.2':
     dependencies:
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -7824,26 +7824,26 @@ snapshots:
 
   '@uphold/commitlint-config@1.1.1': {}
 
-  '@vercel/analytics@2.0.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
+  '@vercel/analytics@2.0.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
     optionalDependencies:
-      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react: 19.3.1
 
-  '@vercel/speed-insights@2.1.0(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
+  '@vercel/speed-insights@2.1.0(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
     optionalDependencies:
-      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react: 19.3.1
 
-  '@vitest/mocker@5.1.1(vite@8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1))':
+  '@vitest/mocker@5.1.2(vite@8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
-      '@vitest/spy': 5.1.1
+      '@vitest/spy': 5.1.2
       estree-walker: 3.0.3
       magic-string: 1.4.5
     optionalDependencies:
-      vite: 8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1)
 
-  '@vitest/spy@5.1.1': {}
+  '@vitest/spy@5.1.2': {}
 
   abab@2.0.6: {}
 
@@ -8194,7 +8194,7 @@ snapshots:
 
   chrome-launcher@0.13.4(supports-color@10.2.2):
     dependencies:
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
       escape-string-regexp: 1.0.5
       is-wsl: 2.2.0
       lighthouse-logger: 1.2.0(supports-color@10.2.2)
@@ -8205,7 +8205,7 @@ snapshots:
 
   chrome-launcher@1.2.3(supports-color@10.2.2):
     dependencies:
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 2.0.2(supports-color@10.2.2)
@@ -8326,10 +8326,10 @@ snapshots:
 
   cookie@1.1.1: {}
 
-  cookies-next@6.1.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1):
+  cookies-next@6.1.1(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1):
     dependencies:
       cookie: 1.1.1
-      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react: 19.3.1
 
   core-util-is@1.0.2: {}
@@ -9602,9 +9602,9 @@ snapshots:
       strip-ansi: 6.0.1
       through: 2.3.8
 
-  inquirer@8.2.7(@types/node@26.6.7):
+  inquirer@8.2.7(@types/node@26.6.10):
     dependencies:
-      '@inquirer/external-editor': 1.0.3(@types/node@26.6.7)
+      '@inquirer/external-editor': 1.0.3(@types/node@26.6.10)
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       cli-cursor: 3.1.0
@@ -9955,52 +9955,52 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
-  lefthook-android-arm64@2.2.2:
+  lefthook-android-arm64@2.2.3:
     optional: true
 
-  lefthook-darwin-arm64@2.2.2:
+  lefthook-darwin-arm64@2.2.3:
     optional: true
 
-  lefthook-darwin-x64@2.2.2:
+  lefthook-darwin-x64@2.2.3:
     optional: true
 
-  lefthook-freebsd-arm64@2.2.2:
+  lefthook-freebsd-arm64@2.2.3:
     optional: true
 
-  lefthook-freebsd-x64@2.2.2:
+  lefthook-freebsd-x64@2.2.3:
     optional: true
 
-  lefthook-linux-arm64@2.2.2:
+  lefthook-linux-arm64@2.2.3:
     optional: true
 
-  lefthook-linux-x64@2.2.2:
+  lefthook-linux-x64@2.2.3:
     optional: true
 
-  lefthook-openbsd-arm64@2.2.2:
+  lefthook-openbsd-arm64@2.2.3:
     optional: true
 
-  lefthook-openbsd-x64@2.2.2:
+  lefthook-openbsd-x64@2.2.3:
     optional: true
 
-  lefthook-windows-arm64@2.2.2:
+  lefthook-windows-arm64@2.2.3:
     optional: true
 
-  lefthook-windows-x64@2.2.2:
+  lefthook-windows-x64@2.2.3:
     optional: true
 
-  lefthook@2.2.2:
+  lefthook@2.2.3:
     optionalDependencies:
-      lefthook-android-arm64: 2.2.2
-      lefthook-darwin-arm64: 2.2.2
-      lefthook-darwin-x64: 2.2.2
-      lefthook-freebsd-arm64: 2.2.2
-      lefthook-freebsd-x64: 2.2.2
-      lefthook-linux-arm64: 2.2.2
-      lefthook-linux-x64: 2.2.2
-      lefthook-openbsd-arm64: 2.2.2
-      lefthook-openbsd-x64: 2.2.2
-      lefthook-windows-arm64: 2.2.2
-      lefthook-windows-x64: 2.2.2
+      lefthook-android-arm64: 2.2.3
+      lefthook-darwin-arm64: 2.2.3
+      lefthook-darwin-x64: 2.2.3
+      lefthook-freebsd-arm64: 2.2.3
+      lefthook-freebsd-x64: 2.2.3
+      lefthook-linux-arm64: 2.2.3
+      lefthook-linux-x64: 2.2.3
+      lefthook-openbsd-arm64: 2.2.3
+      lefthook-openbsd-x64: 2.2.3
+      lefthook-windows-arm64: 2.2.3
+      lefthook-windows-x64: 2.2.3
 
   levn@0.3.0:
     dependencies:
@@ -10612,7 +10612,7 @@ snapshots:
 
   next-intl-swc-plugin-extractor@4.15.1: {}
 
-  next-intl@4.16.2(@swc/helpers@0.5.24)(@types/react@19.3.3)(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1):
+  next-intl@4.16.2(@swc/helpers@0.5.24)(@types/react@19.3.3)(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1):
     dependencies:
       '@eloqnt/config': 0.1.2
       '@eloqnt/extractor': 0.1.0(@swc/helpers@0.5.24)
@@ -10624,7 +10624,7 @@ snapshots:
       '@swc/core': 1.16.22(@swc/helpers@0.5.24)
       icu-minify: 4.15.3
       negotiator: 1.1.0
-      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       next-intl-swc-plugin-extractor: 4.15.1
       react: 19.3.1
       use-intl: 4.15.1(@types/react@19.3.3)(react@19.3.1)
@@ -10633,20 +10633,20 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  next-sitemap@4.2.3(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)):
+  next-sitemap@4.2.3(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)):
     dependencies:
       '@corex/deepmerge': 4.0.43
       '@next/env': 13.5.11
       fast-glob: 3.3.3
       minimist: 1.2.8
-      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
 
   next-themes@0.4.6(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
-  next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(babel-plugin-react-compiler@19.1.0-rc.3)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@next/env': 16.4.6
       '@swc/helpers': 0.5.23
@@ -10667,7 +10667,7 @@ snapshots:
       '@next/swc-win32-x64-msvc': 16.4.6
       '@opentelemetry/api': 1.10.0
       babel-plugin-react-compiler: 19.1.0-rc.3
-      sharp: 0.35.5(@types/node@26.6.7)
+      sharp: 0.35.5(@types/node@26.6.10)
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/node'
@@ -11544,7 +11544,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  sharp@0.35.5(@types/node@26.6.7):
+  sharp@0.35.5(@types/node@26.6.10):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -11575,7 +11575,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.5
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
     optional: true
 
   shebang-command@1.2.0:
@@ -11673,7 +11673,7 @@ snapshots:
 
   speedline-core@1.4.3:
     dependencies:
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
       image-ssim: 0.2.0
       jpeg-js: 0.4.4
 
@@ -12310,7 +12310,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.4
 
-  vite@8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1):
+  vite@8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
@@ -12318,15 +12318,15 @@ snapshots:
       rolldown: 1.2.19
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
       fsevents: 2.3.3
       jiti: 2.7.0
       yaml: 2.9.1
 
-  vitest@5.1.1(@opentelemetry/api@1.10.0)(@types/node@26.6.7)(jsdom@15.2.1)(vite@8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1)):
+  vitest@5.1.2(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(jsdom@15.2.1)(vite@8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1)):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.1.1(vite@8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1))
+      '@vitest/mocker': 5.1.2(vite@8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1))
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -12337,11 +12337,11 @@ snapshots:
       tinybench: 6.2.3
       tinyexec: 1.3.1
       tinyglobby: 0.2.17
-      vite: 8.3.8(@types/node@26.6.7)(jiti@2.7.0)(yaml@2.9.1)
+      vite: 8.3.8(@types/node@26.6.10)(jiti@2.7.0)(yaml@2.9.1)
       why-is-node-running: 3.2.1
     optionalDependencies:
       '@opentelemetry/api': 1.10.0
-      '@types/node': 26.6.7
+      '@types/node': 26.6.10
       jsdom: 15.2.1
     transitivePeerDependencies:
       - msw
